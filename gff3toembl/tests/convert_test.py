@@ -86,4 +86,52 @@ FH\
 """
         assert actual_populated_header == expected_populated_header
         
+    def test_sequence_header(self):
+        converter = convert.Convert(input_gff_file=os.path.join(data_dir, 'large_convert_test.gff'), output_embl_file='large_convert_test.embl')
+        assert converter.sequence_header("AAAACCCGGTNN") == "SQ   Sequence 12 BP; 4 A; 3 C; 2 G; 1 T; 2 other;"
+        assert converter.sequence_header("AAAAaaaaAAAA") == "SQ   Sequence 12 BP; 12 A; 0 C; 0 G; 0 T; 0 other;"
+        assert converter.sequence_header("------------") == "SQ   Sequence 12 BP; 0 A; 0 C; 0 G; 0 T; 12 other;"
+        assert converter.sequence_header("acgtACGTtttT") == "SQ   Sequence 12 BP; 2 A; 2 C; 2 G; 6 T; 0 other;"
+        
+
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
         

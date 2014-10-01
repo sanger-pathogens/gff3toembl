@@ -53,3 +53,17 @@ FH\
       
     def create_output_file(self):
       pass
+    
+    def sequence_header(self, sequence):
+      sequence = sequence.lower()
+      a = sequence.count('a')
+      c = sequence.count('c')
+      g = sequence.count('g')
+      t = sequence.count('t')
+      o = len(sequence) - a - c - g - t;
+      return "SQ   Sequence %d BP; %d A; %d C; %d G; %d T; %d other;" % \
+        (len(sequence), a, c, g, t, o)
+      
+        
+        
+        
