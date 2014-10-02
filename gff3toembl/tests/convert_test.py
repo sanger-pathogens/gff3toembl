@@ -94,14 +94,30 @@ FH\
         assert converter.sequence_header("acgtACGTtttT") == "SQ   Sequence 12 BP; 2 A; 2 C; 2 G; 6 T; 0 other;"
         
 
-        
-        
-        
-        
-        
-        
-        
-        
+    def test_sequence_body(self):
+        converter = convert.Convert(input_gff_file=os.path.join(data_dir, 'large_convert_test.gff'), output_embl_file='large_convert_test.embl')
+        assert converter.sequence_body("tctgacaatcgctttctt") == """\
+     tctgacaatc gctttctt                                                      18
+"""
+        assert converter.sequence_body("TTTAAAACCCCGGGtttcccgggaaa") == """\
+     tttaaaaccc cgggtttccc gggaaa                                             26
+"""
+        assert converter.sequence_body("tctgacaatcgctttctttaaaaagaaactattgtcgagaatttgcattagcaatatcactttgtcaaaaagatgtttgaatgttaaataaacattcaaaactgaatacaatatgtca") == """\
+     tctgacaatc gctttcttta aaaagaaact attgtcgaga atttgcatta gcaatatcac        60
+     tttgtcaaaa agatgtttga atgttaaata aacattcaaa actgaataca atatgtca         118
+"""
+
+        assert converter.sequence_body("tctgacaatcgctttctttaaaaagaaactattgtcgagaatttgcattagcaatatcactttgtcaaaaagatgtttgaatgttaaataaacattcaaaactgaatacaatatgtcac") == """\
+     tctgacaatc gctttcttta aaaagaaact attgtcgaga atttgcatta gcaatatcac        60
+     tttgtcaaaa agatgtttga atgttaaata aacattcaaa actgaataca atatgtcac        119
+"""     
+
+        print converter.sequence_body("tctgacaatcgctttctttaaaaagaaactattgtcgagaatttgcattagcaatatcactttgtcaaaaagatgtttgaatgttaaataaacattcaaaactgaatacaatatgtcaca")
+        assert converter.sequence_body("tctgacaatcgctttctttaaaaagaaactattgtcgagaatttgcattagcaatatcactttgtcaaaaagatgtttgaatgttaaataaacattcaaaactgaatacaatatgtcaca") == """\
+     tctgacaatc gctttcttta aaaagaaact attgtcgaga atttgcatta gcaatatcac        60
+     tttgtcaaaa agatgtttga atgttaaata aacattcaaa actgaataca atatgtcaca       120
+"""  
+
         
         
         

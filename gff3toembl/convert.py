@@ -64,6 +64,26 @@ FH\
       return "SQ   Sequence %d BP; %d A; %d C; %d G; %d T; %d other;" % \
         (len(sequence), a, c, g, t, o)
       
-        
+    def sequence_body(self, sequence):
+      sequence = sequence.lower()
+      output = "     "
+      i = 1
+      for j in range(len(sequence)):
+          output +=sequence[j]
+          if (i) % 10 == 0:
+              output += " "
+          if (i) % 60 == 0 and i < len(sequence) :
+              output += "%9s\n     " % (i)
+          elif (i) % 60 == 0  and i == len(sequence):
+             output += "%9s\n" % (i)
+             return output
+          i += 1
+
+      if((i)%60 ==0):
+        output += ' '*(66 -(((i-1)%60)/10) -((i-1)%60))  + "%9d\n" % (i - 1)
+        return output
+      else:
+        output +=' '*(80-i%60-(i%60)/10-13) + "%9d\n" % (i - 1)
+        return output
         
         
