@@ -1,6 +1,11 @@
 import os
+import string
 
 class Convert:
+    feature_attributes_to_ignore = {'ID': 1, 'protein_id': 1}
+    feature_attributes_translations = {'eC_number': 'EC_number'}
+    feature_attributes_to_split_on_multiple_lines = {'inference': 1, 'EC_number': 1}
+  
     def __init__(self, input_gff_file=None, output_embl_file=None):
       self.input_gff_file = input_gff_file
       self.output_embl_file = output_embl_file
@@ -61,7 +66,7 @@ FH\
       g = sequence.count('g')
       t = sequence.count('t')
       o = len(sequence) - a - c - g - t;
-      return "SQ   Sequence %d BP; %d A; %d C; %d G; %d T; %d other;" % \
+      return "SQ   Sequence %d BP; %d A; %d C; %d G; %d T; %d other;\n" % \
         (len(sequence), a, c, g, t, o)
       
     def sequence_body(self, sequence):
@@ -86,4 +91,49 @@ FH\
         output +=' '*(80-i%60-(i%60)/10-13) + "%9d\n" % (i - 1)
         return output
         
-        
+    def feature_header(self, feature_type = None, start = None, end = None, strand = None):
+      string = ""
+      cmp1 = ''
+      cmp2 = ''
+      if strand == '-':
+          cmp1 = 'complement('
+          cmp2 = ')'
+      string += "FT   %s%s%s%d..%d%s\n" % (feature_type, ' ' * (16-len(feature_type)), cmp1, start, end, cmp2)
+      return string
+      
+    def construct_feature_attribute(self,attribute_key = None, attribute_value = None):
+      feature_string = ''
+      if attribute_key in self.feature_attributes_to_ignore:      
+        return feature_string
+      if attribute_key in self.feature_attributes_translations:
+        attribute_key = self.feature_attributes_translations[attribute_key]
+      
+      split_attribute_values = attribute_value.split( ',')
+      if attribute_key not in self.feature_attributes_to_split_on_multiple_lines:
+        feature_string += self.create_multi_line_feature_attribute_string(attribute_key, split_attribute_values[0])
+      else:
+        for split_attribute_value in split_attribute_values:
+          feature_string += self.create_multi_line_feature_attribute_string(attribute_key, split_attribute_value)
+      return feature_string
+      
+      
+    def create_multi_line_feature_attribute_string(self,attribute_key = None, attribute_value = None):
+      feature_string = ''
+      attribute_value = '"' + attribute_value + '"'
+      
+      # First line < first_line_size
+      first_line_size = 55 - ( len(attribute_key))
+      feature_string += "FT%s/%s=%s\n" % (' ' * 19, attribute_key, attribute_value[:first_line_size])
+      if attribute_value[first_line_size:] == None:
+        return feature_string
+      attribute_value = attribute_value[first_line_size:]
+      
+      while(len(attribute_value) > 0):
+        feature_string += "FT%s%s\n" % (' ' * 19, attribute_value[:57])
+        if attribute_value[57:] == None:
+          return feature_string
+        attribute_value = attribute_value[57:]
+
+      return feature_string    
+      
+      
