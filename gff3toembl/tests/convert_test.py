@@ -80,6 +80,13 @@ FH\
 """
         assert actual_populated_header == expected_populated_header
         
+    def test_construct_sequence(self):
+        converter = convert.Convert()
+        assert converter.construct_sequence("AAAACCCGGTNN") == """\
+SQ   Sequence 12 BP; 4 A; 3 C; 2 G; 1 T; 2 other;
+     aaaacccggt nn                                                            12
+"""
+        
     def test_sequence_header(self):
         converter = convert.Convert()
         assert converter.sequence_header("AAAACCCGGTNN") == "SQ   Sequence 12 BP; 4 A; 3 C; 2 G; 1 T; 2 other;\n"
@@ -117,11 +124,15 @@ FH\
         assert converter.feature_header(feature_type = 'tRNA', start = 174883, end = 174959, strand = '-') == "FT   tRNA            complement(174883..174959)\n"
         assert converter.feature_header(feature_type = 'CDS', start = 163111, end = 163365, strand = '+')  == "FT   CDS             163111..163365\n"
         
-    def test_complete_feature_creation(self):
+    def test_construct_feature(self):
         converter = convert.Convert()
-        
-        
-        
+        assert converter.construct_feature(feature_type = 'tRNA', start = 174883, end = 174959, strand = '-',feature_attributes =  {'locus_tag': 'ABC123','eC_number': '12,34' }) == """\
+FT   tRNA            complement(174883..174959)
+FT                   /locus_tag="ABC123"
+FT                   /EC_number="12"
+FT                   /EC_number="34"
+"""
+       
     def test_construct_feature_attribute(self):
         converter = convert.Convert()
         

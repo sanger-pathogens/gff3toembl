@@ -52,9 +52,12 @@ FH\
         header = self.blank_header()
         header_with_values = header % (genome_type,classification, num_bp,accession, project, description, contig_number,authors,title,publication,submitter_name,submitter_title,submitter_location )
         return header_with_values
-      
-    def create_output_file(self):
-      pass
+        
+    def construct_sequence(self,sequence):
+      sequence_string = ''
+      sequence_string += self.sequence_header(sequence)
+      sequence_string += self.sequence_body(sequence)
+      return sequence_string
     
     def sequence_header(self, sequence):
       sequence = sequence.lower()
@@ -97,6 +100,17 @@ FH\
           cmp2 = ')'
       string += "FT   %s%s%s%d..%d%s\n" % (feature_type, ' ' * (16-len(feature_type)), cmp1, start, end, cmp2)
       return string
+      
+    def construct_feature(self, feature_type = None, start = None, end = None, strand = None, feature_attributes = {}):
+      feature = ''
+      if feature_type in self.features_to_ignore:
+        return feature
+        
+      feature += self.feature_header( feature_type ,start, end, strand )
+      for attribute_key in feature_attributes.keys():
+        feature += self.construct_feature_attribute( attribute_key = attribute_key, attribute_value = feature_attributes[attribute_key])
+        
+      return feature
       
     def construct_feature_attribute(self,attribute_key = None, attribute_value = None):
       feature_string = ''
