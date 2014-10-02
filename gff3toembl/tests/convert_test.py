@@ -41,7 +41,6 @@ FH\
     def test_populate_header(self):
         converter = convert.Convert()
         actual_populated_header = converter.populated_header(num_bp=1234, 
-          accession="ABC123", 
           project="PRJ1234", 
           description="One line description",
           contig_number=1, 
@@ -57,7 +56,7 @@ FH\
         expected_populated_header = """\
 ID   XXX; XXX; circular; genomic DNA; STD; UNC; 1234 BP.
 XX
-AC   ABC123
+AC   PRJ123412341
 XX
 PR   Project:PRJ1234
 XX
@@ -89,7 +88,6 @@ SQ   Sequence 12 BP; 4 A; 3 C; 2 G; 1 T; 2 other;
 
     def test_source_template(self):
         converter = convert.Convert()
-        print converter.source_template(1234,"My organism", 5678) 
         assert converter.source_template(1234,"My organism", 5678) == """\
 FT   source          1..1234
 FT                   /organism="My organism"

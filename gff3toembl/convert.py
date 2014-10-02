@@ -35,8 +35,7 @@ FH\
       return header
       
     def populated_header(self,
-        num_bp=1, 
-        accession="", 
+        num_bp=1,
         project="", 
         description="",
         contig_number=1, 
@@ -50,7 +49,7 @@ FH\
         submitter_location="Sanger"):
 
         header = self.blank_header()
-        header_with_values = header % (genome_type,classification, num_bp,accession, project, description, contig_number,authors,title,publication,submitter_name,submitter_title,submitter_location )
+        header_with_values = header % (genome_type, classification, num_bp,project+str(num_bp)+str(contig_number), project, description, contig_number,authors,title,publication,submitter_name,submitter_title,submitter_location )
         return header_with_values
         
     def source_template(self, sequence_length = None, organism = None, taxon_id = None):
