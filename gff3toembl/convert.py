@@ -2,13 +2,10 @@ import os
 import string
 
 class Convert:
+    features_to_ignore = {'ncRNA': 1}
     feature_attributes_to_ignore = {'ID': 1, 'protein_id': 1}
     feature_attributes_translations = {'eC_number': 'EC_number'}
     feature_attributes_to_split_on_multiple_lines = {'inference': 1, 'EC_number': 1}
-  
-    def __init__(self, input_gff_file=None, output_embl_file=None):
-      self.input_gff_file = input_gff_file
-      self.output_embl_file = output_embl_file
 
     def blank_header(self):
       header = """\

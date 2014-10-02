@@ -8,16 +8,10 @@ modules_dir = os.path.dirname(os.path.abspath(convert.__file__))
 data_dir = os.path.join(modules_dir, 'tests', 'data')
 
 class TestConvert(unittest.TestCase):
-#    def test_overall_large_conversion(self):
-#        '''test converting a large gff file into embl'''
-#        converter = convert.Convert(input_gff_file=os.path.join(data_dir, 'large_convert_test.gff'), output_embl_file='large_convert_test.embl')
-#        converter.create_output_file()
-#        self.assertTrue(filecmp.cmp('large_convert_test.embl', os.path.join(data_dir, 'expected_large_convert_test.embl')))
-#        os.unlink('large_convert_test.embl')
-    
+
     def test_blank_header(self):
         '''test that you can get the correct template header out'''
-        converter = convert.Convert(input_gff_file=os.path.join(data_dir, 'large_convert_test.gff'), output_embl_file='large_convert_test.embl')
+        converter = convert.Convert()
         expected_header = """\
 ID   XXX; XXX; %s; genomic DNA; STD; %s; %d BP.
 XX
@@ -45,7 +39,7 @@ FH\
         assert converter.blank_header() == expected_header
     
     def test_populate_header(self):
-        converter = convert.Convert(input_gff_file=os.path.join(data_dir, 'large_convert_test.gff'), output_embl_file='large_convert_test.embl')
+        converter = convert.Convert()
         actual_populated_header = converter.populated_header(num_bp=1234, 
           accession="ABC123", 
           project="PRJ1234", 
@@ -87,7 +81,7 @@ FH\
         assert actual_populated_header == expected_populated_header
         
     def test_sequence_header(self):
-        converter = convert.Convert(input_gff_file=os.path.join(data_dir, 'large_convert_test.gff'), output_embl_file='large_convert_test.embl')
+        converter = convert.Convert()
         assert converter.sequence_header("AAAACCCGGTNN") == "SQ   Sequence 12 BP; 4 A; 3 C; 2 G; 1 T; 2 other;\n"
         assert converter.sequence_header("AAAAaaaaAAAA") == "SQ   Sequence 12 BP; 12 A; 0 C; 0 G; 0 T; 0 other;\n"
         assert converter.sequence_header("------------") == "SQ   Sequence 12 BP; 0 A; 0 C; 0 G; 0 T; 12 other;\n"
@@ -95,7 +89,7 @@ FH\
         
 
     def test_sequence_body(self):
-        converter = convert.Convert(input_gff_file=os.path.join(data_dir, 'large_convert_test.gff'), output_embl_file='large_convert_test.embl')
+        converter = convert.Convert()
         assert converter.sequence_body("tctgacaatcgctttctt") == """\
      tctgacaatc gctttctt                                                      18
 """
@@ -119,12 +113,17 @@ FH\
 """  
 
     def test_construct_feature_header(self):
-        converter = convert.Convert(input_gff_file=os.path.join(data_dir, 'large_convert_test.gff'), output_embl_file='large_convert_test.embl')
+        converter = convert.Convert()
         assert converter.feature_header(feature_type = 'tRNA', start = 174883, end = 174959, strand = '-') == "FT   tRNA            complement(174883..174959)\n"
         assert converter.feature_header(feature_type = 'CDS', start = 163111, end = 163365, strand = '+')  == "FT   CDS             163111..163365\n"
         
+    def test_complete_feature_creation(self):
+        converter = convert.Convert()
+        
+        
+        
     def test_construct_feature_attribute(self):
-        converter = convert.Convert(input_gff_file=os.path.join(data_dir, 'large_convert_test.gff'), output_embl_file='large_convert_test.embl')
+        converter = convert.Convert()
         
         # Key with a single value
         assert converter.construct_feature_attribute(attribute_key = 'locus_tag', attribute_value = 'ABC123') == "FT                   /locus_tag=\"ABC123\"\n"
