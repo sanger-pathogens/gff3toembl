@@ -86,7 +86,17 @@ FH\
 SQ   Sequence 12 BP; 4 A; 3 C; 2 G; 1 T; 2 other;
      aaaacccggt nn                                                            12
 """
-        
+
+    def test_source_template(self):
+        converter = convert.Convert()
+        print converter.source_template(1234,"My organism", 5678) 
+        assert converter.source_template(1234,"My organism", 5678) == """\
+FT   source          1..1234
+FT                   /organism="My organism"
+FT                   /mol_type="genomic DNA"
+FT                   /db_xref="taxon:5678"
+"""
+
     def test_sequence_header(self):
         converter = convert.Convert()
         assert converter.sequence_header("AAAACCCGGTNN") == "SQ   Sequence 12 BP; 4 A; 3 C; 2 G; 1 T; 2 other;\n"

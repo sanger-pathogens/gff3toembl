@@ -53,6 +53,15 @@ FH\
         header_with_values = header % (genome_type,classification, num_bp,accession, project, description, contig_number,authors,title,publication,submitter_name,submitter_title,submitter_location )
         return header_with_values
         
+    def source_template(self, sequence_length = None, organism = None, taxon_id = None):
+        source_template = """\
+FT   source          1..%d
+FT                   /organism="%s"
+FT                   /mol_type="genomic DNA"
+FT                   /db_xref="taxon:%d"
+"""   % (sequence_length, organism,taxon_id)
+        return source_template
+        
     def construct_sequence(self,sequence):
       sequence_string = ''
       sequence_string += self.sequence_header(sequence)
