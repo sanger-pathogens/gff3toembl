@@ -75,7 +75,7 @@ XX
 CC   Data release policy http://www.sanger.ac.uk/legal/#t_2
 XX
 FH   Key             Location/Qualifiers
-FH\
+FH
 """
         assert actual_populated_header == expected_populated_header
         

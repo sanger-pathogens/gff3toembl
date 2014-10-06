@@ -27,4 +27,36 @@ class TestEMBLWriter(unittest.TestCase):
            'My institute',  
            'UK' )
         print emblwriter.parse_and_run()
-        assert  emblwriter.parse_and_run() == expected_output
+        assert  emblwriter.parse_and_run() == """\
+ID   XXX; XXX; circular; genomic DNA; STD; PROK; 240 BP.
+XX
+AC   My project2401
+XX
+PR   Project:My project
+XX
+DE   My description contig 1
+XX
+RN   [1]
+RA   John
+RT   "Some title"
+RL   Some journal
+XX
+RN   [2]
+RA   Jane
+RT   "My institute"
+RL   UK
+XX
+CC   Data release policy http://www.sanger.ac.uk/legal/#t_2
+XX
+FH   Key             Location/Qualifiers
+FHFT   source          1..240
+FT                   /organism="Organism"
+FT                   /mol_type="genomic DNA"
+FT                   /db_xref="taxon:1234"
+SQ   Sequence 240 BP; 76 A; 54 C; 36 G; 74 T; 0 other;
+     tctgacaatc gctttcttta aaaagaaact attgtcgaga atttgcatta gcaatatcac        60
+     tttgtcaaaa agatgtttga atgttaaata aacattcaaa actgaataca atatgtcacg       120
+     ttattccgca tcttctgaag aagatgttcc gaatatatcc ttagaaagga ggtgatccag       180
+     ccgcaccttc cgatacggct accttgttac gacttcaccc caatcatttg tcccaccttc       240
+//
+"""
