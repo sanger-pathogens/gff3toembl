@@ -49,7 +49,8 @@ XX
 CC   Data release policy http://www.sanger.ac.uk/legal/#t_2
 XX
 FH   Key             Location/Qualifiers
-FHFT   source          1..240
+FH
+FT   source          1..240
 FT                   /organism="Organism"
 FT                   /mol_type="genomic DNA"
 FT                   /db_xref="taxon:1234"
