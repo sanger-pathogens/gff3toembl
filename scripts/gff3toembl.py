@@ -25,5 +25,5 @@ if __name__ == "__main__":
     parser.add_argument('--submitter_location', '-l', help='Submitter location',  default = 'Wellcome Trust Sanger Institute')
     
     args = parser.parse_args()
-    emblwriter = EMBLWriter.EMBLWriter()
-    emblwriter.parse_and_run(args)
+    emblwriter = EMBLWriter.EMBLWriter(args.file[0], args.organism, args.taxonid, args.project, args.description, args.authors, args.title,  args.publication, args.genome_type, args.classification, args.submitter_name, args.submitter_title,  args.submitter_location )
+    emblwriter.parse_and_run()

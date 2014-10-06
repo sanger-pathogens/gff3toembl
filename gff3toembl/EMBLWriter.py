@@ -11,9 +11,23 @@ from gff3toembl.VisitorStream import VisitorStream
  
 class EMBLWriter():
 
-    def __init__(self):
-        self.converter =  convert.Convert()
-
+    def __init__(self, gff3_file, organism, taxonid, project, description, authors, title,  publication, genome_type, classification, submitter_name, submitter_title,  submitter_location):
+        self.converter          = convert.Convert()
+        self.gff3_file          = gff3_file
+        self.organism           = organism          
+        self.taxonid            = taxonid           
+        self.project            = project           
+        self.description        = description       
+        self.authors            = authors           
+        self.title              = title             
+        self.publication        = publication       
+        self.genome_type        = genome_type       
+        self.classification     = classification    
+        self.submitter_name     = submitter_name    
+        self.submitter_title    = submitter_title   
+        self.submitter_location = submitter_location
+ 
+ 
     def output_seq(seq):
         sequence_string = self.converter.construct_sequence(seq)
         return sequence_string
@@ -34,8 +48,8 @@ class EMBLWriter():
             target.write("//\n")
             i +=1
 
-    def parse_and_run(args):
-        ins = GFF3InStream(args.file[0])
+    def parse_and_run():
+        ins = GFF3InStream(self.gff3_file)
         conv = EMBLConverter()
         vs = VisitorStream(ins, conv)
         try:
@@ -44,5 +58,5 @@ class EMBLWriter():
         except Exception, e:
             print e
             exit(1)
-        self.create_output_file(conv.seqs.keys(), args.organism, args.taxonid, args.project, args.description, args.authors, args.title, args.publication, args.genome_type, args.classification, args.submitter_name, args.submitter_title, args.submitter_location)
+        self.create_output_file(conv.seqs.keys(), self.organism, self.taxonid, self.project, self.description, self.authors, self.title, self.publication, self.genome_type, self.classification, self.submitter_name, self.submitter_title, self.submitter_location)
 
