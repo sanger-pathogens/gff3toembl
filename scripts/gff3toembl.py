@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
-import sysgff3toembl/EMBLWriter.py
+import sys
 import argparse              
 from gff3toembl.EMBLWriter import EMBLWriter
 
