@@ -34,7 +34,7 @@ XX
 CC   Data release policy http://www.sanger.ac.uk/legal/#t_2
 XX
 FH   Key             Location/Qualifiers
-FH\
+FH
 """
         assert converter.blank_header() == expected_header
     

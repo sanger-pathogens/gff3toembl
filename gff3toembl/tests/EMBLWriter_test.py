@@ -54,6 +54,15 @@ FT   source          1..240
 FT                   /organism="Organism"
 FT                   /mol_type="genomic DNA"
 FT                   /db_xref="taxon:1234"
+FT   CDS             complement(1..210)
+FT                   /product="Peroxide stress regulator PerR%2C FUR family"
+FT                   /inference="ab initio prediction:Prodigal:2.60"
+FT                   /inference="similar to AA sequence:RefSeq:YP_005742566.1"
+FT                   /inference="similar to AA sequence:UniProtKB:Q2G282"
+FT                   /inference="protein motif:CLUSTERS:PRK09462"
+FT                   /inference="protein motif:Pfam:PF01475.13"
+FT                   /locus_tag="8233_4#93_02128"
+FT                   /gene="perR"
 SQ   Sequence 240 BP; 76 A; 54 C; 36 G; 74 T; 0 other;
      tctgacaatc gctttcttta aaaagaaact attgtcgaga atttgcatta gcaatatcac        60
      tttgtcaaaa agatgtttga atgttaaata aacattcaaa actgaataca atatgtcacg       120
