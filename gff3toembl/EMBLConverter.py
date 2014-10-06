@@ -1,5 +1,6 @@
 import sys
 from gt import CustomVisitor
+from collections import defaultdict
 from gff3toembl import convert
 
 class EMBLConverter(CustomVisitor):

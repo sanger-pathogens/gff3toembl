@@ -36,7 +36,7 @@ class EMBLWriter():
         source_string = self.converter.source_template(sequence_length,organism, taxonid)
         return source_string
     
-    def create_output(self, sequences, organism, taxonid, project, description, authors, title, publication, genome_type, classification, submitter_name, submitter_title, submitter_location):
+    def create_output_file(self, sequences, organism, taxonid, project, description, authors, title, publication, genome_type, classification, submitter_name, submitter_title, submitter_location):
         i = 1
         for seqid in sorted(sequences):
             target = sys.stdout
