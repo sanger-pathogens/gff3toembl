@@ -28,15 +28,15 @@ class EMBLWriter():
         self.submitter_location = submitter_location
  
  
-    def output_seq(seq):
+    def output_seq(self, seq):
         sequence_string = self.converter.construct_sequence(seq)
         return sequence_string
 
-    def output_source(sequence_length, organism, taxonid):
+    def output_source(self, sequence_length, organism, taxonid):
         source_string = self.converter.source_template(sequence_length,organism, taxonid)
         return source_string
     
-    def create_output(sequences, organism, taxonid, project, description, authors, title, publication, genome_type, classification, submitter_name, submitter_title, submitter_location):
+    def create_output(self, sequences, organism, taxonid, project, description, authors, title, publication, genome_type, classification, submitter_name, submitter_title, submitter_location):
         i = 1
         for seqid in sorted(sequences):
             target = sys.stdout
@@ -48,7 +48,7 @@ class EMBLWriter():
             target.write("//\n")
             i +=1
 
-    def parse_and_run():
+    def parse_and_run(self):
         ins = GFF3InStream(self.gff3_file)
         conv = EMBLConverter()
         vs = VisitorStream(ins, conv)
