@@ -2,7 +2,7 @@
 ##sequence-region ER123|SC|contig000003 1 240
 ER123|SC|contig000003	Prodigal:2.60	CDS	1	210	.	-	0	ID=ABC123;gene=perR;inference=ab initio prediction:Prodigal:2.60,similar to AA sequence:RefSeq:YP_005742566.1,similar to AA sequence:UniProtKB:Q2G282,protein motif:CLUSTERS:PRK09462,protein motif:Pfam:PF01475.13;locus_tag=8233_4#93_02128;product=Peroxide stress regulator PerR%2C FUR family,Peroxide-responsive repressor perR,ferric uptake regulator,Ferric uptake regulator family;protein_id=gnl|SC|ER123
 ##FASTA
->ER123|SC|contig000003ER123|SC|contig000003
+>ER123|SC|contig000003
 TCTGACAATCGCTTTCTTTAAAAAGAAACTATTGTCGAGAATTTGCATTAGCAATATCAC
 TTTGTCAAAAAGATGTTTGAATGTTAAATAAACATTCAAAACTGAATACAATATGTCACG
 TTATTCCGCATCTTCTGAAGAAGATGTTCCGAATATATCCTTAGAAAGGAGGTGATCCAG
