@@ -11,8 +11,9 @@ from gff3toembl.VisitorStream import VisitorStream
  
 class EMBLWriter():
 
-    def __init__(self, gff3_file, organism, taxonid, project, description, authors, title,  publication, genome_type, classification, submitter_name, submitter_title,  submitter_location, output_filename):
-        self.converter          = convert.Convert()
+    def __init__(self, gff3_file, organism, taxonid, project, description, authors, title,  publication, genome_type, classification, submitter_name, submitter_title,  submitter_location, output_filename, locus_tag = None):
+        self.locus_tag          = locus_tag
+        self.converter          = convert.Convert(locus_tag)
         self.conv               = EMBLConverter()
         self.gff3_file          = gff3_file
         self.organism           = organism          

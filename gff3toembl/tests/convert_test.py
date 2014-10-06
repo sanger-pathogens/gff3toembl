@@ -38,6 +38,10 @@ FH
 """
         assert converter.blank_header() == expected_header
     
+    def test_update_locus_tag(self):
+      converter = convert.Convert(locus_tag = 'new_locus_tag')
+      assert converter.update_locus_tag("1234_5#6_789") == "new_locus_tag_789"
+    
     def test_populate_header(self):
         converter = convert.Convert()
         actual_populated_header = converter.populated_header(num_bp=1234, 
@@ -139,6 +143,13 @@ FT   tRNA            complement(174883..174959)
 FT                   /locus_tag="ABC123"
 FT                   /EC_number="12"
 FT                   /EC_number="34"
+"""
+
+    def test_construct_feature_locus_tag_update(self):
+        converter = convert.Convert(locus_tag = 'new_locus_tag')
+        assert converter.construct_feature(feature_type = 'tRNA', start = 174883, end = 174959, strand = '+',feature_attributes =  {'locus_tag': 'ABC_123' }) == """\
+FT   tRNA            174883..174959
+FT                   /locus_tag="new_locus_tag_123"
 """
        
     def test_construct_feature_attribute(self):

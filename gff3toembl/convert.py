@@ -7,6 +7,9 @@ class Convert:
     feature_attributes_translations = {'eC_number': 'EC_number'}
     feature_attributes_to_split_on_multiple_lines = {'inference': 1, 'EC_number': 1}
 
+    def __init__(self, locus_tag = None):
+        self.locus_tag = locus_tag
+
     def blank_header(self):
       header = """\
 ID   XXX; XXX; %s; genomic DNA; STD; %s; %d BP.
@@ -120,6 +123,13 @@ FT                   /db_xref="taxon:%d"
         
       return feature
       
+    def update_locus_tag(attribute_value):
+      if self.locus_tag == None:
+        return attribute_value
+      locus_tag_parts = attribute_value.split('_')
+      new_attribute = self.locus_tag + '_' +str(locus_tag_parts[-1])
+      return new_attribute
+    
     def construct_feature_attribute(self,attribute_key = None, attribute_value = None):
       feature_string = ''
       if attribute_key in self.feature_attributes_to_ignore:      
@@ -127,6 +137,9 @@ FT                   /db_xref="taxon:%d"
       if attribute_key in self.feature_attributes_translations:
         attribute_key = self.feature_attributes_translations[attribute_key]
       
+      if attribute_key == 'locus_tag':
+        attribute_value = self.update_locus_tag(attribute_value)
+        
       split_attribute_values = attribute_value.split( ',')
       if attribute_key not in self.feature_attributes_to_split_on_multiple_lines:
         feature_string += self.create_multi_line_feature_attribute_string(attribute_key, split_attribute_values[0])

@@ -24,7 +24,7 @@ class TestEMBLWriter(unittest.TestCase):
            'PROK', 
            'Jane',
            'My institute',  
-           'UK', 'single_feature.embl' )
+           'UK', 'single_feature.embl', None )
         emblwriter.parse_and_run()
         assert filecmp.cmp(os.path.join(data_dir, 'expected_single_feature.embl'), 'single_feature.embl', shallow=False)
         os.remove('single_feature.embl')
@@ -43,7 +43,7 @@ class TestEMBLWriter(unittest.TestCase):
            'PROK', 
            'Jane',
            'My institute',  
-           'UK', 'large_annotation.embl' )
+           'UK', 'large_annotation.embl', None )
         emblwriter.parse_and_run()
         assert filecmp.cmp(os.path.join(data_dir, 'expected_large_annotation.embl'), 'large_annotation.embl', shallow=False)
         os.remove('large_annotation.embl')
