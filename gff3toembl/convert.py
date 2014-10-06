@@ -123,7 +123,7 @@ FT                   /db_xref="taxon:%d"
         
       return feature
       
-    def update_locus_tag(attribute_value):
+    def update_locus_tag(self,attribute_value):
       if self.locus_tag == None:
         return attribute_value
       locus_tag_parts = attribute_value.split('_')
