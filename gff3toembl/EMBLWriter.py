@@ -11,7 +11,7 @@ from gff3toembl.VisitorStream import VisitorStream
  
 class EMBLWriter():
 
-    def __init__(self, gff3_file, organism, taxonid, project, description, authors, title,  publication, genome_type, classification, submitter_name, submitter_title,  submitter_location):
+    def __init__(self, gff3_file, organism, taxonid, project, description, authors, title,  publication, genome_type, classification, submitter_name, submitter_title,  submitter_location, output_filename):
         self.converter          = convert.Convert()
         self.conv               = EMBLConverter()
         self.gff3_file          = gff3_file
@@ -27,6 +27,7 @@ class EMBLWriter():
         self.submitter_name     = submitter_name    
         self.submitter_title    = submitter_title   
         self.submitter_location = submitter_location
+        self.output_filename    = output_filename
  
  
     def output_seq(self, seq):
@@ -39,8 +40,8 @@ class EMBLWriter():
     
     def create_output_file(self, sequences, organism, taxonid, project, description, authors, title, publication, genome_type, classification, submitter_name, submitter_title, submitter_location):
         i = 1
+        target = open(self.output_filename, 'w')
         for seqid in sorted(sequences):
-            target = sys.stdout
             target.write(self.converter.populated_header(len(self.conv.seqs[seqid]),  project, description, i, authors, title, publication, genome_type, classification, submitter_name, submitter_title, submitter_location ) )
             target.write(self.output_source(len(self.conv.seqs[seqid]), organism, taxonid))
             for feat in self.conv.feats[seqid]:
