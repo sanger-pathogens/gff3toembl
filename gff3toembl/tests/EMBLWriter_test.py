@@ -26,7 +26,6 @@ class TestEMBLWriter(unittest.TestCase):
            'Jane',
            'My institute',  
            'UK' )
-        print emblwriter.parse_and_run()
         assert  emblwriter.parse_and_run() == """\
 ID   XXX; XXX; circular; genomic DNA; STD; PROK; 240 BP.
 XX
