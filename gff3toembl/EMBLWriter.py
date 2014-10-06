@@ -49,6 +49,7 @@ class EMBLWriter():
             target.write(self.output_seq(self.conv.seqs[seqid]))
             target.write("//\n")
             i +=1
+        target.close()
 
     def parse_and_run(self):
         ins = GFF3InStream(self.gff3_file)  

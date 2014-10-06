@@ -26,4 +26,5 @@ class TestEMBLWriter(unittest.TestCase):
            'Jane',
            'My institute',  
            'UK', 'single_feature.embl' )
+        emblwriter.parse_and_run()
         assert filecmp.cmp(os.path.join(data_dir, 'expected_single_feature.embl'), 'single_feature.embl', shallow=False)
