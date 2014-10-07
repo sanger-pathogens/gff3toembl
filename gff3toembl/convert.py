@@ -121,7 +121,8 @@ FT                   /db_xref="taxon:%d"
       feature += self.feature_header( feature_type ,start, end, strand )
       for attribute_key in feature_attributes.keys():
         feature += self.construct_feature_attribute( attribute_key = attribute_key, attribute_value = feature_attributes[attribute_key])
-        
+      
+      feature += "FT                   /transl_table="+str(self.translation_table)+"\n"
       return feature
       
     def update_locus_tag(self,attribute_value):
@@ -147,10 +148,7 @@ FT                   /db_xref="taxon:%d"
       else:
         for split_attribute_value in split_attribute_values:
           feature_string += self.create_multi_line_feature_attribute_string(attribute_key, split_attribute_value)
-      
-      feature_string += "FT                   /transl_table="+str(self.translation_table)+"\n"
       return feature_string
-      
       
     def create_multi_line_feature_attribute_string(self,attribute_key = None, attribute_value = None):
       feature_string = ''
