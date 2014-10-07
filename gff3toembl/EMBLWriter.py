@@ -8,10 +8,11 @@ from gff3toembl.VisitorStream import VisitorStream
  
 class EMBLWriter(object):
 
-    def __init__(self, gff3_file, organism, taxonid, project, description, authors, title,  publication, genome_type, classification, submitter_name, submitter_title,  submitter_location, output_filename, locus_tag = None):
+    def __init__(self, gff3_file, organism, taxonid, project, description, authors, title,  publication, genome_type, classification, submitter_name, submitter_title,  submitter_location, output_filename, locus_tag = None, translation_table = 11):
         self.locus_tag          = locus_tag
-        self.converter          = convert.Convert(locus_tag)
-        self.conv               = EMBLConverter()
+        self.translation_table  = translation_table
+        self.converter          = convert.Convert(locus_tag,translation_table)
+        self.conv               = EMBLConverter(self.converter)
         self.gff3_file          = gff3_file
         self.organism           = organism          
         self.taxonid            = taxonid           
@@ -26,6 +27,7 @@ class EMBLWriter(object):
         self.submitter_title    = submitter_title   
         self.submitter_location = submitter_location
         self.output_filename    = output_filename
+        
  
  
     def output_seq(self, seq):

@@ -25,8 +25,9 @@ if __name__ == "__main__":
     parser.add_argument('--submitter_location', '-e', help='Submitter location',  default = 'Wellcome Trust Sanger Institute')
     parser.add_argument('--output_filename',    '-f', help='Output filename',     default = 'output.embl')
     parser.add_argument('--locus_tag',          '-l', help='Overwrite the locus tag in the annotation file')
+    parser.add_argument('--translation_table',  '-n', help='Translation table', default = 11)
     
     args = parser.parse_args()
-    emblwriter = EMBLWriter.EMBLWriter(args.file[0], args.organism, args.taxonid, args.project, args.description, args.authors, args.title,  args.publication, args.genome_type, args.classification, args.submitter_name, args.submitter_title,  args.submitter_location, args.output_filename, args.locus_tag )
+    emblwriter = EMBLWriter.EMBLWriter(args.file[0], args.organism, args.taxonid, args.project, args.description, args.authors, args.title,  args.publication, args.genome_type, args.classification, args.submitter_name, args.submitter_title,  args.submitter_location, args.output_filename, args.locus_tag, args.translation_table )
     emblwriter.parse_and_run()
     

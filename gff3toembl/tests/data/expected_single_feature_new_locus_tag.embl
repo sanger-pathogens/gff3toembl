@@ -31,7 +31,7 @@ FT                   /inference="similar to AA sequence:RefSeq:YP_005742566.1"
 FT                   /db_xref="UniProtKB/Swiss-Prot:Q2G282"
 FT                   /db_xref="CDD:PRK09462"
 FT                   /db_xref="PFAM:PF01475.13"
-FT                   /locus_tag="8233_4#93_02128"
+FT                   /locus_tag="new_locus_tag_02128"
 FT                   /gene="perR"
 FT                   /transl_table=11
 SQ   Sequence 240 BP; 76 A; 54 C; 36 G; 74 T; 0 other;

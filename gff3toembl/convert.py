@@ -1,14 +1,19 @@
 import os
 import string
+import re
 
 class Convert(object):
     features_to_ignore = {'ncRNA': 1}
     feature_attributes_to_ignore = {'ID': 1, 'protein_id': 1}
     feature_attributes_translations = {'eC_number': 'EC_number'}
     feature_attributes_to_split_on_multiple_lines = {'inference': 1, 'EC_number': 1}
-
-    def __init__(self, locus_tag = None):
+    
+    feature_attributes_inference_to_dbxref = {'similar to AA sequence:UniProtKB': 'UniProtKB/Swiss-Prot', 'protein motif:Pfam': 'PFAM', 'protein motif:CLUSTERS': "CDD", 'protein motif:Cdd': "CDD", 'protein motif:TIGRFAMs': "TIGRFAM"}
+    
+   
+    def __init__(self, locus_tag = None, translation_table = 11):
         self.locus_tag = locus_tag
+        self.translation_table = translation_table
 
     def blank_header(self):
       header = """\
@@ -120,7 +125,8 @@ FT                   /db_xref="taxon:%d"
       feature += self.feature_header( feature_type ,start, end, strand )
       for attribute_key in feature_attributes.keys():
         feature += self.construct_feature_attribute( attribute_key = attribute_key, attribute_value = feature_attributes[attribute_key])
-        
+      
+      feature += "FT                   /transl_table="+str(self.translation_table)+"\n"
       return feature
       
     def update_locus_tag(self,attribute_value):
@@ -148,10 +154,19 @@ FT                   /db_xref="taxon:%d"
           feature_string += self.create_multi_line_feature_attribute_string(attribute_key, split_attribute_value)
       return feature_string
       
+    def update_inference_to_db_xref(self, attribute_key = None, attribute_value = None):
+      if attribute_key == 'inference':
+          for search_prefix in self.feature_attributes_inference_to_dbxref:
+               if re.search(search_prefix, attribute_value):
+                 return ('db_xref',attribute_value.replace(search_prefix, self.feature_attributes_inference_to_dbxref[search_prefix]))
+      return (attribute_key,attribute_value)
       
     def create_multi_line_feature_attribute_string(self,attribute_key = None, attribute_value = None):
       feature_string = ''
       attribute_value = '"' + attribute_value + '"'
+      
+      if attribute_key == 'inference':
+         (attribute_key, attribute_value) = self.update_inference_to_db_xref(attribute_key, attribute_value)
       
       # First line < first_line_size
       first_line_size = 55 - ( len(attribute_key))
