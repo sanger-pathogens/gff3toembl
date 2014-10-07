@@ -12,7 +12,7 @@ if __name__ == "__main__":
     parser.add_argument('file', metavar='file', type=str, nargs=1, help='GFF3 filename')
     
     parser.add_argument('--organism',           '-o', help='Organism')
-    parser.add_argument('--taxon',              '-t', help='Taxon id', type=int)
+    parser.add_argument('--taxonid',            '-t', help='Taxon id', type=int)
     parser.add_argument('--project_accession',  '-a', help='Accession number for the project')
     parser.add_argument('--description',        '-d', help='Genus species subspecies strain of organism')
     parser.add_argument('--authors',            '-i', help='Authors', default = 'Pathogen Genomics')
@@ -28,6 +28,6 @@ if __name__ == "__main__":
     parser.add_argument('--translation_table',  '-n', help='Translation table', default = 11)
     
     args = parser.parse_args()
-    emblwriter = EMBLWriter.EMBLWriter(args.file[0], args.organism, args.taxonid, args.project, args.description, args.authors, args.title,  args.publication, args.genome_type, args.classification, args.submitter_name, args.submitter_title,  args.submitter_location, args.output_filename, args.locus_tag, args.translation_table )
+    emblwriter = EMBLWriter.EMBLWriter(args.file[0], args.organism, args.taxonid, args.project_accession, args.description, args.authors, args.title,  args.publication, args.genome_type, args.classification, args.submitter_name, args.submitter_title,  args.submitter_location, args.output_filename, args.locus_tag, args.translation_table )
     emblwriter.parse_and_run()
     
