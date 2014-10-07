@@ -164,7 +164,7 @@ FT                   /db_xref="PFAM:PF01475.13"
 """
 
       assert converter.construct_feature_attribute(attribute_key = 'inference', attribute_value = 'protein motif:CLUSTERS:PRK09462') == """\
-FT                   /db_xref="CDD:PF01475.13"
+FT                   /db_xref="CDD:PRK09462"
 """
       assert converter.construct_feature_attribute(attribute_key = 'inference', attribute_value = 'protein motif:TIGRFAMs:TIGR01327') == """\
 FT                   /db_xref="TIGRFAM:TIGR01327"
