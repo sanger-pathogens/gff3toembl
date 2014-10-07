@@ -1,7 +1,7 @@
 import os
 import string
 
-class Convert:
+class Convert(object):
     features_to_ignore = {'ncRNA': 1}
     feature_attributes_to_ignore = {'ID': 1, 'protein_id': 1}
     feature_attributes_translations = {'eC_number': 'EC_number'}
