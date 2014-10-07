@@ -3,7 +3,7 @@
 
 import sys
 import argparse              
-from gff3toembl.EMBLWriter import EMBLWriter
+from gff3toembl import EMBLWriter
 
 if __name__ == "__main__":
     import argparse
@@ -27,6 +27,6 @@ if __name__ == "__main__":
     parser.add_argument('--locus_tag',          '-l', help='Overwrite the locus tag in the annotation file')
     
     args = parser.parse_args()
-    emblwriter = EMBLWriter(args.file[0], args.organism, args.taxonid, args.project, args.description, args.authors, args.title,  args.publication, args.genome_type, args.classification, args.submitter_name, args.submitter_title,  args.submitter_location, args.output_filename, args.locus_tag )
+    emblwriter = EMBLWriter.EMBLWriter(args.file[0], args.organism, args.taxonid, args.project, args.description, args.authors, args.title,  args.publication, args.genome_type, args.classification, args.submitter_name, args.submitter_title,  args.submitter_location, args.output_filename, args.locus_tag )
     emblwriter.parse_and_run()
     

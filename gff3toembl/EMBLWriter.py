@@ -1,6 +1,3 @@
-#!/usr/bin/env python
-# -*- coding: utf-8 -*-
-
 import sys
 from collections import defaultdict
 from gt import GFF3InStream
@@ -9,7 +6,7 @@ from gff3toembl import convert
 from gff3toembl.EMBLConverter import EMBLConverter
 from gff3toembl.VisitorStream import VisitorStream
  
-class EMBLWriter():
+class EMBLWriter(object):
 
     def __init__(self, gff3_file, organism, taxonid, project, description, authors, title,  publication, genome_type, classification, submitter_name, submitter_title,  submitter_location, output_filename, locus_tag = None):
         self.locus_tag          = locus_tag
