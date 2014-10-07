@@ -48,7 +48,7 @@ class TestEMBLWriter(unittest.TestCase):
         assert filecmp.cmp(os.path.join(data_dir, 'expected_single_feature_new_locus_tag.embl'), 'single_feature.embl', shallow=False)
         os.remove('single_feature.embl')
 
-    def test_single_feature_new_locus_tag(self):
+    def test_single_feature_translation_table(self):
         '''test that the script will convert from GFF3 to EMBL and change the locus tag'''
         emblwriter = EMBLWriter(os.path.join(data_dir,'single_feature.gff'), 
            'Organism', 
@@ -62,7 +62,7 @@ class TestEMBLWriter(unittest.TestCase):
            'PROK', 
            'Jane',
            'My institute',  
-           'UK', 'single_feature.embl', 'new_locus_tag', 1 )
+           'UK', 'single_feature.embl', None, 1 )
         emblwriter.parse_and_run()
         assert filecmp.cmp(os.path.join(data_dir, 'expected_single_feature_translation_table.embl'), 'single_feature.embl', shallow=False)
         os.remove('single_feature.embl')
