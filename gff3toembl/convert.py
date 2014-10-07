@@ -157,7 +157,7 @@ FT                   /db_xref="taxon:%d"
     def update_inference_to_db_xref(self, attribute_key = None, attribute_value = None):
       if attribute_key == 'inference':
           for search_prefix in self.feature_attributes_inference_to_dbxref:
-               if re.match(search_prefix, attribute_value):
+               if re.search(search_prefix, attribute_value):
                  return ('db_xref',attribute_value.replace(search_prefix, self.feature_attributes_inference_to_dbxref[search_prefix]))
       return (attribute_key,attribute_value)
       
