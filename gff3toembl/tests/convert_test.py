@@ -143,6 +143,7 @@ FT   tRNA            complement(174883..174959)
 FT                   /locus_tag="ABC123"
 FT                   /EC_number="12"
 FT                   /EC_number="34"
+FT                   /transl_table=11
 """
 
     def test_construct_feature_locus_tag_update(self):
@@ -150,6 +151,7 @@ FT                   /EC_number="34"
         assert converter.construct_feature(feature_type = 'tRNA', start = 174883, end = 174959, strand = '+',feature_attributes =  {'locus_tag': 'ABC_123' }) == """\
 FT   tRNA            174883..174959
 FT                   /locus_tag="new_locus_tag_123"
+FT                   /transl_table=11
 """
        
     def test_construct_feature_attribute(self):

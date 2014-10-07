@@ -148,7 +148,7 @@ FT                   /db_xref="taxon:%d"
         for split_attribute_value in split_attribute_values:
           feature_string += self.create_multi_line_feature_attribute_string(attribute_key, split_attribute_value)
       
-      feature_string += "FT                   /transl_table="+self.translation_table+"\n"
+      feature_string += "FT                   /transl_table="+str(self.translation_table)+"\n"
       return feature_string
       
       
