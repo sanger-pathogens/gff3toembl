@@ -153,7 +153,28 @@ FT   tRNA            174883..174959
 FT                   /locus_tag="new_locus_tag_123"
 FT                   /transl_table=11
 """
-       
+
+    def test_create_db_xref_from_inference(self):
+      converter = convert.Convert()
+      assert converter.construct_feature_attribute(attribute_key = 'inference', attribute_value = 'similar to AA sequence:UniProtKB:Q2G282') == """\
+FT                   /db_xref="UniProtKB/Swiss-Prot:Q2G282"
+"""
+      assert converter.construct_feature_attribute(attribute_key = 'inference', attribute_value = 'protein motif:Pfam:PF01475.13') == """\
+FT                   /db_xref="PFAM:PF01475.13"
+"""
+
+      assert converter.construct_feature_attribute(attribute_key = 'inference', attribute_value = 'protein motif:CLUSTERS:PRK09462') == """\
+FT                   /db_xref="CDD:PF01475.13"
+"""
+      assert converter.construct_feature_attribute(attribute_key = 'inference', attribute_value = 'protein motif:TIGRFAMs:TIGR01327') == """\
+FT                   /db_xref="TIGRFAM:TIGR01327"
+"""
+
+      assert converter.construct_feature_attribute(attribute_key = 'inference', attribute_value = 'protein motif:Cdd:COG1932') == """\
+FT                   /db_xref="CDD:COG1932"
+"""
+
+
     def test_construct_feature_attribute(self):
         converter = convert.Convert()
         
