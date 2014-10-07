@@ -5,12 +5,12 @@ from gff3toembl import convert
 
 class EMBLConverter(CustomVisitor):
 
-    def __init__(self):
+    def __init__(self, converter):
         CustomVisitor.__init__(self)
         self.seqs = {}
         self.feats = defaultdict(lambda: [], {})
         self.regions = []
-        self.converter =  convert.Convert()
+        self.converter =  converter
 
     def visit_feature_node(self, fn):
         feature_string = self.converter.construct_feature(feature_type = fn.get_type(), start = fn.get_start(), end = fn.get_end(), strand = fn.get_strand(), feature_attributes = fn.attribs)

@@ -7,8 +7,9 @@ class Convert(object):
     feature_attributes_translations = {'eC_number': 'EC_number'}
     feature_attributes_to_split_on_multiple_lines = {'inference': 1, 'EC_number': 1}
 
-    def __init__(self, locus_tag = None):
+    def __init__(self, locus_tag = None, translation_table = 11):
         self.locus_tag = locus_tag
+        self.translation_table = translation_table
 
     def blank_header(self):
       header = """\
@@ -146,6 +147,8 @@ FT                   /db_xref="taxon:%d"
       else:
         for split_attribute_value in split_attribute_values:
           feature_string += self.create_multi_line_feature_attribute_string(attribute_key, split_attribute_value)
+      
+      feature_string += "FT                   /transl_table="+self.translation_table+"\n"
       return feature_string
       
       
