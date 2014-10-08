@@ -1,6 +1,7 @@
 import os
 import string
 import re
+import textwrap
 
 class Convert(object):
     features_to_ignore = {'ncRNA': 1}
@@ -19,7 +20,7 @@ class Convert(object):
       header = """\
 ID   XXX; XXX; %s; genomic DNA; STD; %s; %d BP.
 XX
-AC   %s
+AC * _%s
 XX
 PR   Project:%s
 XX
@@ -28,12 +29,17 @@ XX
 RN   [1]
 RA   %s
 RT   "%s"
-RL   %s
+RL   %s.
 XX
 RN   [2]
 RA   %s
 RT   "%s"
-RL   %s
+RL   %s.
+XX
+RN   [3]
+RA   Torsten Seemann;
+RT   "Prokka: rapid prokaryotic genome annotation"
+RL    Bioinformatics. 2014 Jul 15;30(14):2068-9.;
 XX
 CC   Data release policy http://www.sanger.ac.uk/legal/#t_2
 XX
@@ -48,13 +54,13 @@ FH
         description="",
         contig_number=1, 
         authors="Pathogen Genomics", 
-        title="Draft assembly with annotation from Prokka",
+        title="Draft assembly annotated with Prokka",
         publication="Unpublished",
         genome_type="circular",
         classification="UNC",
         submitter_name="Pathogen Informatics",
         submitter_title="Direct submission",
-        submitter_location="Sanger"):
+        submitter_location="Wellcome Trust Sanger Institute"):
 
         header = self.blank_header()
         header_with_values = header % (genome_type, classification, num_bp,project+str(num_bp)+str(contig_number), project, description, contig_number,authors,title,publication,submitter_name,submitter_title,submitter_location )
@@ -162,24 +168,14 @@ FT                   /db_xref="taxon:%d"
       return (attribute_key,attribute_value)
       
     def create_multi_line_feature_attribute_string(self,attribute_key = None, attribute_value = None):
-      feature_string = ''
-      attribute_value = '"' + attribute_value + '"'
-      
       if attribute_key == 'inference':
          (attribute_key, attribute_value) = self.update_inference_to_db_xref(attribute_key, attribute_value)
       
-      # First line < first_line_size
-      first_line_size = 55 - ( len(attribute_key))
-      feature_string += "FT%s/%s=%s\n" % (' ' * 19, attribute_key, attribute_value[:first_line_size])
-      if attribute_value[first_line_size:] == None:
-        return feature_string
-      attribute_value = attribute_value[first_line_size:]
+      wrapped_lines = textwrap.wrap("/%s=\"%s\"" % ( attribute_key, attribute_value) ,58)
       
-      while(len(attribute_value) > 0):
-        feature_string += "FT%s%s\n" % (' ' * 19, attribute_value[:57])
-        if attribute_value[57:] == None:
-          return feature_string
-        attribute_value = attribute_value[57:]
+      feature_string = ''
+      for attribute_value_line in wrapped_lines:
+        feature_string+= "FT%s" % (' ' * 19) + attribute_value_line."\n"
 
       return feature_string    
       

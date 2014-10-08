@@ -1,6 +1,6 @@
 ID   XXX; XXX; circular; genomic DNA; STD; PROK; 175120 BP.
 XX
-AC   My project1751201
+AC * _My project1751201
 XX
 PR   Project:My project
 XX
@@ -9,12 +9,17 @@ XX
 RN   [1]
 RA   John
 RT   "Some title"
-RL   Some journal
+RL   Some journal.
 XX
 RN   [2]
 RA   Jane
 RT   "My institute"
-RL   UK
+RL   UK.
+XX
+RN   [3]
+RA   Torsten Seemann;
+RT   "Prokka: rapid prokaryotic genome annotation"
+RL    Bioinformatics. 2014 Jul 15;30(14):2068-9.;
 XX
 CC   Data release policy http://www.sanger.ac.uk/legal/#t_2
 XX
@@ -4680,7 +4685,7 @@ SQ   Sequence 175120 BP; 55731 A; 31266 C; 25419 G; 62704 T; 0 other;
 //
 ID   XXX; XXX; circular; genomic DNA; STD; PROK; 108420 BP.
 XX
-AC   My project1084202
+AC * _My project1084202
 XX
 PR   Project:My project
 XX
@@ -4689,12 +4694,17 @@ XX
 RN   [1]
 RA   John
 RT   "Some title"
-RL   Some journal
+RL   Some journal.
 XX
 RN   [2]
 RA   Jane
 RT   "My institute"
-RL   UK
+RL   UK.
+XX
+RN   [3]
+RA   Torsten Seemann;
+RT   "Prokka: rapid prokaryotic genome annotation"
+RL    Bioinformatics. 2014 Jul 15;30(14):2068-9.;
 XX
 CC   Data release policy http://www.sanger.ac.uk/legal/#t_2
 XX
@@ -7664,7 +7674,7 @@ SQ   Sequence 108420 BP; 39263 A; 15735 C; 20016 G; 33406 T; 0 other;
 //
 ID   XXX; XXX; circular; genomic DNA; STD; PROK; 52142 BP.
 XX
-AC   My project521423
+AC * _My project521423
 XX
 PR   Project:My project
 XX
@@ -7673,12 +7683,17 @@ XX
 RN   [1]
 RA   John
 RT   "Some title"
-RL   Some journal
+RL   Some journal.
 XX
 RN   [2]
 RA   Jane
 RT   "My institute"
-RL   UK
+RL   UK.
+XX
+RN   [3]
+RA   Torsten Seemann;
+RT   "Prokka: rapid prokaryotic genome annotation"
+RL    Bioinformatics. 2014 Jul 15;30(14):2068-9.;
 XX
 CC   Data release policy http://www.sanger.ac.uk/legal/#t_2
 XX
@@ -9179,7 +9194,7 @@ SQ   Sequence 52142 BP; 18748 A; 7364 C; 8937 G; 17093 T; 0 other;
 //
 ID   XXX; XXX; circular; genomic DNA; STD; PROK; 51716 BP.
 XX
-AC   My project517164
+AC * _My project517164
 XX
 PR   Project:My project
 XX
@@ -9188,12 +9203,17 @@ XX
 RN   [1]
 RA   John
 RT   "Some title"
-RL   Some journal
+RL   Some journal.
 XX
 RN   [2]
 RA   Jane
 RT   "My institute"
-RL   UK
+RL   UK.
+XX
+RN   [3]
+RA   Torsten Seemann;
+RT   "Prokka: rapid prokaryotic genome annotation"
+RL    Bioinformatics. 2014 Jul 15;30(14):2068-9.;
 XX
 CC   Data release policy http://www.sanger.ac.uk/legal/#t_2
 XX
@@ -10512,7 +10532,7 @@ SQ   Sequence 51716 BP; 16183 A; 10270 C; 6898 G; 18365 T; 0 other;
 //
 ID   XXX; XXX; circular; genomic DNA; STD; PROK; 39433 BP.
 XX
-AC   My project394335
+AC * _My project394335
 XX
 PR   Project:My project
 XX
@@ -10521,12 +10541,17 @@ XX
 RN   [1]
 RA   John
 RT   "Some title"
-RL   Some journal
+RL   Some journal.
 XX
 RN   [2]
 RA   Jane
 RT   "My institute"
-RL   UK
+RL   UK.
+XX
+RN   [3]
+RA   Torsten Seemann;
+RT   "Prokka: rapid prokaryotic genome annotation"
+RL    Bioinformatics. 2014 Jul 15;30(14):2068-9.;
 XX
 CC   Data release policy http://www.sanger.ac.uk/legal/#t_2
 XX
@@ -11696,7 +11721,7 @@ SQ   Sequence 39433 BP; 14273 A; 5313 C; 7870 G; 11977 T; 0 other;
 //
 ID   XXX; XXX; circular; genomic DNA; STD; PROK; 21936 BP.
 XX
-AC   My project219366
+AC * _My project219366
 XX
 PR   Project:My project
 XX
@@ -11705,12 +11730,17 @@ XX
 RN   [1]
 RA   John
 RT   "Some title"
-RL   Some journal
+RL   Some journal.
 XX
 RN   [2]
 RA   Jane
 RT   "My institute"
-RL   UK
+RL   UK.
+XX
+RN   [3]
+RA   Torsten Seemann;
+RT   "Prokka: rapid prokaryotic genome annotation"
+RL    Bioinformatics. 2014 Jul 15;30(14):2068-9.;
 XX
 CC   Data release policy http://www.sanger.ac.uk/legal/#t_2
 XX
@@ -12305,7 +12335,7 @@ SQ   Sequence 21936 BP; 8100 A; 2662 C; 3389 G; 7784 T; 1 other;
 //
 ID   XXX; XXX; circular; genomic DNA; STD; PROK; 4804 BP.
 XX
-AC   My project48047
+AC * _My project48047
 XX
 PR   Project:My project
 XX
@@ -12314,12 +12344,17 @@ XX
 RN   [1]
 RA   John
 RT   "Some title"
-RL   Some journal
+RL   Some journal.
 XX
 RN   [2]
 RA   Jane
 RT   "My institute"
-RL   UK
+RL   UK.
+XX
+RN   [3]
+RA   Torsten Seemann;
+RT   "Prokka: rapid prokaryotic genome annotation"
+RL    Bioinformatics. 2014 Jul 15;30(14):2068-9.;
 XX
 CC   Data release policy http://www.sanger.ac.uk/legal/#t_2
 XX
@@ -12463,7 +12498,7 @@ SQ   Sequence 4804 BP; 1694 A; 684 C; 780 G; 1645 T; 1 other;
 //
 ID   XXX; XXX; circular; genomic DNA; STD; PROK; 969 BP.
 XX
-AC   My project9698
+AC * _My project9698
 XX
 PR   Project:My project
 XX
@@ -12472,12 +12507,17 @@ XX
 RN   [1]
 RA   John
 RT   "Some title"
-RL   Some journal
+RL   Some journal.
 XX
 RN   [2]
 RA   Jane
 RT   "My institute"
-RL   UK
+RL   UK.
+XX
+RN   [3]
+RA   Torsten Seemann;
+RT   "Prokka: rapid prokaryotic genome annotation"
+RL    Bioinformatics. 2014 Jul 15;30(14):2068-9.;
 XX
 CC   Data release policy http://www.sanger.ac.uk/legal/#t_2
 XX
@@ -12520,7 +12560,7 @@ SQ   Sequence 969 BP; 336 A; 157 C; 116 G; 360 T; 0 other;
 //
 ID   XXX; XXX; circular; genomic DNA; STD; PROK; 656 BP.
 XX
-AC   My project6569
+AC * _My project6569
 XX
 PR   Project:My project
 XX
@@ -12529,12 +12569,17 @@ XX
 RN   [1]
 RA   John
 RT   "Some title"
-RL   Some journal
+RL   Some journal.
 XX
 RN   [2]
 RA   Jane
 RT   "My institute"
-RL   UK
+RL   UK.
+XX
+RN   [3]
+RA   Torsten Seemann;
+RT   "Prokka: rapid prokaryotic genome annotation"
+RL    Bioinformatics. 2014 Jul 15;30(14):2068-9.;
 XX
 CC   Data release policy http://www.sanger.ac.uk/legal/#t_2
 XX
@@ -12564,7 +12609,7 @@ SQ   Sequence 656 BP; 184 A; 154 C; 100 G; 218 T; 0 other;
 //
 ID   XXX; XXX; circular; genomic DNA; STD; PROK; 465 BP.
 XX
-AC   My project46510
+AC * _My project46510
 XX
 PR   Project:My project
 XX
@@ -12573,12 +12618,17 @@ XX
 RN   [1]
 RA   John
 RT   "Some title"
-RL   Some journal
+RL   Some journal.
 XX
 RN   [2]
 RA   Jane
 RT   "My institute"
-RL   UK
+RL   UK.
+XX
+RN   [3]
+RA   Torsten Seemann;
+RT   "Prokka: rapid prokaryotic genome annotation"
+RL    Bioinformatics. 2014 Jul 15;30(14):2068-9.;
 XX
 CC   Data release policy http://www.sanger.ac.uk/legal/#t_2
 XX
