@@ -175,7 +175,7 @@ FT                   /db_xref="taxon:%d"
       
       feature_string = ''
       for attribute_value_line in wrapped_lines:
-        feature_string+= "FT%s" % (' ' * 19) + attribute_value_line."\n"
+        feature_string+= "FT%s" % (' ' * 19) + attribute_value_line + "\n"
 
       return feature_string    
       
