@@ -15,7 +15,7 @@ class TestConvert(unittest.TestCase):
         expected_header = """\
 ID   XXX; XXX; %s; genomic DNA; STD; %s; %d BP.
 XX
-AC   %s
+AC * _%s
 XX
 PR   Project:%s
 XX
@@ -24,12 +24,17 @@ XX
 RN   [1]
 RA   %s
 RT   "%s"
-RL   %s
+RL   %s.
 XX
 RN   [2]
 RA   %s
 RT   "%s"
-RL   %s
+RL   %s.
+XX
+RN   [3]
+RA   Torsten Seemann;
+RT   "Prokka: rapid prokaryotic genome annotation"
+RL    Bioinformatics. 2014 Jul 15;30(14):2068-9.;
 XX
 CC   Data release policy http://www.sanger.ac.uk/legal/#t_2
 XX
@@ -60,7 +65,7 @@ FH
         expected_populated_header = """\
 ID   XXX; XXX; circular; genomic DNA; STD; UNC; 1234 BP.
 XX
-AC   PRJ123412341
+AC * _PRJ123412341
 XX
 PR   Project:PRJ1234
 XX
@@ -69,12 +74,17 @@ XX
 RN   [1]
 RA   John Doe
 RT   "My title"
-RL   Unpublished
+RL   Unpublished.
 XX
 RN   [2]
 RA   Jane Doe
 RT   "Direct submission"
-RL   Sanger
+RL   Sanger.
+XX
+RN   [3]
+RA   Torsten Seemann;
+RT   "Prokka: rapid prokaryotic genome annotation"
+RL    Bioinformatics. 2014 Jul 15;30(14):2068-9.;
 XX
 CC   Data release policy http://www.sanger.ac.uk/legal/#t_2
 XX
@@ -196,7 +206,10 @@ FT                   /db_xref="CDD:COG1932"
         assert converter.construct_feature_attribute(attribute_key = 'product', attribute_value = 'product 1, product 2') == "FT                   /product=\"product 1\"\n"
         
         # Very long attributes should be split over multiple lines
-        assert converter.construct_feature_attribute(attribute_key = 'product', attribute_value = 'abc efg hij klm nop qrs tuvw xyz abc efg hij klm nop qrs tuvw xyz') == "FT                   /product=\"abc efg hij klm nop qrs tuvw xyz abc efg hij kl\nFT                   m nop qrs tuvw xyz\"\n"
+        assert converter.construct_feature_attribute(attribute_key = 'product', attribute_value = 'abc efg hij klm nop qrs tuvw xyz abc efg hij klm nop qrs tuvw xyz') == """\
+FT                   /product="abc efg hij klm nop qrs tuvw xyz abc efg hij klm
+FT                   nop qrs tuvw xyz"
+"""
         assert converter.construct_feature_attribute(attribute_key = 'product', attribute_value = 'abc efg hij klm nop qrs tuvw xyz abc efg hij klm nop qrs tuvw xyz abc efg hij klm nop qrs tuvw xyz abc_efg hij klm nop qrs tuvw xyz') == """\
 FT                   /product=\"abc efg hij klm nop qrs tuvw xyz abc efg hij kl
 FT                   m nop qrs tuvw xyz abc efg hij klm nop qrs tuvw xyz abc_e
