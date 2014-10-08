@@ -211,8 +211,8 @@ FT                   /product="abc efg hij klm nop qrs tuvw xyz abc efg hij klm
 FT                   nop qrs tuvw xyz"
 """
         assert converter.construct_feature_attribute(attribute_key = 'product', attribute_value = 'abc efg hij klm nop qrs tuvw xyz abc efg hij klm nop qrs tuvw xyz abc efg hij klm nop qrs tuvw xyz abc_efg hij klm nop qrs tuvw xyz') == """\
-FT                   /product=\"abc efg hij klm nop qrs tuvw xyz abc efg hij kl
-FT                   m nop qrs tuvw xyz abc efg hij klm nop qrs tuvw xyz abc_e
-FT                   fg hij klm nop qrs tuvw xyz\"
+FT                   /product="abc efg hij klm nop qrs tuvw xyz abc efg hij klm
+FT                   nop qrs tuvw xyz abc efg hij klm nop qrs tuvw xyz abc_efg
+FT                   hij klm nop qrs tuvw xyz"
 """
         
