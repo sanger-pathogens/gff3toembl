@@ -9,14 +9,18 @@ if __name__ == "__main__":
     import argparse
     parser = argparse.ArgumentParser(description='Converts prokaryote GFF3 annotations to ' + \
                                                  'EMBL for ENA submission.')
-    parser.add_argument('file', metavar='file', type=str, nargs=1, help='GFF3 filename')
+                                                 
+    # Required
+    parser.add_argument('organism',          metavar='organism',         type=str, nargs=1, help='Organism')
+    parser.add_argument('taxonid',           metavar='taxonid',          type=int, nargs=1, help='Taxon id')
+    parser.add_argument('project_accession', metavar='project_accession',type=str, nargs=1, help='Accession number for the project')
+    parser.add_argument('description',       metavar='description',      type=str, nargs=1, help='Genus species subspecies strain of organism')
+    parser.add_argument('file',              metavar='file',             type=str, nargs=1, help='GFF3 filename')
+
     
-    parser.add_argument('--organism',           '-o', help='Organism')
-    parser.add_argument('--taxonid',            '-t', help='Taxon id', type=int)
-    parser.add_argument('--project_accession',  '-a', help='Accession number for the project')
-    parser.add_argument('--description',        '-d', help='Genus species subspecies strain of organism')
+    # Optional
     parser.add_argument('--authors',            '-i', help='Authors', default = 'Pathogen Genomics')
-    parser.add_argument('--title',              '-m', help='Title of paper',default = 'Annotated with Prokka')
+    parser.add_argument('--title',              '-m', help='Title of paper',default = 'Draft assembly annotated with Prokka')
     parser.add_argument('--publication',        '-p', help='Publication', default = 'Wellcome Trust Sanger Institute')
     parser.add_argument('--genome_type',        '-g', help='Genome type (linear/circular)', default = 'circular')
     parser.add_argument('--classification',     '-c', help='Classification (PROK/UNC/..)',  default = 'PROK')
@@ -27,7 +31,8 @@ if __name__ == "__main__":
     parser.add_argument('--locus_tag',          '-l', help='Overwrite the locus tag in the annotation file')
     parser.add_argument('--translation_table',  '-n', help='Translation table', default = 11)
     
+    
     args = parser.parse_args()
-    emblwriter = EMBLWriter.EMBLWriter(args.file[0], args.organism, args.taxonid, args.project_accession, args.description, args.authors, args.title,  args.publication, args.genome_type, args.classification, args.submitter_name, args.submitter_title,  args.submitter_location, args.output_filename, args.locus_tag, args.translation_table )
+    emblwriter = EMBLWriter.EMBLWriter(args.file[0], args.organism[0], args.taxonid[0], args.project_accession[0], args.description[0], args.authors, args.title,  args.publication, args.genome_type, args.classification, args.submitter_name, args.submitter_title,  args.submitter_location, args.output_filename, args.locus_tag, args.translation_table )
     emblwriter.parse_and_run()
     
