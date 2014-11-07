@@ -34,8 +34,8 @@ class EMBLWriter(object):
         sequence_string = self.converter.construct_sequence(seq)
         return sequence_string
 
-    def output_source(self, sequence_length, organism, taxonid):
-        source_string = self.converter.source_template(sequence_length,organism, taxonid)
+    def output_source(self, sequence_length, organism, taxonid,sequence_name):
+        source_string = self.converter.source_template(sequence_length,organism, taxonid,sequence_name)
         return source_string
     
     def create_output_file(self, sequences, organism, taxonid, project, description, authors, title, publication, genome_type, classification, submitter_name, submitter_title, submitter_location):
@@ -43,7 +43,7 @@ class EMBLWriter(object):
         target = open(self.output_filename, 'w')
         for seqid in sorted(sequences):
             target.write(self.converter.populated_header(len(self.conv.seqs[seqid]),  project, description, i, authors, title, publication, genome_type, classification, submitter_name, submitter_title, submitter_location ) )
-            target.write(self.output_source(len(self.conv.seqs[seqid]), organism, taxonid))
+            target.write(self.output_source(len(self.conv.seqs[seqid]), organism, taxonid,seqid ))
             for feat in self.conv.feats[seqid]:
                 target.write(feat)
             target.write(self.output_seq(self.conv.seqs[seqid]))
