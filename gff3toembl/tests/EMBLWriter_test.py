@@ -86,3 +86,24 @@ class TestEMBLWriter(unittest.TestCase):
         emblwriter.parse_and_run()
         assert filecmp.cmp(os.path.join(data_dir, 'expected_large_annotation.embl'), 'large_annotation.embl', shallow=False)
         os.remove('large_annotation.embl')
+        
+        
+    def test_large_conversion(self):
+       '''test real file has first feature converted'''
+       emblwriter = EMBLWriter(os.path.join(data_dir,'first_feature_missing.gff'), 
+          'Organism', 
+          1234, 
+          'My project', 
+          'My description', 
+          'John', 
+          'Some title',  
+          'Some journal', 
+          'circular', 
+          'PROK', 
+          'Jane',
+          'My institute',  
+          'UK', 'first_feature_missing.embl', None )
+       emblwriter.parse_and_run()
+       assert filecmp.cmp(os.path.join(data_dir, 'expected_first_feature_missing.embl'), 'first_feature_missing.embl', shallow=False)
+       os.remove('first_feature_missing.embl')      
+        
