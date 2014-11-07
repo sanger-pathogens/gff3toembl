@@ -15,7 +15,7 @@ class TestConvert(unittest.TestCase):
         expected_header = """\
 ID   XXX; XXX; %s; genomic DNA; STD; %s; %d BP.
 XX
-AC * _%s
+AC   * _%s
 XX
 PR   Project:%s
 XX
@@ -65,7 +65,7 @@ FH
         expected_populated_header = """\
 ID   XXX; XXX; circular; genomic DNA; STD; UNC; 1234 BP.
 XX
-AC * _PRJ123412341
+AC   * _PRJ123412341
 XX
 PR   Project:PRJ1234
 XX
@@ -102,11 +102,12 @@ SQ   Sequence 12 BP; 4 A; 3 C; 2 G; 1 T; 2 other;
 
     def test_source_template(self):
         converter = convert.Convert()
-        assert converter.source_template(1234,"My organism", 5678) == """\
+        assert converter.source_template(1234,"My organism", 5678,"chromX") == """\
 FT   source          1..1234
 FT                   /organism="My organism"
 FT                   /mol_type="genomic DNA"
 FT                   /db_xref="taxon:5678"
+FT                   /note="chromX"
 """
 
     def test_sequence_header(self):

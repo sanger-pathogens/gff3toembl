@@ -20,7 +20,7 @@ class Convert(object):
       header = """\
 ID   XXX; XXX; %s; genomic DNA; STD; %s; %d BP.
 XX
-AC * _%s
+AC   * _%s
 XX
 PR   Project:%s
 XX
@@ -66,13 +66,14 @@ FH
         header_with_values = header % (genome_type, classification, num_bp,project+str(num_bp)+str(contig_number), project, description, contig_number,authors,title,publication,submitter_name,submitter_title,submitter_location )
         return header_with_values
         
-    def source_template(self, sequence_length = None, organism = None, taxon_id = None):
+    def source_template(self, sequence_length = None, organism = None, taxon_id = None, sequence_name = None):
         source_template = """\
 FT   source          1..%d
 FT                   /organism="%s"
 FT                   /mol_type="genomic DNA"
 FT                   /db_xref="taxon:%d"
-"""   % (sequence_length, organism,taxon_id)
+FT                   /note="%s"
+"""   % (sequence_length, organism,taxon_id,sequence_name)
         return source_template
         
     def construct_sequence(self,sequence):
