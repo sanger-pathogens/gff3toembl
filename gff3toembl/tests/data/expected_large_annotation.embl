@@ -1,6 +1,6 @@
 ID   XXX; XXX; circular; genomic DNA; STD; PROK; 175120 BP.
 XX
-AC * _My project1751201
+AC   * _My project1751201
 XX
 PR   Project:My project
 XX
@@ -29,6 +29,7 @@ FT   source          1..175120
 FT                   /organism="Organism"
 FT                   /mol_type="genomic DNA"
 FT                   /db_xref="taxon:1234"
+FT                   /note="ERS154949|SC|contig000003"
 FT   rRNA            complement(170..1709)
 FT                   /product="16S ribosomal RNA"
 FT                   /inference="COORDINATES:profile:RNAmmer:1.2"
@@ -4682,7 +4683,7 @@ SQ   Sequence 175120 BP; 55731 A; 31266 C; 25419 G; 62704 T; 0 other;
 //
 ID   XXX; XXX; circular; genomic DNA; STD; PROK; 108420 BP.
 XX
-AC * _My project1084202
+AC   * _My project1084202
 XX
 PR   Project:My project
 XX
@@ -4711,6 +4712,7 @@ FT   source          1..108420
 FT                   /organism="Organism"
 FT                   /mol_type="genomic DNA"
 FT                   /db_xref="taxon:1234"
+FT                   /note="ERS154949|SC|contig000004"
 FT   rRNA            2..108
 FT                   /product="5S ribosomal RNA"
 FT                   /inference="COORDINATES:profile:RNAmmer:1.2"
@@ -7672,7 +7674,7 @@ SQ   Sequence 108420 BP; 39263 A; 15735 C; 20016 G; 33406 T; 0 other;
 //
 ID   XXX; XXX; circular; genomic DNA; STD; PROK; 52142 BP.
 XX
-AC * _My project521423
+AC   * _My project521423
 XX
 PR   Project:My project
 XX
@@ -7701,6 +7703,7 @@ FT   source          1..52142
 FT                   /organism="Organism"
 FT                   /mol_type="genomic DNA"
 FT                   /db_xref="taxon:1234"
+FT                   /note="ERS154949|SC|contig000005"
 FT   rRNA            1..91
 FT                   /product="5S ribosomal RNA"
 FT                   /inference="COORDINATES:profile:RNAmmer:1.2"
@@ -9192,7 +9195,7 @@ SQ   Sequence 52142 BP; 18748 A; 7364 C; 8937 G; 17093 T; 0 other;
 //
 ID   XXX; XXX; circular; genomic DNA; STD; PROK; 51716 BP.
 XX
-AC * _My project517164
+AC   * _My project517164
 XX
 PR   Project:My project
 XX
@@ -9221,6 +9224,7 @@ FT   source          1..51716
 FT                   /organism="Organism"
 FT                   /mol_type="genomic DNA"
 FT                   /db_xref="taxon:1234"
+FT                   /note="ERS154949|SC|contig000006"
 FT   CDS             complement(793..1389)
 FT                   /product="Recombination protein RecR"
 FT                   /inference="ab initio prediction:Prodigal:2.60"
@@ -10529,7 +10533,7 @@ SQ   Sequence 51716 BP; 16183 A; 10270 C; 6898 G; 18365 T; 0 other;
 //
 ID   XXX; XXX; circular; genomic DNA; STD; PROK; 39433 BP.
 XX
-AC * _My project394335
+AC   * _My project394335
 XX
 PR   Project:My project
 XX
@@ -10558,6 +10562,7 @@ FT   source          1..39433
 FT                   /organism="Organism"
 FT                   /mol_type="genomic DNA"
 FT                   /db_xref="taxon:1234"
+FT                   /note="ERS154949|SC|contig000007"
 FT   rRNA            107..220
 FT                   /product="5S ribosomal RNA"
 FT                   /inference="COORDINATES:profile:RNAmmer:1.2"
@@ -11719,7 +11724,7 @@ SQ   Sequence 39433 BP; 14273 A; 5313 C; 7870 G; 11977 T; 0 other;
 //
 ID   XXX; XXX; circular; genomic DNA; STD; PROK; 21936 BP.
 XX
-AC * _My project219366
+AC   * _My project219366
 XX
 PR   Project:My project
 XX
@@ -11748,6 +11753,7 @@ FT   source          1..21936
 FT                   /organism="Organism"
 FT                   /mol_type="genomic DNA"
 FT                   /db_xref="taxon:1234"
+FT                   /note="ERS154949|SC|contig000008"
 FT   CDS             complement(1171..1659)
 FT                   /product="hypothetical protein"
 FT                   /inference="ab initio prediction:Prodigal:2.60"
@@ -12333,7 +12339,7 @@ SQ   Sequence 21936 BP; 8100 A; 2662 C; 3389 G; 7784 T; 1 other;
 //
 ID   XXX; XXX; circular; genomic DNA; STD; PROK; 4804 BP.
 XX
-AC * _My project48047
+AC   * _My project48047
 XX
 PR   Project:My project
 XX
@@ -12362,6 +12368,7 @@ FT   source          1..4804
 FT                   /organism="Organism"
 FT                   /mol_type="genomic DNA"
 FT                   /db_xref="taxon:1234"
+FT                   /note="ERS154949|SC|contig000009"
 FT   CDS             628..1344
 FT                   /product="GDP-3%2C6-dideoxy-L-galactose biosynthesis
 FT                   protein"
@@ -12496,7 +12503,7 @@ SQ   Sequence 4804 BP; 1694 A; 684 C; 780 G; 1645 T; 1 other;
 //
 ID   XXX; XXX; circular; genomic DNA; STD; PROK; 969 BP.
 XX
-AC * _My project9698
+AC   * _My project9698
 XX
 PR   Project:My project
 XX
@@ -12525,6 +12532,7 @@ FT   source          1..969
 FT                   /organism="Organism"
 FT                   /mol_type="genomic DNA"
 FT                   /db_xref="taxon:1234"
+FT                   /note="ERS154949|SC|contig000010"
 FT   CDS             complement(118..294)
 FT                   /product="hypothetical protein"
 FT                   /inference="ab initio prediction:Prodigal:2.60"
@@ -12558,7 +12566,7 @@ SQ   Sequence 969 BP; 336 A; 157 C; 116 G; 360 T; 0 other;
 //
 ID   XXX; XXX; circular; genomic DNA; STD; PROK; 656 BP.
 XX
-AC * _My project6569
+AC   * _My project6569
 XX
 PR   Project:My project
 XX
@@ -12587,6 +12595,7 @@ FT   source          1..656
 FT                   /organism="Organism"
 FT                   /mol_type="genomic DNA"
 FT                   /db_xref="taxon:1234"
+FT                   /note="ERS154949|SC|contig000011"
 FT   tRNA            complement(370..446)
 FT                   /product="tRNA-Ile(gat)"
 FT                   /inference="COORDINATES:profile:Aragorn:1.2.34"
@@ -12607,7 +12616,7 @@ SQ   Sequence 656 BP; 184 A; 154 C; 100 G; 218 T; 0 other;
 //
 ID   XXX; XXX; circular; genomic DNA; STD; PROK; 465 BP.
 XX
-AC * _My project46510
+AC   * _My project46510
 XX
 PR   Project:My project
 XX
@@ -12636,6 +12645,7 @@ FT   source          1..465
 FT                   /organism="Organism"
 FT                   /mol_type="genomic DNA"
 FT                   /db_xref="taxon:1234"
+FT                   /note="ERS154949|SC|contig000012"
 SQ   Sequence 465 BP; 139 A; 103 C; 64 G; 159 T; 0 other;
      ccccaaagca tatcgtcgtt agtaacgtcc ttcatcggct tctagtgcca aggcatccac        60
      cgtgcgccct taataactta atctatgttt ccaccatttt tataaatcaa acgttaacac       120

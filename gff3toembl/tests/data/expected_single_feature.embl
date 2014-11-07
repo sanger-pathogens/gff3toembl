@@ -1,6 +1,6 @@
 ID   XXX; XXX; circular; genomic DNA; STD; PROK; 240 BP.
 XX
-AC * _My project2401
+AC   * _My project2401
 XX
 PR   Project:My project
 XX
@@ -29,6 +29,7 @@ FT   source          1..240
 FT                   /organism="Organism"
 FT                   /mol_type="genomic DNA"
 FT                   /db_xref="taxon:1234"
+FT                   /note="ER123|SC|contig000003"
 FT   CDS             complement(1..210)
 FT                   /product="Peroxide stress regulator PerR%2C FUR family"
 FT                   /inference="ab initio prediction:Prodigal:2.60"
