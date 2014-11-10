@@ -1,4 +1,4 @@
 ABC3001	1	Chromosome
-ABC3001	2	Plasmid
-ABC3001	3	Plasmid
-ABC3001	4	Plasmid
+ABC3002	2	Plasmid
+ABC3003	3	Plasmid
+ABC3004	4	Plasmid
