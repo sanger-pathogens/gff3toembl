@@ -30,9 +30,9 @@ if __name__ == "__main__":
     parser.add_argument('--output_filename',    '-f', help='Output filename',     default = 'output.embl')
     parser.add_argument('--locus_tag',          '-l', help='Overwrite the locus tag in the annotation file')
     parser.add_argument('--translation_table',  '-n', help='Translation table', default = 11)
-    
+    parser.add_argument('--chromosome_list',    '-d', help='Create a chromosome list file, and use the supplied name')
     
     args = parser.parse_args()
-    emblwriter = EMBLWriter.EMBLWriter(args.file[0], args.organism[0], args.taxonid[0], args.project_accession[0], args.description[0], args.authors, args.title,  args.publication, args.genome_type, args.classification, args.submitter_name, args.submitter_title,  args.submitter_location, args.output_filename, args.locus_tag, args.translation_table )
+    emblwriter = EMBLWriter.EMBLWriter(args.file[0], args.organism[0], args.taxonid[0], args.project_accession[0], args.description[0], args.authors, args.title,  args.publication, args.genome_type, args.classification, args.submitter_name, args.submitter_title,  args.submitter_location, args.output_filename, args.locus_tag, args.translation_table, args.chromosome_list )
     emblwriter.parse_and_run()
     

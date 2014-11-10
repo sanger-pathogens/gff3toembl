@@ -24,7 +24,7 @@ class TestEMBLWriter(unittest.TestCase):
            'PROK', 
            'Jane',
            'My institute',  
-           'UK', 'single_feature.embl', None )
+           'UK', 'single_feature.embl', None,11,  None )
         emblwriter.parse_and_run()
         assert filecmp.cmp(os.path.join(data_dir, 'expected_single_feature.embl'), 'single_feature.embl', shallow=False)
         os.remove('single_feature.embl')
@@ -43,7 +43,7 @@ class TestEMBLWriter(unittest.TestCase):
            'PROK', 
            'Jane',
            'My institute',  
-           'UK', 'single_feature.embl', 'new_locus_tag' )
+           'UK', 'single_feature.embl', 'new_locus_tag', 11, None )
         emblwriter.parse_and_run()
         assert filecmp.cmp(os.path.join(data_dir, 'expected_single_feature_new_locus_tag.embl'), 'single_feature.embl', shallow=False)
         os.remove('single_feature.embl')
@@ -61,8 +61,8 @@ class TestEMBLWriter(unittest.TestCase):
            'circular', 
            'PROK', 
            'Jane',
-           'My institute',  
-           'UK', 'single_feature.embl', None, 1 )
+           'My institute',
+           'UK', 'single_feature.embl', None, 1, None )
         emblwriter.parse_and_run()
         assert filecmp.cmp(os.path.join(data_dir, 'expected_single_feature_translation_table.embl'), 'single_feature.embl', shallow=False)
         os.remove('single_feature.embl')
@@ -82,7 +82,30 @@ class TestEMBLWriter(unittest.TestCase):
            'PROK', 
            'Jane',
            'My institute',  
-           'UK', 'large_annotation.embl', None )
+           'UK', 'large_annotation.embl', None, 11, None )
         emblwriter.parse_and_run()
         assert filecmp.cmp(os.path.join(data_dir, 'expected_large_annotation.embl'), 'large_annotation.embl', shallow=False)
         os.remove('large_annotation.embl')
+        
+        
+    def test_chromosome_list_conversion(self):
+       '''test chromosome list creation'''
+       emblwriter = EMBLWriter(os.path.join(data_dir,'chromosome_list.gff'), 
+          'Organism', 
+          1234, 
+          'ABC', 
+          'My description', 
+          'John', 
+          'Some title',  
+          'Some journal', 
+          'circular', 
+          'PROK', 
+          'Jane',
+          'My institute',  
+          'UK', 'chromosome_list.embl', None, 11, 'chromosome_list.txt' )
+       emblwriter.parse_and_run()
+       assert filecmp.cmp(os.path.join(data_dir, 'expected_chromosome_list.txt'), 'chromosome_list.txt', shallow=False)
+       os.remove('chromosome_list.embl')
+       os.remove('chromosome_list.txt')
+
+
