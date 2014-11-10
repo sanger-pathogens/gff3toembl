@@ -65,15 +65,15 @@ class EMBLWriter(object):
         object_accessions = []
         
         for embl_line in embl_file.readlines():
-          m = re.search('AC   * _([\w]+)', embl_line)
-          if m.group(0):
-            object_accessions.append(m.group(0))
+          m = re.match("AC   \* _(\w+)", embl_line)
+          if m != None and m.group(1):
+            object_accessions.append(m.group(1))
         
-        for index, object_accession in enumerate(object_accessions)
+        for index, object_accession in enumerate(object_accessions):
           chromosome_name = str((index+1))
           # TODO make it work for more than just Bacteria
           chromosome_type = "Chromosome"
-          if index > 1:
+          if index > 0:
             chromosome_type = "Plasmid"
           chromosome_list_file.write(object_accession + "\t" + chromosome_name + "\t" + chromosome_type + "\n")
 
