@@ -1,12 +1,12 @@
 ##gff-version 3
 ##sequence-region chrom1 1 3000
 ##sequence-region chrom2 1 3000
-chrom1  Infernal:1.1    ncRNA   2203    2311    .       -       0       ID=NCTC10384_00001;inference=COORDINATES:profile:Infernal:1.1;locus_tag=NCTC10384_00001;product=StyR-44
-chrom1  Aragorn:1.2.36  tRNA    2389    2464    .       -       0       ID=NCTC10384_00002;inference=COORDINATES:profile:Aragorn:1.2.36;locus_tag=NCTC10384_00002;product=tRNA-Glu(ttc)
-chrom1  Prodigal:2.60   CDS     2650    2904    .       -       0       ID=NCTC10384_00003;inference=ab initio prediction:Prodigal:2.60;locus_tag=NCTC10384_00003;product=hypothetical protein;protein_id=gnl|SC|NCTC10384_00003
-chrom2  Infernal:1.1    ncRNA   2203    2311    .       -       0       ID=NCTC10384_03586;inference=COORDINATES:profile:Infernal:1.1;locus_tag=NCTC10384_03586;product=StyR-44
-chrom2  Aragorn:1.2.36  tRNA    2389    2464    .       -       0       ID=NCTC10384_03587;inference=COORDINATES:profile:Aragorn:1.2.36;locus_tag=NCTC10384_03587;product=tRNA-Glu(ttc)
-chrom2  Prodigal:2.60   CDS     2650    2904    .       -       0       ID=NCTC10384_03588;inference=ab initio prediction:Prodigal:2.60;locus_tag=NCTC10384_03588;product=hypothetical protein;protein_id=gnl|SC|NCTC10384_03588
+chrom1	Infernal:1.1	ncRNA	2203	2311	.	-	0	ID=NCTC10384_00001;inference=COORDINATES:profile:Infernal:1.1;locus_tag=NCTC10384_00001;product=StyR-44
+chrom1	Aragorn:1.2.36	tRNA	2389	2464	.	-	0	ID=NCTC10384_00002;inference=COORDINATES:profile:Aragorn:1.2.36;locus_tag=NCTC10384_00002;product=tRNA-Glu(ttc)
+chrom1	Prodigal:2.60	CDS	2650	2904	.	-	0	ID=NCTC10384_00003;inference=ab initio prediction:Prodigal:2.60;locus_tag=NCTC10384_00003;product=hypothetical protein;protein_id=gnl|SC|NCTC10384_00003
+chrom2	Infernal:1.1	ncRNA	2203	2311	.	-	0	ID=NCTC10384_03586;inference=COORDINATES:profile:Infernal:1.1;locus_tag=NCTC10384_03586;product=StyR-44
+chrom2	Aragorn:1.2.36	tRNA	2389	2464	.	-	0	ID=NCTC10384_03587;inference=COORDINATES:profile:Aragorn:1.2.36;locus_tag=NCTC10384_03587;product=tRNA-Glu(ttc)
+chrom2	Prodigal:2.60	CDS	2650	2904	.	-	0	ID=NCTC10384_03588;inference=ab initio prediction:Prodigal:2.60;locus_tag=NCTC10384_03588;product=hypothetical protein;protein_id=gnl|SC|NCTC10384_03588
 ##FASTA
 >chrom1
 ACATCAAACATTAAAGGGTGGTATTTCAAGGTTGGCTCCACGCAGACTGGCGTCCACGCT
