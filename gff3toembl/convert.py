@@ -152,8 +152,12 @@ FT                   /note="%s"
       
       if attribute_key == 'locus_tag':
         attribute_value = self.update_locus_tag(attribute_value)
-        
-      split_attribute_values = attribute_value.split( ',')
+      
+      if attribute_key == 'EC_number':
+          all_attribute_values = attribute_value.split( ',')
+          split_attribute_values = list(set(all_attribute_values))
+      else:
+          split_attribute_values = attribute_value.split( ',')
       if attribute_key not in self.feature_attributes_to_split_on_multiple_lines:
         feature_string += self.create_multi_line_feature_attribute_string(attribute_key, split_attribute_values[0])
       else:

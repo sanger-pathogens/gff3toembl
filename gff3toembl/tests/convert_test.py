@@ -199,6 +199,9 @@ FT                   /db_xref="CDD:COG1932"
         # Key to translate between GFF name and EMBL name
         assert converter.construct_feature_attribute(attribute_key = 'eC_number', attribute_value = '1.2.3.4') == "FT                   /EC_number=\"1.2.3.4\"\n"
         
+        # Unique values only
+        assert converter.construct_feature_attribute(attribute_key = 'eC_number', attribute_value = '1.2.3.4,1.2.3.4') == "FT                   /EC_number=\"1.2.3.4\"\n"
+
         # Keys to split over multiple lines
         assert converter.construct_feature_attribute(attribute_key = 'eC_number', attribute_value = '2.4.2.-,2.4.-.-') == "FT                   /EC_number=\"2.4.2.-\"\nFT                   /EC_number=\"2.4.-.-\"\n"
         assert converter.construct_feature_attribute(attribute_key = 'inference', attribute_value = 'ab initio prediction:Prodigal:2.60,similar to AA sequence:RefSeq:YP_005742575.1') == "FT                   /inference=\"ab initio prediction:Prodigal:2.60\"\nFT                   /inference=\"similar to AA sequence:RefSeq:YP_005742575.1\"\n"
