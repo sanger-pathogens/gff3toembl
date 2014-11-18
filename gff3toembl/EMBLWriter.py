@@ -10,7 +10,7 @@ from gff3toembl.VisitorStream import VisitorStream
  
 class EMBLWriter(object):
 
-    def __init__(self, gff3_file, organism, taxonid, project, description, authors, title,  publication, genome_type, classification, submitter_name, submitter_title,  submitter_location, output_filename, locus_tag = None, translation_table = 11, chromosome_list = None):
+    def __init__(self, gff3_file, organism, taxonid, project, description, authors, title,  publication, genome_type, classification,  output_filename, locus_tag = None, translation_table = 11, chromosome_list = None):
         self.locus_tag          = locus_tag
         self.translation_table  = translation_table
         self.converter          = convert.Convert(locus_tag,translation_table)
@@ -25,9 +25,6 @@ class EMBLWriter(object):
         self.publication        = publication       
         self.genome_type        = genome_type       
         self.classification     = classification    
-        self.submitter_name     = submitter_name    
-        self.submitter_title    = submitter_title   
-        self.submitter_location = submitter_location
         self.output_filename    = output_filename
         self.chromosome_list    = chromosome_list
  
@@ -39,7 +36,7 @@ class EMBLWriter(object):
         source_string = self.converter.source_template(sequence_length,organism, taxonid,sequence_name)
         return source_string
     
-    def create_output_file(self, sequences, organism, taxonid, project, description, authors, title, publication, genome_type, classification, submitter_name, submitter_title, submitter_location):
+    def create_output_file(self, sequences, organism, taxonid, project, description, authors, title, publication, genome_type, classification):
         i = 1
         target = open(self.output_filename, 'w')
         for seqid in sorted(sequences):
@@ -84,6 +81,6 @@ class EMBLWriter(object):
         except Exception, e:
             print e
             exit(1)
-        self.create_output_file(self.conv.seqs.keys(), self.organism, self.taxonid, self.project, self.description, self.authors, self.title, self.publication, self.genome_type, self.classification, self.submitter_name, self.submitter_title, self.submitter_location)
+        self.create_output_file(self.conv.seqs.keys(), self.organism, self.taxonid, self.project, self.description, self.authors, self.title, self.publication, self.genome_type, self.classification)
         self.create_chromosome_list(self.chromosome_list, self.output_filename)
 

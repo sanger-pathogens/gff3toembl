@@ -48,11 +48,12 @@ FH
         publication="Unpublished",
         genome_type="circular",
         classification="UNC",
-        sequence_identifier
+        sequence_identifier=""
         ):
 
         header = self.blank_header()
-        header_with_values = header % (genome_type, classification, num_bp,sequence_identifier, project, description, contig_number,authors,title,publication)
+        sequence_identifier_filtered  = re.sub(r'\W+', '', sequence_identifier)
+        header_with_values = header % (genome_type, classification, num_bp,sequence_identifier_filtered, project, description, contig_number,authors,title,publication)
         return header_with_values
         
     def source_template(self, sequence_length = None, organism = None, taxon_id = None, sequence_name = None):

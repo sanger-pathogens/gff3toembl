@@ -15,7 +15,7 @@ class TestConvert(unittest.TestCase):
         expected_header = """\
 ID   XXX; XXX; %s; genomic DNA; STD; %s; %d BP.
 XX
-AC   * _%s
+AC * _%s
 XX
 PR   Project:%s
 XX
@@ -25,16 +25,6 @@ RN   [1]
 RA   %s
 RT   "%s"
 RL   %s.
-XX
-RN   [2]
-RA   %s
-RT   "%s"
-RL   %s.
-XX
-RN   [3]
-RA   Torsten Seemann;
-RT   "Prokka: rapid prokaryotic genome annotation"
-RL    Bioinformatics. 2014 Jul 15;30(14):2068-9.;
 XX
 CC   Data release policy http://www.sanger.ac.uk/legal/#t_2
 XX
@@ -58,14 +48,12 @@ FH
           publication="Unpublished",
           genome_type="circular",
           classification="UNC",
-          submitter_name="Jane Doe",
-          submitter_title="Direct submission",
-          submitter_location="Sanger"
+          sequence_identifier="contig123"
           )
         expected_populated_header = """\
 ID   XXX; XXX; circular; genomic DNA; STD; UNC; 1234 BP.
 XX
-AC   * _PRJ123412341
+AC * _contig123
 XX
 PR   Project:PRJ1234
 XX
@@ -75,16 +63,6 @@ RN   [1]
 RA   John Doe
 RT   "My title"
 RL   Unpublished.
-XX
-RN   [2]
-RA   Jane Doe
-RT   "Direct submission"
-RL   Sanger.
-XX
-RN   [3]
-RA   Torsten Seemann;
-RT   "Prokka: rapid prokaryotic genome annotation"
-RL    Bioinformatics. 2014 Jul 15;30(14):2068-9.;
 XX
 CC   Data release policy http://www.sanger.ac.uk/legal/#t_2
 XX
@@ -163,6 +141,23 @@ FT                   /transl_table=11
 FT   tRNA            174883..174959
 FT                   /locus_tag="new_locus_tag_123"
 FT                   /transl_table=11
+"""
+
+    def test_hypo_search(self):
+      converter = convert.Convert()
+      assert converter.construct_feature_attribute(attribute_key = 'product', attribute_value = 'abc,efg,hij') == """\
+FT                   /product="abc"
+"""
+      assert converter.construct_feature_attribute(attribute_key = 'product', attribute_value = 'hypothetical protein,efg,hij') == """\
+FT                   /product="efg"
+"""
+
+      assert converter.construct_feature_attribute(attribute_key = 'product', attribute_value = 'hypothetical protein,hypothetical protein,hij') == """\
+FT                   /product="hij"
+"""
+
+      assert converter.construct_feature_attribute(attribute_key = 'product', attribute_value = 'hypothetical protein') == """\
+FT                   /product="Uncharacterised protein"
 """
 
     def test_create_db_xref_from_inference(self):
