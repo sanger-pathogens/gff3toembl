@@ -1,6 +1,6 @@
 ID   XXX; XXX; circular; genomic DNA; STD; PROK; 240 BP.
 XX
-AC   * _My project2401
+AC * _ER123SCcontig000003
 XX
 PR   Project:My project
 XX
@@ -10,16 +10,6 @@ RN   [1]
 RA   John
 RT   "Some title"
 RL   Some journal.
-XX
-RN   [2]
-RA   Jane
-RT   "My institute"
-RL   UK.
-XX
-RN   [3]
-RA   Torsten Seemann;
-RT   "Prokka: rapid prokaryotic genome annotation"
-RL    Bioinformatics. 2014 Jul 15;30(14):2068-9.;
 XX
 CC   Data release policy http://www.sanger.ac.uk/legal/#t_2
 XX
