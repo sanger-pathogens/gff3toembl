@@ -1,17 +1,17 @@
 ID   XXX; XXX; circular; genomic DNA; STD; PROK; 175120 BP.
 XX
+AC   XXX;
+XX
 AC * _ERS154949SCcontig000003
 XX
-PR   Project:My project
+PR   Project:My project;
 XX
-DE   My description contig 1
+DE   XXX;
 XX
 RN   [1]
-RA   John
-RT   "Some title"
+RA   John;
+RT   "Some title";
 RL   Some journal.
-XX
-CC   Data release policy http://www.sanger.ac.uk/legal/#t_2
 XX
 FH   Key             Location/Qualifiers
 FH
@@ -4646,18 +4646,18 @@ SQ   Sequence 175120 BP; 55731 A; 31266 C; 25419 G; 62704 T; 0 other;
 //
 ID   XXX; XXX; circular; genomic DNA; STD; PROK; 108420 BP.
 XX
+AC   XXX;
+XX
 AC * _ERS154949SCcontig000004
 XX
-PR   Project:My project
+PR   Project:My project;
 XX
-DE   My description contig 2
+DE   XXX;
 XX
 RN   [1]
-RA   John
-RT   "Some title"
+RA   John;
+RT   "Some title";
 RL   Some journal.
-XX
-CC   Data release policy http://www.sanger.ac.uk/legal/#t_2
 XX
 FH   Key             Location/Qualifiers
 FH
@@ -7596,18 +7596,18 @@ SQ   Sequence 108420 BP; 39263 A; 15735 C; 20016 G; 33406 T; 0 other;
 //
 ID   XXX; XXX; circular; genomic DNA; STD; PROK; 52142 BP.
 XX
+AC   XXX;
+XX
 AC * _ERS154949SCcontig000005
 XX
-PR   Project:My project
+PR   Project:My project;
 XX
-DE   My description contig 3
+DE   XXX;
 XX
 RN   [1]
-RA   John
-RT   "Some title"
+RA   John;
+RT   "Some title";
 RL   Some journal.
-XX
-CC   Data release policy http://www.sanger.ac.uk/legal/#t_2
 XX
 FH   Key             Location/Qualifiers
 FH
@@ -9100,18 +9100,18 @@ SQ   Sequence 52142 BP; 18748 A; 7364 C; 8937 G; 17093 T; 0 other;
 //
 ID   XXX; XXX; circular; genomic DNA; STD; PROK; 51716 BP.
 XX
+AC   XXX;
+XX
 AC * _ERS154949SCcontig000006
 XX
-PR   Project:My project
+PR   Project:My project;
 XX
-DE   My description contig 4
+DE   XXX;
 XX
 RN   [1]
-RA   John
-RT   "Some title"
+RA   John;
+RT   "Some title";
 RL   Some journal.
-XX
-CC   Data release policy http://www.sanger.ac.uk/legal/#t_2
 XX
 FH   Key             Location/Qualifiers
 FH
@@ -10423,18 +10423,18 @@ SQ   Sequence 51716 BP; 16183 A; 10270 C; 6898 G; 18365 T; 0 other;
 //
 ID   XXX; XXX; circular; genomic DNA; STD; PROK; 39433 BP.
 XX
+AC   XXX;
+XX
 AC * _ERS154949SCcontig000007
 XX
-PR   Project:My project
+PR   Project:My project;
 XX
-DE   My description contig 5
+DE   XXX;
 XX
 RN   [1]
-RA   John
-RT   "Some title"
+RA   John;
+RT   "Some title";
 RL   Some journal.
-XX
-CC   Data release policy http://www.sanger.ac.uk/legal/#t_2
 XX
 FH   Key             Location/Qualifiers
 FH
@@ -11592,18 +11592,18 @@ SQ   Sequence 39433 BP; 14273 A; 5313 C; 7870 G; 11977 T; 0 other;
 //
 ID   XXX; XXX; circular; genomic DNA; STD; PROK; 21936 BP.
 XX
+AC   XXX;
+XX
 AC * _ERS154949SCcontig000008
 XX
-PR   Project:My project
+PR   Project:My project;
 XX
-DE   My description contig 6
+DE   XXX;
 XX
 RN   [1]
-RA   John
-RT   "Some title"
+RA   John;
+RT   "Some title";
 RL   Some journal.
-XX
-CC   Data release policy http://www.sanger.ac.uk/legal/#t_2
 XX
 FH   Key             Location/Qualifiers
 FH
@@ -12196,18 +12196,18 @@ SQ   Sequence 21936 BP; 8100 A; 2662 C; 3389 G; 7784 T; 1 other;
 //
 ID   XXX; XXX; circular; genomic DNA; STD; PROK; 4804 BP.
 XX
+AC   XXX;
+XX
 AC * _ERS154949SCcontig000009
 XX
-PR   Project:My project
+PR   Project:My project;
 XX
-DE   My description contig 7
+DE   XXX;
 XX
 RN   [1]
-RA   John
-RT   "Some title"
+RA   John;
+RT   "Some title";
 RL   Some journal.
-XX
-CC   Data release policy http://www.sanger.ac.uk/legal/#t_2
 XX
 FH   Key             Location/Qualifiers
 FH
@@ -12350,18 +12350,18 @@ SQ   Sequence 4804 BP; 1694 A; 684 C; 780 G; 1645 T; 1 other;
 //
 ID   XXX; XXX; circular; genomic DNA; STD; PROK; 969 BP.
 XX
+AC   XXX;
+XX
 AC * _ERS154949SCcontig000010
 XX
-PR   Project:My project
+PR   Project:My project;
 XX
-DE   My description contig 8
+DE   XXX;
 XX
 RN   [1]
-RA   John
-RT   "Some title"
+RA   John;
+RT   "Some title";
 RL   Some journal.
-XX
-CC   Data release policy http://www.sanger.ac.uk/legal/#t_2
 XX
 FH   Key             Location/Qualifiers
 FH
@@ -12403,18 +12403,18 @@ SQ   Sequence 969 BP; 336 A; 157 C; 116 G; 360 T; 0 other;
 //
 ID   XXX; XXX; circular; genomic DNA; STD; PROK; 656 BP.
 XX
+AC   XXX;
+XX
 AC * _ERS154949SCcontig000011
 XX
-PR   Project:My project
+PR   Project:My project;
 XX
-DE   My description contig 9
+DE   XXX;
 XX
 RN   [1]
-RA   John
-RT   "Some title"
+RA   John;
+RT   "Some title";
 RL   Some journal.
-XX
-CC   Data release policy http://www.sanger.ac.uk/legal/#t_2
 XX
 FH   Key             Location/Qualifiers
 FH
@@ -12443,18 +12443,18 @@ SQ   Sequence 656 BP; 184 A; 154 C; 100 G; 218 T; 0 other;
 //
 ID   XXX; XXX; circular; genomic DNA; STD; PROK; 465 BP.
 XX
+AC   XXX;
+XX
 AC * _ERS154949SCcontig000012
 XX
-PR   Project:My project
+PR   Project:My project;
 XX
-DE   My description contig 10
+DE   XXX;
 XX
 RN   [1]
-RA   John
-RT   "Some title"
+RA   John;
+RT   "Some title";
 RL   Some journal.
-XX
-CC   Data release policy http://www.sanger.ac.uk/legal/#t_2
 XX
 FH   Key             Location/Qualifiers
 FH

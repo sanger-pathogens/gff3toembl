@@ -1,17 +1,17 @@
 ID   XXX; XXX; circular; genomic DNA; STD; PROK; 240 BP.
 XX
+AC   XXX;
+XX
 AC * _ER123SCcontig000003
 XX
-PR   Project:My project
+PR   Project:My project;
 XX
-DE   My description contig 1
+DE   XXX;
 XX
 RN   [1]
-RA   John
-RT   "Some title"
+RA   John;
+RT   "Some title";
 RL   Some journal.
-XX
-CC   Data release policy http://www.sanger.ac.uk/legal/#t_2
 XX
 FH   Key             Location/Qualifiers
 FH
