@@ -60,7 +60,7 @@ class EMBLWriter(object):
         object_accessions = []
         
         for embl_line in embl_file.readlines():
-          m = re.match("AC   \* _(\w+)", embl_line)
+          m = re.match("AC \* _(\w+)", embl_line)
           if m != None and m.group(1):
             object_accessions.append(m.group(1))
         
