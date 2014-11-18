@@ -53,7 +53,7 @@ FH
 
         header = self.blank_header()
         sequence_identifier_filtered  = re.sub(r'\W+', '', sequence_identifier)
-        header_with_values = header % (genome_type, classification, num_bp,sequence_identifier_filtered, project, description, contig_number,authors,title,publication)
+        header_with_values = header % (genome_type, classification, num_bp,sequence_identifier_filtered, project,authors,title,publication)
         return header_with_values
         
     def source_template(self, sequence_length = None, organism = None, taxon_id = None, sequence_name = None):
