@@ -20,18 +20,18 @@ class Convert(object):
       header = """\
 ID   XXX; XXX; %s; genomic DNA; STD; %s; %d BP.
 XX
+AC   XXX;
+XX
 AC * _%s
 XX
-PR   Project:%s
+PR   Project:%s;
 XX
-DE   %s contig %d
+DE   XXX;
 XX
 RN   [1]
-RA   %s
-RT   "%s"
+RA   %s;
+RT   "%s";
 RL   %s.
-XX
-CC   Data release policy http://www.sanger.ac.uk/legal/#t_2
 XX
 FH   Key             Location/Qualifiers
 FH
