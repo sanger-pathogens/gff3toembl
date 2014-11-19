@@ -1,27 +1,17 @@
 ID   XXX; XXX; circular; genomic DNA; STD; PROK; 175120 BP.
 XX
-AC   * _My project1751201
+AC   XXX;
 XX
-PR   Project:My project
+AC * _ERS154949SCcontig000003
 XX
-DE   My description contig 1
+PR   Project:My project;
+XX
+DE   XXX;
 XX
 RN   [1]
-RA   John
-RT   "Some title"
+RA   John;
+RT   "Some title";
 RL   Some journal.
-XX
-RN   [2]
-RA   Jane
-RT   "My institute"
-RL   UK.
-XX
-RN   [3]
-RA   Torsten Seemann;
-RT   "Prokka: rapid prokaryotic genome annotation"
-RL    Bioinformatics. 2014 Jul 15;30(14):2068-9.;
-XX
-CC   Data release policy http://www.sanger.ac.uk/legal/#t_2
 XX
 FH   Key             Location/Qualifiers
 FH
@@ -199,7 +189,7 @@ FT                   /locus_tag="8233_4#93_02142"
 FT                   /gene="yhbO"
 FT                   /transl_table=11
 FT   CDS             complement(18573..18734)
-FT                   /product="hypothetical protein"
+FT                   /product="Uncharacterised protein"
 FT                   /inference="ab initio prediction:Prodigal:2.60"
 FT                   /locus_tag="8233_4#93_02143"
 FT                   /transl_table=11
@@ -236,7 +226,7 @@ FT                   /EC_number="3.4.11.-"
 FT                   /gene="pepS"
 FT                   /transl_table=11
 FT   CDS             complement(22238..22438)
-FT                   /product="hypothetical protein"
+FT                   /product="Uncharacterized protein conserved in bacteria"
 FT                   /inference="ab initio prediction:Prodigal:2.60"
 FT                   /db_xref="UniProtKB/Swiss-Prot:Q7A4S2"
 FT                   /db_xref="CDD:COG4840"
@@ -309,7 +299,7 @@ FT                   /locus_tag="8233_4#93_02153"
 FT                   /gene="yvqF"
 FT                   /transl_table=11
 FT   CDS             complement(27324..27710)
-FT                   /product="hypothetical protein"
+FT                   /product="Uncharacterised protein"
 FT                   /inference="ab initio prediction:Prodigal:2.60"
 FT                   /locus_tag="8233_4#93_02154"
 FT                   /transl_table=11
@@ -335,7 +325,7 @@ FT                   /db_xref="PFAM:PF06081.5"
 FT                   /locus_tag="8233_4#93_02156"
 FT                   /transl_table=11
 FT   CDS             complement(30546..30926)
-FT                   /product="hypothetical protein"
+FT                   /product="Uncharacterised protein"
 FT                   /inference="ab initio prediction:Prodigal:2.60"
 FT                   /locus_tag="8233_4#93_02157"
 FT                   /transl_table=11
@@ -796,12 +786,12 @@ FT                   /locus_tag="8233_4#93_02200"
 FT                   /gene="yurK"
 FT                   /transl_table=11
 FT   CDS             complement(78116..78292)
-FT                   /product="hypothetical protein"
+FT                   /product="Uncharacterised protein"
 FT                   /inference="ab initio prediction:Prodigal:2.60"
 FT                   /locus_tag="8233_4#93_02201"
 FT                   /transl_table=11
 FT   CDS             complement(78535..78633)
-FT                   /product="hypothetical protein"
+FT                   /product="Uncharacterised protein"
 FT                   /inference="ab initio prediction:Prodigal:2.60"
 FT                   /locus_tag="8233_4#93_02202"
 FT                   /transl_table=11
@@ -1068,7 +1058,7 @@ FT                   /db_xref="PFAM:PF06260.6"
 FT                   /locus_tag="8233_4#93_02238"
 FT                   /transl_table=11
 FT   CDS             complement(109301..109465)
-FT                   /product="hypothetical protein"
+FT                   /product="Uncharacterised protein"
 FT                   /inference="ab initio prediction:Prodigal:2.60"
 FT                   /locus_tag="8233_4#93_02239"
 FT                   /transl_table=11
@@ -1183,22 +1173,22 @@ FT                   /db_xref="PFAM:PF05595.5"
 FT                   /locus_tag="8233_4#93_02253"
 FT                   /transl_table=11
 FT   CDS             117189..117563
-FT                   /product="hypothetical protein"
+FT                   /product="Uncharacterised protein"
 FT                   /inference="ab initio prediction:Prodigal:2.60"
 FT                   /locus_tag="8233_4#93_02254"
 FT                   /transl_table=11
 FT   CDS             complement(117568..117762)
-FT                   /product="hypothetical protein"
+FT                   /product="Uncharacterised protein"
 FT                   /inference="ab initio prediction:Prodigal:2.60"
 FT                   /locus_tag="8233_4#93_02255"
 FT                   /transl_table=11
 FT   CDS             117826..118041
-FT                   /product="hypothetical protein"
+FT                   /product="Uncharacterised protein"
 FT                   /inference="ab initio prediction:Prodigal:2.60"
 FT                   /locus_tag="8233_4#93_02256"
 FT                   /transl_table=11
 FT   CDS             complement(118019..118201)
-FT                   /product="hypothetical protein"
+FT                   /product="Uncharacterised protein"
 FT                   /inference="ab initio prediction:Prodigal:2.60"
 FT                   /locus_tag="8233_4#93_02257"
 FT                   /transl_table=11
@@ -1704,12 +1694,12 @@ FT                   /EC_number="4.3.1.19"
 FT                   /gene="ilvA_2"
 FT                   /transl_table=11
 FT   CDS             complement(170435..170851)
-FT                   /product="hypothetical protein"
+FT                   /product="Uncharacterised protein"
 FT                   /inference="ab initio prediction:Prodigal:2.60"
 FT                   /locus_tag="8233_4#93_02307"
 FT                   /transl_table=11
 FT   CDS             complement(171043..171240)
-FT                   /product="hypothetical protein"
+FT                   /product="Uncharacterised protein"
 FT                   /inference="ab initio prediction:Prodigal:2.60"
 FT                   /locus_tag="8233_4#93_02308"
 FT                   /transl_table=11
@@ -4656,28 +4646,18 @@ SQ   Sequence 175120 BP; 55731 A; 31266 C; 25419 G; 62704 T; 0 other;
 //
 ID   XXX; XXX; circular; genomic DNA; STD; PROK; 108420 BP.
 XX
-AC   * _My project1084202
+AC   XXX;
 XX
-PR   Project:My project
+AC * _ERS154949SCcontig000004
 XX
-DE   My description contig 2
+PR   Project:My project;
+XX
+DE   XXX;
 XX
 RN   [1]
-RA   John
-RT   "Some title"
+RA   John;
+RT   "Some title";
 RL   Some journal.
-XX
-RN   [2]
-RA   Jane
-RT   "My institute"
-RL   UK.
-XX
-RN   [3]
-RA   Torsten Seemann;
-RT   "Prokka: rapid prokaryotic genome annotation"
-RL    Bioinformatics. 2014 Jul 15;30(14):2068-9.;
-XX
-CC   Data release policy http://www.sanger.ac.uk/legal/#t_2
 XX
 FH   Key             Location/Qualifiers
 FH
@@ -4918,7 +4898,7 @@ FT                   /EC_number="5.3.1.8"
 FT                   /gene="gmuF"
 FT                   /transl_table=11
 FT   CDS             28639..28869
-FT                   /product="hypothetical protein"
+FT                   /product="Uncharacterised protein"
 FT                   /inference="ab initio prediction:Prodigal:2.60"
 FT                   /locus_tag="8233_4#93_02339"
 FT                   /transl_table=11
@@ -5537,12 +5517,12 @@ FT                   /locus_tag="8233_4#93_02394"
 FT                   /gene="csoR"
 FT                   /transl_table=11
 FT   CDS             80203..80412
-FT                   /product="hypothetical protein"
+FT                   /product="Uncharacterised protein"
 FT                   /inference="ab initio prediction:Prodigal:2.60"
 FT                   /locus_tag="8233_4#93_02395"
 FT                   /transl_table=11
 FT   CDS             80541..80678
-FT                   /product="hypothetical protein"
+FT                   /product="Uncharacterised protein"
 FT                   /inference="ab initio prediction:Prodigal:2.60"
 FT                   /locus_tag="8233_4#93_02396"
 FT                   /transl_table=11
@@ -7616,28 +7596,18 @@ SQ   Sequence 108420 BP; 39263 A; 15735 C; 20016 G; 33406 T; 0 other;
 //
 ID   XXX; XXX; circular; genomic DNA; STD; PROK; 52142 BP.
 XX
-AC   * _My project521423
+AC   XXX;
 XX
-PR   Project:My project
+AC * _ERS154949SCcontig000005
 XX
-DE   My description contig 3
+PR   Project:My project;
+XX
+DE   XXX;
 XX
 RN   [1]
-RA   John
-RT   "Some title"
+RA   John;
+RT   "Some title";
 RL   Some journal.
-XX
-RN   [2]
-RA   Jane
-RT   "My institute"
-RL   UK.
-XX
-RN   [3]
-RA   Torsten Seemann;
-RT   "Prokka: rapid prokaryotic genome annotation"
-RL    Bioinformatics. 2014 Jul 15;30(14):2068-9.;
-XX
-CC   Data release policy http://www.sanger.ac.uk/legal/#t_2
 XX
 FH   Key             Location/Qualifiers
 FH
@@ -8131,7 +8101,7 @@ FT                   /db_xref="PFAM:PF08861.4"
 FT                   /locus_tag="8233_4#93_02487"
 FT                   /transl_table=11
 FT   CDS             complement(36253..36708)
-FT                   /product="hypothetical protein"
+FT                   /product="Uncharacterised protein"
 FT                   /inference="ab initio prediction:Prodigal:2.60"
 FT                   /locus_tag="8233_4#93_02488"
 FT                   /transl_table=11
@@ -9130,28 +9100,18 @@ SQ   Sequence 52142 BP; 18748 A; 7364 C; 8937 G; 17093 T; 0 other;
 //
 ID   XXX; XXX; circular; genomic DNA; STD; PROK; 51716 BP.
 XX
-AC   * _My project517164
+AC   XXX;
 XX
-PR   Project:My project
+AC * _ERS154949SCcontig000006
 XX
-DE   My description contig 4
+PR   Project:My project;
+XX
+DE   XXX;
 XX
 RN   [1]
-RA   John
-RT   "Some title"
+RA   John;
+RT   "Some title";
 RL   Some journal.
-XX
-RN   [2]
-RA   Jane
-RT   "My institute"
-RL   UK.
-XX
-RN   [3]
-RA   Torsten Seemann;
-RT   "Prokka: rapid prokaryotic genome annotation"
-RL    Bioinformatics. 2014 Jul 15;30(14):2068-9.;
-XX
-CC   Data release policy http://www.sanger.ac.uk/legal/#t_2
 XX
 FH   Key             Location/Qualifiers
 FH
@@ -9321,7 +9281,7 @@ FT                   /db_xref="PFAM:PF00293.1"
 FT                   /locus_tag="8233_4#93_02518"
 FT                   /transl_table=11
 FT   CDS             19713..19982
-FT                   /product="hypothetical protein"
+FT                   /product="Uncharacterised protein"
 FT                   /inference="ab initio prediction:Prodigal:2.60"
 FT                   /locus_tag="8233_4#93_02519"
 FT                   /transl_table=11
@@ -9481,17 +9441,17 @@ FT                   /locus_tag="8233_4#93_02533"
 FT                   /gene="yjiA_3"
 FT                   /transl_table=11
 FT   CDS             38676..38870
-FT                   /product="hypothetical protein"
+FT                   /product="Uncharacterised protein"
 FT                   /inference="ab initio prediction:Prodigal:2.60"
 FT                   /locus_tag="8233_4#93_02534"
 FT                   /transl_table=11
 FT   CDS             complement(39163..39459)
-FT                   /product="hypothetical protein"
+FT                   /product="Uncharacterised protein"
 FT                   /inference="ab initio prediction:Prodigal:2.60"
 FT                   /locus_tag="8233_4#93_02535"
 FT                   /transl_table=11
 FT   CDS             complement(39478..39801)
-FT                   /product="hypothetical protein"
+FT                   /product="Uncharacterised protein"
 FT                   /inference="ab initio prediction:Prodigal:2.60"
 FT                   /locus_tag="8233_4#93_02536"
 FT                   /transl_table=11
@@ -9569,7 +9529,7 @@ FT                   /locus_tag="8233_4#93_02544"
 FT                   /gene="lpl2"
 FT                   /transl_table=11
 FT   CDS             47448..47756
-FT                   /product="hypothetical protein"
+FT                   /product="Uncharacterised protein"
 FT                   /inference="ab initio prediction:Prodigal:2.60"
 FT                   /locus_tag="8233_4#93_02545"
 FT                   /transl_table=11
@@ -10463,28 +10423,18 @@ SQ   Sequence 51716 BP; 16183 A; 10270 C; 6898 G; 18365 T; 0 other;
 //
 ID   XXX; XXX; circular; genomic DNA; STD; PROK; 39433 BP.
 XX
-AC   * _My project394335
+AC   XXX;
 XX
-PR   Project:My project
+AC * _ERS154949SCcontig000007
 XX
-DE   My description contig 5
+PR   Project:My project;
+XX
+DE   XXX;
 XX
 RN   [1]
-RA   John
-RT   "Some title"
+RA   John;
+RT   "Some title";
 RL   Some journal.
-XX
-RN   [2]
-RA   Jane
-RT   "My institute"
-RL   UK.
-XX
-RN   [3]
-RA   Torsten Seemann;
-RT   "Prokka: rapid prokaryotic genome annotation"
-RL    Bioinformatics. 2014 Jul 15;30(14):2068-9.;
-XX
-CC   Data release policy http://www.sanger.ac.uk/legal/#t_2
 XX
 FH   Key             Location/Qualifiers
 FH
@@ -11642,28 +11592,18 @@ SQ   Sequence 39433 BP; 14273 A; 5313 C; 7870 G; 11977 T; 0 other;
 //
 ID   XXX; XXX; circular; genomic DNA; STD; PROK; 21936 BP.
 XX
-AC   * _My project219366
+AC   XXX;
 XX
-PR   Project:My project
+AC * _ERS154949SCcontig000008
 XX
-DE   My description contig 6
+PR   Project:My project;
+XX
+DE   XXX;
 XX
 RN   [1]
-RA   John
-RT   "Some title"
+RA   John;
+RT   "Some title";
 RL   Some journal.
-XX
-RN   [2]
-RA   Jane
-RT   "My institute"
-RL   UK.
-XX
-RN   [3]
-RA   Torsten Seemann;
-RT   "Prokka: rapid prokaryotic genome annotation"
-RL    Bioinformatics. 2014 Jul 15;30(14):2068-9.;
-XX
-CC   Data release policy http://www.sanger.ac.uk/legal/#t_2
 XX
 FH   Key             Location/Qualifiers
 FH
@@ -11673,12 +11613,12 @@ FT                   /mol_type="genomic DNA"
 FT                   /db_xref="taxon:1234"
 FT                   /note="ERS154949|SC|contig000008"
 FT   CDS             complement(1171..1659)
-FT                   /product="hypothetical protein"
+FT                   /product="Uncharacterised protein"
 FT                   /inference="ab initio prediction:Prodigal:2.60"
 FT                   /locus_tag="8233_4#93_02596"
 FT                   /transl_table=11
 FT   CDS             1739..2347
-FT                   /product="hypothetical protein"
+FT                   /product="Uncharacterised protein"
 FT                   /inference="ab initio prediction:Prodigal:2.60"
 FT                   /locus_tag="8233_4#93_02597"
 FT                   /transl_table=11
@@ -11799,7 +11739,7 @@ FT                   /locus_tag="8233_4#93_02610"
 FT                   /gene="immR_2"
 FT                   /transl_table=11
 FT   CDS             complement(14777..14872)
-FT                   /product="hypothetical protein"
+FT                   /product="Uncharacterised protein"
 FT                   /inference="ab initio prediction:Prodigal:2.60"
 FT                   /locus_tag="8233_4#93_02612"
 FT                   /transl_table=11
@@ -11827,7 +11767,7 @@ FT                   /db_xref="PFAM:PF01446.11"
 FT                   /locus_tag="8233_4#93_02615"
 FT                   /transl_table=11
 FT   CDS             17457..17603
-FT                   /product="hypothetical protein"
+FT                   /product="Uncharacterised protein"
 FT                   /inference="ab initio prediction:Prodigal:2.60"
 FT                   /locus_tag="8233_4#93_02616"
 FT                   /transl_table=11
@@ -11838,7 +11778,7 @@ FT                   /inference="similar to AA sequence:RefSeq:YP_002727816.1"
 FT                   /locus_tag="8233_4#93_02617"
 FT                   /transl_table=11
 FT   CDS             18727..18909
-FT                   /product="hypothetical protein"
+FT                   /product="Uncharacterised protein"
 FT                   /inference="ab initio prediction:Prodigal:2.60"
 FT                   /locus_tag="8233_4#93_02618"
 FT                   /transl_table=11
@@ -12256,28 +12196,18 @@ SQ   Sequence 21936 BP; 8100 A; 2662 C; 3389 G; 7784 T; 1 other;
 //
 ID   XXX; XXX; circular; genomic DNA; STD; PROK; 4804 BP.
 XX
-AC   * _My project48047
+AC   XXX;
 XX
-PR   Project:My project
+AC * _ERS154949SCcontig000009
 XX
-DE   My description contig 7
+PR   Project:My project;
+XX
+DE   XXX;
 XX
 RN   [1]
-RA   John
-RT   "Some title"
+RA   John;
+RT   "Some title";
 RL   Some journal.
-XX
-RN   [2]
-RA   Jane
-RT   "My institute"
-RL   UK.
-XX
-RN   [3]
-RA   Torsten Seemann;
-RT   "Prokka: rapid prokaryotic genome annotation"
-RL    Bioinformatics. 2014 Jul 15;30(14):2068-9.;
-XX
-CC   Data release policy http://www.sanger.ac.uk/legal/#t_2
 XX
 FH   Key             Location/Qualifiers
 FH
@@ -12296,7 +12226,7 @@ FT                   /locus_tag="8233_4#93_02625"
 FT                   /gene="wbdJ_1"
 FT                   /transl_table=11
 FT   CDS             2341..2523
-FT                   /product="hypothetical protein"
+FT                   /product="Uncharacterised protein"
 FT                   /inference="ab initio prediction:Prodigal:2.60"
 FT                   /locus_tag="8233_4#93_02626"
 FT                   /transl_table=11
@@ -12420,28 +12350,18 @@ SQ   Sequence 4804 BP; 1694 A; 684 C; 780 G; 1645 T; 1 other;
 //
 ID   XXX; XXX; circular; genomic DNA; STD; PROK; 969 BP.
 XX
-AC   * _My project9698
+AC   XXX;
 XX
-PR   Project:My project
+AC * _ERS154949SCcontig000010
 XX
-DE   My description contig 8
+PR   Project:My project;
+XX
+DE   XXX;
 XX
 RN   [1]
-RA   John
-RT   "Some title"
+RA   John;
+RT   "Some title";
 RL   Some journal.
-XX
-RN   [2]
-RA   Jane
-RT   "My institute"
-RL   UK.
-XX
-RN   [3]
-RA   Torsten Seemann;
-RT   "Prokka: rapid prokaryotic genome annotation"
-RL    Bioinformatics. 2014 Jul 15;30(14):2068-9.;
-XX
-CC   Data release policy http://www.sanger.ac.uk/legal/#t_2
 XX
 FH   Key             Location/Qualifiers
 FH
@@ -12451,7 +12371,7 @@ FT                   /mol_type="genomic DNA"
 FT                   /db_xref="taxon:1234"
 FT                   /note="ERS154949|SC|contig000010"
 FT   CDS             complement(118..294)
-FT                   /product="hypothetical protein"
+FT                   /product="Uncharacterised protein"
 FT                   /inference="ab initio prediction:Prodigal:2.60"
 FT                   /locus_tag="8233_4#93_02632"
 FT                   /transl_table=11
@@ -12483,28 +12403,18 @@ SQ   Sequence 969 BP; 336 A; 157 C; 116 G; 360 T; 0 other;
 //
 ID   XXX; XXX; circular; genomic DNA; STD; PROK; 656 BP.
 XX
-AC   * _My project6569
+AC   XXX;
 XX
-PR   Project:My project
+AC * _ERS154949SCcontig000011
 XX
-DE   My description contig 9
+PR   Project:My project;
+XX
+DE   XXX;
 XX
 RN   [1]
-RA   John
-RT   "Some title"
+RA   John;
+RT   "Some title";
 RL   Some journal.
-XX
-RN   [2]
-RA   Jane
-RT   "My institute"
-RL   UK.
-XX
-RN   [3]
-RA   Torsten Seemann;
-RT   "Prokka: rapid prokaryotic genome annotation"
-RL    Bioinformatics. 2014 Jul 15;30(14):2068-9.;
-XX
-CC   Data release policy http://www.sanger.ac.uk/legal/#t_2
 XX
 FH   Key             Location/Qualifiers
 FH
@@ -12533,28 +12443,18 @@ SQ   Sequence 656 BP; 184 A; 154 C; 100 G; 218 T; 0 other;
 //
 ID   XXX; XXX; circular; genomic DNA; STD; PROK; 465 BP.
 XX
-AC   * _My project46510
+AC   XXX;
 XX
-PR   Project:My project
+AC * _ERS154949SCcontig000012
 XX
-DE   My description contig 10
+PR   Project:My project;
+XX
+DE   XXX;
 XX
 RN   [1]
-RA   John
-RT   "Some title"
+RA   John;
+RT   "Some title";
 RL   Some journal.
-XX
-RN   [2]
-RA   Jane
-RT   "My institute"
-RL   UK.
-XX
-RN   [3]
-RA   Torsten Seemann;
-RT   "Prokka: rapid prokaryotic genome annotation"
-RL    Bioinformatics. 2014 Jul 15;30(14):2068-9.;
-XX
-CC   Data release policy http://www.sanger.ac.uk/legal/#t_2
 XX
 FH   Key             Location/Qualifiers
 FH
