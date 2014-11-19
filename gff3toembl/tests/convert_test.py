@@ -15,18 +15,18 @@ class TestConvert(unittest.TestCase):
         expected_header = """\
 ID   XXX; XXX; %s; genomic DNA; STD; %s; %d BP.
 XX
+AC   XXX;
+XX
 AC * _%s
 XX
-PR   Project:%s
+PR   Project:%s;
 XX
-DE   %s contig %d
+DE   XXX;
 XX
 RN   [1]
-RA   %s
-RT   "%s"
+RA   %s;
+RT   "%s";
 RL   %s.
-XX
-CC   Data release policy http://www.sanger.ac.uk/legal/#t_2
 XX
 FH   Key             Location/Qualifiers
 FH
@@ -53,18 +53,18 @@ FH
         expected_populated_header = """\
 ID   XXX; XXX; circular; genomic DNA; STD; UNC; 1234 BP.
 XX
+AC   XXX;
+XX
 AC * _contig123
 XX
-PR   Project:PRJ1234
+PR   Project:PRJ1234;
 XX
-DE   One line description contig 1
+DE   XXX;
 XX
 RN   [1]
-RA   John Doe
-RT   "My title"
+RA   John Doe;
+RT   "My title";
 RL   Unpublished.
-XX
-CC   Data release policy http://www.sanger.ac.uk/legal/#t_2
 XX
 FH   Key             Location/Qualifiers
 FH
