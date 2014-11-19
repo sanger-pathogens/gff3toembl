@@ -137,9 +137,10 @@ FT                   /note="%s"
       split_attribute_values = attribute_value.split( ',')
       
       for split_attribute_value in split_attribute_values:
+        split_attribute_value.replace("nknown","ncharacterised")
         if split_attribute_value != 'hypothetical protein':
           return split_attribute_value
-        
+      
       return 'Uncharacterised protein'
     
     def construct_feature_attribute(self,attribute_key = None, attribute_value = None):

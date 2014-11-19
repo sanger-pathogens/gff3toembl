@@ -159,6 +159,12 @@ FT                   /product="hij"
       assert converter.construct_feature_attribute(attribute_key = 'product', attribute_value = 'hypothetical protein') == """\
 FT                   /product="Uncharacterised protein"
 """
+      assert converter.construct_feature_attribute(attribute_key = 'product', attribute_value = 'hypothetical protein,Unknown protein abc') == """\
+FT                   /product="Uncharacterised protein abc"
+"""
+      assert converter.construct_feature_attribute(attribute_key = 'product', attribute_value = 'hypothetical protein,unknown protein abc') == """\
+FT                   /product="uncharacterised protein abc"
+"""
 
     def test_create_db_xref_from_inference(self):
       converter = convert.Convert()
