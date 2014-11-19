@@ -21,7 +21,7 @@ if __name__ == "__main__":
     # Optional
     parser.add_argument('--authors',            '-i', help='Authors', default = 'Pathogen Genomics')
     parser.add_argument('--title',              '-m', help='Title of paper',default = 'Draft assembly annotated with Prokka')
-    parser.add_argument('--publication',        '-p', help='Publication', default = 'Wellcome Trust Sanger Institute')
+    parser.add_argument('--publication',        '-p', help='Publication', default = 'Submitted (01-Jan-1900) to the INSDC.')
     parser.add_argument('--genome_type',        '-g', help='Genome type (linear/circular)', default = 'circular')
     parser.add_argument('--classification',     '-c', help='Classification (PROK/UNC/..)',  default = 'PROK')
     parser.add_argument('--output_filename',    '-f', help='Output filename',     default = 'output.embl')
