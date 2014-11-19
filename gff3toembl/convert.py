@@ -137,9 +137,9 @@ FT                   /note="%s"
       split_attribute_values = attribute_value.split( ',')
       
       for split_attribute_value in split_attribute_values:
-        split_attribute_value.replace("nknown","ncharacterised")
-        if split_attribute_value != 'hypothetical protein':
-          return split_attribute_value
+        split_attribute_value_unknown = split_attribute_value.replace("nknown","ncharacterised")
+        if split_attribute_value_unknown != 'hypothetical protein':
+          return split_attribute_value_unknown
       
       return 'Uncharacterised protein'
     

@@ -5008,7 +5008,7 @@ FT                   /db_xref="CDD:COG3919"
 FT                   /locus_tag="8233_4#93_02349"
 FT                   /transl_table=11
 FT   CDS             39780..40451
-FT                   /product="Protein of unknown function (DUF2750)"
+FT                   /product="Protein of uncharacterised function (DUF2750)"
 FT                   /inference="ab initio prediction:Prodigal:2.60"
 FT                   /db_xref="PFAM:PF11042.2"
 FT                   /locus_tag="8233_4#93_02350"
@@ -5062,7 +5062,7 @@ FT                   /EC_number="6.3.4.2"
 FT                   /gene="ctrA"
 FT                   /transl_table=11
 FT   CDS             complement(45439..45960)
-FT                   /product="Protein of unknown function (DUF2529)"
+FT                   /product="Protein of uncharacterised function (DUF2529)"
 FT                   /inference="ab initio prediction:Prodigal:2.60"
 FT                   /db_xref="PFAM:PF10740.3"
 FT                   /locus_tag="8233_4#93_02355"
