@@ -8,6 +8,7 @@ class Convert(object):
     feature_attributes_to_ignore = {'ID': 1, 'protein_id': 1}
     feature_attributes_translations = {'eC_number': 'EC_number'}
     feature_attributes_to_split_on_multiple_lines = {'inference': 1, 'EC_number': 1}
+    feature_attributes_regex_to_change_feature_name = {'16S ribosomal RNA': 'rRNA'}
     
     feature_attributes_inference_to_dbxref = {'similar to AA sequence:UniProtKB': 'UniProtKB/Swiss-Prot', 'protein motif:Pfam': 'PFAM', 'protein motif:CLUSTERS': "CDD", 'protein motif:Cdd': "CDD", 'protein motif:TIGRFAMs': "TIGRFAM"}
     
@@ -118,6 +119,10 @@ FT                   /note="%s"
       feature = ''
       if feature_type in self.features_to_ignore:
         return feature
+        
+      for feature_attribute_regex in feature_attributes_regex_to_change_feature_name.keys()
+        if re.search(feature_attribute_regex, feature_attributes[attribute_key]):
+          feature_type = feature_attributes_regex_to_change_feature_name[feature_attribute_regex]
         
       feature += self.feature_header( feature_type ,start, end, strand )
       for attribute_key in feature_attributes.keys():
