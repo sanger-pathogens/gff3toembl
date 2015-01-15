@@ -111,8 +111,8 @@ class TestEMBLWriter(unittest.TestCase):
           'circular', 
           'PROK', 
           '16s.embl', None, 11, None )
-       emblwriter.parse_and_run()
-       assert filecmp.cmp(os.path.join(data_dir, 'expected_16s.embl'), '16s.embl', shallow=False)
-       os.remove('16s.embl')
+      emblwriter.parse_and_run()
+      assert filecmp.cmp(os.path.join(data_dir, 'expected_16s.embl'), '16s.embl', shallow=False)
+      os.remove('16s.embl')
 
 

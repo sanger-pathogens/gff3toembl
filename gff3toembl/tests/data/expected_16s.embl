@@ -4,23 +4,23 @@ AC   XXX;
 XX
 AC * _ERS012345SCcontig000001
 XX
-PR   Project:ERP456;
+PR   Project:ABC;
 XX
 DE   XXX;
 XX
 RN   [1]
-RA   Pathogen Genomics;
-RT   "Draft assembly annotated with Prokka";
-RL   Submitted (01-Jan-1900) to the INSDC.
+RA   John;
+RT   "Some title";
+RL   Some journal.
 XX
 FH   Key             Location/Qualifiers
 FH
 FT   source          1..180
-FT                   /organism="abc"
+FT                   /organism="Organism"
 FT                   /mol_type="genomic DNA"
 FT                   /db_xref="taxon:1234"
 FT                   /note="ERS012345|SC|contig000001"
-FT   rRNA            complement(1..10)
+FT   CDS             complement(1..10)
 FT                   /product="16S rRNA methyltransferase GidB"
 FT                   /inference="ab initio prediction:Prodigal:2.60"
 FT                   /inference="similar to AA sequence:RefSeq:YP_001835965.1"
@@ -32,7 +32,7 @@ FT                   /locus_tag="6714_8#3_00016"
 FT                   /EC_number="2.1.1.-"
 FT                   /gene="gidB"
 FT                   /transl_table=11
-FT   rRNA            20..30
+FT   CDS             20..30
 FT                   /product="tetrapyrrole methylase"
 FT                   /inference="ab initio prediction:Prodigal:2.60"
 FT                   /inference="similar to AA sequence:RefSeq:YP_004326221.1"
@@ -44,7 +44,7 @@ FT                   /locus_tag="6714_8#3_00338"
 FT                   /EC_number="2.1.1.198"
 FT                   /gene="rsmI"
 FT                   /transl_table=11
-FT   rRNA            complement(30..40)
+FT   CDS             complement(30..40)
 FT                   /product="S-adenosyl-methyltransferase mraW"
 FT                   /inference="ab initio prediction:Prodigal:2.60"
 FT                   /inference="similar to AA sequence:RefSeq:YP_003446868.1"
@@ -56,7 +56,7 @@ FT                   /locus_tag="6714_8#3_00653"
 FT                   /EC_number="2.1.1.199"
 FT                   /gene="mraW"
 FT                   /transl_table=11
-FT   rRNA            40..50
+FT   CDS             40..50
 FT                   /product="dimethyladenosine transferase"
 FT                   /inference="ab initio prediction:Prodigal:2.60"
 FT                   /inference="similar to AA sequence:RefSeq:YP_003445435.1"
@@ -70,7 +70,7 @@ FT                   /EC_number="2.1.1.182"
 FT                   /EC_number="2.1.1.-"
 FT                   /gene="ksgA"
 FT                   /transl_table=11
-FT   rRNA            50..60
+FT   CDS             50..60
 FT                   /product="methyltransferase"
 FT                   /inference="ab initio prediction:Prodigal:2.60"
 FT                   /inference="similar to AA sequence:RefSeq:YP_003445454.1"
@@ -83,7 +83,7 @@ FT                   /locus_tag="6714_8#3_00794"
 FT                   /EC_number="2.1.1.171"
 FT                   /gene="rsmD"
 FT                   /transl_table=11
-FT   rRNA            60..70
+FT   CDS             60..70
 FT                   /product="16S_rRNA processing protein RimM"
 FT                   /inference="ab initio prediction:Prodigal:2.60"
 FT                   /inference="similar to AA sequence:RefSeq:YP_003445945.1"
@@ -94,7 +94,7 @@ FT                   /db_xref="PFAM:PF01782.12"
 FT                   /locus_tag="6714_8#3_00948"
 FT                   /gene="rimM"
 FT                   /transl_table=11
-FT   rRNA            complement(70..80)
+FT   CDS             complement(70..80)
 FT                   /product="ribosomal small subunit pseudouridine synthase
 FT                   A"
 FT                   /inference="ab initio prediction:Prodigal:2.60"
@@ -120,7 +120,7 @@ FT                   /locus_tag="6714_8#3_01232"
 FT                   /EC_number="2.1.1.193"
 FT                   /gene="rsmE"
 FT                   /transl_table=11
-FT   rRNA            complement(90..100)
+FT   CDS             complement(90..100)
 FT                   /product="rRNA-specific 5-methylcytidine transferase"
 FT                   /inference="ab initio prediction:Prodigal:2.60"
 FT                   /inference="similar to AA sequence:RefSeq:YP_003446726.1"
@@ -134,7 +134,7 @@ FT                   /EC_number="2.1.1.-"
 FT                   /EC_number="2.1.1.176"
 FT                   /gene="rsmB"
 FT                   /transl_table=11
-FT   rRNA            100..110
+FT   CDS             100..110
 FT                   /product="rRNA methylase"
 FT                   /inference="ab initio prediction:Prodigal:2.60"
 FT                   /inference="similar to AA sequence:RefSeq:YP_004325860.1"
@@ -145,7 +145,7 @@ FT                   /locus_tag="6714_8#3_01431"
 FT                   /EC_number="2.1.1.226"
 FT                   /gene="tlyA"
 FT                   /transl_table=11
-FT   rRNA            110..120
+FT   CDS             110..120
 FT                   /product="ribosomal small subunit pseudouridine synthase
 FT                   A"
 FT                   /inference="ab initio prediction:Prodigal:2.60"
@@ -158,7 +158,7 @@ FT                   /locus_tag="6714_8#3_01638"
 FT                   /EC_number="5.4.99.19"
 FT                   /gene="rsuA"
 FT                   /transl_table=11
-FT   rRNA            120..130
+FT   CDS             120..130
 FT                   /product="16S RNA G1207 methylase RsmC"
 FT                   /inference="ab initio prediction:Prodigal:2.60"
 FT                   /inference="similar to AA sequence:RefSeq:YP_003876403.1"
