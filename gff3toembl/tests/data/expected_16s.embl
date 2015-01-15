@@ -1,0 +1,183 @@
+ID   XXX; XXX; circular; genomic DNA; STD; PROK; 180 BP.
+XX
+AC   XXX;
+XX
+AC * _ERS012345SCcontig000001
+XX
+PR   Project:ABC;
+XX
+DE   XXX;
+XX
+RN   [1]
+RA   John;
+RT   "Some title";
+RL   Some journal.
+XX
+FH   Key             Location/Qualifiers
+FH
+FT   source          1..180
+FT                   /organism="Organism"
+FT                   /mol_type="genomic DNA"
+FT                   /db_xref="taxon:1234"
+FT                   /note="ERS012345|SC|contig000001"
+FT   CDS             complement(1..10)
+FT                   /product="16S rRNA methyltransferase GidB"
+FT                   /inference="ab initio prediction:Prodigal:2.60"
+FT                   /inference="similar to AA sequence:RefSeq:YP_001835965.1"
+FT                   /db_xref="UniProtKB/Swiss-Prot:P64239"
+FT                   /db_xref="CDD:PRK00107"
+FT                   /db_xref="TIGRFAM:TIGR00138"
+FT                   /db_xref="PFAM:PF02527.9"
+FT                   /locus_tag="6714_8#3_00016"
+FT                   /EC_number="2.1.1.-"
+FT                   /gene="gidB"
+FT                   /transl_table=11
+FT   CDS             20..30
+FT                   /product="tetrapyrrole methylase"
+FT                   /inference="ab initio prediction:Prodigal:2.60"
+FT                   /inference="similar to AA sequence:RefSeq:YP_004326221.1"
+FT                   /db_xref="UniProtKB/Swiss-Prot:P67087"
+FT                   /db_xref="CDD:PRK14994"
+FT                   /db_xref="TIGRFAM:TIGR00096"
+FT                   /db_xref="PFAM:PF00590.14"
+FT                   /locus_tag="6714_8#3_00338"
+FT                   /EC_number="2.1.1.198"
+FT                   /gene="rsmI"
+FT                   /transl_table=11
+FT   CDS             complement(30..40)
+FT                   /product="S-adenosyl-methyltransferase mraW"
+FT                   /inference="ab initio prediction:Prodigal:2.60"
+FT                   /inference="similar to AA sequence:RefSeq:YP_003446868.1"
+FT                   /db_xref="UniProtKB/Swiss-Prot:P60392"
+FT                   /db_xref="CDD:PRK00050"
+FT                   /db_xref="TIGRFAM:TIGR00006"
+FT                   /db_xref="PFAM:PF01795.13"
+FT                   /locus_tag="6714_8#3_00653"
+FT                   /EC_number="2.1.1.199"
+FT                   /gene="mraW"
+FT                   /transl_table=11
+FT   CDS             40..50
+FT                   /product="dimethyladenosine transferase"
+FT                   /inference="ab initio prediction:Prodigal:2.60"
+FT                   /inference="similar to AA sequence:RefSeq:YP_003445435.1"
+FT                   /db_xref="UniProtKB/Swiss-Prot:P66662"
+FT                   /db_xref="CDD:PRK00274"
+FT                   /db_xref="CDD:COG0030"
+FT                   /db_xref="TIGRFAM:TIGR00755"
+FT                   /db_xref="PFAM:PF00398.14"
+FT                   /locus_tag="6714_8#3_00780"
+FT                   /EC_number="2.1.1.182"
+FT                   /EC_number="2.1.1.-"
+FT                   /gene="ksgA"
+FT                   /transl_table=11
+FT   CDS             50..60
+FT                   /product="methyltransferase"
+FT                   /inference="ab initio prediction:Prodigal:2.60"
+FT                   /inference="similar to AA sequence:RefSeq:YP_003445454.1"
+FT                   /db_xref="UniProtKB/Swiss-Prot:P44869"
+FT                   /db_xref="CDD:PRK10909"
+FT                   /db_xref="CDD:COG4123"
+FT                   /db_xref="TIGRFAM:TIGR00095"
+FT                   /db_xref="PFAM:PF03602.9"
+FT                   /locus_tag="6714_8#3_00794"
+FT                   /EC_number="2.1.1.171"
+FT                   /gene="rsmD"
+FT                   /transl_table=11
+FT   CDS             60..70
+FT                   /product="16S_rRNA processing protein RimM"
+FT                   /inference="ab initio prediction:Prodigal:2.60"
+FT                   /inference="similar to AA sequence:RefSeq:YP_003445945.1"
+FT                   /db_xref="UniProtKB/Swiss-Prot:P66656"
+FT                   /db_xref="CDD:PRK00122"
+FT                   /db_xref="TIGRFAM:TIGR02273"
+FT                   /db_xref="PFAM:PF01782.12"
+FT                   /locus_tag="6714_8#3_00948"
+FT                   /gene="rimM"
+FT                   /transl_table=11
+FT   CDS             complement(70..80)
+FT                   /product="ribosomal small subunit pseudouridine synthase
+FT                   A"
+FT                   /inference="ab initio prediction:Prodigal:2.60"
+FT                   /inference="similar to AA sequence:RefSeq:YP_003445407.1"
+FT                   /db_xref="UniProtKB/Swiss-Prot:P0AA43"
+FT                   /db_xref="CDD:PRK10839"
+FT                   /db_xref="TIGRFAM:TIGR00093"
+FT                   /db_xref="PFAM:PF00849.16"
+FT                   /locus_tag="6714_8#3_01131"
+FT                   /EC_number="4.2.1.70"
+FT                   /EC_number="5.4.99.19"
+FT                   /gene="rsuA1"
+FT                   /transl_table=11
+FT   rRNA            complement(80..90)
+FT                   /product="16S ribosomal RNA methyltransferase RsmE"
+FT                   /inference="ab initio prediction:Prodigal:2.60"
+FT                   /inference="similar to AA sequence:RefSeq:YP_001836476.1"
+FT                   /db_xref="UniProtKB/Swiss-Prot:P54461"
+FT                   /db_xref="CDD:PRK11713"
+FT                   /db_xref="TIGRFAM:TIGR00046"
+FT                   /db_xref="PFAM:PF04452.8"
+FT                   /locus_tag="6714_8#3_01232"
+FT                   /EC_number="2.1.1.193"
+FT                   /gene="rsmE"
+FT                   /transl_table=11
+FT   CDS             complement(90..100)
+FT                   /product="rRNA-specific 5-methylcytidine transferase"
+FT                   /inference="ab initio prediction:Prodigal:2.60"
+FT                   /inference="similar to AA sequence:RefSeq:YP_003446726.1"
+FT                   /db_xref="UniProtKB/Swiss-Prot:P36929"
+FT                   /db_xref="CDD:PRK14902"
+FT                   /db_xref="CDD:COG0144"
+FT                   /db_xref="TIGRFAM:TIGR00563"
+FT                   /db_xref="PFAM:PF01189.11"
+FT                   /locus_tag="6714_8#3_01290"
+FT                   /EC_number="2.1.1.-"
+FT                   /EC_number="2.1.1.176"
+FT                   /gene="rsmB"
+FT                   /transl_table=11
+FT   CDS             100..110
+FT                   /product="rRNA methylase"
+FT                   /inference="ab initio prediction:Prodigal:2.60"
+FT                   /inference="similar to AA sequence:RefSeq:YP_004325860.1"
+FT                   /db_xref="UniProtKB/Swiss-Prot:Q50760"
+FT                   /db_xref="TIGRFAM:TIGR00478"
+FT                   /db_xref="PFAM:PF01728.13"
+FT                   /locus_tag="6714_8#3_01431"
+FT                   /EC_number="2.1.1.226"
+FT                   /gene="tlyA"
+FT                   /transl_table=11
+FT   CDS             110..120
+FT                   /product="ribosomal small subunit pseudouridine synthase
+FT                   A"
+FT                   /inference="ab initio prediction:Prodigal:2.60"
+FT                   /inference="similar to AA sequence:RefSeq:YP_003878907.1"
+FT                   /db_xref="UniProtKB/Swiss-Prot:P45124"
+FT                   /db_xref="CDD:PRK10839"
+FT                   /db_xref="TIGRFAM:TIGR00093"
+FT                   /db_xref="PFAM:PF00849.16"
+FT                   /locus_tag="6714_8#3_01638"
+FT                   /EC_number="5.4.99.19"
+FT                   /gene="rsuA"
+FT                   /transl_table=11
+FT   CDS             120..130
+FT                   /product="16S RNA G1207 methylase RsmC"
+FT                   /inference="ab initio prediction:Prodigal:2.60"
+FT                   /inference="similar to AA sequence:RefSeq:YP_003876403.1"
+FT                   /db_xref="UniProtKB/Swiss-Prot:P39406"
+FT                   /db_xref="CDD:PRK09489"
+FT                   /db_xref="CDD:COG2813"
+FT                   /db_xref="TIGRFAM:TIGR03534"
+FT                   /db_xref="PFAM:PF05175.8"
+FT                   /locus_tag="6714_8#3_01853"
+FT                   /EC_number="2.1.1.172"
+FT                   /gene="rsmC"
+FT                   /transl_table=11
+FT   rRNA            complement(130..140)
+FT                   /product="16S ribosomal RNA"
+FT                   /inference="COORDINATES:profile:RNAmmer:1.2"
+FT                   /locus_tag="6714_8#3_02005"
+FT                   /transl_table=11
+SQ   Sequence 180 BP; 62 A; 29 C; 44 G; 45 T; 0 other;
+     tcatgaatca acttcaagat gtcatacaag gactggagaa ggaggtgata aagtccatcg        60
+     ttaatcggag atggactaga atgctttgtg aaagcagatg agtataagtc ctcgttttga       120
+     aaccttagag caggccattg cctccaaaga tttggaaaaa gtccgagaag cttttaagaa       180
+//

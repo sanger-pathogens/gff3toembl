@@ -97,5 +97,22 @@ class TestEMBLWriter(unittest.TestCase):
        assert filecmp.cmp(os.path.join(data_dir, 'expected_chromosome_list.txt'), 'chromosome_list.txt', shallow=False)
        os.remove('chromosome_list.embl')
        os.remove('chromosome_list.txt')
+       
+    def test_renaming_16s_features(self):
+      '''test renaming the feature type to rRNA if the product is 16S'''
+      emblwriter = EMBLWriter(os.path.join(data_dir,'input_16s.gff'), 
+          'Organism', 
+          1234, 
+          'ABC', 
+          'My description', 
+          'John', 
+          'Some title',  
+          'Some journal', 
+          'circular', 
+          'PROK', 
+          '16s.embl', None, 11, None )
+      emblwriter.parse_and_run()
+      assert filecmp.cmp(os.path.join(data_dir, 'expected_16s.embl'), '16s.embl', shallow=False)
+      os.remove('16s.embl')
 
 
