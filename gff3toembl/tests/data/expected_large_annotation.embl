@@ -24,7 +24,6 @@ FT   rRNA            complement(170..1709)
 FT                   /product="16S ribosomal RNA"
 FT                   /inference="COORDINATES:profile:RNAmmer:1.2"
 FT                   /locus_tag="8233_4#93_02127"
-FT                   /transl_table=11
 FT   CDS             complement(2718..3164)
 FT                   /product="Peroxide stress regulator PerR%2C FUR family"
 FT                   /inference="ab initio prediction:Prodigal:2.60"
@@ -1707,22 +1706,18 @@ FT   rRNA            complement(171464..171577)
 FT                   /product="5S ribosomal RNA"
 FT                   /inference="COORDINATES:profile:RNAmmer:1.2"
 FT                   /locus_tag="8233_4#93_02309"
-FT                   /transl_table=11
 FT   rRNA            complement(171652..174572)
 FT                   /product="23S ribosomal RNA"
 FT                   /inference="COORDINATES:profile:RNAmmer:1.2"
 FT                   /locus_tag="8233_4#93_02310"
-FT                   /transl_table=11
 FT   tRNA            complement(174789..174864)
 FT                   /product="tRNA-Ala(tgc)"
 FT                   /inference="COORDINATES:profile:Aragorn:1.2.34"
 FT                   /locus_tag="8233_4#93_02311"
-FT                   /transl_table=11
 FT   tRNA            complement(174883..174959)
 FT                   /product="tRNA-Ile(gat)"
 FT                   /inference="COORDINATES:profile:Aragorn:1.2.34"
 FT                   /locus_tag="8233_4#93_02312"
-FT                   /transl_table=11
 SQ   Sequence 175120 BP; 55731 A; 31266 C; 25419 G; 62704 T; 0 other;
      tctgacaatc gctttcttta aaaagaaact attgtcgaga atttgcatta gcaatatcac        60
      tttgtcaaaa agatgtttga atgttaaata aacattcaaa actgaataca atatgtcacg       120
@@ -4670,37 +4665,30 @@ FT   rRNA            2..108
 FT                   /product="5S ribosomal RNA"
 FT                   /inference="COORDINATES:profile:RNAmmer:1.2"
 FT                   /locus_tag="8233_4#93_02313"
-FT                   /transl_table=11
 FT   tRNA            118..192
 FT                   /product="tRNA-Asn(gtt)"
 FT                   /inference="COORDINATES:profile:Aragorn:1.2.34"
 FT                   /locus_tag="8233_4#93_02314"
-FT                   /transl_table=11
 FT   tRNA            193..266
 FT                   /product="tRNA-Glu(ttc)"
 FT                   /inference="COORDINATES:profile:Aragorn:1.2.34"
 FT                   /locus_tag="8233_4#93_02315"
-FT                   /transl_table=11
 FT   tRNA            273..348
 FT                   /product="tRNA-Val(tac)"
 FT                   /inference="COORDINATES:profile:Aragorn:1.2.34"
 FT                   /locus_tag="8233_4#93_02316"
-FT                   /transl_table=11
 FT   tRNA            370..453
 FT                   /product="tRNA-Tyr(gta)"
 FT                   /inference="COORDINATES:profile:Aragorn:1.2.34"
 FT                   /locus_tag="8233_4#93_02317"
-FT                   /transl_table=11
 FT   tRNA            463..537
 FT                   /product="tRNA-Gln(ttg)"
 FT                   /inference="COORDINATES:profile:Aragorn:1.2.34"
 FT                   /locus_tag="8233_4#93_02318"
-FT                   /transl_table=11
 FT   tRNA            541..614
 FT                   /product="tRNA-Lys(ttt)"
 FT                   /inference="COORDINATES:profile:Aragorn:1.2.34"
 FT                   /locus_tag="8233_4#93_02319"
-FT                   /transl_table=11
 FT   CDS             737..1645
 FT                   /product="arginase"
 FT                   /inference="ab initio prediction:Prodigal:2.60"
@@ -5779,12 +5767,10 @@ FT   tRNA            108138..108220
 FT                   /product="tRNA-Leu(gag)"
 FT                   /inference="COORDINATES:profile:Aragorn:1.2.34"
 FT                   /locus_tag="8233_4#93_02420"
-FT                   /transl_table=11
 FT   tRNA            108243..108316
 FT                   /product="tRNA-Gly(tcc)"
 FT                   /inference="COORDINATES:profile:Aragorn:1.2.34"
 FT                   /locus_tag="8233_4#93_02421"
-FT                   /transl_table=11
 SQ   Sequence 108420 BP; 39263 A; 15735 C; 20016 G; 33406 T; 0 other;
      ctatagcaag gaggtcacac ctgttcccat gccgaacaca gaagttaagc tccttagcgt        60
      cgatggtagt tggacttacg ttccgctaga gtagaacgtt gccaggctat atattattcc       120
@@ -7620,142 +7606,114 @@ FT   rRNA            1..91
 FT                   /product="5S ribosomal RNA"
 FT                   /inference="COORDINATES:profile:RNAmmer:1.2"
 FT                   /locus_tag="8233_4#93_02422"
-FT                   /transl_table=11
 FT   tRNA            102..177
 FT                   /product="tRNA-Val(tac)"
 FT                   /inference="COORDINATES:profile:Aragorn:1.2.34"
 FT                   /locus_tag="8233_4#93_02423"
-FT                   /transl_table=11
 FT   tRNA            194..269
 FT                   /product="tRNA-Thr(tgt)"
 FT                   /inference="COORDINATES:profile:Aragorn:1.2.34"
 FT                   /locus_tag="8233_4#93_02424"
-FT                   /transl_table=11
 FT   tRNA            275..350
 FT                   /product="tRNA-Lys(ttt)"
 FT                   /inference="COORDINATES:profile:Aragorn:1.2.34"
 FT                   /locus_tag="8233_4#93_02425"
-FT                   /transl_table=11
 FT   tRNA            353..436
 FT                   /product="tRNA-Leu(tag)"
 FT                   /inference="COORDINATES:profile:Aragorn:1.2.34"
 FT                   /locus_tag="8233_4#93_02426"
-FT                   /transl_table=11
 FT   tRNA            439..513
 FT                   /product="tRNA-Gly(gcc)"
 FT                   /inference="COORDINATES:profile:Aragorn:1.2.34"
 FT                   /locus_tag="8233_4#93_02427"
-FT                   /transl_table=11
 FT   tRNA            525..613
 FT                   /product="tRNA-Leu(taa)"
 FT                   /inference="COORDINATES:profile:Aragorn:1.2.34"
 FT                   /locus_tag="8233_4#93_02428"
-FT                   /transl_table=11
 FT   tRNA            631..706
 FT                   /product="tRNA-Arg(acg)"
 FT                   /inference="COORDINATES:profile:Aragorn:1.2.34"
 FT                   /locus_tag="8233_4#93_02429"
-FT                   /transl_table=11
 FT   tRNA            715..788
 FT                   /product="tRNA-Pro(tgg)"
 FT                   /inference="COORDINATES:profile:Aragorn:1.2.34"
 FT                   /locus_tag="8233_4#93_02430"
-FT                   /transl_table=11
 FT   tRNA            806..881
 FT                   /product="tRNA-Ala(tgc)"
 FT                   /inference="COORDINATES:profile:Aragorn:1.2.34"
 FT                   /locus_tag="8233_4#93_02431"
-FT                   /transl_table=11
 FT   tRNA            902..976
 FT                   /product="tRNA-Met(cat)"
 FT                   /inference="COORDINATES:profile:Aragorn:1.2.34"
 FT                   /locus_tag="8233_4#93_02432"
-FT                   /transl_table=11
 FT   tRNA            1004..1077
 FT                   /product="tRNA-Met(cat)"
 FT                   /inference="COORDINATES:profile:Aragorn:1.2.34"
 FT                   /locus_tag="8233_4#93_02433"
-FT                   /transl_table=11
 FT   tRNA            1086..1177
 FT                   /product="tRNA-Ser(tga)"
 FT                   /inference="COORDINATES:profile:Aragorn:1.2.34"
 FT                   /locus_tag="8233_4#93_02434"
-FT                   /transl_table=11
 FT   tRNA            1187..1262
 FT                   /product="tRNA-Asp(gtc)"
 FT                   /inference="COORDINATES:profile:Aragorn:1.2.34"
 FT                   /locus_tag="8233_4#93_02435"
-FT                   /transl_table=11
 FT   tRNA            1301..1393
 FT                   /product="tRNA-Ser(tga)"
 FT                   /inference="COORDINATES:profile:Aragorn:1.2.34"
 FT                   /locus_tag="8233_4#93_02436"
-FT                   /transl_table=11
 FT   tRNA            1407..1482
 FT                   /product="tRNA-Met(cat)"
 FT                   /inference="COORDINATES:profile:Aragorn:1.2.34"
 FT                   /locus_tag="8233_4#93_02437"
-FT                   /transl_table=11
 FT   tRNA            1492..1567
 FT                   /product="tRNA-Asp(gtc)"
 FT                   /inference="COORDINATES:profile:Aragorn:1.2.34"
 FT                   /locus_tag="8233_4#93_02438"
-FT                   /transl_table=11
 FT   tRNA            1585..1659
 FT                   /product="tRNA-Phe(gaa)"
 FT                   /inference="COORDINATES:profile:Aragorn:1.2.34"
 FT                   /locus_tag="8233_4#93_02439"
-FT                   /transl_table=11
 FT   tRNA            1666..1741
 FT                   /product="tRNA-Thr(tgt)"
 FT                   /inference="COORDINATES:profile:Aragorn:1.2.34"
 FT                   /locus_tag="8233_4#93_02440"
-FT                   /transl_table=11
 FT   tRNA            1748..1830
 FT                   /product="tRNA-Tyr(gta)"
 FT                   /inference="COORDINATES:profile:Aragorn:1.2.34"
 FT                   /locus_tag="8233_4#93_02441"
-FT                   /transl_table=11
 FT   tRNA            1842..1915
 FT                   /product="tRNA-Trp(cca)"
 FT                   /inference="COORDINATES:profile:Aragorn:1.2.34"
 FT                   /locus_tag="8233_4#93_02442"
-FT                   /transl_table=11
 FT   tRNA            1918..1991
 FT                   /product="tRNA-His(gtg)"
 FT                   /inference="COORDINATES:profile:Aragorn:1.2.34"
 FT                   /locus_tag="8233_4#93_02443"
-FT                   /transl_table=11
 FT   tRNA            2002..2073
 FT                   /product="tRNA-Gln(ttg)"
 FT                   /inference="COORDINATES:profile:Aragorn:1.2.34"
 FT                   /locus_tag="8233_4#93_02444"
-FT                   /transl_table=11
 FT   tRNA            2079..2152
 FT                   /product="tRNA-Cys(gca)"
 FT                   /inference="COORDINATES:profile:Aragorn:1.2.34"
 FT                   /locus_tag="8233_4#93_02445"
-FT                   /transl_table=11
 FT   tRNA            2160..2234
 FT                   /product="tRNA-Gly(tcc)"
 FT                   /inference="COORDINATES:profile:Aragorn:1.2.34"
 FT                   /locus_tag="8233_4#93_02446"
-FT                   /transl_table=11
 FT   tRNA            2252..2326
 FT                   /product="tRNA-Gly(tcc)"
 FT                   /inference="COORDINATES:profile:Aragorn:1.2.34"
 FT                   /locus_tag="8233_4#93_02447"
-FT                   /transl_table=11
 FT   tRNA            2340..2414
 FT                   /product="tRNA-Gly(tcc)"
 FT                   /inference="COORDINATES:profile:Aragorn:1.2.34"
 FT                   /locus_tag="8233_4#93_02448"
-FT                   /transl_table=11
 FT   tRNA            2453..2536
 FT                   /product="tRNA-Leu(caa)"
 FT                   /inference="COORDINATES:profile:Aragorn:1.2.34"
 FT                   /locus_tag="8233_4#93_02449"
-FT                   /transl_table=11
 FT   CDS             2804..3865
 FT                   /product="Regulatory protein"
 FT                   /inference="ab initio prediction:Prodigal:2.60"
@@ -8057,42 +8015,34 @@ FT   tRNA            33592..33665
 FT                   /product="tRNA-Met(cat)"
 FT                   /inference="COORDINATES:profile:Aragorn:1.2.34"
 FT                   /locus_tag="8233_4#93_02479"
-FT                   /transl_table=11
 FT   tRNA            33681..33756
 FT                   /product="tRNA-Asp(gtc)"
 FT                   /inference="COORDINATES:profile:Aragorn:1.2.34"
 FT                   /locus_tag="8233_4#93_02480"
-FT                   /transl_table=11
 FT   tRNA            33773..33845
 FT                   /product="tRNA-Phe(gaa)"
 FT                   /inference="COORDINATES:profile:Aragorn:1.2.34"
 FT                   /locus_tag="8233_4#93_02481"
-FT                   /transl_table=11
 FT   tRNA            33859..33934
 FT                   /product="tRNA-His(gtg)"
 FT                   /inference="COORDINATES:profile:Aragorn:1.2.34"
 FT                   /locus_tag="8233_4#93_02482"
-FT                   /transl_table=11
 FT   tRNA            33950..34023
 FT                   /product="tRNA-Gly(tcc)"
 FT                   /inference="COORDINATES:profile:Aragorn:1.2.34"
 FT                   /locus_tag="8233_4#93_02483"
-FT                   /transl_table=11
 FT   tRNA            34040..34114
 FT                   /product="tRNA-Asn(gtt)"
 FT                   /inference="COORDINATES:profile:Aragorn:1.2.34"
 FT                   /locus_tag="8233_4#93_02484"
-FT                   /transl_table=11
 FT   tRNA            34115..34188
 FT                   /product="tRNA-Glu(ttc)"
 FT                   /inference="COORDINATES:profile:Aragorn:1.2.34"
 FT                   /locus_tag="8233_4#93_02485"
-FT                   /transl_table=11
 FT   tRNA            34242..34330
 FT                   /product="tRNA-Ser(gga)"
 FT                   /inference="COORDINATES:profile:Aragorn:1.2.34"
 FT                   /locus_tag="8233_4#93_02486"
-FT                   /transl_table=11
 FT   CDS             complement(35452..36240)
 FT                   /product="Prophage protein"
 FT                   /inference="ab initio prediction:Prodigal:2.60"
@@ -9205,7 +9155,6 @@ FT   tRNA            complement(9103..9195)
 FT                   /product="tRNA-Ser(tga)"
 FT                   /inference="COORDINATES:profile:Aragorn:1.2.34"
 FT                   /locus_tag="8233_4#93_02511"
-FT                   /transl_table=11
 FT   CDS             complement(9473..10936)
 FT                   /product="Glutamate synthase [NADPH] small chain"
 FT                   /inference="ab initio prediction:Prodigal:2.60"
@@ -10447,7 +10396,6 @@ FT   rRNA            107..220
 FT                   /product="5S ribosomal RNA"
 FT                   /inference="COORDINATES:profile:RNAmmer:1.2"
 FT                   /locus_tag="8233_4#93_02549"
-FT                   /transl_table=11
 FT   CDS             731..2068
 FT                   /product="Orn/Lys/Arg decarboxylase family protein"
 FT                   /inference="ab initio prediction:Prodigal:2.60"
@@ -10889,47 +10837,38 @@ FT   rRNA            38392..38505
 FT                   /product="5S ribosomal RNA"
 FT                   /inference="COORDINATES:profile:RNAmmer:1.2"
 FT                   /locus_tag="8233_4#93_02587"
-FT                   /transl_table=11
 FT   tRNA            38516..38591
 FT                   /product="tRNA-Val(tac)"
 FT                   /inference="COORDINATES:profile:Aragorn:1.2.34"
 FT                   /locus_tag="8233_4#93_02588"
-FT                   /transl_table=11
 FT   tRNA            38608..38683
 FT                   /product="tRNA-Thr(tgt)"
 FT                   /inference="COORDINATES:profile:Aragorn:1.2.34"
 FT                   /locus_tag="8233_4#93_02589"
-FT                   /transl_table=11
 FT   tRNA            38689..38763
 FT                   /product="tRNA-Lys(ttt)"
 FT                   /inference="COORDINATES:profile:Aragorn:1.2.34"
 FT                   /locus_tag="8233_4#93_02590"
-FT                   /transl_table=11
 FT   tRNA            38796..38870
 FT                   /product="tRNA-Gly(gcc)"
 FT                   /inference="COORDINATES:profile:Aragorn:1.2.34"
 FT                   /locus_tag="8233_4#93_02591"
-FT                   /transl_table=11
 FT   tRNA            38878..38966
 FT                   /product="tRNA-Leu(taa)"
 FT                   /inference="COORDINATES:profile:Aragorn:1.2.34"
 FT                   /locus_tag="8233_4#93_02592"
-FT                   /transl_table=11
 FT   tRNA            38972..39048
 FT                   /product="tRNA-Arg(acg)"
 FT                   /inference="COORDINATES:profile:Aragorn:1.2.34"
 FT                   /locus_tag="8233_4#93_02593"
-FT                   /transl_table=11
 FT   tRNA            39069..39142
 FT                   /product="tRNA-Pro(tgg)"
 FT                   /inference="COORDINATES:profile:Aragorn:1.2.34"
 FT                   /locus_tag="8233_4#93_02594"
-FT                   /transl_table=11
 FT   tRNA            39165..39240
 FT                   /product="tRNA-Ala(tgc)"
 FT                   /inference="COORDINATES:profile:Aragorn:1.2.34"
 FT                   /locus_tag="8233_4#93_02595"
-FT                   /transl_table=11
 SQ   Sequence 39433 BP; 14273 A; 5313 C; 7870 G; 11977 T; 0 other;
      gacgaatact aatcgatcga agacttaatc aaaataaatg ttttgcgaag caaaatcact        60
      tttacttact atctagtttt gaatgtataa tctacattcg tatgtctggt gactatagca       120
@@ -12427,7 +12366,6 @@ FT   tRNA            complement(370..446)
 FT                   /product="tRNA-Ile(gat)"
 FT                   /inference="COORDINATES:profile:Aragorn:1.2.34"
 FT                   /locus_tag="8233_4#93_02634"
-FT                   /transl_table=11
 SQ   Sequence 656 BP; 184 A; 154 C; 100 G; 218 T; 0 other;
      aagcatatcg tcgttagtaa cgtccttcat cggcttctag tgccaaggca tccaccgtgc        60
      gcccttaata acttaatcta tgtttccacc atttttacaa gtcaaacgct cacatactgt       120

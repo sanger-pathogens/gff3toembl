@@ -129,7 +129,8 @@ FT                   /note="%s"
       for attribute_key in feature_attributes.keys():
         feature += self.construct_feature_attribute( attribute_key = attribute_key, attribute_value = feature_attributes[attribute_key])
       
-      feature += "FT                   /transl_table="+str(self.translation_table)+"\n"
+      if feature_type == 'CDS':
+        feature += "FT                   /transl_table="+str(self.translation_table)+"\n"
       return feature
       
     def update_locus_tag(self,attribute_value):
