@@ -132,15 +132,24 @@ FT   tRNA            complement(174883..174959)
 FT                   /locus_tag="ABC123"
 FT                   /EC_number="12"
 FT                   /EC_number="34"
-FT                   /transl_table=11
 """
+
+    def test_only_cds_has_translation_table(self):
+      converter = convert.Convert()
+      assert converter.construct_feature(feature_type = 'CDS', start = 174883, end = 174959, strand = '-',feature_attributes =  {'locus_tag': 'ABC123','eC_number': '12,34' }) == """\
+      FT   CDS             complement(174883..174959)
+      FT                   /locus_tag="ABC123"
+      FT                   /EC_number="12"
+      FT                   /EC_number="34"
+      FT                   /transl_table=11
+      """
+    
 
     def test_construct_feature_locus_tag_update(self):
         converter = convert.Convert(locus_tag = 'new_locus_tag')
         assert converter.construct_feature(feature_type = 'tRNA', start = 174883, end = 174959, strand = '+',feature_attributes =  {'locus_tag': 'ABC_123' }) == """\
 FT   tRNA            174883..174959
 FT                   /locus_tag="new_locus_tag_123"
-FT                   /transl_table=11
 """
 
     def test_hypo_search(self):
