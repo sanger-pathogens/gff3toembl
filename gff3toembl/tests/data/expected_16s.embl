@@ -119,7 +119,6 @@ FT                   /db_xref="PFAM:PF04452.8"
 FT                   /locus_tag="6714_8#3_01232"
 FT                   /EC_number="2.1.1.193"
 FT                   /gene="rsmE"
-FT                   /transl_table=11
 FT   CDS             complement(90..100)
 FT                   /product="rRNA-specific 5-methylcytidine transferase"
 FT                   /inference="ab initio prediction:Prodigal:2.60"
@@ -175,7 +174,6 @@ FT   rRNA            complement(130..140)
 FT                   /product="16S ribosomal RNA"
 FT                   /inference="COORDINATES:profile:RNAmmer:1.2"
 FT                   /locus_tag="6714_8#3_02005"
-FT                   /transl_table=11
 SQ   Sequence 180 BP; 62 A; 29 C; 44 G; 45 T; 0 other;
      tcatgaatca acttcaagat gtcatacaag gactggagaa ggaggtgata aagtccatcg        60
      ttaatcggag atggactaga atgctttgtg aaagcagatg agtataagtc ctcgttttga       120
