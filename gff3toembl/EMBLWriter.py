@@ -78,7 +78,7 @@ class EMBLWriter(object):
         try:
             while (vs.next_tree()):
                 pass
-        except Exception e:
+        except Exception, e:
             print e
             exit(1)
         self.create_output_file(self.conv.seqs.keys(), self.organism, self.taxonid, self.project, self.description, self.authors, self.title, self.publication, self.genome_type, self.classification)
