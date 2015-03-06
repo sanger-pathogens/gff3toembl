@@ -28,7 +28,7 @@ class EMBLWriter(object):
         self.classification     = classification    
         self.output_filename    = output_filename
         self.chromosome_list    = chromosome_list
-        self.fixed_gff_file     = "fixed_"+str(self.gff3_file)
+        self.fixed_gff_file     = str(self.gff3_file)+"_fixed.gff"
  
     def output_seq(self, seq):
         sequence_string = self.converter.construct_sequence(seq)
