@@ -1,4 +1,5 @@
 import sys
+import subprocess
 from collections import defaultdict
 from gt import GFF3InStream
 import os
@@ -27,6 +28,7 @@ class EMBLWriter(object):
         self.classification     = classification    
         self.output_filename    = output_filename
         self.chromosome_list    = chromosome_list
+        self.fixed_gff_file     = "fixed_"+str(self.gff3_file)
  
     def output_seq(self, seq):
         sequence_string = self.converter.construct_sequence(seq)
@@ -72,8 +74,15 @@ class EMBLWriter(object):
             chromosome_type = "Plasmid"
           chromosome_list_file.write(object_accession + "\t" + chromosome_name + "\t" + chromosome_type + "\n")
 
+    def sort_and_tidy_gff_file(self):        
+        try:
+          subprocess.check_call("gt gff3 -sort -retainids -tidy -o "+str(self.fixed_gff_file)+" "+str(self.gff3_file), shell=True)
+        except:
+          sys.exit("Failed to sort and tidy gff file with GT")
+
     def parse_and_run(self):
-        ins = GFF3InStream(self.gff3_file)  
+        self.sort_and_tidy_gff_file()
+        ins = GFF3InStream(self.fixed_gff_file)  
         vs = VisitorStream(ins, self.conv)
         try:
             while (vs.next_tree()):
@@ -83,4 +92,5 @@ class EMBLWriter(object):
             exit(1)
         self.create_output_file(self.conv.seqs.keys(), self.organism, self.taxonid, self.project, self.description, self.authors, self.title, self.publication, self.genome_type, self.classification)
         self.create_chromosome_list(self.chromosome_list, self.output_filename)
+        os.remove(self.fixed_gff_file)
 
