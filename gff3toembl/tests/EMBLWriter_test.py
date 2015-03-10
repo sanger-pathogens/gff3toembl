@@ -97,5 +97,23 @@ class TestEMBLWriter(unittest.TestCase):
        assert filecmp.cmp(os.path.join(data_dir, 'expected_chromosome_list.txt'), 'chromosome_list.txt', shallow=False)
        os.remove('chromosome_list.embl')
        os.remove('chromosome_list.txt')
+       
+       
+    def test_remove_duplicate_tags(self):
+       '''test remove duplicate tags '''
+       emblwriter = EMBLWriter(os.path.join(data_dir,'duplicate_coords.gff'), 
+          'Organism', 
+          1234, 
+          'ABC', 
+          'My description', 
+          'John', 
+          'Some title',  
+          'Some journal', 
+          'circular', 
+          'PROK', 
+          'duplicate_coords.embl', None, 11, None )
+       emblwriter.parse_and_run()
+       assert filecmp.cmp(os.path.join(data_dir, 'expected_duplicate_coords.embl'), 'duplicate_coords.embl', shallow=False)
+       os.remove('duplicate_coords.embl')
 
 
