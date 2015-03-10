@@ -11,11 +11,15 @@ class EMBLConverter(CustomVisitor):
         self.feats = defaultdict(lambda: [], {})
         self.regions = []
         self.converter =  converter
+        self.features_seen = {}
 
     def visit_feature_node(self, fn):
         feature_string = self.converter.construct_feature(feature_type = fn.get_type(), start = fn.get_start(), end = fn.get_end(), strand = fn.get_strand(), feature_attributes = fn.attribs)
         if feature_string != '':
-          self.feats[fn.get_seqid()].append(feature_string)
+          feature_seq_coords = str(fn.get_seqid()) + "_"+ str(fn.get_start()) + "_" +str(fn.get_end()) 
+          if feature_seq_coords not     in self.features_seen :          
+            self.features_seen[feature_seq_coords] = 1
+            self.feats[fn.get_seqid()].append(feature_string)
 
     def visit_region_node(self, rn):
         self.regions.append
