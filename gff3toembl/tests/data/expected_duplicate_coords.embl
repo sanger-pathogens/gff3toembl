@@ -4,34 +4,34 @@ AC   XXX;
 XX
 AC * _ERS020177SCcontig000054
 XX
-PR   Project:PRJEB2393;
+PR   Project:ABC;
 XX
 DE   XXX;
 XX
 RN   [1]
-RA   Pathogen Genomics;
-RT   "Draft assembly annotated with Prokka";
-RL   Submitted (01-Jan-1900) to the INSDC.
+RA   John;
+RT   "Some title";
+RL   Some journal.
 XX
 FH   Key             Location/Qualifiers
 FH
 FT   source          1..6181
-FT                   /organism="Streptococcus pneumoniae"
+FT                   /organism="Organism"
 FT                   /mol_type="genomic DNA"
-FT                   /db_xref="taxon:1313"
+FT                   /db_xref="taxon:1234"
 FT                   /note="ERS020177|SC|contig000054"
 FT   rRNA            1197..2732
 FT                   /product="16S ribosomal RNA"
 FT                   /inference="COORDINATES:profile:RNAmmer:1.2"
-FT                   /locus_tag="ERS020177_02225"
+FT                   /locus_tag="6730_5#19_02225"
 FT   rRNA            3040..5959
 FT                   /product="23S ribosomal RNA"
 FT                   /inference="COORDINATES:profile:RNAmmer:1.2"
-FT                   /locus_tag="ERS020177_02227"
+FT                   /locus_tag="6730_5#19_02227"
 FT   rRNA            6029..6142
 FT                   /product="5S ribosomal RNA"
 FT                   /inference="COORDINATES:profile:RNAmmer:1.2"
-FT                   /locus_tag="ERS020177_02228"
+FT                   /locus_tag="6730_5#19_02228"
 SQ   Sequence 6181 BP; 1767 A; 1220 C; 1744 G; 1449 T; 1 other;
      gttgaagaaa tgaacattga aaactgaatg acaatatgtc aacgttaatt ccaataaagt        60
      aacttaaatg ttacaaacac tatttagtat tatgagctaa tcaaacatca taaattttta       120
@@ -137,3 +137,4 @@ SQ   Sequence 6181 BP; 1767 A; 1220 C; 1744 G; 1449 T; 1 other;
      ccatgccgaa cacagaagtt aagctcctta gcgccgatgg tagttggact gacgttccgc      6120
      tagagtagga cgttgccagg caaatcattg tatggatgcg atgagctgat attgagaccg      6180
      t                                                                      6181
+//
