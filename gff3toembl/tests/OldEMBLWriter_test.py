@@ -2,17 +2,17 @@ import unittest
 import sys
 import os
 import filecmp
-from gff3toembl.EMBLWriter import EMBLWriter
+from gff3toembl.OldEMBLWriter import OldEMBLWriter
 from gff3toembl import convert
 
 modules_dir = os.path.dirname(os.path.abspath(convert.__file__))
 data_dir = os.path.join(modules_dir, 'tests', 'data')
 
-class TestEMBLWriter(unittest.TestCase):
+class TestOldEMBLWriter(unittest.TestCase):
 
     def test_single_feature(self):
         '''test that the script will convert from GFF3 to EMBL'''
-        emblwriter = EMBLWriter(os.path.join(data_dir,'single_feature.gff'), 
+        emblwriter = OldEMBLWriter(os.path.join(data_dir,'single_feature.gff'), 
            'Organism', 
            1234, 
            'My project', 
@@ -29,7 +29,7 @@ class TestEMBLWriter(unittest.TestCase):
         
     def test_single_feature_new_locus_tag(self):
         '''test that the script will convert from GFF3 to EMBL and change the locus tag'''
-        emblwriter = EMBLWriter(os.path.join(data_dir,'single_feature.gff'), 
+        emblwriter = OldEMBLWriter(os.path.join(data_dir,'single_feature.gff'), 
            'Organism', 
            1234, 
            'My project', 
@@ -46,7 +46,7 @@ class TestEMBLWriter(unittest.TestCase):
 
     def test_single_feature_translation_table(self):
         '''test that the script will convert from GFF3 to EMBL and change the locus tag'''
-        emblwriter = EMBLWriter(os.path.join(data_dir,'single_feature.gff'), 
+        emblwriter = OldEMBLWriter(os.path.join(data_dir,'single_feature.gff'), 
            'Organism', 
            1234, 
            'My project', 
@@ -64,7 +64,7 @@ class TestEMBLWriter(unittest.TestCase):
 
     def test_large_conversion(self):
         '''test a large gff3 file converts to EMBL'''
-        emblwriter = EMBLWriter(os.path.join(data_dir,'large_annotation.gff'), 
+        emblwriter = OldEMBLWriter(os.path.join(data_dir,'large_annotation.gff'), 
            'Organism', 
            1234, 
            'My project', 
@@ -82,7 +82,7 @@ class TestEMBLWriter(unittest.TestCase):
         
     def test_chromosome_list_conversion(self):
        '''test chromosome list creation'''
-       emblwriter = EMBLWriter(os.path.join(data_dir,'chromosome_list.gff'), 
+       emblwriter = OldEMBLWriter(os.path.join(data_dir,'chromosome_list.gff'), 
           'Organism', 
           1234, 
           'ABC', 
@@ -101,7 +101,7 @@ class TestEMBLWriter(unittest.TestCase):
        
     def test_remove_duplicate_tags(self):
        '''test remove duplicate tags '''
-       emblwriter = EMBLWriter(os.path.join(data_dir,'duplicate_coords.gff'), 
+       emblwriter = OldEMBLWriter(os.path.join(data_dir,'duplicate_coords.gff'), 
           'Organism', 
           1234, 
           'ABC', 

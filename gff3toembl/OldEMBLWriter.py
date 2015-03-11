@@ -9,7 +9,7 @@ from gff3toembl import convert
 from gff3toembl.EMBLConverter import EMBLConverter
 from gff3toembl.VisitorStream import VisitorStream
  
-class EMBLWriter(object):
+class OldEMBLWriter(object):
 
     def __init__(self, gff3_file, organism, taxonid, project, description, authors, title,  publication, genome_type, classification,  output_filename, locus_tag = None, translation_table = 11, chromosome_list = None):
         self.locus_tag          = locus_tag
