@@ -4,6 +4,46 @@ from gff3toembl.EMBLContig import EMBLHeader
 
 class TestEMBLHeader(unittest.TestCase):
 
+  def test_create_header_objects(self):
+    header = EMBLHeader(
+      authors="John Doe",
+      classification="UNC",
+      genome_type="circular",
+      organism="My organism",
+      project="PRJ1234",
+      publication="Unpublished",
+      sequence_identifier="**contig123",
+      sequence="ACGTACGT",
+      sequence_name="chromX",
+      taxon_id=5678,
+      title="My title"
+    )
+
+    self.assertEqual(header.authors, "John Doe")
+    self.assertEqual(header.classification, "UNC")
+    self.assertEqual(header.genome_type, "circular")
+    self.assertEqual(header.organism, "My organism")
+    self.assertEqual(header.project, "PRJ1234")
+    self.assertEqual(header.publication, "Unpublished")
+    self.assertEqual(header.sequence_identifier, "contig123") # Removed non-word characters
+    self.assertEqual(header.sequence_length, 8) # NB converted to length
+    self.assertEqual(header.sequence_name, "chromX")
+    self.assertEqual(header.taxon_id, 5678)
+    self.assertEqual(header.title, "My title")
+
+  def test_remove_non_word_characters(self):
+    header = EMBLHeader()
+    test_cases = [
+      ('foo', 'foo'),
+      ('#foo', 'foo'),
+      ('#fo!o', 'foo'),
+      ('fo#o', 'foo'),
+      ('foo##', 'foo'),
+      ("*!#foo", 'foo')
+    ]
+    for test_string, expected_result in test_cases:
+      self.assertEqual(header.remove_non_word_characters(test_string), expected_result)
+
   def test_format(self):
     header = EMBLHeader()
 
