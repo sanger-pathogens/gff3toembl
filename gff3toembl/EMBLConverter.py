@@ -21,8 +21,8 @@ class EMBLConverter(CustomVisitor):
             self.features_seen[feature_seq_coords] = 1
             self.feats[feature_node.get_seqid()].append(feature_string)
 
-    def visit_region_node(self, rn):
-        self.regions.append
+    def visit_region_node(self, region_node):
+        pass  # for now
 
     def visit_comment_node(self, comment_node):
         pass  # for now
