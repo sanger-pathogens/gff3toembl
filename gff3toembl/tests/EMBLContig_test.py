@@ -130,6 +130,17 @@ FT                   /attributeB="baz"
     expected_string = 'FT                   /attributeA="foo"'
     self.assertEqual(calculated_string, expected_string)
 
+  def test_lookup_attribute_creator(self):
+    feature = EMBLFeature()
+    self.assertEqual(feature.lookup_attribute_creator('some_key'),
+                     feature.create_default_attributes)
+    self.assertEqual(feature.lookup_attribute_creator('product'),
+                     feature.create_product_attributes)
+    self.assertEqual(feature.lookup_attribute_creator('locus_tag'),
+                     feature.create_locus_tag_attributes)
+    self.assertEqual(feature.lookup_attribute_creator('eC_number'),
+                     feature.create_EC_number_attributes)
+
   def test_format_coordinates(self):
     feature = EMBLFeature()
     calculated_coordinates = feature.format_coordinates(1, 10, '')

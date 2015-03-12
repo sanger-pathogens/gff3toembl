@@ -33,6 +33,26 @@ class EMBLFeature(object):
     else:
       return feature_type
 
+  def lookup_attribute_creator(self, attribute_key):
+    attribute_creator_table = {
+      'product': self.create_product_attributes,
+      'locus_tag': self.create_locus_tag_attributes,
+      'eC_number': self.create_EC_number_attributes
+    }
+    return attribute_creator_table.get(attribute_key, self.create_default_attributes)
+
+  def create_default_attributes(self, attribute_key, attribute_value):
+    pass
+
+  def create_product_attributes(self, attribute_key, attribute_value):
+    pass
+
+  def create_locus_tag_attributes(self, attribute_key, attribute_value):
+    pass
+
+  def create_EC_number_attributes(self, attribute_key, attribute_value):
+    pass
+
 class EMBLHeader(object):
   def __init__(self,
                authors="Pathogen Genomics",
