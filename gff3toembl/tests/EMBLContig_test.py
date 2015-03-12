@@ -118,3 +118,17 @@ FT                   /attributeB="baz"
     calculated_string = feature.format_attribute('attributeA', 'foo')
     expected_string = 'FT                   /attributeA="foo"'
     self.assertEqual(calculated_string, expected_string)
+
+  def test_format_coordinates(self):
+    feature = EMBLFeature()
+    calculated_coordinates = feature.format_coordinates(1, 10, '')
+    expected_coordinates = '1..10'
+    self.assertEqual(calculated_coordinates, expected_coordinates)
+
+    calculated_coordinates = feature.format_coordinates(1, 10, '-')
+    expected_coordinates = 'compliment(1..10)'
+    self.assertEqual(calculated_coordinates, expected_coordinates)
+
+    calculated_coordinates = feature.format_coordinates(1, 10, '***NONSENCE***')
+    expected_coordinates = '1..10'
+    self.assertEqual(calculated_coordinates, expected_coordinates)

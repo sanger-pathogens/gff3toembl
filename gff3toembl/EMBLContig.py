@@ -18,6 +18,12 @@ class EMBLFeature(object):
     attribute_template='FT                   /{attribute_key}="{attribute_value}"'
     return attribute_template.format(attribute_key=key, attribute_value=value)
 
+  def format_coordinates(self, start, end, strand):
+    if strand == '-':
+      return "compliment({start}..{end})".format(start=start, end=end)
+    else:
+      return "{start}..{end}".format(start=start, end=end)
+
 class EMBLHeader(object):
   def __init__(self,
                authors="Pathogen Genomics",
