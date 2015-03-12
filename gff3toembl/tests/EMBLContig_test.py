@@ -198,6 +198,32 @@ FT                   /attributeB="baz"
     expected_attributes = [('locus_tag', 'ABC_123_XYZ')]
     self.assertEqual(calculated_attributes, expected_attributes)
 
+  def test_create_EC_number_attributes(self):
+    feature = EMBLFeature()
+    calculated_attributes = feature.create_EC_number_attributes('eC_number', '123')
+    expected_attributes = [('EC_number', '123')]
+    self.assertEqual(calculated_attributes, expected_attributes)
+
+    calculated_attributes = feature.create_EC_number_attributes('eC_number', '123,ABC')
+    expected_attributes = [('EC_number', '123'), ('EC_number', 'ABC')]
+    self.assertEqual(calculated_attributes, expected_attributes)
+
+    calculated_attributes = feature.create_EC_number_attributes('eC_number', '123,123')
+    expected_attributes = [('EC_number', '123')]
+    self.assertEqual(calculated_attributes, expected_attributes)
+
+    calculated_attributes = feature.create_EC_number_attributes('eC_number', '123,ABC,123')
+    expected_attributes = [('EC_number', '123'), ('EC_number', 'ABC')]
+    self.assertEqual(calculated_attributes, expected_attributes)
+
+    calculated_attributes = feature.create_EC_number_attributes('eC_number', 'B,A,A')
+    expected_attributes = [('EC_number', 'B'), ('EC_number', 'A')]
+    self.assertEqual(calculated_attributes, expected_attributes)
+
+    calculated_attributes = feature.create_EC_number_attributes('eC_number', 'B,A,B')
+    expected_attributes = [('EC_number', 'B'), ('EC_number', 'A')]
+    self.assertEqual(calculated_attributes, expected_attributes)
+
   def test_format_coordinates(self):
     feature = EMBLFeature()
     calculated_coordinates = feature.format_coordinates(1, 10, '')
