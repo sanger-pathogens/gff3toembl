@@ -113,6 +113,12 @@ FT                   /attributeB="baz"
       self.assertEqual(calculated_line, expected_line)
     self.assertEqual(len(calculated_string), len(expected_string))
 
+  def test_should_ignore_feature_type(self):
+    feature = EMBLFeature()
+    self.assertTrue(feature.should_ignore_feature('ID'))
+    self.assertTrue(feature.should_ignore_feature('protein_id'))
+    self.assertFalse(feature.should_ignore_feature('other'))
+
   def test_format_attribute(self):
     feature = EMBLFeature()
     calculated_string = feature.format_attribute('attributeA', 'foo')

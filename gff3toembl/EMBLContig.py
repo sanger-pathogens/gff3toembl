@@ -24,6 +24,9 @@ class EMBLFeature(object):
     else:
       return "{start}..{end}".format(start=start, end=end)
 
+  def should_ignore_feature(self, feature_type):
+    return feature_type in ['ID', 'protein_id']
+
 class EMBLHeader(object):
   def __init__(self,
                authors="Pathogen Genomics",
