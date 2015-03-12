@@ -156,6 +156,48 @@ FT                   /attributeB="baz"
       calculated_result = feature.create_product_attributes('product', test_case)
       self.assertEqual(calculated_result, expected_result)
 
+  def test_create_locus_tag_attributes(self):
+    feature = EMBLFeature()
+    calculated_attributes = feature.create_locus_tag_attributes('locus_tag', 'ABC123')
+    expected_attributes = [('locus_tag', 'ABC123')]
+    self.assertEqual(calculated_attributes, expected_attributes)
+
+    calculated_attributes = feature.create_locus_tag_attributes('locus_tag', 'ABC123_XYZ')
+    expected_attributes = [('locus_tag', 'ABC123_XYZ')]
+    self.assertEqual(calculated_attributes, expected_attributes)
+
+    calculated_attributes = feature.create_locus_tag_attributes('locus_tag', 'ABC_123_XYZ')
+    expected_attributes = [('locus_tag', 'ABC_123_XYZ')]
+    self.assertEqual(calculated_attributes, expected_attributes)
+
+    feature.locus_tag = "some_other_tag"
+
+    calculated_attributes = feature.create_locus_tag_attributes('locus_tag', 'ABC123')
+    expected_attributes = [('locus_tag', 'some_other_tag_ABC123')]
+    self.assertEqual(calculated_attributes, expected_attributes)
+
+    calculated_attributes = feature.create_locus_tag_attributes('locus_tag', 'ABC123_XYZ')
+    expected_attributes = [('locus_tag', 'some_other_tag_XYZ')]
+    self.assertEqual(calculated_attributes, expected_attributes)
+
+    calculated_attributes = feature.create_locus_tag_attributes('locus_tag', 'ABC_123_XYZ')
+    expected_attributes = [('locus_tag', 'some_other_tag_XYZ')]
+    self.assertEqual(calculated_attributes, expected_attributes)
+
+    feature.locus_tag = None
+
+    calculated_attributes = feature.create_locus_tag_attributes('locus_tag', 'ABC123')
+    expected_attributes = [('locus_tag', 'ABC123')]
+    self.assertEqual(calculated_attributes, expected_attributes)
+
+    calculated_attributes = feature.create_locus_tag_attributes('locus_tag', 'ABC123_XYZ')
+    expected_attributes = [('locus_tag', 'ABC123_XYZ')]
+    self.assertEqual(calculated_attributes, expected_attributes)
+
+    calculated_attributes = feature.create_locus_tag_attributes('locus_tag', 'ABC_123_XYZ')
+    expected_attributes = [('locus_tag', 'ABC_123_XYZ')]
+    self.assertEqual(calculated_attributes, expected_attributes)
+
   def test_format_coordinates(self):
     feature = EMBLFeature()
     calculated_coordinates = feature.format_coordinates(1, 10, '')

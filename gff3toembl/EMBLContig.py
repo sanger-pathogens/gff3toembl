@@ -2,7 +2,7 @@ import re
 
 class EMBLFeature(object):
   def __init__(self):
-    pass
+    self.locus_tag = None
 
   def format(self):
     coordinates = coordinates=self.format_coordinates(self.start, self.end, self.strand)
@@ -58,7 +58,11 @@ class EMBLFeature(object):
     return [('product', chosen_value)]
 
   def create_locus_tag_attributes(self, attribute_key, attribute_value):
-    pass
+    if self.locus_tag == None:
+      return [('locus_tag', attribute_value)]
+    else:
+      attribute_value_suffix = attribute_value.split('_')[-1]
+      return [('locus_tag', "{}_{}".format(self.locus_tag, attribute_value_suffix))]
 
   def create_EC_number_attributes(self, attribute_key, attribute_value):
     pass
