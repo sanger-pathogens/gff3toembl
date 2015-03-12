@@ -27,12 +27,6 @@ class EMBLFeature(object):
   def should_ignore_feature(self, feature_type):
     return feature_type in ['ID', 'protein_id']
 
-  def reformat_feature_type(self, feature_type):
-    if feature_type == 'eC_number':
-      return 'EC_number'
-    else:
-      return feature_type
-
   def lookup_attribute_creator(self, attribute_key):
     attribute_creator_table = {
       'product': self.create_product_attributes,

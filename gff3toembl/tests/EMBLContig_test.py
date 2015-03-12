@@ -119,11 +119,6 @@ FT                   /attributeB="baz"
     self.assertTrue(feature.should_ignore_feature('protein_id'))
     self.assertFalse(feature.should_ignore_feature('other'))
 
-  def test_reformat_feature_type(self):
-    feature = EMBLFeature()
-    self.assertEqual(feature.reformat_feature_type('eC_number'), 'EC_number')
-    self.assertEqual(feature.reformat_feature_type('anything_else'), 'anything_else')
-
   def test_format_attribute(self):
     feature = EMBLFeature()
     calculated_string = feature.format_attribute('attributeA', 'foo')
