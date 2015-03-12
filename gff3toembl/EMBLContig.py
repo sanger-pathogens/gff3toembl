@@ -9,7 +9,7 @@ class EMBLHeader(object):
                project="",
                publication="Unpublished",
                sequence_identifier="",
-               sequence="",
+               sequence_length="",
                sequence_name=None,
                taxon_id=None,
                title="Draft assembly annotated with Prokka",
@@ -21,7 +21,7 @@ class EMBLHeader(object):
     self.project=project
     self.publication=publication
     self.sequence_identifier=self.remove_non_word_characters(sequence_identifier)
-    self.sequence_length=len(sequence)
+    self.sequence_length=sequence_length
     self.sequence_name=sequence_name
     self.taxon_id=taxon_id
     self.title=title

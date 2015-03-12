@@ -4,7 +4,7 @@ from gff3toembl.EMBLContig import EMBLHeader
 
 class TestEMBLHeader(unittest.TestCase):
 
-  def test_create_header_objects(self):
+  def test_initialize_header_object(self):
     header = EMBLHeader(
       authors="John Doe",
       classification="UNC",
@@ -13,7 +13,7 @@ class TestEMBLHeader(unittest.TestCase):
       project="PRJ1234",
       publication="Unpublished",
       sequence_identifier="**contig123",
-      sequence="ACGTACGT",
+      sequence_length=8,
       sequence_name="chromX",
       taxon_id=5678,
       title="My title"
@@ -26,7 +26,7 @@ class TestEMBLHeader(unittest.TestCase):
     self.assertEqual(header.project, "PRJ1234")
     self.assertEqual(header.publication, "Unpublished")
     self.assertEqual(header.sequence_identifier, "contig123") # Removed non-word characters
-    self.assertEqual(header.sequence_length, 8) # NB converted to length
+    self.assertEqual(header.sequence_length, 8)
     self.assertEqual(header.sequence_name, "chromX")
     self.assertEqual(header.taxon_id, 5678)
     self.assertEqual(header.title, "My title")
