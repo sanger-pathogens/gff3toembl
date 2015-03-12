@@ -1,5 +1,23 @@
 import re
 
+class EMBLFeature(object):
+  def __init__(self):
+    pass
+
+  def format(self):
+    coordinates = coordinates=self.format_coordinates(self.start, self.end, self.strand)
+    header_string = "FT   {feature_type: <16}{coordinates}".format( feature_type=self.feature_type,
+                                                                     coordinates=coordinates)
+    attribute_strings = [header_string]
+    for attribute_key,attribute_value in self.attributes:
+      attribute_strings.append(self.format_attribute(attribute_key, attribute_value))
+
+    return '\n'.join(attribute_strings) + '\n'
+
+  def format_attribute(self, key, value):
+    attribute_template='FT                   /{attribute_key}="{attribute_value}"'
+    return attribute_template.format(attribute_key=key, attribute_value=value)
+
 class EMBLHeader(object):
   def __init__(self,
                authors="Pathogen Genomics",

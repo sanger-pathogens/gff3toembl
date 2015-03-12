@@ -1,6 +1,6 @@
 import unittest
 import pdb
-from gff3toembl.EMBLContig import EMBLHeader
+from gff3toembl.EMBLContig import EMBLFeature, EMBLHeader
 
 class TestEMBLHeader(unittest.TestCase):
 
@@ -87,3 +87,34 @@ FT                   /note="chromX"
     for calculated_line,expected_line in zip(calculated_header.split('\n'), expected_header.split('\n')):
       self.assertEqual(calculated_line, expected_line)
     self.assertEqual(len(calculated_header), len(expected_header))
+
+class TestEMBLFeature(unittest.TestCase):
+
+  def test_format(self):
+    feature = EMBLFeature()
+    feature.feature_type = "feature_type"
+    feature.start = 1
+    feature.end = 10
+    feature.strand = ''
+    feature.attributes = [
+      ("attributeA", "foo"),
+      ("attributeB", 'bar'),
+      ("attributeB", 'baz')
+    ]
+    calculated_string = feature.format()
+    expected_string = """\
+FT   feature_type    1..10
+FT                   /attributeA="foo"
+FT                   /attributeB="bar"
+FT                   /attributeB="baz"
+"""
+
+    for calculated_line,expected_line in zip(calculated_string.split('\n'), expected_string.split('\n')):
+      self.assertEqual(calculated_line, expected_line)
+    self.assertEqual(len(calculated_string), len(expected_string))
+
+  def test_format_attribute(self):
+    feature = EMBLFeature()
+    calculated_string = feature.format_attribute('attributeA', 'foo')
+    expected_string = 'FT                   /attributeA="foo"'
+    self.assertEqual(calculated_string, expected_string)
