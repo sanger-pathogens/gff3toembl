@@ -31,7 +31,8 @@ class EMBLFeature(object):
     attribute_creator_table = {
       'product': self.create_product_attributes,
       'locus_tag': self.create_locus_tag_attributes,
-      'eC_number': self.create_EC_number_attributes
+      'eC_number': self.create_EC_number_attributes,
+      'inference': self.create_inference_attributes
     }
     return attribute_creator_table.get(attribute_key, self.create_default_attributes)
 
@@ -69,6 +70,10 @@ class EMBLFeature(object):
       return unique
     attribute_values = deduplicate_values(attribute_values)
     return [('EC_number', value) for value in attribute_values]
+
+  def create_inference_attributes(self, attribute_key, attribute_value):
+    attribute_values = attribute_value.split(',')
+    return [(attribute_key, value) for value in attribute_values]
 
 class EMBLHeader(object):
   def __init__(self,

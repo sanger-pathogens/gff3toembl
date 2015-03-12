@@ -135,6 +135,8 @@ FT                   /attributeB="baz"
                      feature.create_locus_tag_attributes)
     self.assertEqual(feature.lookup_attribute_creator('eC_number'),
                      feature.create_EC_number_attributes)
+    self.assertEqual(feature.lookup_attribute_creator('inference'),
+                     feature.create_inference_attributes)
 
   def test_create_product_attributes(self):
     feature = EMBLFeature()
@@ -217,6 +219,32 @@ FT                   /attributeB="baz"
 
     calculated_attributes = feature.create_EC_number_attributes('eC_number', 'B,A,B')
     expected_attributes = [('EC_number', 'B'), ('EC_number', 'A')]
+    self.assertEqual(calculated_attributes, expected_attributes)
+
+  def test_create_inference_attributes(self):
+    feature = EMBLFeature()
+    calculated_attributes = feature.create_inference_attributes('inference', '123')
+    expected_attributes = [('inference', '123')]
+    self.assertEqual(calculated_attributes, expected_attributes)
+
+    calculated_attributes = feature.create_inference_attributes('inference', '123,ABC')
+    expected_attributes = [('inference', '123'), ('inference', 'ABC')]
+    self.assertEqual(calculated_attributes, expected_attributes)
+
+    calculated_attributes = feature.create_inference_attributes('inference', '123,123')
+    expected_attributes = [('inference', '123'), ('inference', '123')]
+    self.assertEqual(calculated_attributes, expected_attributes)
+
+    calculated_attributes = feature.create_inference_attributes('inference', '123,ABC,123')
+    expected_attributes = [('inference', '123'), ('inference', 'ABC'), ('inference', '123')]
+    self.assertEqual(calculated_attributes, expected_attributes)
+
+    calculated_attributes = feature.create_inference_attributes('inference', 'B,A,A')
+    expected_attributes = [('inference', 'B'), ('inference', 'A'), ('inference', 'A')]
+    self.assertEqual(calculated_attributes, expected_attributes)
+
+    calculated_attributes = feature.create_inference_attributes('inference', 'B,A,B')
+    expected_attributes = [('inference', 'B'), ('inference', 'A'), ('inference', 'B')]
     self.assertEqual(calculated_attributes, expected_attributes)
 
   def test_format_coordinates(self):
