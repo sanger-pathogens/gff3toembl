@@ -141,6 +141,21 @@ FT                   /attributeB="baz"
     self.assertEqual(feature.lookup_attribute_creator('eC_number'),
                      feature.create_EC_number_attributes)
 
+  def test_create_product_attributes(self):
+    feature = EMBLFeature()
+    test_cases = [
+      ('abc,efg,hij', [('product', "abc")]),
+      ('hypothetical protein,efg,hij', [('product', "efg")]),
+      ('efg,hypothetical protein,hij', [('product', "efg")]),
+      ('hypothetical protein,hypothetical protein,hij', [('product', "hij")]),
+      ('hypothetical protein', [('product', "Uncharacterised protein")]),
+      ('hypothetical protein,Unknown protein abc', [('product', "Uncharacterised protein abc")]),
+      ('hypothetical protein,unknown protein abc', [('product', "uncharacterised protein abc")])
+    ]
+    for test_case, expected_result in test_cases:
+      calculated_result = feature.create_product_attributes('product', test_case)
+      self.assertEqual(calculated_result, expected_result)
+
   def test_format_coordinates(self):
     feature = EMBLFeature()
     calculated_coordinates = feature.format_coordinates(1, 10, '')
