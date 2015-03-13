@@ -90,8 +90,13 @@ FT                   /note="chromX"
 
 class TestEMBLFeature(unittest.TestCase):
 
+  def create_uninitialized_feature(self):
+    # In most cases I don't want tests to run the __init__
+    # This creates an otherwise identical EMBLFeature object
+    return EMBLFeature.__new__(EMBLFeature)
+
   def test_format(self):
-    feature = EMBLFeature()
+    feature = self.create_uninitialized_feature()
     feature.feature_type = "feature_type"
     feature.start = 1
     feature.end = 10
@@ -114,12 +119,12 @@ FT                   /attributeB="baz"
     self.assertEqual(len(calculated_string), len(expected_string))
 
   def test_pick_feature_builder(self):
-    feature = EMBLFeature()
+    feature = self.create_uninitialized_feature()
     self.assertEqual(feature.pick_feature_builder('CDS'), feature.create_CDS_feature)
     self.assertEqual(feature.pick_feature_builder('other'), feature.create_default_feature)
 
   def test_create_default_feature(self):
-    feature = EMBLFeature()
+    feature = self.create_uninitialized_feature()
     feature.create_default_feature(
         feature_type='tRNA',
         start = 100,
@@ -140,7 +145,7 @@ FT                   /attributeB="baz"
     self.assertItemsEqual(feature.attributes, expected_attributes)
 
   def test_create_default_feature_with_locus_tag(self):
-    feature = EMBLFeature()
+    feature = self.create_uninitialized_feature()
     feature.create_default_feature(
         feature_type='tRNA',
         start = 100,
@@ -161,7 +166,7 @@ FT                   /attributeB="baz"
     self.assertItemsEqual(feature.attributes, expected_attributes)
 
   def test_create_CDS_feature(self):
-    feature = EMBLFeature()
+    feature = self.create_uninitialized_feature()
     feature.create_CDS_feature(
         feature_type='tRNA',
         start = 100,
@@ -182,19 +187,19 @@ FT                   /attributeB="baz"
     self.assertItemsEqual(feature.attributes, expected_attributes)
 
   def test_should_ignore_feature_type(self):
-    feature = EMBLFeature()
+    feature = self.create_uninitialized_feature()
     self.assertTrue(feature.should_ignore_feature('ID'))
     self.assertTrue(feature.should_ignore_feature('protein_id'))
     self.assertFalse(feature.should_ignore_feature('other'))
 
   def test_format_attribute(self):
-    feature = EMBLFeature()
+    feature = self.create_uninitialized_feature()
     calculated_string = feature.format_attribute('attributeA', 'foo')
     expected_string = 'FT                   /attributeA="foo"'
     self.assertEqual(calculated_string, expected_string)
 
   def test_format_multiline_attribute(self):
-    feature = EMBLFeature()
+    feature = self.create_uninitialized_feature()
     long_attribute = 'abc efg hij klm nop qrs tuvw xyz abc efg hij klm nop qrs tuvw xyz'
     calculated_string = feature.format_attribute('product', long_attribute)
     expected_string = """\
@@ -216,7 +221,7 @@ FT                   hij klm nop qrs tuvw xyz"\
     self.assertEqual(calculated_string, expected_string)
 
   def test_lookup_attribute_creator(self):
-    feature = EMBLFeature()
+    feature = self.create_uninitialized_feature()
     self.assertEqual(feature.lookup_attribute_creator('some_key'),
                      feature.create_default_attributes)
     self.assertEqual(feature.lookup_attribute_creator('product'),
@@ -229,7 +234,7 @@ FT                   hij klm nop qrs tuvw xyz"\
                      feature.create_inference_attributes)
 
   def test_create_product_attributes(self):
-    feature = EMBLFeature()
+    feature = self.create_uninitialized_feature()
     test_cases = [
       ('abc,efg,hij', [('product', "abc")]),
       ('hypothetical protein,efg,hij', [('product', "efg")]),
@@ -244,7 +249,9 @@ FT                   hij klm nop qrs tuvw xyz"\
       self.assertEqual(calculated_result, expected_result)
 
   def test_create_locus_tag_attributes(self):
-    feature = EMBLFeature()
+    feature = self.create_uninitialized_feature()
+    feature.locus_tag = None
+
     calculated_attributes = feature.create_locus_tag_attributes('locus_tag', 'ABC123')
     expected_attributes = [('locus_tag', 'ABC123')]
     self.assertEqual(calculated_attributes, expected_attributes)
@@ -271,22 +278,8 @@ FT                   hij klm nop qrs tuvw xyz"\
     expected_attributes = [('locus_tag', 'some_other_tag_XYZ')]
     self.assertEqual(calculated_attributes, expected_attributes)
 
-    feature.locus_tag = None
-
-    calculated_attributes = feature.create_locus_tag_attributes('locus_tag', 'ABC123')
-    expected_attributes = [('locus_tag', 'ABC123')]
-    self.assertEqual(calculated_attributes, expected_attributes)
-
-    calculated_attributes = feature.create_locus_tag_attributes('locus_tag', 'ABC123_XYZ')
-    expected_attributes = [('locus_tag', 'ABC123_XYZ')]
-    self.assertEqual(calculated_attributes, expected_attributes)
-
-    calculated_attributes = feature.create_locus_tag_attributes('locus_tag', 'ABC_123_XYZ')
-    expected_attributes = [('locus_tag', 'ABC_123_XYZ')]
-    self.assertEqual(calculated_attributes, expected_attributes)
-
   def test_create_EC_number_attributes(self):
-    feature = EMBLFeature()
+    feature = self.create_uninitialized_feature()
     calculated_attributes = feature.create_EC_number_attributes('eC_number', '123')
     expected_attributes = [('EC_number', '123')]
     self.assertEqual(calculated_attributes, expected_attributes)
@@ -312,7 +305,7 @@ FT                   hij klm nop qrs tuvw xyz"\
     self.assertEqual(calculated_attributes, expected_attributes)
 
   def test_create_inference_attributes(self):
-    feature = EMBLFeature()
+    feature = self.create_uninitialized_feature()
     calculated_attributes = feature.create_inference_attributes('inference', '123')
     expected_attributes = [('inference', '123')]
     self.assertEqual(calculated_attributes, expected_attributes)
@@ -342,7 +335,7 @@ FT                   hij klm nop qrs tuvw xyz"\
     self.assertEqual(calculated_attributes, expected_attributes)
 
   def test_should_convert_to_db_xref(self):
-    feature = EMBLFeature()
+    feature = self.create_uninitialized_feature()
     self.assertTrue(feature.should_convert_to_db_xref('similar to AA sequence:UniProtKB:Q2G282'))
     self.assertTrue(feature.should_convert_to_db_xref('protein motif:Pfam:PF01475.13'))
     self.assertTrue(feature.should_convert_to_db_xref('protein motif:CLUSTERS:PRK09462'))
@@ -356,7 +349,7 @@ FT                   hij klm nop qrs tuvw xyz"\
     self.assertFalse(feature.should_convert_to_db_xref('motif:Cdd:COG1932i'))
 
   def test_convert_to_db_xref(self):
-    feature = EMBLFeature()
+    feature = self.create_uninitialized_feature()
     test_cases = [
       ('similar to AA sequence:UniProtKB:Q2G282', "UniProtKB/Swiss-Prot:Q2G282"),
       ('protein motif:Pfam:PF01475.13', "PFAM:PF01475.13"),
@@ -373,7 +366,7 @@ FT                   hij klm nop qrs tuvw xyz"\
       self.assertRaises(ValueError, feature.convert_to_db_xref, test_input)
 
   def test_create_translation_table_attribute(self):
-    feature = EMBLFeature()
+    feature = self.create_uninitialized_feature()
     calculated_attributes = feature.create_translation_table_attributes('transl_table', '11')
     expected_attributes = [('transl_table', '11')]
     self.assertEqual(calculated_attributes, expected_attributes)
@@ -383,7 +376,7 @@ FT                   hij klm nop qrs tuvw xyz"\
     self.assertEqual(calculated_attributes, expected_attributes)
 
   def test_create_default_attributes(self):
-    feature = EMBLFeature()
+    feature = self.create_uninitialized_feature()
     calculated_attributes = feature.create_default_attributes('some_value', 'A')
     expected_attributes = [('some_value', 'A')]
     self.assertEqual(calculated_attributes, expected_attributes)
@@ -405,7 +398,7 @@ FT                   hij klm nop qrs tuvw xyz"\
     self.assertEqual(calculated_attributes, expected_attributes)
 
   def test_format_coordinates(self):
-    feature = EMBLFeature()
+    feature = self.create_uninitialized_feature()
     calculated_coordinates = feature.format_coordinates(1, 10, '')
     expected_coordinates = '1..10'
     self.assertEqual(calculated_coordinates, expected_coordinates)
