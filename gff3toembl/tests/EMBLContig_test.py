@@ -118,6 +118,48 @@ FT                   /attributeB="baz"
     self.assertEqual(feature.pick_feature_builder('CDS'), feature.create_CDS_feature)
     self.assertEqual(feature.pick_feature_builder('other'), feature.create_default_feature)
 
+  def test_create_default_feature(self):
+    feature = EMBLFeature()
+    feature.create_default_feature(
+        feature_type='tRNA',
+        start = 100,
+        end = 200,
+        strand = '+',
+        feature_attributes =  {'some_attribute': 'ABC' },
+        locus_tag = None,
+        translation_table = 11
+    )
+    self.assertEqual(feature.feature_type, 'tRNA')
+    self.assertEqual(feature.start, 100)
+    self.assertEqual(feature.end, 200)
+    self.assertEqual(feature.strand, '+')
+    self.assertEqual(feature.locus_tag, None)
+    self.assertEqual(feature.translation_table, 11)
+
+    expected_attributes = [('some_attribute', 'ABC')]
+    self.assertItemsEqual(feature.attributes, expected_attributes)
+
+  def test_create_default_feature_with_locus_tag(self):
+    feature = EMBLFeature()
+    feature.create_default_feature(
+        feature_type='tRNA',
+        start = 100,
+        end = 200,
+        strand = '+',
+        feature_attributes =  {'some_attribute': 'ABC', 'locus_tag': 'XYZ_123'},
+        locus_tag = 'A_LOCUS_TAG',
+        translation_table = 11
+    )
+    self.assertEqual(feature.feature_type, 'tRNA')
+    self.assertEqual(feature.start, 100)
+    self.assertEqual(feature.end, 200)
+    self.assertEqual(feature.strand, '+')
+    self.assertEqual(feature.locus_tag, 'A_LOCUS_TAG')
+    self.assertEqual(feature.translation_table, 11)
+
+    expected_attributes = [('some_attribute', 'ABC'), ('locus_tag', 'A_LOCUS_TAG_123')]
+    self.assertItemsEqual(feature.attributes, expected_attributes)
+
   def test_should_ignore_feature_type(self):
     feature = EMBLFeature()
     self.assertTrue(feature.should_ignore_feature('ID'))

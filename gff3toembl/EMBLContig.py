@@ -19,6 +19,19 @@ class EMBLFeature(object):
     }
     return feature_builders.get(feature_type, self.create_default_feature)
 
+  def create_default_feature(self, feature_type, start, end, strand, feature_attributes, locus_tag, translation_table):
+    self.feature_type = feature_type
+    self.start = start
+    self.end = end
+    self.strand = strand
+    self.locus_tag = locus_tag
+    self.translation_table  = translation_table
+    self.attributes = []
+    for attribute_key, attribute_value in feature_attributes.items():
+      attribute_creator = self.lookup_attribute_creator(attribute_key)
+      new_attributes = attribute_creator(attribute_key, attribute_value)
+      self.attributes += new_attributes
+
   def format(self):
     coordinates = coordinates=self.format_coordinates(self.start, self.end, self.strand)
     header_string = "FT   {feature_type: <16}{coordinates}".format( feature_type=self.feature_type,
