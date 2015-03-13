@@ -13,6 +13,12 @@ class EMBLFeature(object):
   def __init__(self):
     self.locus_tag = None
 
+  def pick_feature_builder(self, feature_type):
+    feature_builders = {
+      'CDS': self.create_CDS_feature
+    }
+    return feature_builders.get(feature_type, self.create_default_feature)
+
   def format(self):
     coordinates = coordinates=self.format_coordinates(self.start, self.end, self.strand)
     header_string = "FT   {feature_type: <16}{coordinates}".format( feature_type=self.feature_type,

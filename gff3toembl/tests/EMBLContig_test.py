@@ -113,6 +113,11 @@ FT                   /attributeB="baz"
       self.assertEqual(calculated_line, expected_line)
     self.assertEqual(len(calculated_string), len(expected_string))
 
+  def test_pick_feature_builder(self):
+    feature = EMBLFeature()
+    self.assertEqual(feature.pick_feature_builder('CDS'), feature.create_CDS_feature)
+    self.assertEqual(feature.pick_feature_builder('other'), feature.create_default_feature)
+
   def test_should_ignore_feature_type(self):
     feature = EMBLFeature()
     self.assertTrue(feature.should_ignore_feature('ID'))
