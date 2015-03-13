@@ -32,6 +32,10 @@ class EMBLFeature(object):
       new_attributes = attribute_creator(attribute_key, attribute_value)
       self.attributes += new_attributes
 
+  def create_CDS_feature(self, **vargs):
+    self.create_default_feature(**vargs)
+    self.attributes += self.create_translation_table_attributes('transl_table', self.translation_table)
+
   def format(self):
     coordinates = coordinates=self.format_coordinates(self.start, self.end, self.strand)
     header_string = "FT   {feature_type: <16}{coordinates}".format( feature_type=self.feature_type,

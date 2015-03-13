@@ -160,6 +160,27 @@ FT                   /attributeB="baz"
     expected_attributes = [('some_attribute', 'ABC'), ('locus_tag', 'A_LOCUS_TAG_123')]
     self.assertItemsEqual(feature.attributes, expected_attributes)
 
+  def test_create_CDS_feature(self):
+    feature = EMBLFeature()
+    feature.create_CDS_feature(
+        feature_type='tRNA',
+        start = 100,
+        end = 200,
+        strand = '+',
+        feature_attributes =  {'some_attribute': 'ABC' },
+        locus_tag = None,
+        translation_table = 11
+    )
+    self.assertEqual(feature.feature_type, 'tRNA')
+    self.assertEqual(feature.start, 100)
+    self.assertEqual(feature.end, 200)
+    self.assertEqual(feature.strand, '+')
+    self.assertEqual(feature.locus_tag, None)
+    self.assertEqual(feature.translation_table, 11)
+
+    expected_attributes = [('some_attribute', 'ABC'), ('transl_table', 11)]
+    self.assertItemsEqual(feature.attributes, expected_attributes)
+
   def test_should_ignore_feature_type(self):
     feature = EMBLFeature()
     self.assertTrue(feature.should_ignore_feature('ID'))
