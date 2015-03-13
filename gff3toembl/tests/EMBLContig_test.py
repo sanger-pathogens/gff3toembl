@@ -125,6 +125,28 @@ FT                   /attributeB="baz"
     expected_string = 'FT                   /attributeA="foo"'
     self.assertEqual(calculated_string, expected_string)
 
+  def test_format_multiline_attribute(self):
+    feature = EMBLFeature()
+    long_attribute = 'abc efg hij klm nop qrs tuvw xyz abc efg hij klm nop qrs tuvw xyz'
+    calculated_string = feature.format_attribute('product', long_attribute)
+    expected_string = """\
+FT                   /product="abc efg hij klm nop qrs tuvw xyz abc efg hij klm
+FT                   nop qrs tuvw xyz"\
+"""
+    self.assertEqual(calculated_string, expected_string)
+
+    long_attribute = """\
+abc efg hij klm nop qrs tuvw xyz abc efg hij klm nop qrs tuvw xyz \
+abc efg hij klm nop qrs tuvw xyz abc_efg hij klm nop qrs tuvw xyz\
+"""
+    calculated_string = feature.format_attribute('product', long_attribute)
+    expected_string = """\
+FT                   /product="abc efg hij klm nop qrs tuvw xyz abc efg hij klm
+FT                   nop qrs tuvw xyz abc efg hij klm nop qrs tuvw xyz abc_efg
+FT                   hij klm nop qrs tuvw xyz"\
+"""
+    self.assertEqual(calculated_string, expected_string)
+
   def test_lookup_attribute_creator(self):
     feature = EMBLFeature()
     self.assertEqual(feature.lookup_attribute_creator('some_key'),

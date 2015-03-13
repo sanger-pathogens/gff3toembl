@@ -1,4 +1,5 @@
 import re
+from textwrap import TextWrapper
 
 class EMBLFeature(object):
   inference_to_db_xref_map = {
@@ -23,8 +24,13 @@ class EMBLFeature(object):
     return '\n'.join(attribute_strings) + '\n'
 
   def format_attribute(self, key, value):
-    attribute_template='FT                   /{attribute_key}="{attribute_value}"'
-    return attribute_template.format(attribute_key=key, attribute_value=value)
+    wrapper = TextWrapper()
+    wrapper.initial_indent='FT                   '
+    wrapper.subsequent_indent='FT                   '
+    wrapper.width=79
+    attribute_text_template='/{attribute_key}="{attribute_value}"'
+    attribute_text=attribute_text_template.format(attribute_key=key, attribute_value=value)
+    return wrapper.fill(attribute_text)
 
   def format_coordinates(self, start, end, strand):
     if strand == '-':
