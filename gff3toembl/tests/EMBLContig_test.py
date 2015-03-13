@@ -113,6 +113,25 @@ class TestEMBLFeature(unittest.TestCase):
     expected_attributes = [('some_attribute', 'ABC')]
     self.assertItemsEqual(feature.attributes, expected_attributes)
 
+  def test_initializer_for_ignored_features(self):
+    feature = EMBLFeature(
+        feature_type='ID',
+        start = 100,
+        end = 200,
+        strand = '+',
+        feature_attributes =  {'some_attribute': 'ABC' }
+    )
+    self.assertEqual(feature.format(), None)
+
+    feature = EMBLFeature(
+        feature_type='protein_id',
+        start = 100,
+        end = 200,
+        strand = '+',
+        feature_attributes =  {'some_attribute': 'ABC' }
+    )
+    self.assertEqual(feature.format(), None)
+
   def test_format(self):
     feature = self.create_uninitialized_feature()
     feature.feature_type = "feature_type"
