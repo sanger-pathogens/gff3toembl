@@ -45,7 +45,9 @@ class EMBLFeature(object):
     return attribute_creator_table.get(attribute_key, self.create_default_attributes)
 
   def create_default_attributes(self, attribute_key, attribute_value):
-    pass
+    all_attribute_values = attribute_value.split(',')
+    first_attribute_value = all_attribute_values[0]
+    return [(attribute_key, first_attribute_value)]
 
   def create_product_attributes(self, attribute_key, attribute_value):
     def remove_hypotheticals(value):

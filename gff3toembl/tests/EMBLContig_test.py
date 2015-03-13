@@ -282,6 +282,28 @@ FT                   /attributeB="baz"
     for test_input in ['protein', 'something else', 'motif:Cdd:COG1932i']:
       self.assertRaises(ValueError, feature.convert_to_db_xref, test_input)
 
+  def test_create_default_attributes(self):
+    feature = EMBLFeature()
+    calculated_attributes = feature.create_default_attributes('some_value', 'A')
+    expected_attributes = [('some_value', 'A')]
+    self.assertEqual(calculated_attributes, expected_attributes)
+
+    calculated_attributes = feature.create_default_attributes('some_value', 'A,B')
+    expected_attributes = [('some_value', 'A')]
+    self.assertEqual(calculated_attributes, expected_attributes)
+
+    calculated_attributes = feature.create_default_attributes('some_value', 'B,A')
+    expected_attributes = [('some_value', 'B')]
+    self.assertEqual(calculated_attributes, expected_attributes)
+
+    calculated_attributes = feature.create_default_attributes('some_value', 'A,A')
+    expected_attributes = [('some_value', 'A')]
+    self.assertEqual(calculated_attributes, expected_attributes)
+
+    calculated_attributes = feature.create_default_attributes('some_value', 'A,A,B')
+    expected_attributes = [('some_value', 'A')]
+    self.assertEqual(calculated_attributes, expected_attributes)
+
   def test_format_coordinates(self):
     feature = EMBLFeature()
     calculated_coordinates = feature.format_coordinates(1, 10, '')
