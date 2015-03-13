@@ -1,6 +1,14 @@
 import re
 
 class EMBLFeature(object):
+  inference_to_db_xref_map = {
+          'similar to AA sequence:UniProtKB': 'UniProtKB/Swiss-Prot',
+          'protein motif:Pfam': 'PFAM',
+          'protein motif:CLUSTERS': "CDD",
+          'protein motif:Cdd': "CDD",
+          'protein motif:TIGRFAMs': "TIGRFAM"
+  }
+
   def __init__(self):
     self.locus_tag = None
 
@@ -73,7 +81,25 @@ class EMBLFeature(object):
 
   def create_inference_attributes(self, attribute_key, attribute_value):
     attribute_values = attribute_value.split(',')
-    return [(attribute_key, value) for value in attribute_values]
+    attributes = []
+    for value in attribute_values:
+      if self.should_convert_to_db_xref(value):
+        attributes.append(('db_xref', self.convert_to_db_xref(value)))
+      else:
+        attributes.append(('inference', value))
+    return attributes
+
+  def should_convert_to_db_xref(self, attribute_value):
+    for search_text in self.inference_to_db_xref_map:
+      if search_text in attribute_value:
+        return True
+    return False
+
+  def convert_to_db_xref(self, attribute_value):
+    for search_text, replacement_text in self.inference_to_db_xref_map.items():
+      if search_text in attribute_value:
+        return attribute_value.replace(search_text, replacement_text)
+    raise ValueError("Failed to convert inference attribute '%s' to db_xref" % attribute_value)
 
 class EMBLHeader(object):
   def __init__(self,

@@ -247,6 +247,41 @@ FT                   /attributeB="baz"
     expected_attributes = [('inference', 'B'), ('inference', 'A'), ('inference', 'B')]
     self.assertEqual(calculated_attributes, expected_attributes)
 
+    calculated_attributes = feature.create_inference_attributes('inference', '123,similar to AA sequence:UniProtKB:Q2G282')
+    expected_attributes = [('inference', '123'), ('db_xref', "UniProtKB/Swiss-Prot:Q2G282")]
+    self.assertEqual(calculated_attributes, expected_attributes)
+
+  def test_should_convert_to_db_xref(self):
+    feature = EMBLFeature()
+    self.assertTrue(feature.should_convert_to_db_xref('similar to AA sequence:UniProtKB:Q2G282'))
+    self.assertTrue(feature.should_convert_to_db_xref('protein motif:Pfam:PF01475.13'))
+    self.assertTrue(feature.should_convert_to_db_xref('protein motif:CLUSTERS:PRK09462'))
+    self.assertTrue(feature.should_convert_to_db_xref('protein motif:TIGRFAMs:TIGR01327'))
+    self.assertTrue(feature.should_convert_to_db_xref('protein motif:Cdd:COG1932'))
+    self.assertTrue(feature.should_convert_to_db_xref('SOME_PREFIX protein motif:Cdd:COG1932'))
+    self.assertTrue(feature.should_convert_to_db_xref('protein motif:Cdd:COG1932i SOME_SUFFIX'))
+    self.assertTrue(feature.should_convert_to_db_xref('SOME_PREFIX protein motif:Cdd:COG1932i SOME_SUFFIX'))
+    self.assertFalse(feature.should_convert_to_db_xref('protein'))
+    self.assertFalse(feature.should_convert_to_db_xref('something else'))
+    self.assertFalse(feature.should_convert_to_db_xref('motif:Cdd:COG1932i'))
+
+  def test_convert_to_db_xref(self):
+    feature = EMBLFeature()
+    test_cases = [
+      ('similar to AA sequence:UniProtKB:Q2G282', "UniProtKB/Swiss-Prot:Q2G282"),
+      ('protein motif:Pfam:PF01475.13', "PFAM:PF01475.13"),
+      ('protein motif:CLUSTERS:PRK09462', "CDD:PRK09462"),
+      ('protein motif:TIGRFAMs:TIGR01327', "TIGRFAM:TIGR01327"),
+      ('protein motif:Cdd:COG1932', "CDD:COG1932"),
+      ('SOME_PREFIX protein motif:Cdd:COG1932', "SOME_PREFIX CDD:COG1932"),
+      ('protein motif:Cdd:COG1932 SOME_SUFFIX', "CDD:COG1932 SOME_SUFFIX"),
+      ('SOME_PREFIX protein motif:Cdd:COG1932 SOME_SUFFIX', "SOME_PREFIX CDD:COG1932 SOME_SUFFIX")
+    ]
+    for test_input, expected_output in test_cases:
+      self.assertEqual(feature.convert_to_db_xref(test_input), expected_output)
+    for test_input in ['protein', 'something else', 'motif:Cdd:COG1932i']:
+      self.assertRaises(ValueError, feature.convert_to_db_xref, test_input)
+
   def test_format_coordinates(self):
     feature = EMBLFeature()
     calculated_coordinates = feature.format_coordinates(1, 10, '')
