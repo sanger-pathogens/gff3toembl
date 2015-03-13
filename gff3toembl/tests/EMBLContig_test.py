@@ -351,6 +351,16 @@ FT                   hij klm nop qrs tuvw xyz"\
     for test_input in ['protein', 'something else', 'motif:Cdd:COG1932i']:
       self.assertRaises(ValueError, feature.convert_to_db_xref, test_input)
 
+  def test_create_translation_table_attribute(self):
+    feature = EMBLFeature()
+    calculated_attributes = feature.create_translation_table_attributes('transl_table', '11')
+    expected_attributes = [('transl_table', '11')]
+    self.assertEqual(calculated_attributes, expected_attributes)
+
+    calculated_attributes = feature.create_translation_table_attributes('transl_table', 'something_else')
+    expected_attributes = [('transl_table', 'something_else')]
+    self.assertEqual(calculated_attributes, expected_attributes)
+
   def test_create_default_attributes(self):
     feature = EMBLFeature()
     calculated_attributes = feature.create_default_attributes('some_value', 'A')

@@ -128,6 +128,9 @@ class EMBLFeature(object):
         return attribute_value.replace(search_text, replacement_text)
     raise ValueError("Failed to convert inference attribute '%s' to db_xref" % attribute_value)
 
+  def create_translation_table_attributes(self, attribute_key, attribute_value):
+    return [('transl_table', attribute_value)]
+
 class EMBLHeader(object):
   def __init__(self,
                authors="Pathogen Genomics",
