@@ -95,6 +95,24 @@ class TestEMBLFeature(unittest.TestCase):
     # This creates an otherwise identical EMBLFeature object
     return EMBLFeature.__new__(EMBLFeature)
 
+  def test_initializer(self):
+    feature = EMBLFeature(
+        feature_type='tRNA',
+        start = 100,
+        end = 200,
+        strand = '+',
+        feature_attributes =  {'some_attribute': 'ABC' }
+    )
+    self.assertEqual(feature.feature_type, 'tRNA')
+    self.assertEqual(feature.start, 100)
+    self.assertEqual(feature.end, 200)
+    self.assertEqual(feature.strand, '+')
+    self.assertEqual(feature.locus_tag, None)
+    self.assertEqual(feature.translation_table, 11)
+
+    expected_attributes = [('some_attribute', 'ABC')]
+    self.assertItemsEqual(feature.attributes, expected_attributes)
+
   def test_format(self):
     feature = self.create_uninitialized_feature()
     feature.feature_type = "feature_type"

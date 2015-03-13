@@ -10,8 +10,12 @@ class EMBLFeature(object):
           'protein motif:TIGRFAMs': "TIGRFAM"
   }
 
-  def __init__(self):
-    self.locus_tag = None
+  def __init__(self, feature_type, start, end, strand, feature_attributes,
+               locus_tag=None, translation_table=11):
+    feature_builder = self.pick_feature_builder(feature_type)
+    feature_builder(feature_type=feature_type, start=start, end=end, strand=strand,
+                    feature_attributes=feature_attributes, locus_tag=locus_tag,
+                    translation_table=translation_table)
 
   def pick_feature_builder(self, feature_type):
     feature_builders = {
