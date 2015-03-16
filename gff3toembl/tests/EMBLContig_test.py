@@ -394,6 +394,12 @@ FT                   hij klm nop qrs tuvw xyz"\
     expected_attributes = [('inference', '123'), ('db_xref', "UniProtKB/Swiss-Prot:Q2G282")]
     self.assertEqual(calculated_attributes, expected_attributes)
 
+  def test_ignore_attributes(self):
+    feature = self.create_uninitialized_feature()
+    calculated_attributes = feature.ignore_attributes('ID', '123')
+    expected_attributes = []
+    self.assertEqual(calculated_attributes, expected_attributes)
+
   def test_should_convert_to_db_xref(self):
     feature = self.create_uninitialized_feature()
     self.assertTrue(feature.should_convert_to_db_xref('similar to AA sequence:UniProtKB:Q2G282'))
