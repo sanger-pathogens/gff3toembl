@@ -32,8 +32,7 @@ class TestOldEMBLWriter(unittest.TestCase):
            'PROK', 
            'single_feature.embl', None,11,  None )
         emblwriter.parse_and_run()
-        self.compare_files(os.path.join(data_dir, 'expected_single_feature.embl'), 
-                           'single_feature.embl')
+        self.compare_files('single_feature.embl', os.path.join(data_dir, 'expected_single_feature.embl'))
         os.remove('single_feature.embl')
         
     def test_single_feature_new_locus_tag(self):
@@ -50,7 +49,7 @@ class TestOldEMBLWriter(unittest.TestCase):
            'PROK', 
            'single_feature.embl', 'new_locus_tag', 11, None )
         emblwriter.parse_and_run()
-        self.compare_files(os.path.join(data_dir, 'expected_single_feature_new_locus_tag.embl'), 'single_feature.embl')
+        self.compare_files('single_feature.embl', os.path.join(data_dir, 'expected_single_feature_new_locus_tag.embl')) 
         os.remove('single_feature.embl')
 
     def test_single_feature_translation_table(self):
@@ -67,9 +66,8 @@ class TestOldEMBLWriter(unittest.TestCase):
            'PROK', 
            'single_feature.embl', None, 1, None )
         emblwriter.parse_and_run()
-        self.compare_files(os.path.join(data_dir, 'expected_single_feature_translation_table.embl'), 'single_feature.embl') 
+        self.compare_files('single_feature.embl', os.path.join(data_dir, 'expected_single_feature_translation_table.embl'))
         os.remove('single_feature.embl')
-
 
     def test_large_conversion(self):
         '''test a large gff3 file converts to EMBL'''
@@ -85,7 +83,7 @@ class TestOldEMBLWriter(unittest.TestCase):
            'PROK', 
            'large_annotation.embl', None, 11, None )
         emblwriter.parse_and_run()
-        self.compare_files(os.path.join(data_dir, 'expected_large_annotation.embl'), 'large_annotation.embl')
+        self.compare_files('large_annotation.embl', os.path.join(data_dir, 'expected_large_annotation.embl'))
         os.remove('large_annotation.embl')
         
         
@@ -103,7 +101,7 @@ class TestOldEMBLWriter(unittest.TestCase):
           'PROK', 
           'chromosome_list.embl', None, 11, 'chromosome_list.txt' )
        emblwriter.parse_and_run()
-       self.compare_files(os.path.join(data_dir, 'expected_chromosome_list.txt'), 'chromosome_list.txt')
+       self.compare_files('chromosome_list.txt', os.path.join(data_dir, 'expected_chromosome_list.txt'))
        os.remove('chromosome_list.embl')
        os.remove('chromosome_list.txt')
        
@@ -122,7 +120,7 @@ class TestOldEMBLWriter(unittest.TestCase):
           'PROK', 
           'duplicate_coords.embl', None, 11, None )
        emblwriter.parse_and_run()
-       self.compare_files(os.path.join(data_dir, 'expected_duplicate_coords.embl'), 'duplicate_coords.embl')
+       self.compare_files('duplicate_coords.embl', os.path.join(data_dir, 'expected_duplicate_coords.embl'))
        os.remove('duplicate_coords.embl')
 
 
