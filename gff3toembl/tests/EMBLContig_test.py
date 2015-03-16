@@ -616,6 +616,7 @@ class TestEMBLSequence(unittest.TestCase):
     expected_body = '     aaaacccggt nn                                                            12\n'
     self.assertEqual(sequence.header, expected_header)
     self.assertEqual(sequence.body, expected_body)
+    self.assertEqual(sequence.length, 12)
 
   def test_format(self):
     sequence = self.create_uninitialized_sequence()
