@@ -3,11 +3,15 @@ from textwrap import TextWrapper
 
 class EMBLContig(object):
   def __init__(self):
+    self.header = None
     self.features = {}
     self.sequence = None
 
   def format(self):
-    header = self.header.format()
+    try:
+      header = self.header.format()
+    except AttributeError:
+      raise ValueError("Could not format contig, no header data found")
     feature_strings = [feature.format() for feature in self.features]
     features = "".join(feature_strings)
     try:
@@ -15,6 +19,12 @@ class EMBLContig(object):
     except AttributeError:
       raise ValueError("Could not format contig, no sequence data found")
     return header + features + sequence
+
+  def add_header(self, **kwargs):
+    if self.header != None:
+      raise ValueError("Contig already has header data")
+    header = EMBLHeader(**kwargs)
+    self.header = header
 
   def add_feature(self, sequence_id, **kwargs):
     feature = EMBLFeature(**kwargs)

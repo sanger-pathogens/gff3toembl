@@ -85,6 +85,35 @@ Sequence
     self.assertEqual(contig.sequence, None)
     self.assertRaises(ValueError, contig.format)
 
+  def test_add_header(self):
+    contig = EMBLContig()
+    contig.features['feature_1'] = self.create_blank_bit_of_contig()
+    contig.sequence = self.create_blank_bit_of_contig()
+    header_details = {
+      "authors": "John Doe",
+      "classification": "UNC",
+      "genome_type": "circular",
+      "organism": "My organism",
+      "project": "PRJ1234",
+      "publication": "Unpublished",
+      "sequence_identifier": "**contig123",
+      "sequence_length": 8,
+      "sequence_name": "chromX",
+      "taxon_id": 5678,
+      "title": "My title"
+    }
+    contig.add_header(**header_details)
+    self.assertIsInstance(contig.header, EMBLHeader)
+    with self.assertRaises(ValueError):
+      contig.add_header(**header_details)
+
+  def test_format_no_header(self):
+    contig = EMBLContig()
+    contig.features['feature_1'] = self.create_blank_bit_of_contig()
+    contig.sequence = self.create_blank_bit_of_contig()
+    self.assertEqual(contig.header, None)
+    self.assertRaises(ValueError, contig.format)
+
 class TestEMBLHeader(unittest.TestCase):
 
   def test_initialize_header_object(self):
