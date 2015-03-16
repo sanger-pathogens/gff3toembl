@@ -1,6 +1,6 @@
 import unittest
 import pdb
-from mock import MagicMock
+from mock import MagicMock, patch
 from gff3toembl.EMBLContig import EMBLContig, EMBLHeader, EMBLFeature, EMBLSequence
 
 class TestEMBLContig(unittest.TestCase):
@@ -63,6 +63,20 @@ Sequence
         feature_attributes =  {'some_attribute': 'ABC' }
     )
     self.assertEqual(len(contig.features), 1)
+
+  @patch('gff3toembl.EMBLContig.EMBLFeature')
+  def test_add_ignored_feature(self, feature_mock):
+    contig = EMBLContig()
+    feature_mock.return_value.format.side_effect = lambda: None
+    contig.add_feature(
+        sequence_id = 1,
+        feature_type = 'tRNA',
+        start = 100,
+        end = 200,
+        strand = '+',
+        feature_attributes =  {'some_attribute': 'ABC' }
+    )
+    self.assertEquals(contig.features, {})
 
   def test_format_no_features(self):
     contig = EMBLContig()

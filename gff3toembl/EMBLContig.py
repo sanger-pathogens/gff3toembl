@@ -31,6 +31,8 @@ class EMBLContig(object):
     unique_feature_reference = "{}_{}_{}_{}".format(sequence_id, feature.feature_type, feature.start, feature.end)
     if unique_feature_reference in self.features:
       return False
+    elif feature.format() == None:
+      return False
     else:
       self.features[unique_feature_reference] = feature
       return True
