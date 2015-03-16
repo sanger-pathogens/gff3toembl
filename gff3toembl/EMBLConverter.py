@@ -6,7 +6,16 @@ from gff3toembl.EMBLContig import EMBLFeature
 
 class EMBLConverter(CustomVisitor):
 
-    def __init__(self, locus_tag = None, translation_table = 11):
+    def __init__(self,
+                 authors="Pathogen Genomics",
+                 classification="UNC",
+                 genome_type="circular",
+                 locus_tag=None,
+                 organism=None,
+                 project="",
+                 publication="Unpublished",
+                 translation_table=11
+               ):
         CustomVisitor.__init__(self)
         self.seqs = {}
         self.feats = defaultdict(lambda: [], {})
