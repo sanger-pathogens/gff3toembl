@@ -210,6 +210,25 @@ FT                   /attributeB="baz"
     expected_string = 'FT                   /attributeA="foo"'
     self.assertEqual(calculated_string, expected_string)
 
+    calculated_string = feature.format_attribute('transl_table', 11)
+    expected_string = 'FT                   /transl_table=11'
+    self.assertEqual(calculated_string, expected_string)
+
+  def test_lookup_attribute_formatter(self):
+    feature = self.create_uninitialized_feature()
+    formatter = feature.lookup_attribute_formatter('attributeA')
+    self.assertEqual(formatter, feature.default_attribute_formatter)
+
+    feature = self.create_uninitialized_feature()
+    formatter = feature.lookup_attribute_formatter('transl_table')
+    self.assertEqual(formatter, feature.translation_table_attribute_formatter)
+
+  def test_translation_table_attribute_formatter(self):
+    feature = self.create_uninitialized_feature()
+    calculated_string = feature.translation_table_attribute_formatter('transl_table', 11)
+    expected_string = 'FT                   /transl_table=11'
+    self.assertEqual(calculated_string, expected_string)
+
   def test_format_multiline_attribute(self):
     feature = self.create_uninitialized_feature()
     long_attribute = 'abc efg hij klm nop qrs tuvw xyz abc efg hij klm nop qrs tuvw xyz'

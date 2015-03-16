@@ -56,6 +56,25 @@ class EMBLFeature(object):
     return '\n'.join(attribute_strings) + '\n'
 
   def format_attribute(self, key, value):
+    formatter = self.lookup_attribute_formatter(key)
+    return formatter(key, value)
+
+  def lookup_attribute_formatter(self, attribute_type):
+    formatters = {
+      'transl_table': self.translation_table_attribute_formatter
+    }
+    return formatters.get(attribute_type, self.default_attribute_formatter)
+
+  def translation_table_attribute_formatter(self, key, value):
+    wrapper = TextWrapper()
+    wrapper.initial_indent='FT                   '
+    wrapper.subsequent_indent='FT                   '
+    wrapper.width=79
+    attribute_text_template='/{attribute_key}={attribute_value}'
+    attribute_text=attribute_text_template.format(attribute_key=key, attribute_value=value)
+    return wrapper.fill(attribute_text)
+
+  def default_attribute_formatter(self, key, value):
     wrapper = TextWrapper()
     wrapper.initial_indent='FT                   '
     wrapper.subsequent_indent='FT                   '
