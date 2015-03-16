@@ -496,3 +496,21 @@ class TestEMBLSequence(unittest.TestCase):
     calculated_counts = sequence.calculate_nucleotide_counts('acgtACGTtttT')
     expected_counts = {'a': 2, 'c': 2, 'g': 2, 't': 6, 'other': 0}
     self.assertEqual(calculated_counts, expected_counts)
+
+  def test_format_header(self):
+    sequence = EMBLSequence()
+    neucleotide_counts = {'a': 4, 'c': 3, 'g': 2, 't': 1, 'other': 2}
+    calculated_header = sequence.format_header(neucleotide_counts)
+    expected_header = "SQ   Sequence 12 BP; 4 A; 3 C; 2 G; 1 T; 2 other;"
+
+    neucleotide_counts = {'a': 12, 'c': 0, 'g': 0, 't': 0, 'other': 0}
+    calculated_header = sequence.format_header(neucleotide_counts)
+    expected_header = "SQ   Sequence 12 BP; 12 A; 0 C; 0 G; 0 T; 0 other;"
+
+    neucleotide_counts = {'a': 0, 'c': 0, 'g': 0, 't': 0, 'other': 12}
+    calculated_header = sequence.format_header(neucleotide_counts)
+    expected_header = "SQ   Sequence 12 BP; 0 A; 0 C; 0 G; 0 T; 12 other;"
+
+    neucleotide_counts = {'a': 2, 'c': 2, 'g': 2, 't': 6, 'other': 0}
+    calculated_header = sequence.format_header(neucleotide_counts)
+    expected_header = "SQ   Sequence 12 BP; 2 A; 2 C; 2 G; 6 T; 0 other;"

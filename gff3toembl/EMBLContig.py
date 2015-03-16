@@ -230,3 +230,9 @@ class EMBLSequence(object):
     count_of_acgt = sum(counts.values())
     counts['other'] = len(sequence) - count_of_acgt
     return counts
+
+  def format_header(self, nucleotide_counts):
+    template = "SQ   Sequence {total} BP; {a} A; {c} C; {g} G; {t} T; {other} other;"
+    total_counts = sum(nucleotide_counts.values())
+    nucleotide_counts['total'] = total_counts
+    return template.format(**nucleotide_counts)
