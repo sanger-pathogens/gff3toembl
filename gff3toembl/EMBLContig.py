@@ -78,7 +78,9 @@ class EMBLFeature(object):
       'product': self.create_product_attributes,
       'locus_tag': self.create_locus_tag_attributes,
       'eC_number': self.create_EC_number_attributes,
-      'inference': self.create_inference_attributes
+      'inference': self.create_inference_attributes,
+      'protein_id': self.ignore_attributes,
+      'ID': self.ignore_attributes
     }
     return attribute_creator_table.get(attribute_key, self.create_default_attributes)
 
@@ -128,6 +130,9 @@ class EMBLFeature(object):
       else:
         attributes.append(('inference', value))
     return attributes
+
+  def ignore_attributes(self, attribute_key, attribute_value):
+    return []
 
   def should_convert_to_db_xref(self, attribute_value):
     for search_text in self.inference_to_db_xref_map:
