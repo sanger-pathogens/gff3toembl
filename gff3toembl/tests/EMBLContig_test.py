@@ -113,6 +113,16 @@ class TestEMBLFeature(unittest.TestCase):
     expected_attributes = [('some_attribute', 'ABC')]
     self.assertItemsEqual(feature.attributes, expected_attributes)
 
+  def test_initializer_for_ignored_features(self):
+    feature = EMBLFeature(
+        feature_type='ncRNA',
+        start = 100,
+        end = 200,
+        strand = '+',
+        feature_attributes =  {'some_attribute': 'ABC' }
+    )
+    self.assertEqual(feature.format(), None)
+
   def test_format(self):
     feature = self.create_uninitialized_feature()
     feature.feature_type = "feature_type"
@@ -139,7 +149,21 @@ FT                   /attributeB="baz"
   def test_pick_feature_builder(self):
     feature = self.create_uninitialized_feature()
     self.assertEqual(feature.pick_feature_builder('CDS'), feature.create_CDS_feature)
+    self.assertEqual(feature.pick_feature_builder('ncRNA'), feature.create_empty_feature)
     self.assertEqual(feature.pick_feature_builder('other'), feature.create_default_feature)
+
+  def test_create_empty_feature(self):
+    feature = self.create_uninitialized_feature()
+    feature.create_empty_feature(
+        feature_type='ncRNA',
+        start = 100,
+        end = 200,
+        strand = '+',
+        feature_attributes =  {'some_attribute': 'ABC' },
+        locus_tag = None,
+        translation_table = 11
+    )
+    self.assertEqual(feature.format(), None)
 
   def test_create_default_feature(self):
     feature = self.create_uninitialized_feature()

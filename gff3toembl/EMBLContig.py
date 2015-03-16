@@ -20,8 +20,7 @@ class EMBLFeature(object):
   def pick_feature_builder(self, feature_type):
     feature_builders = {
       'CDS': self.create_CDS_feature,
-      'ID': self.create_empty_feature,
-      'protein_id': self.create_empty_feature
+      'ncRNA': self.create_empty_feature
     }
     return feature_builders.get(feature_type, self.create_default_feature)
 
@@ -88,9 +87,6 @@ class EMBLFeature(object):
       return "complement({start}..{end})".format(start=start, end=end)
     else:
       return "{start}..{end}".format(start=start, end=end)
-
-  def should_ignore_feature(self, feature_type):
-    return feature_type in ['ID', 'protein_id']
 
   def lookup_attribute_creator(self, attribute_key):
     attribute_creator_table = {
