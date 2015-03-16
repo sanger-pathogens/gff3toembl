@@ -1,6 +1,32 @@
 import unittest
 import pdb
-from gff3toembl.EMBLContig import EMBLFeature, EMBLHeader, EMBLSequence
+from mock import MagicMock
+from gff3toembl.EMBLContig import EMBLContig, EMBLHeader, EMBLFeature, EMBLSequence
+
+class TestEMBLContig(unittest.TestCase):
+
+  def test_format(self):
+    contig = EMBLContig()
+    header_mock = MagicMock()
+    feature_mock_1 = MagicMock()
+    feature_mock_2 = MagicMock()
+    sequence_mock = MagicMock()
+    header_mock.format.return_value = "Header\n"
+    feature_mock_1.format.return_value = "Feature 1\n"
+    feature_mock_2.format.return_value = "Feature 2\n"
+    sequence_mock.format.return_value = "Sequence\n"
+    contig.header = header_mock
+    contig.features = [feature_mock_1, feature_mock_2]
+    contig.sequence = sequence_mock
+    calculated_string = contig.format()
+    expected_string = """\
+Header
+Feature 1
+Feature 2
+Sequence
+"""
+    self.assertEqual(calculated_string, expected_string)
+
 
 class TestEMBLHeader(unittest.TestCase):
 

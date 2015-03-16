@@ -1,6 +1,17 @@
 import re
 from textwrap import TextWrapper
 
+class EMBLContig(object):
+  def __init__(self):
+    pass
+
+  def format(self):
+    header = self.header.format()
+    feature_strings = [feature.format() for feature in self.features]
+    features = "".join(feature_strings)
+    sequence = self.sequence.format()
+    return header + features + sequence
+
 class EMBLFeature(object):
   inference_to_db_xref_map = {
           'similar to AA sequence:UniProtKB': 'UniProtKB/Swiss-Prot',
