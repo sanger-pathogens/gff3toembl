@@ -1,6 +1,6 @@
 import unittest
 import pdb
-from gff3toembl.EMBLContig import EMBLFeature, EMBLHeader
+from gff3toembl.EMBLContig import EMBLFeature, EMBLHeader, EMBLSequence
 
 class TestEMBLHeader(unittest.TestCase):
 
@@ -476,3 +476,23 @@ FT                   hij klm nop qrs tuvw xyz"\
     calculated_coordinates = feature.format_coordinates(1, 10, '***NONSENCE***')
     expected_coordinates = '1..10'
     self.assertEqual(calculated_coordinates, expected_coordinates)
+
+class TestEMBLSequence(unittest.TestCase):
+
+  def test_calculate_neucleotide_counts(self):
+    sequence = EMBLSequence()
+    calculated_counts = sequence.calculate_nucleotide_counts('AAAACCCGGTNN')
+    expected_counts = {'a': 4, 'c': 3, 'g': 2, 't': 1, 'other': 2}
+    self.assertEqual(calculated_counts, expected_counts)
+
+    calculated_counts = sequence.calculate_nucleotide_counts('AAAAaaaaAAAA')
+    expected_counts = {'a': 12, 'c': 0, 'g': 0, 't': 0, 'other': 0}
+    self.assertEqual(calculated_counts, expected_counts)
+
+    calculated_counts = sequence.calculate_nucleotide_counts('------------')
+    expected_counts = {'a': 0, 'c': 0, 'g': 0, 't': 0, 'other': 12}
+    self.assertEqual(calculated_counts, expected_counts)
+
+    calculated_counts = sequence.calculate_nucleotide_counts('acgtACGTtttT')
+    expected_counts = {'a': 2, 'c': 2, 'g': 2, 't': 6, 'other': 0}
+    self.assertEqual(calculated_counts, expected_counts)

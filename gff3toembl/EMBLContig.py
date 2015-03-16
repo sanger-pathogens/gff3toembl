@@ -214,3 +214,19 @@ FT                   /note="{sequence_name}"
 
   def format(self):
     return self.header_template.format(**self.__dict__)
+
+class EMBLSequence(object):
+
+  def __init__(self):
+    pass
+
+  def calculate_nucleotide_counts(self, sequence):
+    sequence = sequence.lower()
+    counts = {}
+    counts['a'] = sequence.count('a')
+    counts['c'] = sequence.count('c')
+    counts['g'] = sequence.count('g')
+    counts['t'] = sequence.count('t')
+    count_of_acgt = sum(counts.values())
+    counts['other'] = len(sequence) - count_of_acgt
+    return counts
