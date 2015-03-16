@@ -127,12 +127,7 @@ class EMBLFeature(object):
   def create_EC_number_attributes(self, attribute_key, attribute_value):
     attribute_values = attribute_value.split(',')
     def deduplicate_values(values):
-      # if values is a large list, this is pretty inefficient
-      # I've used it here because it is clear and I'm not
-      # expecting loads of values so it doesn't matter.
-      unique = []
-      [unique.append(v) for v in values if v not in unique]
-      return unique
+      return list(set(values))
     attribute_values = deduplicate_values(attribute_values)
     return [('EC_number', value) for value in attribute_values]
 
