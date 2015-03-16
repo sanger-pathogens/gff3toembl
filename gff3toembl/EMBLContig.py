@@ -66,7 +66,7 @@ class EMBLFeature(object):
 
   def format_coordinates(self, start, end, strand):
     if strand == '-':
-      return "compliment({start}..{end})".format(start=start, end=end)
+      return "complement({start}..{end})".format(start=start, end=end)
     else:
       return "{start}..{end}".format(start=start, end=end)
 

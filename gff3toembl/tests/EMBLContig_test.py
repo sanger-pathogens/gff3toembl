@@ -456,7 +456,7 @@ FT                   hij klm nop qrs tuvw xyz"\
     self.assertEqual(calculated_coordinates, expected_coordinates)
 
     calculated_coordinates = feature.format_coordinates(1, 10, '-')
-    expected_coordinates = 'compliment(1..10)'
+    expected_coordinates = 'complement(1..10)'
     self.assertEqual(calculated_coordinates, expected_coordinates)
 
     calculated_coordinates = feature.format_coordinates(1, 10, '***NONSENCE***')
