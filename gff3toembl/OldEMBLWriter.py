@@ -39,25 +39,24 @@ class OldEMBLWriter(object):
         self.chromosome_list    = chromosome_list
         self.fixed_gff_file     = str(self.gff3_file)+"_fixed.gff"
 
-    def output_seq(self, seq):
-        sequence_string = self.converter.construct_sequence(seq)
-        return sequence_string
-
-    def output_source(self, sequence_length, organism, taxonid,sequence_name):
-        source_string = self.converter.source_template(sequence_length,organism, taxonid,sequence_name)
-        return source_string
-
-    def create_output_file(self, sequences, organism, taxonid, project, description, authors, title, publication, genome_type, classification):
-        i = 1
+    def create_output_file(self, organism, taxonid, project, description, authors, title, publication, genome_type, classification):
         target = open(self.output_filename, 'w')
-        for seqid in sorted(sequences):
-            target.write(self.converter.populated_header(len(self.conv.seqs[seqid]),  project, description, i, authors, title, publication, genome_type, classification, seqid ) )
-            target.write(self.output_source(len(self.conv.seqs[seqid]), organism, taxonid,seqid ))
-            for feat in self.conv.feats[seqid]:
-                target.write(feat)
-            target.write(self.output_seq(self.conv.seqs[seqid]))
+        for sequence_identifier, contig in self.conv.contigs.items():
+            contig.add_header(
+              authors = authors,
+              classification = classification,
+              genome_type = genome_type,
+              organism = organism,
+              project = project,
+              publication = publication,
+              sequence_identifier = sequence_identifier,
+              sequence_length = contig.sequence.length,
+              sequence_name = sequence_identifier,
+              taxon_id = taxonid,
+              title = title,
+            )
+            target.write(contig.format())
             target.write("//\n")
-            i +=1
         target.close()
 
     def create_chromosome_list(self, chromosome_list_filename, embl_filename):
@@ -99,7 +98,7 @@ class OldEMBLWriter(object):
         except Exception, e:
             print e
             exit(1)
-        self.create_output_file(self.conv.seqs.keys(), self.organism, self.taxonid, self.project, self.description, self.authors, self.title, self.publication, self.genome_type, self.classification)
+        self.create_output_file(self.organism, self.taxonid, self.project, self.description, self.authors, self.title, self.publication, self.genome_type, self.classification)
         self.create_chromosome_list(self.chromosome_list, self.output_filename)
         os.remove(self.fixed_gff_file)
 

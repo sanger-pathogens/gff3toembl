@@ -67,7 +67,7 @@ Sequence
   @patch('gff3toembl.EMBLContig.EMBLFeature')
   def test_add_ignored_feature(self, feature_mock):
     contig = EMBLContig()
-    feature_mock.return_value.format.side_effect = lambda: None
+    feature_mock.return_value.format.side_effect = lambda: None 
     contig.add_feature(
         sequence_id = 1,
         feature_type = 'tRNA',
