@@ -27,6 +27,37 @@ Sequence
 """
     self.assertEqual(calculated_string, expected_string)
 
+  def test_add_feature(self):
+    contig = EMBLContig()
+    contig.add_feature(
+        sequence_id = 1,
+        feature_type = 'tRNA',
+        start = 100,
+        end = 200,
+        strand = '+',
+        feature_attributes =  {'some_attribute': 'ABC' }
+    )
+    self.assertEqual(len(contig.features), 1)
+
+  def test_add_duplicate_feature(self):
+    contig = EMBLContig()
+    contig.add_feature(
+        sequence_id = 1,
+        feature_type = 'tRNA',
+        start = 100,
+        end = 200,
+        strand = '+',
+        feature_attributes =  {'some_attribute': 'ABC' }
+    )
+    contig.add_feature(
+        sequence_id = 1,
+        feature_type = 'tRNA',
+        start = 100,
+        end = 200,
+        strand = '+',
+        feature_attributes =  {'some_attribute': 'ABC' }
+    )
+    self.assertEqual(len(contig.features), 1)
 
 class TestEMBLHeader(unittest.TestCase):
 

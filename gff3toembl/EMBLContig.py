@@ -3,7 +3,7 @@ from textwrap import TextWrapper
 
 class EMBLContig(object):
   def __init__(self):
-    pass
+    self.features = {}
 
   def format(self):
     header = self.header.format()
@@ -11,6 +11,15 @@ class EMBLContig(object):
     features = "".join(feature_strings)
     sequence = self.sequence.format()
     return header + features + sequence
+
+  def add_feature(self, sequence_id, **kwargs):
+    feature = EMBLFeature(**kwargs)
+    unique_feature_reference = "{}_{}_{}_{}".format(sequence_id, feature.feature_type, feature.start, feature.end)
+    if unique_feature_reference in self.features:
+      return False
+    else:
+      self.features[unique_feature_reference] = feature
+      return True
 
 class EMBLFeature(object):
   inference_to_db_xref_map = {
@@ -48,11 +57,11 @@ class EMBLFeature(object):
       new_attributes = attribute_creator(attribute_key, attribute_value)
       self.attributes += new_attributes
 
-  def create_CDS_feature(self, **vargs):
-    self.create_default_feature(**vargs)
+  def create_CDS_feature(self, **kwargs):
+    self.create_default_feature(**kwargs)
     self.attributes += self.create_translation_table_attributes('transl_table', self.translation_table)
 
-  def create_empty_feature(self, **vargs):
+  def create_empty_feature(self, **kwargs):
     self.format = lambda: None
 
   def format(self):
