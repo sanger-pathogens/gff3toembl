@@ -217,8 +217,10 @@ FT                   /note="{sequence_name}"
 
 class EMBLSequence(object):
 
-  def __init__(self):
-    pass
+  def __init__(self, sequence_string):
+    nucleotide_counts = self.calculate_nucleotide_counts(sequence_string)
+    self.header = self.format_header(nucleotide_counts)
+    self.body = self.format_sequence_body(sequence_string)
 
   def format(self):
     return self.header + '\n' + self.body

@@ -479,8 +479,20 @@ FT                   hij klm nop qrs tuvw xyz"\
 
 class TestEMBLSequence(unittest.TestCase):
 
+  def create_uninitialized_sequence(self):
+    # In most cases I don't want tests to run the __init__
+    # This creates an otherwise identical EMBLFeature object
+    return EMBLSequence.__new__(EMBLSequence)
+
+  def test_init(self):
+    sequence = EMBLSequence('AAAACCCGGTNN')
+    expected_header = "SQ   Sequence 12 BP; 4 A; 3 C; 2 G; 1 T; 2 other;"
+    expected_body = '     aaaacccggt nn                                                            12\n'
+    self.assertEqual(sequence.header, expected_header)
+    self.assertEqual(sequence.body, expected_body)
+
   def test_format(self):
-    sequence = EMBLSequence()
+    sequence = self.create_uninitialized_sequence()
     sequence.header = "SQ   Sequence 12 BP; 4 A; 3 C; 2 G; 1 T; 2 other;"
     sequence.body = '     aaaacccggt nn                                                            12\n'
     calculated_string = sequence.format()
@@ -491,7 +503,7 @@ SQ   Sequence 12 BP; 4 A; 3 C; 2 G; 1 T; 2 other;
     self.assertEqual(calculated_string, expected_string)
 
   def test_calculate_neucleotide_counts(self):
-    sequence = EMBLSequence()
+    sequence = self.create_uninitialized_sequence()
     calculated_counts = sequence.calculate_nucleotide_counts('AAAACCCGGTNN')
     expected_counts = {'a': 4, 'c': 3, 'g': 2, 't': 1, 'other': 2}
     self.assertEqual(calculated_counts, expected_counts)
@@ -509,7 +521,7 @@ SQ   Sequence 12 BP; 4 A; 3 C; 2 G; 1 T; 2 other;
     self.assertEqual(calculated_counts, expected_counts)
 
   def test_format_header(self):
-    sequence = EMBLSequence()
+    sequence = self.create_uninitialized_sequence()
     neucleotide_counts = {'a': 4, 'c': 3, 'g': 2, 't': 1, 'other': 2}
     calculated_header = sequence.format_header(neucleotide_counts)
     expected_header = "SQ   Sequence 12 BP; 4 A; 3 C; 2 G; 1 T; 2 other;"
@@ -527,7 +539,7 @@ SQ   Sequence 12 BP; 4 A; 3 C; 2 G; 1 T; 2 other;
     expected_header = "SQ   Sequence 12 BP; 2 A; 2 C; 2 G; 6 T; 0 other;"
 
   def test_split_line_of_sequence(self):
-    sequence = EMBLSequence()
+    sequence = self.create_uninitialized_sequence()
     line_of_sequence = "123"
     calculated_split = sequence.split_line_of_sequence(line_of_sequence)
     expected_split = ["123", '', '', '', '', '']
@@ -564,7 +576,7 @@ SQ   Sequence 12 BP; 4 A; 3 C; 2 G; 1 T; 2 other;
     self.assertEqual(calculated_split, expected_split)
 
   def test_split_sequence(self):
-    sequence = EMBLSequence()
+    sequence = self.create_uninitialized_sequence()
     sequence_string = "tctgacaatcgctttctt"
     calculated_split = sequence.split_sequence(sequence_string)
     expected_split = [ (['tctgacaatc', 'gctttctt', '', '', '', ''], 18) ]
@@ -594,7 +606,7 @@ SQ   Sequence 12 BP; 4 A; 3 C; 2 G; 1 T; 2 other;
     self.assertEqual(calculated_split, expected_split)
 
   def test_format_sequence_body(self):
-    sequence = EMBLSequence()
+    sequence = self.create_uninitialized_sequence()
     sequence_string="tctgacaatcgctttctt"
     expected_string = """\
      tctgacaatc gctttctt                                                      18
