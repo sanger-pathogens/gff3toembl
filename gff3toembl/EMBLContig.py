@@ -4,12 +4,16 @@ from textwrap import TextWrapper
 class EMBLContig(object):
   def __init__(self):
     self.features = {}
+    self.sequence = None
 
   def format(self):
     header = self.header.format()
     feature_strings = [feature.format() for feature in self.features]
     features = "".join(feature_strings)
-    sequence = self.sequence.format()
+    try:
+      sequence = self.sequence.format()
+    except AttributeError:
+      raise ValueError("Could not format contig, no sequence data found")
     return header + features + sequence
 
   def add_feature(self, sequence_id, **kwargs):
@@ -20,6 +24,12 @@ class EMBLContig(object):
     else:
       self.features[unique_feature_reference] = feature
       return True
+
+  def add_sequence(self, sequence_string):
+    if self.sequence != None:
+      raise ValueError("Contig already has sequence data")
+    sequence = EMBLSequence(sequence_string)
+    self.sequence = sequence
 
 class EMBLFeature(object):
   inference_to_db_xref_map = {

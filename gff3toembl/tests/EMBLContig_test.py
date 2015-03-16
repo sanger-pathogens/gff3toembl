@@ -5,6 +5,11 @@ from gff3toembl.EMBLContig import EMBLContig, EMBLHeader, EMBLFeature, EMBLSeque
 
 class TestEMBLContig(unittest.TestCase):
 
+  def create_blank_bit_of_contig(self):
+    contig_mock = MagicMock()
+    contig_mock.format.return_value = ""
+    return contig_mock
+
   def test_format(self):
     contig = EMBLContig()
     header_mock = MagicMock()
@@ -58,6 +63,27 @@ Sequence
         feature_attributes =  {'some_attribute': 'ABC' }
     )
     self.assertEqual(len(contig.features), 1)
+
+  def test_format_no_features(self):
+    contig = EMBLContig()
+    contig.header = self.create_blank_bit_of_contig()
+    contig.sequence = self.create_blank_bit_of_contig()
+    self.assertEquals(contig.format(), '')
+
+  def test_add_sequence(self):
+    contig = EMBLContig()
+    contig.header = self.create_blank_bit_of_contig()
+    contig.features['feature_1'] = self.create_blank_bit_of_contig()
+    contig.add_sequence('AAAACCCGGTNN')
+    self.assertIsInstance(contig.sequence, EMBLSequence)
+    self.assertRaises(ValueError, contig.add_sequence, 'AAAACCCGGTNN')
+
+  def test_format_no_sequence(self):
+    contig = EMBLContig()
+    contig.header = self.create_blank_bit_of_contig()
+    contig.features['feature_1'] = self.create_blank_bit_of_contig()
+    self.assertEqual(contig.sequence, None)
+    self.assertRaises(ValueError, contig.format)
 
 class TestEMBLHeader(unittest.TestCase):
 
