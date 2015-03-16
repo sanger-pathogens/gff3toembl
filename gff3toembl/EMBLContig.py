@@ -237,6 +237,20 @@ class EMBLSequence(object):
     nucleotide_counts['total'] = total_counts
     return template.format(**nucleotide_counts)
 
+  def format_sequence_body(self, sequence_string):
+    sequence_string = sequence_string.lower()
+    lines = self.split_sequence(sequence_string)
+    def format_a_line(line):
+      # a line looks like:
+      # (["1234567890", "12345", '', '', '', ''], 15)
+      # and should look like
+      # "     1234567890 12345                                                         15"
+      blocks_of_sequence, end_of_line = line
+      format_arguments = blocks_of_sequence + [end_of_line]
+      return "     {:<10} {:<10} {:<10} {:<10} {:<10} {:<10} {:>9}".format(*format_arguments)
+    formatted_lines = map(format_a_line, lines)
+    return '\n'.join(formatted_lines) + '\n'
+
   def split_line_of_sequence(self, line_of_sequence):
     # Turns "123456789012345" into ["1234567890", "12345", '', '', '', '']
     splits = []

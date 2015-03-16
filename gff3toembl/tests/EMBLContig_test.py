@@ -581,3 +581,43 @@ class TestEMBLSequence(unittest.TestCase):
     expected_split = [ (["tctgacaatc", "gctttcttta", "aaaagaaact", "attgtcgaga", "atttgcatta", "gcaatatcac"], 60),
                        (["tttgtcaaaa", "agatgtttga", "atgttaaata", "aacattcaaa", "actgaataca", "atatgtcaca"], 120) ]
     self.assertEqual(calculated_split, expected_split)
+
+  def test_format_sequence_body(self):
+    sequence = EMBLSequence()
+    sequence_string="tctgacaatcgctttctt"
+    expected_string = """\
+     tctgacaatc gctttctt                                                      18
+"""
+    calculated_string = sequence.format_sequence_body(sequence_string)
+    self.assertEqual(calculated_string, expected_string)
+
+    sequence_string="TTTAAAACCCCGGGtttcccgggaaa"
+    expected_string = """\
+     tttaaaaccc cgggtttccc gggaaa                                             26
+"""
+    calculated_string = sequence.format_sequence_body(sequence_string)
+    self.assertEqual(calculated_string, expected_string)
+
+    sequence_string="tctgacaatcgctttctttaaaaagaaactattgtcgagaatttgcattagcaatatcactttgtcaaaaagatgtttgaatgttaaataaacattcaaaactgaatacaatatgtca"
+    expected_string = """\
+     tctgacaatc gctttcttta aaaagaaact attgtcgaga atttgcatta gcaatatcac        60
+     tttgtcaaaa agatgtttga atgttaaata aacattcaaa actgaataca atatgtca         118
+"""
+    calculated_string = sequence.format_sequence_body(sequence_string)
+    self.assertEqual(calculated_string, expected_string)
+
+    sequence_string="tctgacaatcgctttctttaaaaagaaactattgtcgagaatttgcattagcaatatcactttgtcaaaaagatgtttgaatgttaaataaacattcaaaactgaatacaatatgtcac"
+    expected_string = """\
+     tctgacaatc gctttcttta aaaagaaact attgtcgaga atttgcatta gcaatatcac        60
+     tttgtcaaaa agatgtttga atgttaaata aacattcaaa actgaataca atatgtcac        119
+"""
+    calculated_string = sequence.format_sequence_body(sequence_string)
+    self.assertEqual(calculated_string, expected_string)
+
+    sequence_string="tctgacaatcgctttctttaaaaagaaactattgtcgagaatttgcattagcaatatcactttgtcaaaaagatgtttgaatgttaaataaacattcaaaactgaatacaatatgtcaca"
+    expected_string = """\
+     tctgacaatc gctttcttta aaaagaaact attgtcgaga atttgcatta gcaatatcac        60
+     tttgtcaaaa agatgtttga atgttaaata aacattcaaa actgaataca atatgtcaca       120
+"""
+    calculated_string = sequence.format_sequence_body(sequence_string)
+    self.assertEqual(calculated_string, expected_string)
