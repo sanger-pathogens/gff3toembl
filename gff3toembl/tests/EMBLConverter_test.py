@@ -29,75 +29,75 @@ class TestEMBLConverter(unittest.TestCase):
     converter = EMBLConverter(None)
 
     self.assertItemsEqual(converter.features_seen, [])
-    self.assertItemsEqual(converter.feats, {})
+    self.assertEqual(converter.feats, {})
     feature_node = self.mock_feature_node(1, 'ignored_type', 1, 100, '', {'attr_k1': 'attr_v1'})
     embl_feature_mock.return_value.format.return_value = None
     converter.visit_feature_node(feature_node)
     self.assertItemsEqual(converter.features_seen, [])
-    self.assertItemsEqual(converter.feats, {})
+    self.assertEqual(converter.feats, {})
 
   @mock.patch('gff3toembl.EMBLConverter.EMBLFeature')
   def test_visit_features_node_feature_included(self, embl_feature_mock):
     converter = EMBLConverter(None)
 
     self.assertItemsEqual(converter.features_seen, [])
-    self.assertItemsEqual(converter.feats, {})
+    self.assertEqual(converter.feats, {})
     feature_node = self.mock_feature_node(1, 'type_1', 1, 100, '', {'attr_k1': 'attr_v1'})
     embl_feature_mock.return_value.format.return_value = 'Feature_string'
     converter.visit_feature_node(feature_node)
     self.assertItemsEqual(converter.features_seen, ['1_type_1_1_100'])
-    self.assertItemsEqual(converter.feats, {1: 'Feature_string'})
+    self.assertEqual(converter.feats, {1: ['Feature_string']})
 
   @mock.patch('gff3toembl.EMBLConverter.EMBLFeature')
   def test_visit_features_node_one_feature_included_one_ignored(self, embl_feature_mock):
     converter = EMBLConverter(None)
 
     self.assertItemsEqual(converter.features_seen, [])
-    self.assertItemsEqual(converter.feats, {})
+    self.assertEqual(converter.feats, {})
     feature_node = self.mock_feature_node(1, 'type_1', 1, 100, '', {'attr_k1': 'attr_v1'})
     embl_feature_mock.return_value.format.return_value = 'Feature_string'
     converter.visit_feature_node(feature_node)
     self.assertItemsEqual(converter.features_seen, ['1_type_1_1_100'])
-    self.assertItemsEqual(converter.feats, {1: 'Feature_string'})
+    self.assertEqual(converter.feats, {1: ['Feature_string']})
 
     feature_node = self.mock_feature_node(2, 'ignored_type', 101, 200, '', {'attr_k1': 'attr_v1'})
     embl_feature_mock.return_value.format.return_value = None
     converter.visit_feature_node(feature_node)
     self.assertItemsEqual(converter.features_seen, ['1_type_1_1_100'])
-    self.assertItemsEqual(converter.feats, {1: 'Feature_string'})
+    self.assertEqual(converter.feats, {1: ['Feature_string']})
 
   @mock.patch('gff3toembl.EMBLConverter.EMBLFeature')
   def test_visit_features_node_two_different_features(self, embl_feature_mock):
     converter = EMBLConverter(None)
 
     self.assertItemsEqual(converter.features_seen, [])
-    self.assertItemsEqual(converter.feats, {})
+    self.assertEqual(converter.feats, {})
     feature_node = self.mock_feature_node(1, 'type_1', 1, 100, '', {'attr_k1': 'attr_v1'})
     embl_feature_mock.return_value.format.return_value = 'Feature_string'
     converter.visit_feature_node(feature_node)
     self.assertItemsEqual(converter.features_seen, ['1_type_1_1_100'])
-    self.assertItemsEqual(converter.feats, {1: 'Feature_string'})
+    self.assertEqual(converter.feats, {1: ['Feature_string']})
 
     feature_node = self.mock_feature_node(2, 'type_2', 101, 200, '', {'attr_k1': 'attr_v1'})
     embl_feature_mock.return_value.format.return_value = "Another_feature_string"
     converter.visit_feature_node(feature_node)
     self.assertItemsEqual(converter.features_seen, ['1_type_1_1_100', '2_type_2_101_200'])
-    self.assertItemsEqual(converter.feats, {1: 'Feature_string', 2: 'Another_feature_string'})
+    self.assertEqual(converter.feats, {1: ['Feature_string'], 2: ['Another_feature_string']})
 
   @mock.patch('gff3toembl.EMBLConverter.EMBLFeature')
   def test_visit_features_node_repeated_features(self, embl_feature_mock):
     converter = EMBLConverter(None)
 
     self.assertItemsEqual(converter.features_seen, [])
-    self.assertItemsEqual(converter.feats, {})
+    self.assertEqual(converter.feats, {})
     feature_node = self.mock_feature_node(1, 'type_1', 1, 100, '', {'attr_k1': 'attr_v1'})
     embl_feature_mock.return_value.format.return_value = 'Feature_string'
     converter.visit_feature_node(feature_node)
     self.assertItemsEqual(converter.features_seen, ['1_type_1_1_100'])
-    self.assertItemsEqual(converter.feats, {1: 'Feature_string'})
+    self.assertEqual(converter.feats, {1: ['Feature_string']})
 
     feature_node = self.mock_feature_node(1, 'type_1', 1, 100, '', {'attr_k1': 'attr_v1'})
     embl_feature_mock.return_value.format.return_value = 'Feature_string'
     converter.visit_feature_node(feature_node)
     self.assertItemsEqual(converter.features_seen, ['1_type_1_1_100'])
-    self.assertItemsEqual(converter.feats, {1: 'Feature_string'})
+    self.assertEqual(converter.feats, {1: ['Feature_string']})
