@@ -12,7 +12,7 @@ class EMBLContig(object):
       header = self.header.format()
     except AttributeError:
       raise ValueError("Could not format contig, no header data found")
-    feature_strings = [feature.format() for feature in self.features]
+    feature_strings = [feature.format() for feature in self.features.values()]
     features = "".join(feature_strings)
     try:
       sequence = self.sequence.format()

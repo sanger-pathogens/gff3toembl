@@ -21,7 +21,7 @@ class TestEMBLContig(unittest.TestCase):
     feature_mock_2.format.return_value = "Feature 2\n"
     sequence_mock.format.return_value = "Sequence\n"
     contig.header = header_mock
-    contig.features = [feature_mock_1, feature_mock_2]
+    contig.features = {1: [feature_mock_1, feature_mock_2]}
     contig.sequence = sequence_mock
     calculated_string = contig.format()
     expected_string = """\
