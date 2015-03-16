@@ -479,6 +479,17 @@ FT                   hij klm nop qrs tuvw xyz"\
 
 class TestEMBLSequence(unittest.TestCase):
 
+  def test_format(self):
+    sequence = EMBLSequence()
+    sequence.header = "SQ   Sequence 12 BP; 4 A; 3 C; 2 G; 1 T; 2 other;"
+    sequence.body = '     aaaacccggt nn                                                            12\n'
+    calculated_string = sequence.format()
+    expected_string = """\
+SQ   Sequence 12 BP; 4 A; 3 C; 2 G; 1 T; 2 other;
+     aaaacccggt nn                                                            12
+"""
+    self.assertEqual(calculated_string, expected_string)
+
   def test_calculate_neucleotide_counts(self):
     sequence = EMBLSequence()
     calculated_counts = sequence.calculate_nucleotide_counts('AAAACCCGGTNN')

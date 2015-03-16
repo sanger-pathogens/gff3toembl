@@ -220,6 +220,9 @@ class EMBLSequence(object):
   def __init__(self):
     pass
 
+  def format(self):
+    return self.header + '\n' + self.body
+
   def calculate_nucleotide_counts(self, sequence):
     sequence = sequence.lower()
     counts = {}
