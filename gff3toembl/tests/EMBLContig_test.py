@@ -514,3 +514,70 @@ class TestEMBLSequence(unittest.TestCase):
     neucleotide_counts = {'a': 2, 'c': 2, 'g': 2, 't': 6, 'other': 0}
     calculated_header = sequence.format_header(neucleotide_counts)
     expected_header = "SQ   Sequence 12 BP; 2 A; 2 C; 2 G; 6 T; 0 other;"
+
+  def test_split_line_of_sequence(self):
+    sequence = EMBLSequence()
+    line_of_sequence = "123"
+    calculated_split = sequence.split_line_of_sequence(line_of_sequence)
+    expected_split = ["123", '', '', '', '', '']
+    self.assertEqual(calculated_split, expected_split)
+
+    line_of_sequence = "123456789"
+    calculated_split = sequence.split_line_of_sequence(line_of_sequence)
+    expected_split = ["123456789", '', '', '', '', '']
+    self.assertEqual(calculated_split, expected_split)
+
+    line_of_sequence = "1234567890"
+    calculated_split = sequence.split_line_of_sequence(line_of_sequence)
+    expected_split = ["1234567890", '', '', '', '', '']
+    self.assertEqual(calculated_split, expected_split)
+
+    line_of_sequence = "12345678901"
+    calculated_split = sequence.split_line_of_sequence(line_of_sequence)
+    expected_split = ["1234567890", "1", '', '', '', '']
+    self.assertEqual(calculated_split, expected_split)
+
+    line_of_sequence = "1234567890123"
+    calculated_split = sequence.split_line_of_sequence(line_of_sequence)
+    expected_split = ["1234567890", "123", '', '', '', '']
+    self.assertEqual(calculated_split, expected_split)
+
+    line_of_sequence = "12345678901234567890"
+    calculated_split = sequence.split_line_of_sequence(line_of_sequence)
+    expected_split = ["1234567890", "1234567890", '', '', '', '']
+    self.assertEqual(calculated_split, expected_split)
+
+    line_of_sequence = "1234567890123456789012345"
+    calculated_split = sequence.split_line_of_sequence(line_of_sequence)
+    expected_split = ["1234567890", "1234567890", "12345", '', '', '']
+    self.assertEqual(calculated_split, expected_split)
+
+  def test_split_sequence(self):
+    sequence = EMBLSequence()
+    sequence_string = "tctgacaatcgctttctt"
+    calculated_split = sequence.split_sequence(sequence_string)
+    expected_split = [ (['tctgacaatc', 'gctttctt', '', '', '', ''], 18) ]
+    self.assertEqual(calculated_split, expected_split)
+
+    sequence_string = "tttaaaaccccgggtttcccgggaaa"
+    calculated_split = sequence.split_sequence(sequence_string)
+    expected_split = [ (['tttaaaaccc', 'cgggtttccc', 'gggaaa', '', '', ''], 26) ]
+    self.assertEqual(calculated_split, expected_split)
+
+    sequence_string = "tctgacaatcgctttctttaaaaagaaactattgtcgagaatttgcattagcaatatcactttgtcaaaaagatgtttgaatgttaaataaacattcaaaactgaatacaatatgtca"
+    calculated_split = sequence.split_sequence(sequence_string)
+    expected_split = [ (["tctgacaatc", "gctttcttta", "aaaagaaact", "attgtcgaga", "atttgcatta", "gcaatatcac"], 60),
+                       (["tttgtcaaaa", "agatgtttga", "atgttaaata", "aacattcaaa", "actgaataca", "atatgtca"],   118) ]
+    self.assertEqual(calculated_split, expected_split)
+
+    sequence_string = "tctgacaatcgctttctttaaaaagaaactattgtcgagaatttgcattagcaatatcactttgtcaaaaagatgtttgaatgttaaataaacattcaaaactgaatacaatatgtcac"
+    calculated_split = sequence.split_sequence(sequence_string)
+    expected_split = [ (["tctgacaatc", "gctttcttta", "aaaagaaact", "attgtcgaga", "atttgcatta", "gcaatatcac"], 60),
+                       (["tttgtcaaaa", "agatgtttga", "atgttaaata", "aacattcaaa", "actgaataca", "atatgtcac"],  119) ]
+    self.assertEqual(calculated_split, expected_split)
+
+    sequence_string = "tctgacaatcgctttctttaaaaagaaactattgtcgagaatttgcattagcaatatcactttgtcaaaaagatgtttgaatgttaaataaacattcaaaactgaatacaatatgtcaca"
+    calculated_split = sequence.split_sequence(sequence_string)
+    expected_split = [ (["tctgacaatc", "gctttcttta", "aaaagaaact", "attgtcgaga", "atttgcatta", "gcaatatcac"], 60),
+                       (["tttgtcaaaa", "agatgtttga", "atgttaaata", "aacattcaaa", "actgaataca", "atatgtcaca"], 120) ]
+    self.assertEqual(calculated_split, expected_split)
