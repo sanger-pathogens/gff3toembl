@@ -12,7 +12,7 @@ class EMBLContig(object):
       header = self.header.format()
     except AttributeError:
       raise ValueError("Could not format contig, no header data found")
-    feature_strings = [feature.format() for feature in self.features.values()]
+    feature_strings = [feature.format() for feature in self.sorted_features()]
     features = "".join(feature_strings)
     try:
       sequence = self.sequence.format()
@@ -42,6 +42,16 @@ class EMBLContig(object):
       raise ValueError("Contig already has sequence data")
     sequence = EMBLSequence(sequence_string)
     self.sequence = sequence
+
+  def sorted_features(self):
+    def compare_features(feature_1, feature_2):
+      if feature_1.start < feature_2.start:
+        return -1
+      elif feature_1.start > feature_2.start:
+        return 1
+      else:
+        return feature_2.end - feature_1.end
+    return sorted(self.features.values(), cmp=compare_features)
 
 class EMBLFeature(object):
   inference_to_db_xref_map = {

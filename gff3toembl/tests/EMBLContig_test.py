@@ -18,7 +18,9 @@ class TestEMBLContig(unittest.TestCase):
     sequence_mock = MagicMock()
     header_mock.format.return_value = "Header\n"
     feature_mock_1.format.return_value = "Feature 1\n"
+    feature_mock_1.start = 0
     feature_mock_2.format.return_value = "Feature 2\n"
+    feature_mock_2.start = 100
     sequence_mock.format.return_value = "Sequence\n"
     contig.header = header_mock
     contig.features = {1: feature_mock_1, 2: feature_mock_2}
@@ -83,6 +85,72 @@ Sequence
     contig.header = self.create_blank_bit_of_contig()
     contig.sequence = self.create_blank_bit_of_contig()
     self.assertEquals(contig.format(), '')
+
+  def test_get_sorted_features(self):
+    # Must be able to get a list of features sorted by (start, end) irrespective of strand
+    contig = EMBLContig()
+    feature_1 = MagicMock()
+    feature_1.start = 100
+    feature_1.end = 200
+    feature_2 = MagicMock()
+    feature_2.start = 1100
+    feature_2.end = 1200
+
+    contig.features = {1: feature_1, 2: feature_2}
+    expected_features = [feature_1, feature_2]
+    self.assertEquals(contig.sorted_features(), expected_features)
+
+    contig.features = {2: feature_2, 1: feature_1}
+    expected_features = [feature_1, feature_2]
+    self.assertEquals(contig.sorted_features(), expected_features)
+
+    contig.features = {2: feature_1, 1: feature_2}
+    expected_features = [feature_1, feature_2]
+    self.assertEquals(contig.sorted_features(), expected_features)
+
+  def test_get_sorted_features_2(self):
+    # Must be able to get a list of features sorted by (start, end) irrespective of strand
+    contig = EMBLContig()
+    feature_1 = MagicMock()
+    feature_1.start = 100
+    feature_1.end = 2000
+    feature_2 = MagicMock()
+    feature_2.start = 1100
+    feature_2.end = 1200
+
+    contig.features = {1: feature_1, 2: feature_2}
+    expected_features = [feature_1, feature_2]
+    self.assertEquals(contig.sorted_features(), expected_features)
+
+    contig.features = {2: feature_2, 1: feature_1}
+    expected_features = [feature_1, feature_2]
+    self.assertEquals(contig.sorted_features(), expected_features)
+
+    contig.features = {2: feature_1, 1: feature_2}
+    expected_features = [feature_1, feature_2]
+    self.assertEquals(contig.sorted_features(), expected_features)
+
+  def test_get_sorted_features_3(self):
+    # Must be able to get a list of features sorted by (start, end) irrespective of strand
+    contig = EMBLContig()
+    feature_1 = MagicMock()
+    feature_1.start = 100
+    feature_1.end = 1500
+    feature_2 = MagicMock()
+    feature_2.start = 1100
+    feature_2.end = 2000
+
+    contig.features = {1: feature_1, 2: feature_2}
+    expected_features = [feature_1, feature_2]
+    self.assertEquals(contig.sorted_features(), expected_features)
+
+    contig.features = {2: feature_2, 1: feature_1}
+    expected_features = [feature_1, feature_2]
+    self.assertEquals(contig.sorted_features(), expected_features)
+
+    contig.features = {2: feature_1, 1: feature_2}
+    expected_features = [feature_1, feature_2]
+    self.assertEquals(contig.sorted_features(), expected_features)
 
   def test_add_sequence(self):
     contig = EMBLContig()

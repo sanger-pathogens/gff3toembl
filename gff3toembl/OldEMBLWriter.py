@@ -41,7 +41,7 @@ class OldEMBLWriter(object):
 
     def create_output_file(self, organism, taxonid, project, description, authors, title, publication, genome_type, classification):
         target = open(self.output_filename, 'w')
-        for sequence_identifier, contig in self.conv.contigs.items():
+        for sequence_identifier, contig in sorted(self.conv.contigs.items()):
             contig.add_header(
               authors = authors,
               classification = classification,
