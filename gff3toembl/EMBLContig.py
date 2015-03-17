@@ -18,7 +18,12 @@ class EMBLContig(object):
       sequence = self.sequence.format()
     except AttributeError:
       raise ValueError("Could not format contig, no sequence data found")
-    return header + features + sequence
+    formatted_string = header + features + sequence
+    line_lengths = map(len, formatted_string.split('\n'))
+    maximum_line_length = max(line_lengths)
+    if maximum_line_length > 80:
+      raise ValueError("Could not format contig, a line exceeded 80 characters in length")
+    return formatted_string
 
   def add_header(self, **kwargs):
     if self.header != None:
