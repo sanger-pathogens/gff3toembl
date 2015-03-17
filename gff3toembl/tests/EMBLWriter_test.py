@@ -2,10 +2,9 @@ import unittest
 import sys
 import os
 from gff3toembl.EMBLWriter import EMBLWriter
-from gff3toembl import convert
 
-modules_dir = os.path.dirname(os.path.abspath(convert.__file__))
-data_dir = os.path.join(modules_dir, 'tests', 'data')
+test_modules_dir = os.path.dirname(os.path.realpath(__file__))
+data_dir = os.path.join(test_modules_dir, 'data')
 
 class TestEMBLWriter(unittest.TestCase):
 

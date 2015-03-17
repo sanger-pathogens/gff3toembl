@@ -4,7 +4,6 @@ from gt import GFF3InStream
 import os
 import re
 
-from gff3toembl import convert
 from gff3toembl.EMBLConverter import EMBLConverter
 from gff3toembl.VisitorStream import VisitorStream
 
