@@ -1,6 +1,5 @@
 import sys
 import subprocess
-from collections import defaultdict
 from gt import GFF3InStream
 import os
 import re

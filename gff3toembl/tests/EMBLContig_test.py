@@ -1,5 +1,4 @@
 import unittest
-import pdb
 from mock import MagicMock, patch
 from gff3toembl.EMBLContig import EMBLContig, EMBLHeader, EMBLFeature, EMBLSequence
 
