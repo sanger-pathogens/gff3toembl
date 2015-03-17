@@ -29,7 +29,6 @@ class OldEMBLWriter(object):
         self.organism           = organism
         self.taxonid            = taxonid
         self.project            = project
-        self.description        = description
         self.authors            = authors
         self.title              = title
         self.publication        = publication
@@ -39,7 +38,7 @@ class OldEMBLWriter(object):
         self.chromosome_list    = chromosome_list
         self.fixed_gff_file     = str(self.gff3_file)+"_fixed.gff"
 
-    def create_output_file(self, organism, taxonid, project, description, authors, title, publication, genome_type, classification):
+    def create_output_file(self, organism, taxonid, project, authors, title, publication, genome_type, classification):
         target = open(self.output_filename, 'w')
         for sequence_identifier, contig in sorted(self.conv.contigs.items()):
             contig.add_header(
@@ -98,7 +97,7 @@ class OldEMBLWriter(object):
         except Exception, e:
             print e
             exit(1)
-        self.create_output_file(self.organism, self.taxonid, self.project, self.description, self.authors, self.title, self.publication, self.genome_type, self.classification)
+        self.create_output_file(self.organism, self.taxonid, self.project, self.authors, self.title, self.publication, self.genome_type, self.classification)
         self.create_chromosome_list(self.chromosome_list, self.output_filename)
         os.remove(self.fixed_gff_file)
 
