@@ -30,8 +30,10 @@ class EMBLContig(object):
     feature = EMBLFeature(**kwargs)
     unique_feature_reference = "{}_{}_{}_{}".format(sequence_id, feature.feature_type, feature.start, feature.end)
     if unique_feature_reference in self.features:
+      # we're already seen a feature in this region so don't add another
       return False
     elif feature.format() == None:
+      # some feature types should be ignored; format() returns None in these cases
       return False
     else:
       self.features[unique_feature_reference] = feature
@@ -44,6 +46,7 @@ class EMBLContig(object):
     self.sequence = sequence
 
   def sorted_features(self):
+    # Features should be sorted by start and then by end irrespective of strand
     def compare_features(feature_1, feature_2):
       if feature_1.start < feature_2.start:
         return -1
@@ -64,6 +67,9 @@ class EMBLFeature(object):
 
   def __init__(self, feature_type, start, end, strand, feature_attributes,
                locus_tag=None, translation_table=11):
+    # Picks a feature builder and builds the feature
+    # Most features are built with a default but some are either a little different or
+    # should just be ignored
     feature_builder = self.pick_feature_builder(feature_type)
     feature_builder(feature_type=feature_type, start=start, end=end, strand=strand,
                     feature_attributes=feature_attributes, locus_tag=locus_tag,
@@ -94,6 +100,7 @@ class EMBLFeature(object):
     self.attributes += self.create_translation_table_attributes('transl_table', self.translation_table)
 
   def create_empty_feature(self, **kwargs):
+    # Some features should be ignored.  This is how this is done
     self.format = lambda: None
 
   def format(self):
@@ -107,6 +114,8 @@ class EMBLFeature(object):
     return '\n'.join(attribute_strings) + '\n'
 
   def format_attribute(self, key, value):
+    # Looks up a formatter for an attribute and formats the attribute
+    # Some attributes are formatted a little differently
     formatter = self.lookup_attribute_formatter(key)
     return formatter(key, value)
 
@@ -117,6 +126,7 @@ class EMBLFeature(object):
     return formatters.get(attribute_type, self.default_attribute_formatter)
 
   def translation_table_attribute_formatter(self, key, value):
+    # transl_table attributes do not have their values in quotes
     wrapper = TextWrapper()
     wrapper.initial_indent='FT                   '
     wrapper.subsequent_indent='FT                   '
@@ -141,6 +151,10 @@ class EMBLFeature(object):
       return "{start}..{end}".format(start=start, end=end)
 
   def lookup_attribute_creator(self, attribute_key):
+    # These functions take attributes and reformat them into a list
+    # of (key, values) which are later formatted into strings by other
+    # methods.  There is quite a lot of variation between these such as
+    # whether to keep more than one value for a given attribute type.
     attribute_creator_table = {
       'product': self.create_product_attributes,
       'locus_tag': self.create_locus_tag_attributes,
