@@ -78,6 +78,7 @@ class EMBLFeature(object):
   def pick_feature_builder(self, feature_type):
     feature_builders = {
       'CDS': self.create_CDS_feature,
+      'source': self.create_source_feature,
       'ncRNA': self.create_empty_feature
     }
     return feature_builders.get(feature_type, self.create_default_feature)
@@ -99,12 +100,28 @@ class EMBLFeature(object):
     self.create_default_feature(**kwargs)
     self.attributes += self.create_translation_table_attributes('transl_table', self.translation_table)
 
+  def create_source_feature(self, feature_type, start, end, strand, feature_attributes, locus_tag, translation_table):
+    self.feature_type = feature_type
+    self.start = start
+    self.end = end
+    self.strand = strand
+    self.locus_tag = locus_tag
+    self.translation_table  = translation_table
+
+    organism = feature_attributes['organism']
+    db_xref = feature_attributes['db_xref']
+    note = feature_attributes['note']
+
+    # We hard code the order and composition of attributes for source features
+    # Source features are only created as part of the header
+    self.attributes = [("organism", organism), ("mol_type", "genomic DNA"), ("db_xref", db_xref), ("note", note)]
+
   def create_empty_feature(self, **kwargs):
     # Some features should be ignored.  This is how this is done
     self.format = lambda: None
 
   def format(self):
-    coordinates = coordinates=self.format_coordinates(self.start, self.end, self.strand)
+    coordinates = self.format_coordinates(self.start, self.end, self.strand)
     header_string = "FT   {feature_type: <16}{coordinates}".format( feature_type=self.feature_type,
                                                                      coordinates=coordinates)
     attribute_strings = [header_string]
@@ -250,6 +267,11 @@ class EMBLHeader(object):
     self.sequence_name=sequence_name
     self.taxon_id=taxon_id
     self.title=title
+
+    source_attributes = self.build_source_attributes(organism, taxon_id, sequence_name)
+    self.source_feature = EMBLFeature(feature_type='source', start=1, end=sequence_length,
+                                      strand='+', feature_attributes=source_attributes)
+
     self.header_template = """\
 ID   XXX; XXX; {genome_type}; genomic DNA; STD; {classification}; {sequence_length} BP.
 XX
@@ -268,18 +290,21 @@ RL   {publication}.
 XX
 FH   Key             Location/Qualifiers
 FH
-FT   source          1..{sequence_length}
-FT                   /organism="{organism}"
-FT                   /mol_type="genomic DNA"
-FT                   /db_xref="taxon:{taxon_id}"
-FT                   /note="{sequence_name}"
 """
 
   def remove_non_word_characters(self, sequence_identifier):
     return re.sub(r'\W+', '', sequence_identifier)
 
   def format(self):
-    return self.header_template.format(**self.__dict__)
+    return self.header_template.format(**self.__dict__) + self.source_feature.format()
+
+  def build_source_attributes(self, organism, taxon_id, sequence_name):
+    def empty_string_if_none(value):
+      return value if value else ''
+    organism = empty_string_if_none(organism)
+    taxon_id = empty_string_if_none(taxon_id)
+    sequence_name = empty_string_if_none(sequence_name)
+    return {"organism": organism, "db_xref": "taxon:{}".format(taxon_id), "note": sequence_name}
 
 class EMBLSequence(object):
 

@@ -223,6 +223,7 @@ class TestEMBLHeader(unittest.TestCase):
     self.assertEqual(header.sequence_name, "chromX")
     self.assertEqual(header.taxon_id, 5678)
     self.assertEqual(header.title, "My title")
+    self.assertIsInstance(header.source_feature, EMBLFeature)
 
   def test_remove_non_word_characters(self):
     header = EMBLHeader()
@@ -251,6 +252,8 @@ class TestEMBLHeader(unittest.TestCase):
     header.sequence_name="chromX"
     header.taxon_id=5678
     header.title="My title"
+    source_attributes = {"organism": "My organism", "db_xref": "taxon:5678", "note": "chromX"}
+    header.source_feature = EMBLFeature('source', 1, 1234, '+', source_attributes)
 
     expected_header = """\
 ID   XXX; XXX; circular; genomic DNA; STD; UNC; 1234 BP.
@@ -280,6 +283,60 @@ FT                   /note="chromX"
     for calculated_line,expected_line in zip(calculated_header.split('\n'), expected_header.split('\n')):
       self.assertEqual(calculated_line, expected_line)
     self.assertEqual(len(calculated_header), len(expected_header))
+
+  def test_format_long_organism_name(self):
+    header = EMBLHeader()
+
+    header.authors="John Doe"
+    header.classification="UNC"
+    header.genome_type="circular"
+    header.organism="reeeeeeeeeeeeeeaaaaaaaaaaaaaallllllllllyyyyyyyyyyyyyyyyyyyy_long_name"
+    header.project="PRJ1234"
+    header.publication="Unpublished"
+    header.sequence_identifier="contig123"
+    header.sequence_length=1234
+    header.sequence_name="chromX"
+    header.taxon_id=5678
+    header.title="My title"
+    source_attributes = {"organism": header.organism, "db_xref": "taxon:5678", "note": "chromX"}
+    header.source_feature = EMBLFeature('source', 1, 1234, '+', source_attributes)
+
+    expected_header = """\
+ID   XXX; XXX; circular; genomic DNA; STD; UNC; 1234 BP.
+XX
+AC   XXX;
+XX
+AC * _contig123
+XX
+PR   Project:PRJ1234;
+XX
+DE   XXX;
+XX
+RN   [1]
+RA   John Doe;
+RT   "My title";
+RL   Unpublished.
+XX
+FH   Key             Location/Qualifiers
+FH
+FT   source          1..1234
+FT                   /organism="reeeeeeeeeeeeeeaaaaaaaaaaaaaallllllllllyyyyyyyy
+FT                   yyyyyyyyyyyy_long_name"
+FT                   /mol_type="genomic DNA"
+FT                   /db_xref="taxon:5678"
+FT                   /note="chromX"
+"""
+
+    calculated_header = header.format()
+    for calculated_line,expected_line in zip(calculated_header.split('\n'), expected_header.split('\n')):
+      self.assertEqual(calculated_line, expected_line)
+    self.assertEqual(len(calculated_header), len(expected_header))
+
+  def test_build_source_attributes(self):
+    header = EMBLHeader()
+    calculated_attributes=header.build_source_attributes(organism="an organism", taxon_id="TAX_ID", sequence_name="sequence_name")
+    expected_attributes = {"organism": "an organism", "db_xref": "taxon:TAX_ID", "note": "sequence_name"}
+    self.assertEqual(calculated_attributes, expected_attributes)
 
 class TestEMBLFeature(unittest.TestCase):
 
@@ -342,6 +399,7 @@ FT                   /attributeB="baz"
   def test_pick_feature_builder(self):
     feature = self.create_uninitialized_feature()
     self.assertEqual(feature.pick_feature_builder('CDS'), feature.create_CDS_feature)
+    self.assertEqual(feature.pick_feature_builder('source'), feature.create_source_feature)
     self.assertEqual(feature.pick_feature_builder('ncRNA'), feature.create_empty_feature)
     self.assertEqual(feature.pick_feature_builder('other'), feature.create_default_feature)
 
@@ -420,6 +478,28 @@ FT                   /attributeB="baz"
 
     expected_attributes = [('some_attribute', 'ABC'), ('transl_table', 11)]
     self.assertItemsEqual(feature.attributes, expected_attributes)
+
+  def test_create_source_feature(self):
+    feature = self.create_uninitialized_feature()
+    feature.create_source_feature(
+        feature_type='source',
+        start = 1,
+        end = 1234,
+        strand = '+',
+        feature_attributes = {"organism": "My organism", "db_xref": "taxon:5678", "note": "chromX"},
+        locus_tag = None,
+        translation_table = 11
+    )
+    self.assertEqual(feature.feature_type, 'source')
+    self.assertEqual(feature.start, 1)
+    self.assertEqual(feature.end, 1234)
+    self.assertEqual(feature.strand, '+')
+    self.assertEqual(feature.locus_tag, None)
+    self.assertEqual(feature.translation_table, 11)
+
+    # Source attributes should have their attributes in this order.  We therefore use assertEqual not assertItemsEqual
+    expected_attributes = [("organism", "My organism"), ("mol_type", "genomic DNA"), ("db_xref", "taxon:5678"), ("note", "chromX")]
+    self.assertEqual(feature.attributes, expected_attributes)
 
   def test_format_attribute(self):
     feature = self.create_uninitialized_feature()
