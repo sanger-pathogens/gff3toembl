@@ -15,16 +15,7 @@ class OldEMBLWriter(object):
         self.locus_tag          = locus_tag
         self.translation_table  = translation_table
         self.converter          = convert.Convert(locus_tag,translation_table)
-        self.conv               = EMBLConverter(
-                                    authors,
-                                    classification,
-                                    genome_type,
-                                    locus_tag,
-                                    organism,
-                                    project,
-                                    publication,
-                                    translation_table
-                                  )
+        self.conv               = EMBLConverter(locus_tag, translation_table)
         self.gff3_file          = gff3_file
         self.organism           = organism
         self.taxonid            = taxonid
