@@ -1,31 +1,41 @@
-import sys
+import gff3toembl
 from gt import CustomVisitor
-from collections import defaultdict
-from gff3toembl import convert
+from gff3toembl.EMBLContig import EMBLContig
 
 class EMBLConverter(CustomVisitor):
 
-    def __init__(self, converter):
+    def __init__(self, locus_tag=None, translation_table=11):
         CustomVisitor.__init__(self)
-        self.seqs = {}
-        self.feats = defaultdict(lambda: [], {})
-        self.regions = []
-        self.converter =  converter
-        self.features_seen = {}
+        self.contigs = {}
+        self.locus_tag = locus_tag
+        self.translation_table = translation_table
 
-    def visit_feature_node(self, fn):
-        feature_string = self.converter.construct_feature(feature_type = fn.get_type(), start = fn.get_start(), end = fn.get_end(), strand = fn.get_strand(), feature_attributes = fn.attribs)
-        if feature_string != '':
-          feature_seq_coords = str(fn.get_seqid()) + "_"+ str(fn.get_start()) + "_" +str(fn.get_end()) 
-          if feature_seq_coords not     in self.features_seen :          
-            self.features_seen[feature_seq_coords] = 1
-            self.feats[fn.get_seqid()].append(feature_string)
+    def visit_feature_node(self, feature_node):
+      sequence_id = feature_node.get_seqid()
+      contig = self.contigs.get(sequence_id)
+      if contig: # contig already exists, just try and update it
+        contig.add_feature(sequence_id = sequence_id, feature_type = feature_node.get_type(), start = feature_node.get_start(),
+                           end = feature_node.get_end(), strand = feature_node.get_strand(),
+                           feature_attributes = feature_node.attribs,
+                           locus_tag = self.locus_tag, translation_table = self.translation_table)
+      else:
+        contig = EMBLContig()
+        successfully_added_feature = contig.add_feature(sequence_id = sequence_id, feature_type = feature_node.get_type(), start = feature_node.get_start(),
+                           end = feature_node.get_end(), strand = feature_node.get_strand(),
+                           feature_attributes = feature_node.attribs,
+                           locus_tag = self.locus_tag, translation_table = self.translation_table)
+        if successfully_added_feature:
+          self.contigs[sequence_id] = contig
+        else:
+          pass # discard the contig because we didn't add a feature so it is empty
 
-    def visit_region_node(self, rn):
-        self.regions.append
-
-    def visit_comment_node(self, cn):
+    def visit_region_node(self, region_node):
         pass  # for now
 
-    def visit_sequence_node(self, sn):
-        self.seqs[sn.get_description()] = sn.get_sequence()
+    def visit_comment_node(self, comment_node):
+        pass  # for now
+
+    def visit_sequence_node(self, sequence_node):
+      sequence_id = sequence_node.get_description()
+      contig = self.contigs.setdefault(sequence_id, EMBLContig())
+      contig.add_sequence(sequence_node.get_sequence())
