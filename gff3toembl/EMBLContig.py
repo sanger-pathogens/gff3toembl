@@ -58,7 +58,7 @@ class EMBLContig(object):
       elif feature_1.start > feature_2.start:
         return 1
       else:
-        return feature_2.end - feature_1.end
+        return int(feature_2.end - feature_1.end)
     return sorted(self.features.values(), cmp=compare_features)
 
 class EMBLFeature(object):

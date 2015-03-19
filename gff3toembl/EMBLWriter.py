@@ -71,7 +71,7 @@ class EMBLWriter(object):
 
     def sort_and_tidy_gff_file(self):
         try:
-          subprocess.check_call("gt gff3 -sort -retainids -tidy -o "+str(self.fixed_gff_file)+" "+str(self.gff3_file), shell=True)
+          subprocess.check_call("gt gff3 -force -sort -retainids -tidy -o "+str(self.fixed_gff_file)+" "+str(self.gff3_file), shell=True)
         except:
           sys.exit("Failed to sort and tidy gff file with GT")
 
