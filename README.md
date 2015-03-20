@@ -4,8 +4,11 @@ Converts gff3 files to emble files for uploading to EBI.
 NB this implements some EBI specific conventions and is not a generic conversion tool.
 
 ## Installation
-- install Genometools, including python binding
-- make sure the library is in your `LD_LIBRARY_PATH` and your python is in `PYTHONPATH`
+- install Genometools
+- install Genometools python bindings
+- make sure python is in `PYTHONPATH` and the `gt` binaries in your `PATH`
+- on linux, set `LD_LIBRARY_PATH` to point to `libgenometools.dylib`
+- on Mac OS X, set `DYLD_LIBRARY_PATH` to point to `libgenometools.dylib`
 - `git clone <this repo>`
 - `python setup.py install`
 
@@ -25,4 +28,4 @@ gff3_to_embl --authors 'John' --title 'Some title' --publication 'Some journal' 
 Run `python setup.py nosetests`
 
 ## Known Issues
-Genometools doesnt currently work on OSX.
+This doesn't work with some versions of Genometools on Mac OS X; it appears to work with Genometools 1.5.4
