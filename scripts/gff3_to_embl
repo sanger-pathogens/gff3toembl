@@ -4,6 +4,7 @@
 import sys
 import argparse              
 import datetime
+import pkg_resources
 from gff3toembl import EMBLWriter
 
 if __name__ == "__main__":
@@ -30,6 +31,7 @@ if __name__ == "__main__":
     parser.add_argument('--locus_tag',          '-l', help='Overwrite the locus tag in the annotation file')
     parser.add_argument('--translation_table',  '-n', help='Translation table', default = 11)
     parser.add_argument('--chromosome_list',    '-d', help='Create a chromosome list file, and use the supplied name')
+    parser.add_argument('--version',             action='version', version=str(pkg_resources.get_distribution("gff3toembl").version))
     
     args = parser.parse_args()
     emblwriter = EMBLWriter.EMBLWriter(args.file[0], args.organism[0], args.taxonid[0], args.project_accession[0], args.description[0], args.authors, args.title,  args.publication, args.genome_type, args.classification, args.output_filename, args.locus_tag, args.translation_table, args.chromosome_list )
