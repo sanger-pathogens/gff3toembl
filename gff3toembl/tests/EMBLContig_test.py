@@ -580,11 +580,13 @@ FT                   hij klm nop qrs tuvw xyz"\
   def test_create_product_attributes(self):
     feature = self.create_uninitialized_feature()
     test_cases = [
+      ('""', [('product', "Uncharacterised protein")]),
       ('abc,efg,hij', [('product', "abc")]),
       ('hypothetical protein,efg,hij', [('product', "efg")]),
       ('efg,hypothetical protein,hij', [('product', "efg")]),
       ('hypothetical protein,hypothetical protein,hij', [('product', "hij")]),
       ('hypothetical protein', [('product', "Uncharacterised protein")]),
+      ('conserved hypothetical protein', [('product', "Uncharacterised protein")]),
       ('hypothetical protein,Unknown protein abc', [('product', "Uncharacterised protein abc")]),
       ('hypothetical protein,unknown protein abc', [('product', "uncharacterised protein abc")])
     ]

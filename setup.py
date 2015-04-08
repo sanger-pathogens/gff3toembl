@@ -1,5 +1,6 @@
 import os
 import glob
+import multiprocessing
 from setuptools import setup, find_packages
 
 def read(fname):
@@ -7,7 +8,7 @@ def read(fname):
 
 setup(
     name='gff3toembl',
-    version='0.5.1',
+    version='0.5.2',
     description='Convert a GFF3 file to EMBL format for submission',
     long_description=read('README.md'),
     packages = find_packages(),
