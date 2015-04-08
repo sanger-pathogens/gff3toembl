@@ -1,5 +1,6 @@
 import os
 import glob
+import multiprocessing
 from setuptools import setup, find_packages
 
 def read(fname):
