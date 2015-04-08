@@ -194,14 +194,20 @@ class EMBLFeature(object):
 
   def create_product_attributes(self, attribute_key, attribute_value):
     def remove_hypotheticals(value):
-      return value != 'hypothetical protein'
+      return 'hypothetical protein' not in value
     def replace_unknown_with_uncharacterised(value):
       return value.replace("nknown","ncharacterised")
+    def strip_quotes(value):
+      return value.strip('"')
+    def remove_empty_strings(value):
+      return value != ''
     # attribute_value may be a comma deliminated list of values
     # only some of which might be valid
     attribute_values = attribute_value.split(',')
+    attribute_values = map(strip_quotes, attribute_values)
     attribute_values = filter(remove_hypotheticals, attribute_values)
     attribute_values = map(replace_unknown_with_uncharacterised, attribute_values)
+    attribute_values = filter(remove_empty_strings, attribute_values)
     chosen_value = attribute_values[0] if len(attribute_values) > 0 else 'Uncharacterised protein'
     return [('product', chosen_value)]
 
