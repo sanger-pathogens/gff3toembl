@@ -588,7 +588,9 @@ FT                   hij klm nop qrs tuvw xyz"\
       ('hypothetical protein', [('product', "Uncharacterised protein")]),
       ('conserved hypothetical protein', [('product', "Uncharacterised protein")]),
       ('hypothetical protein,Unknown protein abc', [('product', "Uncharacterised protein abc")]),
-      ('hypothetical protein,unknown protein abc', [('product', "uncharacterised protein abc")])
+      ('hypothetical protein,unknown protein abc', [('product', "uncharacterised protein abc")]),
+      ('Hypothetical protein abc', [('product', "Uncharacterised protein")])
+      
     ]
     for test_case, expected_result in test_cases:
       calculated_result = feature.create_product_attributes('product', test_case)

@@ -194,7 +194,7 @@ class EMBLFeature(object):
 
   def create_product_attributes(self, attribute_key, attribute_value):
     def remove_hypotheticals(value):
-      return 'hypothetical protein' not in value
+      return 'hypothetical protein' not in value.lower()
     def replace_unknown_with_uncharacterised(value):
       return value.replace("nknown","ncharacterised")
     def strip_quotes(value):
