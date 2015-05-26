@@ -7,8 +7,7 @@ NB this implements some EBI specific conventions and is not a generic conversion
 - install Genometools
 - install Genometools python bindings
 - make sure python is in `PYTHONPATH` and the `gt` binaries in your `PATH`
-- on linux, set `LD_LIBRARY_PATH` to point to `libgenometools.dylib`
-- on Mac OS X, set `DYLD_LIBRARY_PATH` to point to `libgenometools.dylib`
+- symlink `libgenometools.dylib` to /usr/lib
 - `git clone <this repo>`
 - `python setup.py install`
 
