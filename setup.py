@@ -8,7 +8,7 @@ def read(fname):
 
 setup(
     name='gff3toembl',
-    version='0.5.4',
+    version='0.5.5',
     description='Convert a GFF3 file to EMBL format for submission',
     long_description=read('README.md'),
     packages = find_packages(),
@@ -17,7 +17,7 @@ setup(
     url='https://github.com/sanger-pathogens/gff3toembl',
     scripts=glob.glob('scripts/*'),
     test_suite='nose.collector',
-    install_requires=['nose >= 1.3'],
+    tests_require=['nose >= 1.3', 'mock'],
     license='GPLv3',
     classifiers=[
         "License :: OSI Approved :: GNU General Public License (GPLv3)",

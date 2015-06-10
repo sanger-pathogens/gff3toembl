@@ -6,7 +6,7 @@ NB this implements some EBI specific conventions and is not a generic conversion
 ## Installation
 - install Genometools
 - install Genometools python bindings
-- make sure python is in `PYTHONPATH` and the `gt` binaries in your `PATH`
+- make sure gtpython is in `PYTHONPATH` and the `gt` binaries in your `PATH`
 - symlink `libgenometools.dylib` to /usr/lib
 - `git clone <this repo>`
 - `python setup.py install`
@@ -24,7 +24,7 @@ gff3_to_embl --authors 'John' --title 'Some title' --publication 'Some journal' 
 ```
 
 ## Tests
-Run `python setup.py nosetests`
+Run `python setup.py test`
 
 ## Known Issues
 This doesn't work with some versions of Genometools on Mac OS X; it appears to work with Genometools 1.5.4
