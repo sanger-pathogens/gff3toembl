@@ -1,0 +1,16 @@
+language: python
+addons:
+  apt:
+    packages:
+    - g++
+    - python-dev
+cache:
+  directories:
+  - "build"
+  - "$HOME/.cache/pip"
+python:
+  - "2.7"
+sudo: false
+install:
+  - "source ./install_dependencies.sh"
+script: "python setup.py test"
