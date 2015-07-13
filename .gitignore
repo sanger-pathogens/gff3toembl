@@ -55,3 +55,6 @@ target/
 
 # Swap files
 *.swp
+
+# OSX
+.DS_Store
