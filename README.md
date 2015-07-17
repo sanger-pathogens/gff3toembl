@@ -1,4 +1,4 @@
-# gff3toemble
+# gff3toembl
 Converts gff3 files to emble files for uploading to EBI.
 
 [![Build Status](https://travis-ci.org/sanger-pathogens/gff3toembl.svg?branch=master)](https://travis-ci.org/sanger-pathogens/gff3toembl)
