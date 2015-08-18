@@ -6,12 +6,10 @@ Converts gff3 files to emble files for uploading to EBI.
 NB this implements some EBI specific conventions and is not a generic conversion tool.
 
 ## Installation
-- install Genometools
-- install Genometools python bindings
-- make sure gtpython is in `PYTHONPATH` and the `gt` binaries in your `PATH`
-- symlink `libgenometools.dylib` to /usr/lib
-- `git clone <this repo>`
-- `python setup.py install`
+- Install HomeBrew/LinuxBrew
+- brew tap homebrew/science
+- brew install genometools --with-python
+- brew install https://raw.githubusercontent.com/andrewjpage/homebrew-science/gff3toembl/gff3toembl.rb
 
 ## Example usage
 Run the following to get usage:
