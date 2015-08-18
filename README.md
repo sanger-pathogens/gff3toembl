@@ -8,7 +8,6 @@ NB this implements some EBI specific conventions and is not a generic conversion
 ## Installation
 - Install HomeBrew/LinuxBrew
 - brew tap homebrew/science
-- brew install genometools --with-python
 - brew install https://raw.githubusercontent.com/andrewjpage/homebrew-science/gff3toembl/gff3toembl.rb
 
 ## Example usage
