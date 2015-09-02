@@ -60,7 +60,7 @@ class EMBLWriter(object):
         for embl_line in embl_file.readlines():
           sequence_size_match = re.search("; (\d+) BP.", embl_line)
           if sequence_size_match != None and sequence_size_match.group(1):
-            object_sizes.append(sequence_size_match.group(1))
+            object_sizes.append(int(sequence_size_match.group(1)))
           m = re.match("AC \* _(\w+)", embl_line)
           if m != None and m.group(1):
             object_accessions.append(m.group(1))
@@ -71,7 +71,7 @@ class EMBLWriter(object):
           chromosome_type = "Chromosome"
           
           chr_name_search = re.search("chr", object_accession)
-          if chr_name_search != None and chr_name_search.group(1):
+          if chr_name_search != None and chr_name_search.group():
             chromosome_type = "Chromosome"
           elif index > 0 and object_sizes[index] < 1000000:
             chromosome_type = "Plasmid"
