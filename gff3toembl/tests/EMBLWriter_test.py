@@ -103,6 +103,24 @@ class TestEMBLWriter(unittest.TestCase):
        self.compare_files('chromosome_list.txt', os.path.join(data_dir, 'expected_chromosome_list.txt'))
        os.remove('chromosome_list.embl')
        os.remove('chromosome_list.txt')
+       
+    def test_chromosome_list_plasmid_conversion(self):
+       '''test chromosome list creation'''
+       emblwriter = EMBLWriter(os.path.join(data_dir,'chromosome_list_plasmid_name.gff'),
+          'Organism',
+          1234,
+          'ABC',
+          'My description',
+          'John',
+          'Some title',
+          'Some journal',
+          'circular',
+          'PROK',
+          'chromosome_list_plasmid_name.embl', None, 11, 'chromosome_list_plasmid_name.txt' )
+       emblwriter.parse_and_run()
+       self.compare_files('chromosome_list_plasmid_name.txt', os.path.join(data_dir, 'expected_chromosome_list_plasmid_name.txt'))
+       os.remove('chromosome_list_plasmid_name.embl')
+       os.remove('chromosome_list_plasmid_name.txt')
 
 
     def test_remove_duplicate_tags(self):

@@ -1,0 +1,4 @@
+chr1	1	Chromosome
+chr2	2	Chromosome
+plasmid1	3	Plasmid
+plasmid2	4	Plasmid
