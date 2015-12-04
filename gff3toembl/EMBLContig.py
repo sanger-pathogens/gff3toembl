@@ -52,14 +52,9 @@ class EMBLContig(object):
 
   def sorted_features(self):
     # Features should be sorted by start and then by end irrespective of strand
-    def compare_features(feature_1, feature_2):
-      if feature_1.start < feature_2.start:
-        return -1
-      elif feature_1.start > feature_2.start:
-        return 1
-      else:
-        return int(feature_2.end - feature_1.end)
-    return sorted(self.features.values(), cmp=compare_features)
+    def sort_key(feature):
+      return (feature.start, feature.end)
+    return sorted(self.features.values(), key=sort_key)
 
 class EMBLFeature(object):
   inference_to_db_xref_map = {
