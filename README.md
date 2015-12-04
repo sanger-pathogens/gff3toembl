@@ -6,6 +6,7 @@ Converts gff3 files to emble files for uploading to EBI.
 NB this implements some EBI specific conventions and is not a generic conversion tool.
 
 ## Installation
+gff3toembl only works with Python 2.7 and there are known issues on other versions of Python.
 - Install HomeBrew/LinuxBrew
 - brew tap homebrew/science
 - brew install https://raw.githubusercontent.com/andrewjpage/homebrew-science/gff3toembl/gff3toembl.rb
