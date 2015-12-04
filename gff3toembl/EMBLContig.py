@@ -202,7 +202,7 @@ class EMBLFeature(object):
     attribute_values = map(strip_quotes, attribute_values)
     attribute_values = filter(remove_hypotheticals, attribute_values)
     attribute_values = map(replace_unknown_with_uncharacterised, attribute_values)
-    attribute_values = filter(remove_empty_strings, attribute_values)
+    attribute_values = list(filter(remove_empty_strings, attribute_values))
     chosen_value = attribute_values[0] if len(attribute_values) > 0 else 'Uncharacterised protein'
     return [('product', chosen_value)]
 
