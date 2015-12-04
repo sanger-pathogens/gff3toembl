@@ -90,8 +90,8 @@ class EMBLWriter(object):
         try:
             while (vs.next_tree()):
                 pass
-        except Exception, e:
-            print e
+        except Exception as e:
+            print(e)
             exit(1)
         self.create_output_file(self.organism, self.taxonid, self.project, self.authors, self.title, self.publication, self.genome_type, self.classification)
         self.create_chromosome_list(self.chromosome_list, self.output_filename)
