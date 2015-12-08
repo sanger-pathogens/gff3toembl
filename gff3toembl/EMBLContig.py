@@ -52,14 +52,9 @@ class EMBLContig(object):
 
   def sorted_features(self):
     # Features should be sorted by start and then by end irrespective of strand
-    def compare_features(feature_1, feature_2):
-      if feature_1.start < feature_2.start:
-        return -1
-      elif feature_1.start > feature_2.start:
-        return 1
-      else:
-        return int(feature_2.end - feature_1.end)
-    return sorted(self.features.values(), cmp=compare_features)
+    def sort_key(feature):
+      return (feature.start, feature.end)
+    return sorted(self.features.values(), key=sort_key)
 
 class EMBLFeature(object):
   inference_to_db_xref_map = {
@@ -207,7 +202,7 @@ class EMBLFeature(object):
     attribute_values = map(strip_quotes, attribute_values)
     attribute_values = filter(remove_hypotheticals, attribute_values)
     attribute_values = map(replace_unknown_with_uncharacterised, attribute_values)
-    attribute_values = filter(remove_empty_strings, attribute_values)
+    attribute_values = list(filter(remove_empty_strings, attribute_values))
     chosen_value = attribute_values[0] if len(attribute_values) > 0 else 'Uncharacterised protein'
     return [('product', chosen_value)]
 
