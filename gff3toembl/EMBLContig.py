@@ -277,7 +277,6 @@ class EMBLHeader(object):
     source_attributes = self.build_source_attributes(organism, taxon_id, sequence_name)
     self.source_feature = EMBLFeature(feature_type='source', start=1, end=sequence_length,
                                       strand='+', feature_attributes=source_attributes)
-
     self.header_template = """\
 ID   XXX; XXX; {genome_type}; genomic DNA; STD; {classification}; {sequence_length} BP.
 XX
@@ -285,24 +284,42 @@ AC   XXX;
 XX
 AC * _{sequence_identifier}
 XX
-PR   Project:{project};
+{project_line}
 XX
 DE   XXX;
 XX
 RN   [1]
-RA   {authors};
-RT   "{title}";
-RL   {publication}.
+{publication_authors}
+{publication_title}
+{publication_name}
 XX
 FH   Key             Location/Qualifiers
 FH
 """
 
+  def header_attribute_formatter(self, key, header_text, quote_character, final_character):
+    wrapper = TextWrapper()
+    wrapper.initial_indent=key + '   '
+    wrapper.subsequent_indent=key + '   '
+    wrapper.width=79
+    attribute_text_template='{attribute_quote_character}{attribute_header_text}{attribute_quote_character}{attribute_final_character}'
+    attribute_text=attribute_text_template.format(attribute_header_text = header_text, 
+                                                  attribute_quote_character = quote_character, 
+                                                  attribute_final_character = final_character)
+    return wrapper.fill(attribute_text)
+
   def remove_non_word_characters(self, sequence_identifier):
     return re.sub(r'\W+', '', sequence_identifier)
 
   def format(self):
-    return self.header_template.format(**self.__dict__) + self.source_feature.format()
+    project_line = self.header_attribute_formatter("PR", "Project:" + self.project, '', ';' )                              
+    publication_authors = self.header_attribute_formatter("RA", self.authors,'',';' )
+    publication_title   = self.header_attribute_formatter("RT", self.title,'"',';' )
+    publication_name    = self.header_attribute_formatter("RL", self.publication,'','.' )
+    return self.header_template.format(project_line        = project_line, 
+                                       publication_authors = publication_authors, 
+                                       publication_title   = publication_title, 
+                                       publication_name    = publication_name,  **self.__dict__) + self.source_feature.format()
 
   def build_source_attributes(self, organism, taxon_id, sequence_name):
     def empty_string_if_none(value):
