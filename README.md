@@ -1,9 +1,9 @@
 # gff3toembl
-Converts gff3 files to emble files for uploading to EBI.
+Converts PROKKA GFF3 files to EMBL files for uploading annotated assemblies to EBI.
 
 [![Build Status](https://travis-ci.org/sanger-pathogens/gff3toembl.svg?branch=master)](https://travis-ci.org/sanger-pathogens/gff3toembl)
 
-NB this implements some EBI specific conventions and is not a generic conversion tool.
+NB this implements some EBI specific conventions and is not a generic conversion tool. Its also not a validator, so you need to pass in parameters which are acceptable to EMBL.
 
 ## Installation
 gff3toembl only works with Python 2.7 and there are known issues on other versions of Python.
