@@ -299,8 +299,8 @@ FH
 
   def header_attribute_formatter(self, key, header_text, quote_character, final_character):
     wrapper = TextWrapper()
-    wrapper.initial_indent=key.'   '
-    wrapper.subsequent_indent=key.'   '
+    wrapper.initial_indent=key + '   '
+    wrapper.subsequent_indent=key + '   '
     wrapper.width=79
     attribute_text_template='{attribute_quote_character}{attribute_header_text}{attribute_quote_character}{attribute_final_character}'
     attribute_text=attribute_text_template.format(attribute_header_text = header_text, 

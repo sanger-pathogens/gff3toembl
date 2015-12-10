@@ -376,9 +376,14 @@ XX
 DE   XXX;
 XX
 RN   [1]
-RA   John Doe;
-RT   "My title";
-RL   Unpublished.
+RA   Jagger M., Richards K., Watts C., Wood R., Jones B., Stewart I., Wyman B.,
+RA   Taylor M.;
+RT   "Let It Bleed, Sticky Fingers, Exile on Main St., Goats Head Soup, It's
+RT   Only Rock 'n Roll, Black and Blue, Some Girls, Emotional Rescue, Tattoo
+RT   You, Undercover";
+RL   The Rolling Stones, 12 X 5, The Rolling Stones No. 2, Out of Our Heads,
+RL   Aftermath, Between the Buttons, Their Satanic Majesties Request, Beggars
+RL   Banquet.
 XX
 FH   Key             Location/Qualifiers
 FH
