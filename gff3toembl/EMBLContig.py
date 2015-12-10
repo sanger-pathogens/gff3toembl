@@ -277,7 +277,6 @@ class EMBLHeader(object):
     source_attributes = self.build_source_attributes(organism, taxon_id, sequence_name)
     self.source_feature = EMBLFeature(feature_type='source', start=1, end=sequence_length,
                                       strand='+', feature_attributes=source_attributes)
-
     self.header_template = """\
 ID   XXX; XXX; {genome_type}; genomic DNA; STD; {classification}; {sequence_length} BP.
 XX
@@ -285,18 +284,35 @@ AC   XXX;
 XX
 AC * _{sequence_identifier}
 XX
-PR   Project:{project};
+"""
++ header_attribute_formatter("PR", "Project:"+self.project,'',';' ) +
+"""
 XX
 DE   XXX;
 XX
 RN   [1]
-RA   {authors};
-RT   "{title}";
-RL   {publication}.
+"""
++
+  header_attribute_formatter("RA", self.authors,'',';' ) +
+  header_attribute_formatter("RT", self.title,'"',';' ) +
+  header_attribute_formatter("RL", self.publication,'','.' )
++
+"""
 XX
 FH   Key             Location/Qualifiers
 FH
 """
+
+  def header_attribute_formatter(self, key, header_text, quote_character, final_character):
+    wrapper = TextWrapper()
+    wrapper.initial_indent=key.'   '
+    wrapper.subsequent_indent=key.'   '
+    wrapper.width=79
+    attribute_text_template='{attribute_quote_character}{attribute_header_text}{attribute_quote_character}{attribute_final_character}'
+    attribute_text=attribute_text_template.format(attribute_header_text = header_text, 
+                                                  attribute_quote_character = quote_character, 
+                                                  attribute_final_character = final_character)
+    return wrapper.fill(attribute_text)
 
   def remove_non_word_characters(self, sequence_identifier):
     return re.sub(r'\W+', '', sequence_identifier)
