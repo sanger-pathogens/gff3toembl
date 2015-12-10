@@ -284,20 +284,14 @@ AC   XXX;
 XX
 AC * _{sequence_identifier}
 XX
-"""
-+ header_attribute_formatter("PR", "Project:"+self.project,'',';' ) +
-"""
+{project_line}
 XX
 DE   XXX;
 XX
 RN   [1]
-"""
-+
-  header_attribute_formatter("RA", self.authors,'',';' ) +
-  header_attribute_formatter("RT", self.title,'"',';' ) +
-  header_attribute_formatter("RL", self.publication,'','.' )
-+
-"""
+{publication_authors}
+{publication_title}
+{publication_name}
 XX
 FH   Key             Location/Qualifiers
 FH
@@ -318,7 +312,14 @@ FH
     return re.sub(r'\W+', '', sequence_identifier)
 
   def format(self):
-    return self.header_template.format(**self.__dict__) + self.source_feature.format()
+    project_line = self.header_attribute_formatter("PR", "Project:" + self.project, '', ';' )                              
+    publication_authors = self.header_attribute_formatter("RA", self.authors,'',';' )
+    publication_title   = self.header_attribute_formatter("RT", self.title,'"',';' )
+    publication_name    = self.header_attribute_formatter("RL", self.publication,'','.' )
+    return self.header_template.format(project_line        = project_line, 
+                                       publication_authors = publication_authors, 
+                                       publication_title   = publication_title, 
+                                       publication_name    = publication_name,  **self.__dict__) + self.source_feature.format()
 
   def build_source_attributes(self, organism, taxon_id, sequence_name):
     def empty_string_if_none(value):

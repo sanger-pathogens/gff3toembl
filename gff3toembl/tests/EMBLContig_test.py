@@ -294,6 +294,9 @@ FT                   /note="chromX"
     for calculated_line,expected_line in zip(calculated_header.split('\n'), expected_header.split('\n')):
       self.assertEqual(calculated_line, expected_line)
     self.assertEqual(len(calculated_header), len(expected_header))
+    
+    
+
 
   def test_format_long_organism_name(self):
     header = EMBLHeader()
@@ -333,6 +336,54 @@ FH
 FT   source          1..1234
 FT                   /organism="reeeeeeeeeeeeeeaaaaaaaaaaaaaallllllllllyyyyyyyy
 FT                   yyyyyyyyyyyy_long_name"
+FT                   /mol_type="genomic DNA"
+FT                   /db_xref="taxon:5678"
+FT                   /note="chromX"
+"""
+
+    calculated_header = header.format()
+    for calculated_line,expected_line in zip(calculated_header.split('\n'), expected_header.split('\n')):
+      self.assertEqual(calculated_line, expected_line)
+    self.assertEqual(len(calculated_header), len(expected_header))
+    
+    
+  def test_format_long_publication(self):
+    header = EMBLHeader()
+
+    header.authors="Jagger M., Richards K., Watts C., Wood R., Jones B., Stewart I., Wyman B., Taylor M."
+    header.classification="UNC"
+    header.genome_type="circular"
+    header.organism="organism"
+    header.project="PRJ1234"
+    header.publication="The Rolling Stones, 12 X 5, The Rolling Stones No. 2, Out of Our Heads, Aftermath, Between the Buttons, Their Satanic Majesties Request, Beggars Banquet"
+    header.sequence_identifier="contig123"
+    header.sequence_length=1234
+    header.sequence_name="chromX"
+    header.taxon_id=5678
+    header.title="Let It Bleed, Sticky Fingers, Exile on Main St., Goats Head Soup, It's Only Rock 'n Roll, Black and Blue, Some Girls, Emotional Rescue, Tattoo You, Undercover"
+    source_attributes = {"organism": header.organism, "db_xref": "taxon:5678", "note": "chromX"}
+    header.source_feature = EMBLFeature('source', 1, 1234, '+', source_attributes)
+
+    expected_header = """\
+ID   XXX; XXX; circular; genomic DNA; STD; UNC; 1234 BP.
+XX
+AC   XXX;
+XX
+AC * _contig123
+XX
+PR   Project:PRJ1234;
+XX
+DE   XXX;
+XX
+RN   [1]
+RA   John Doe;
+RT   "My title";
+RL   Unpublished.
+XX
+FH   Key             Location/Qualifiers
+FH
+FT   source          1..1234
+FT                   /organism="organism"
 FT                   /mol_type="genomic DNA"
 FT                   /db_xref="taxon:5678"
 FT                   /note="chromX"
