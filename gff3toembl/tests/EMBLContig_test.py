@@ -699,7 +699,15 @@ FT                   hij klm nop qrs tuvw xyz"\
     calculated_attributes = feature.create_EC_number_attributes('eC_number', '123,ABC,123')
     expected_attributes = [('EC_number', '123'), ('EC_number', 'ABC')]
     self.assertEqual(calculated_attributes, expected_attributes)
-
+    
+    calculated_attributes = feature.create_EC_number_attributes('eC_number', '2.1.1.-),2.1.1.173')
+    expected_attributes = [ ('EC_number', '2.1.1.173')]
+    self.assertEqual(calculated_attributes, expected_attributes)
+    
+    calculated_attributes = feature.create_EC_number_attributes('eC_number', '2.7.7.58%2CIrp5,6.3.2.-')
+    expected_attributes = [ ('EC_number', '6.3.2.-')]
+    self.assertEqual(calculated_attributes, expected_attributes)
+    
     calculated_attributes = feature.create_EC_number_attributes('eC_number', 'B,A,A')
     expected_attributes = [('EC_number', 'A'), ('EC_number', 'B')]
     self.assertEqual(calculated_attributes, expected_attributes)

@@ -218,6 +218,12 @@ class EMBLFeature(object):
     def deduplicate_values(values):
       return list(set(values))
     attribute_values = deduplicate_values(attribute_values)
+    
+    def remove_invalidnumber(value):
+      return re.match("^[\d]+\.[\d-]+\.[\d-]+\.[\d-]+$", value)
+      
+    attribute_values = filter(remove_invalidnumber, attribute_values)
+    
     return [('EC_number', value) for value in attribute_values]
 
   def create_inference_attributes(self, attribute_key, attribute_value):
