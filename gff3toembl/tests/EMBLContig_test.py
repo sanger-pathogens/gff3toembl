@@ -684,20 +684,20 @@ FT                   hij klm nop qrs tuvw xyz"\
 
   def test_create_EC_number_attributes(self):
     feature = self.create_uninitialized_feature()
-    calculated_attributes = feature.create_EC_number_attributes('eC_number', '123')
-    expected_attributes = [('EC_number', '123')]
+    calculated_attributes = feature.create_EC_number_attributes('eC_number', '1.2.3.4')
+    expected_attributes = [('EC_number', '1.2.3.4')]
     self.assertEqual(calculated_attributes, expected_attributes)
 
-    calculated_attributes = feature.create_EC_number_attributes('eC_number', '123,ABC')
-    expected_attributes = [('EC_number', '123'), ('EC_number', 'ABC')]
+    calculated_attributes = feature.create_EC_number_attributes('eC_number', '1.2.3.4,1.2.3.-')
+    expected_attributes = [('EC_number', '1.2.3.-'), ('EC_number', '1.2.3.4')]
     self.assertEqual(calculated_attributes, expected_attributes)
 
-    calculated_attributes = feature.create_EC_number_attributes('eC_number', '123,123')
-    expected_attributes = [('EC_number', '123')]
+    calculated_attributes = feature.create_EC_number_attributes('eC_number', '1.2.3.4,1.2.3.4')
+    expected_attributes = [('EC_number', '1.2.3.4')]
     self.assertEqual(calculated_attributes, expected_attributes)
 
-    calculated_attributes = feature.create_EC_number_attributes('eC_number', '123,ABC,123')
-    expected_attributes = [('EC_number', '123'), ('EC_number', 'ABC')]
+    calculated_attributes = feature.create_EC_number_attributes('eC_number', '1.2.3.4,1.2.3.-,1.2.3.4')
+    expected_attributes = [('EC_number', '1.2.3.-'), ('EC_number', '1.2.3.4')]
     self.assertEqual(calculated_attributes, expected_attributes)
     
     calculated_attributes = feature.create_EC_number_attributes('eC_number', '2.1.1.-),2.1.1.173')
@@ -708,12 +708,8 @@ FT                   hij klm nop qrs tuvw xyz"\
     expected_attributes = [ ('EC_number', '6.3.2.-')]
     self.assertEqual(calculated_attributes, expected_attributes)
     
-    calculated_attributes = feature.create_EC_number_attributes('eC_number', 'B,A,A')
-    expected_attributes = [('EC_number', 'A'), ('EC_number', 'B')]
-    self.assertEqual(calculated_attributes, expected_attributes)
-
-    calculated_attributes = feature.create_EC_number_attributes('eC_number', 'B,A,B')
-    expected_attributes = [('EC_number', 'A'), ('EC_number', 'B')]
+    calculated_attributes = feature.create_EC_number_attributes('eC_number', '1.2.3.4,1.2.3.-,1.2.3.-')
+    expected_attributes = [('EC_number', '1.2.3.-'), ('EC_number', '1.2.3.4')]
     self.assertEqual(calculated_attributes, expected_attributes)
 
   def test_create_inference_attributes(self):
