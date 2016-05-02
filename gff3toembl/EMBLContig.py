@@ -138,7 +138,8 @@ class EMBLFeature(object):
 
   def lookup_attribute_formatter(self, attribute_type):
     formatters = {
-      'transl_table': self.translation_table_attribute_formatter
+      'transl_table': self.translation_table_attribute_formatter,
+      'product': self.product_attribute_formatter,
     }
     return formatters.get(attribute_type, self.default_attribute_formatter)
 
@@ -149,6 +150,17 @@ class EMBLFeature(object):
     wrapper.subsequent_indent='FT                   '
     wrapper.width=79
     attribute_text_template='/{attribute_key}={attribute_value}'
+    attribute_text=attribute_text_template.format(attribute_key=key, attribute_value=value)
+    return wrapper.fill(attribute_text)
+
+  def product_attribute_formatter(self, key, value):
+    # Products can include very long enzyme names which we don't want to break
+    wrapper = TextWrapper()
+    wrapper.initial_indent='FT                   '
+    wrapper.subsequent_indent='FT                   '
+    wrapper.width=79
+    wrapper.break_long_words=False
+    attribute_text_template='/{attribute_key}="{attribute_value}"'
     attribute_text=attribute_text_template.format(attribute_key=key, attribute_value=value)
     return wrapper.fill(attribute_text)
 
