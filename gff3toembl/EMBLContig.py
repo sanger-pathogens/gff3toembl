@@ -1,5 +1,6 @@
 import re
 from textwrap import TextWrapper
+from urllib import unquote as gff3_unescape
 
 class EMBLContig(object):
   def __init__(self):
@@ -133,8 +134,9 @@ class EMBLFeature(object):
   def format_attribute(self, key, value):
     # Looks up a formatter for an attribute and formats the attribute
     # Some attributes are formatted a little differently
+    # Also un-escapes the GFF3 mandated percent encoding here
     formatter = self.lookup_attribute_formatter(key)
-    return formatter(key, value)
+    return gff3_unescape(formatter(key, value))
 
   def lookup_attribute_formatter(self, attribute_type):
     formatters = {
