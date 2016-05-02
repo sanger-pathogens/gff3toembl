@@ -25,7 +25,7 @@ FT                   /product="16S ribosomal RNA"
 FT                   /inference="COORDINATES:profile:RNAmmer:1.2"
 FT                   /locus_tag="8233_4#93_02127"
 FT   CDS             complement(2718..3164)
-FT                   /product="Peroxide stress regulator PerR%2C FUR family"
+FT                   /product="Peroxide stress regulator PerR, FUR family"
 FT                   /inference="ab initio prediction:Prodigal:2.60"
 FT                   /inference="similar to AA sequence:RefSeq:YP_005742566.1"
 FT                   /db_xref="UniProtKB/Swiss-Prot:Q2G282"
@@ -264,7 +264,7 @@ FT                   /EC_number="3.1.-.-"
 FT                   /gene="yihY"
 FT                   /transl_table=11
 FT   CDS             complement(24949..25578)
-FT                   /product="Two component transcriptional regulator VraR%2C
+FT                   /product="Two component transcriptional regulator VraR,
 FT                   LuxR family"
 FT                   /inference="ab initio prediction:Prodigal:2.60"
 FT                   /inference="similar to AA sequence:RefSeq:YP_005742589.1"
@@ -340,7 +340,7 @@ FT                   /db_xref="PFAM:PF07685.8"
 FT                   /locus_tag="8233_4#93_02158"
 FT                   /transl_table=11
 FT   CDS             complement(32064..33377)
-FT                   /product="UDP-N-acetylmuramoylalanyl-D-glutamate--2%2C
+FT                   /product="UDP-N-acetylmuramoylalanyl-D-glutamate--2,
 FT                   6-diaminopimelate ligase"
 FT                   /inference="ab initio prediction:Prodigal:2.60"
 FT                   /inference="similar to AA sequence:RefSeq:YP_006195963.1"
@@ -406,7 +406,7 @@ FT                   /db_xref="PFAM:PF11667.2"
 FT                   /locus_tag="8233_4#93_02164"
 FT                   /transl_table=11
 FT   CDS             complement(38628..39989)
-FT                   /product="RNA methyltransferase%2C TrmA family"
+FT                   /product="RNA methyltransferase, TrmA family"
 FT                   /inference="ab initio prediction:Prodigal:2.60"
 FT                   /inference="similar to AA sequence:RefSeq:YP_005742602.1"
 FT                   /db_xref="UniProtKB/Swiss-Prot:Q99SY9"
@@ -458,7 +458,7 @@ FT                   /EC_number="6.3.5.-"
 FT                   /gene="gatA"
 FT                   /transl_table=11
 FT   CDS             complement(44371..44673)
-FT                   /product="Aspartyl-tRNA(Asn) amidotransferase subunit C%3B
+FT                   /product="Aspartyl-tRNA(Asn) amidotransferase subunit C;
 FT                   Glutamyl-tRNA(Gln) amidotransferase subunit C"
 FT                   /inference="ab initio prediction:Prodigal:2.60"
 FT                   /inference="similar to AA sequence:RefSeq:YP_005742607.1"
@@ -827,7 +827,7 @@ FT                   /gene="hlb_1"
 FT                   /transl_table=11
 FT   CDS             complement(83577..83927)
 FT                   /product="Involved in expression of fibrinogen binding
-FT                   protein%2C phage associated"
+FT                   protein, phage associated"
 FT                   /inference="ab initio prediction:Prodigal:2.60"
 FT                   /inference="similar to AA sequence:RefSeq:YP_005742650.1"
 FT                   /db_xref="UniProtKB/Swiss-Prot:Q6GFB4"
@@ -870,7 +870,7 @@ FT                   /inference="similar to AA sequence:RefSeq:YP_005758384.1"
 FT                   /locus_tag="8233_4#93_02212"
 FT                   /transl_table=11
 FT   CDS             complement(87239..91846)
-FT                   /product="Structural protein%2C phage associated"
+FT                   /product="Structural protein, phage associated"
 FT                   /inference="ab initio prediction:Prodigal:2.60"
 FT                   /inference="similar to AA sequence:RefSeq:YP_005742663.1"
 FT                   /db_xref="TIGRFAM:TIGR01665"
@@ -1010,7 +1010,7 @@ FT                   /db_xref="PFAM:PF07438.5"
 FT                   /locus_tag="8233_4#93_02231"
 FT                   /transl_table=11
 FT   CDS             complement(107517..107666)
-FT                   /product="Transcriptional activator%2C phage associated"
+FT                   /product="Transcriptional activator, phage associated"
 FT                   /inference="ab initio prediction:Prodigal:2.60"
 FT                   /inference="similar to AA sequence:RefSeq:YP_005736591.1"
 FT                   /db_xref="PFAM:PF06116.6"
@@ -1099,7 +1099,7 @@ FT                   /db_xref="PFAM:PF07261.5"
 FT                   /locus_tag="8233_4#93_02244"
 FT                   /transl_table=11
 FT   CDS             complement(111674..112144)
-FT                   /product="Single-stranded DNA-binding protein%2C phage
+FT                   /product="Single-stranded DNA-binding protein, phage
 FT                   associated"
 FT                   /inference="ab initio prediction:Prodigal:2.60"
 FT                   /inference="similar to AA sequence:RefSeq:YP_005742693.1"
@@ -1118,7 +1118,7 @@ FT                   /inference="similar to AA sequence:RefSeq:YP_005742694.1"
 FT                   /locus_tag="8233_4#93_02246"
 FT                   /transl_table=11
 FT   CDS             complement(112843..113763)
-FT                   /product="recombinase%2C phage RecT family protein"
+FT                   /product="recombinase, phage RecT family protein"
 FT                   /inference="ab initio prediction:Prodigal:2.60"
 FT                   /inference="similar to AA sequence:RefSeq:YP_005757041.1"
 FT                   /db_xref="UniProtKB/Swiss-Prot:P33228"
@@ -1208,7 +1208,7 @@ FT                   /db_xref="PFAM:PF01381.16"
 FT                   /locus_tag="8233_4#93_02259"
 FT                   /transl_table=11
 FT   CDS             119516..120229
-FT                   /product="CI-like repressor%2C phage associated"
+FT                   /product="CI-like repressor, phage associated"
 FT                   /inference="ab initio prediction:Prodigal:2.60"
 FT                   /inference="similar to AA sequence:RefSeq:YP_005742708.1"
 FT                   /db_xref="UniProtKB/Swiss-Prot:P60512"
@@ -1220,7 +1220,7 @@ FT                   /EC_number="3.4.21.88"
 FT                   /gene="lexA_2"
 FT                   /transl_table=11
 FT   CDS             120247..120861
-FT                   /product="lipoprotein%2C putative"
+FT                   /product="lipoprotein, putative"
 FT                   /inference="ab initio prediction:Prodigal:2.60"
 FT                   /inference="similar to AA sequence:RefSeq:YP_005733147.1"
 FT                   /locus_tag="8233_4#93_02261"
@@ -1454,7 +1454,7 @@ FT                   /EC_number="3.2.1.26"
 FT                   /gene="scrB"
 FT                   /transl_table=11
 FT   CDS             complement(147425..148375)
-FT                   /product="Sucrose operon repressor ScrR%2C LacI family"
+FT                   /product="Sucrose operon repressor ScrR, LacI family"
 FT                   /inference="ab initio prediction:Prodigal:2.60"
 FT                   /inference="similar to AA sequence:RefSeq:YP_005742732.1"
 FT                   /db_xref="UniProtKB/Swiss-Prot:P36673"
@@ -1524,7 +1524,7 @@ FT                   /locus_tag="8233_4#93_02292"
 FT                   /gene="yheS_2"
 FT                   /transl_table=11
 FT   CDS             154848..156458
-FT                   /product="MutS-related protein%2C family 1"
+FT                   /product="MutS-related protein, family 1"
 FT                   /inference="ab initio prediction:Prodigal:2.60"
 FT                   /inference="similar to AA sequence:RefSeq:YP_005742738.1"
 FT                   /db_xref="UniProtKB/Swiss-Prot:Q931S8"
@@ -1560,7 +1560,7 @@ FT                   /locus_tag="8233_4#93_02295"
 FT                   /transl_table=11
 FT   CDS             complement(158014..158676)
 FT                   /product="Inactive protein of metal-dependent protease
-FT                   family%2C putative molecular chaperone"
+FT                   family, putative molecular chaperone"
 FT                   /inference="ab initio prediction:Prodigal:2.60"
 FT                   /inference="similar to AA sequence:RefSeq:YP_005742741.1"
 FT                   /db_xref="UniProtKB/Swiss-Prot:O05516"
@@ -4703,7 +4703,7 @@ FT                   /EC_number="3.5.3.1"
 FT                   /gene="arg"
 FT                   /transl_table=11
 FT   CDS             1833..2642
-FT                   /product="ABC transporter%2C permease protein YbbP
+FT                   /product="ABC transporter, permease protein YbbP
 FT                   clustered with maltose/maltodextrin transporter / Tlr1762
 FT                   protein"
 FT                   /inference="ab initio prediction:Prodigal:2.60"
@@ -4722,7 +4722,7 @@ FT                   /db_xref="PFAM:PF07949.6"
 FT                   /locus_tag="8233_4#93_02322"
 FT                   /transl_table=11
 FT   CDS             3603..4958
-FT                   /product="Phosphoglucosamine mutase / FemD%2C factor
+FT                   /product="Phosphoglucosamine mutase / FemD, factor
 FT                   involved in methicillin resistance"
 FT                   /inference="ab initio prediction:Prodigal:2.60"
 FT                   /inference="similar to AA sequence:RefSeq:YP_005742849.1"
@@ -4898,7 +4898,7 @@ FT                   /db_xref="PFAM:PF01878.12"
 FT                   /locus_tag="8233_4#93_02340"
 FT                   /transl_table=11
 FT   CDS             31317..31730
-FT                   /product="putative thiol-disulfide oxidoreductase%2C DCC
+FT                   /product="putative thiol-disulfide oxidoreductase, DCC
 FT                   family"
 FT                   /inference="ab initio prediction:Prodigal:2.60"
 FT                   /inference="similar to AA sequence:RefSeq:YP_005745511.1"
@@ -5002,7 +5002,7 @@ FT                   /db_xref="PFAM:PF11042.2"
 FT                   /locus_tag="8233_4#93_02350"
 FT                   /transl_table=11
 FT   CDS             complement(40581..41384)
-FT                   /product="Pantothenate kinase type II%2C eukaryotic"
+FT                   /product="Pantothenate kinase type II, eukaryotic"
 FT                   /inference="ab initio prediction:Prodigal:2.60"
 FT                   /inference="similar to AA sequence:RefSeq:YP_005742819.1"
 FT                   /db_xref="UniProtKB/Swiss-Prot:Q99SC8"
@@ -5399,7 +5399,7 @@ FT                   /locus_tag="8233_4#93_02384"
 FT                   /gene="ssb_3"
 FT                   /transl_table=11
 FT   CDS             71883..72575
-FT                   /product="SceD-like transglycosylase%2C biomarker for
+FT                   /product="SceD-like transglycosylase, biomarker for
 FT                   vancomycin-intermediate strains"
 FT                   /inference="ab initio prediction:Prodigal:2.60"
 FT                   /inference="similar to AA sequence:RefSeq:YP_005742785.1"
@@ -5540,7 +5540,7 @@ FT                   /gene="ddl"
 FT                   /transl_table=11
 FT   CDS             83705..85069
 FT                   /product="putative
-FT                   UDP-N-acetylmuramoylalanyl-D-glutamyl-2%2C
+FT                   UDP-N-acetylmuramoylalanyl-D-glutamyl-2,
 FT                   6-diaminopimelate--D-alanyl-D-alanyl ligase"
 FT                   /inference="ab initio prediction:Prodigal:2.60"
 FT                   /inference="similar to AA sequence:RefSeq:YP_005326408.1"
@@ -5708,7 +5708,7 @@ FT                   /EC_number="3.1.3.3"
 FT                   /gene="rsbU"
 FT                   /transl_table=11
 FT   CDS             102908..103234
-FT                   /product="anti-sigma F factor antagonist (spoIIAA-2)%3B
+FT                   /product="anti-sigma F factor antagonist (spoIIAA-2);
 FT                   anti sigma b factor antagonist RsbV"
 FT                   /inference="ab initio prediction:Prodigal:2.60"
 FT                   /inference="similar to AA sequence:RefSeq:YP_005742756.1"
@@ -5755,7 +5755,7 @@ FT                   /locus_tag="8233_4#93_02418"
 FT                   /gene="yhgF"
 FT                   /transl_table=11
 FT   CDS             107027..107482
-FT                   /product="Metallopeptidase%2C SprT family"
+FT                   /product="Metallopeptidase, SprT family"
 FT                   /inference="ab initio prediction:Prodigal:2.60"
 FT                   /inference="similar to AA sequence:RefSeq:YP_006196132.1"
 FT                   /db_xref="CDD:PRK04351"
@@ -7844,7 +7844,7 @@ FT                   /locus_tag="8233_4#93_02461"
 FT                   /gene="vraR_2"
 FT                   /transl_table=11
 FT   CDS             14785..15249
-FT                   /product="HTH domain protein%2C binds to mecA promoter
+FT                   /product="HTH domain protein, binds to mecA promoter
 FT                   region"
 FT                   /inference="ab initio prediction:Prodigal:2.60"
 FT                   /inference="similar to AA sequence:RefSeq:YP_005742552.1"
@@ -7975,7 +7975,7 @@ FT                   /EC_number="4.1.1.37"
 FT                   /gene="hemE"
 FT                   /transl_table=11
 FT   CDS             30024..30947
-FT                   /product="Ferrochelatase%2C protoheme ferro-lyase"
+FT                   /product="Ferrochelatase, protoheme ferro-lyase"
 FT                   /inference="ab initio prediction:Prodigal:2.60"
 FT                   /inference="similar to AA sequence:RefSeq:YP_005742538.1"
 FT                   /db_xref="UniProtKB/Swiss-Prot:P64125"
@@ -7988,7 +7988,7 @@ FT                   /EC_number="4.99.1.1"
 FT                   /gene="hemH"
 FT                   /transl_table=11
 FT   CDS             30983..32371
-FT                   /product="Protoporphyrinogen IX oxidase%2C aerobic"
+FT                   /product="Protoporphyrinogen IX oxidase, aerobic"
 FT                   /inference="ab initio prediction:Prodigal:2.60"
 FT                   /inference="similar to AA sequence:RefSeq:YP_005742537.1"
 FT                   /db_xref="UniProtKB/Swiss-Prot:P32397"
@@ -8155,7 +8155,7 @@ FT                   /gene="bsaF"
 FT                   /transl_table=11
 FT   CDS             47880..48641
 FT                   /product="lantibiotic protection ABC transporter permease
-FT                   subunit%2C MutE/EpiE family protein"
+FT                   subunit, MutE/EpiE family protein"
 FT                   /inference="ab initio prediction:Prodigal:2.60"
 FT                   /inference="similar to AA sequence:RefSeq:YP_005758256.1"
 FT                   /db_xref="CDD:COG4200"
@@ -9365,7 +9365,7 @@ FT                   /db_xref="PFAM:PF10070.3"
 FT                   /locus_tag="8233_4#93_02531"
 FT                   /transl_table=11
 FT   CDS             complement(34444..35928)
-FT                   /product="NADH dehydrogenase%2C subunit 5"
+FT                   /product="NADH dehydrogenase, subunit 5"
 FT                   /inference="ab initio prediction:Prodigal:2.60"
 FT                   /inference="similar to AA sequence:RefSeq:YP_005741177.1"
 FT                   /db_xref="UniProtKB/Swiss-Prot:P33607"
@@ -9483,7 +9483,7 @@ FT                   /inference="ab initio prediction:Prodigal:2.60"
 FT                   /locus_tag="8233_4#93_02545"
 FT                   /transl_table=11
 FT   CDS             complement(47862..49352)
-FT                   /product="gram-positive signal peptide%2C ysirk family
+FT                   /product="gram-positive signal peptide, ysirk family
 FT                   protein"
 FT                   /inference="ab initio prediction:Prodigal:2.60"
 FT                   /inference="similar to AA sequence:RefSeq:YP_005733312.1"
@@ -10688,7 +10688,7 @@ FT                   /EC_number="3.6.1.1"
 FT                   /gene="mazG"
 FT                   /transl_table=11
 FT   CDS             26134..26397
-FT                   /product="Ribosome-associated heat shock protein%3B Heat
+FT                   /product="Ribosome-associated heat shock protein; Heat
 FT                   shock protein 15"
 FT                   /inference="ab initio prediction:Prodigal:2.60"
 FT                   /inference="similar to AA sequence:RefSeq:YP_005741230.1"
@@ -10705,7 +10705,7 @@ FT                   /db_xref="PFAM:PF04977.9"
 FT                   /locus_tag="8233_4#93_02576"
 FT                   /transl_table=11
 FT   CDS             26912..27313
-FT                   /product="RNA binding protein%2C contains ribosomal
+FT                   /product="RNA binding protein, contains ribosomal
 FT                   protein S1 domain"
 FT                   /inference="ab initio prediction:Prodigal:2.60"
 FT                   /inference="similar to AA sequence:RefSeq:YP_005741232.1"
@@ -12156,7 +12156,7 @@ FT                   /mol_type="genomic DNA"
 FT                   /db_xref="taxon:1234"
 FT                   /note="ERS154949|SC|contig000009"
 FT   CDS             628..1344
-FT                   /product="GDP-3%2C6-dideoxy-L-galactose biosynthesis
+FT                   /product="GDP-3,6-dideoxy-L-galactose biosynthesis
 FT                   protein"
 FT                   /inference="ab initio prediction:Prodigal:2.60"
 FT                   /inference="similar to AA sequence:RefSeq:YP_005751276.1"
@@ -12190,7 +12190,7 @@ FT                   /db_xref="PFAM:PF00665.20"
 FT                   /locus_tag="8233_4#93_02629"
 FT                   /transl_table=11
 FT   CDS             complement(3461..4177)
-FT                   /product="GDP-3%2C6-dideoxy-L-galactose biosynthesis
+FT                   /product="GDP-3,6-dideoxy-L-galactose biosynthesis
 FT                   protein"
 FT                   /inference="ab initio prediction:Prodigal:2.60"
 FT                   /inference="similar to AA sequence:RefSeq:YP_005751276.1"
