@@ -57,7 +57,7 @@ class EMBLContig(object):
       return (feature.start, feature.end)
     return sorted(self.features.values(), key=sort_key)
 
-class  (object):
+class EMBLFeature(object):
   inference_to_db_xref_map = {
           'similar to AA sequence:UniProtKB': 'UniProtKB/Swiss-Prot',
           'protein motif:Pfam': 'PFAM',
