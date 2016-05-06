@@ -2,6 +2,20 @@ import unittest
 from mock import MagicMock, patch
 from gff3toembl.EMBLContig import EMBLContig, EMBLHeader, EMBLFeature, EMBLSequence
 
+
+class TestEMBLFeature(unittest.TestCase):
+    
+  def test_split_product_attribute_on_hyphen(self):
+    source_attributes = {"organism": 'abc', "db_xref": "taxon:5678", "note": "chromX"}
+    feature = EMBLFeature('source', 1, 1234, '+', source_attributes)
+    
+    formatted_product = feature.product_attribute_formatter('product','2-succinyl-6-hydroxy-2,4-cyclohexadiene-1-carboxylate synthase')
+    expected_product = """\
+FT                   /product="2-succinyl-6-hydroxy-2,4-cyclohexadiene-1-carbox
+FT                   ylate synthase"
+"""
+    self.assertEqual(formatted_product, expected_product)
+
 class TestEMBLContig(unittest.TestCase):
 
   def create_blank_bit_of_contig(self):
@@ -404,6 +418,7 @@ FT                   /note="chromX"
     calculated_attributes=header.build_source_attributes(organism="an organism", taxon_id="TAX_ID", sequence_name="sequence_name")
     expected_attributes = {"organism": "an organism", "db_xref": "taxon:TAX_ID", "note": "sequence_name"}
     self.assertEqual(calculated_attributes, expected_attributes)
+
 
 class TestEMBLFeature(unittest.TestCase):
 

@@ -161,7 +161,7 @@ class EMBLFeature(object):
     wrapper.initial_indent='FT                   '
     wrapper.subsequent_indent='FT                   '
     wrapper.width=79
-    wrapper.break_long_words=False
+    wrapper.break_on_hyphens=True
     attribute_text_template='/{attribute_key}="{attribute_value}"'
     attribute_text=attribute_text_template.format(attribute_key=key, attribute_value=value)
     return wrapper.fill(attribute_text)
