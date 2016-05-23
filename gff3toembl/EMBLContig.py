@@ -196,12 +196,13 @@ class EMBLFeature(object):
     }
     return attribute_creator_table.get(attribute_key, self.create_default_attributes)
     
-  def strip_quotes(value):
-    return value.strip('"')
-  def remove_empty_strings(value):
-    return value != ''
+
 
   def create_default_attributes(self, attribute_key, attribute_value):
+    def strip_quotes(value):
+      return value.strip('"')
+    def remove_empty_strings(value):
+      return value != ''
     attribute_values = attribute_value.split(',')
     attribute_values = map(strip_quotes, attribute_values)
     attribute_values = list(filter(remove_empty_strings, attribute_values))
@@ -213,6 +214,10 @@ class EMBLFeature(object):
       return 'hypothetical protein' not in value.lower()
     def replace_unknown_with_uncharacterised(value):
       return value.replace("nknown","ncharacterised")
+    def strip_quotes(value):
+      return value.strip('"')
+    def remove_empty_strings(value):
+      return value != ''
     # attribute_value may be a comma deliminated list of values
     # only some of which might be valid
     attribute_values = attribute_value.split(',')
