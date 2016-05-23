@@ -230,16 +230,19 @@ class EMBLFeature(object):
 
   def create_locus_tag_attributes(self, attribute_key, attribute_value):
     if self.locus_tag == None:
-      return [('locus_tag', attribute_value)]
+      return [('locus_tag', attribute_value.strip('"'))]
     else:
       attribute_value_suffix = attribute_value.split('_')[-1]
-      return [('locus_tag', "{}_{}".format(self.locus_tag, attribute_value_suffix))]
+      return [('locus_tag', "{}_{}".format(self.locus_tag, attribute_value_suffix.strip('"')))]
 
   def create_EC_number_attributes(self, attribute_key, attribute_value):
     attribute_values = attribute_value.split(',')
     def deduplicate_values(values):
       return list(set(values))
+    def strip_quotes(value):
+      return value.strip('"')
     attribute_values = deduplicate_values(attribute_values)
+    attribute_values = map(strip_quotes, attribute_values)
     
     def remove_invalidnumber(value):
       return re.match("^[\d]+\.[\d-]+\.[\d-]+\.[\d-]+$", value)
@@ -249,7 +252,10 @@ class EMBLFeature(object):
     return [('EC_number', value) for value in attribute_values]
 
   def create_inference_attributes(self, attribute_key, attribute_value):
+    def strip_quotes(value):
+      return value.strip('"')  
     attribute_values = attribute_value.split(',')
+    attribute_values = map(strip_quotes, attribute_values)
     attributes = []
     for value in attribute_values:
       if self.should_convert_to_db_xref(value):
