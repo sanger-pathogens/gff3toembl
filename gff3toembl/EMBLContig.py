@@ -192,10 +192,10 @@ class EMBLFeature(object):
       'eC_number': self.create_EC_number_attributes,
       'inference': self.create_inference_attributes,
       'protein_id': self.ignore_attributes,
-      'ID': self.ignore_attributes
+      'ID': self.ignore_attributes,
+      'codon_start': self.ignore_attributes
     }
     return attribute_creator_table.get(attribute_key, self.create_default_attributes)
-    
 
 
   def create_default_attributes(self, attribute_key, attribute_value):

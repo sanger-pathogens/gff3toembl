@@ -572,7 +572,7 @@ FT                   /attributeB="baz"
         locus_tag = None,
         translation_table = 11
     )
-    expected_attributes = [('gene', 'dnaA'), ('codon_start', 1)]
+    expected_attributes = [('gene', 'dnaA'), ('transl_table', 11)]
     self.assertItemsEqual(feature.attributes, expected_attributes)
 
   def test_create_source_feature(self):
