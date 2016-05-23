@@ -193,7 +193,8 @@ class EMBLFeature(object):
       'inference': self.create_inference_attributes,
       'protein_id': self.ignore_attributes,
       'ID': self.ignore_attributes,
-      'codon_start': self.ignore_attributes
+      'codon_start': self.ignore_attributes,
+      'colour': self.ignore_attributes
     }
     return attribute_creator_table.get(attribute_key, self.create_default_attributes)
 

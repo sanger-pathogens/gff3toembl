@@ -568,7 +568,7 @@ FT                   /attributeB="baz"
         start = 100,
         end = 200,
         strand = '+',
-        feature_attributes =  {'gene': '"dnaA"', 'codon_start': '"1"', 'locus_tag': '"ABC_001"' },
+        feature_attributes =  {'gene': '"dnaA"', 'codon_start': '"1"','colour': '"9"', 'locus_tag': '"ABC_001"' },
         locus_tag = None,
         translation_table = 11
     )
