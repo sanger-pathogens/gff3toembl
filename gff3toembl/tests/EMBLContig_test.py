@@ -560,6 +560,20 @@ FT                   /attributeB="baz"
 
     expected_attributes = [('some_attribute', 'ABC'), ('transl_table', 11)]
     self.assertItemsEqual(feature.attributes, expected_attributes)
+    
+  def test_create_feature_with_quotes(self):
+    feature = self.create_uninitialized_feature()
+    feature.create_CDS_feature(
+        feature_type='CDS',
+        start = 100,
+        end = 200,
+        strand = '+',
+        feature_attributes =  {'gene': '"dnaA"', 'codon_start': '"1"' },
+        locus_tag = None,
+        translation_table = 11
+    )
+    expected_attributes = [('gene', 'dnaA'), ('codon_start', 1)]
+    self.assertItemsEqual(feature.attributes, expected_attributes)
 
   def test_create_source_feature(self):
     feature = self.create_uninitialized_feature()
