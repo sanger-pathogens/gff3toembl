@@ -140,12 +140,14 @@ class EMBLFeature(object):
 
   def lookup_attribute_formatter(self, attribute_type):
     formatters = {
-      'transl_table': self.translation_table_attribute_formatter,
+      'transl_table': self.number_attribute_formatter,
       'product': self.product_attribute_formatter,
+      'codon_start': self.number_attribute_formatter,
+      
     }
     return formatters.get(attribute_type, self.default_attribute_formatter)
 
-  def translation_table_attribute_formatter(self, key, value):
+  def number_attribute_formatter(self, key, value):
     # transl_table attributes do not have their values in quotes
     wrapper = TextWrapper()
     wrapper.initial_indent='FT                   '
@@ -193,13 +195,12 @@ class EMBLFeature(object):
       'inference': self.create_inference_attributes,
       'protein_id': self.ignore_attributes,
       'ID': self.ignore_attributes,
-      'codon_start': self.ignore_attributes,
+      'codon_start': self.create_number_attributes,
       'colour': self.ignore_attributes
     }
     return attribute_creator_table.get(attribute_key, self.create_default_attributes)
 
-
-  def create_default_attributes(self, attribute_key, attribute_value):
+  def create_number_attributes(self, attribute_key, attribute_value):
     def strip_quotes(value):
       return value.strip('"')
     def remove_empty_strings(value):
@@ -207,7 +208,28 @@ class EMBLFeature(object):
     attribute_values = attribute_value.split(',')
     attribute_values = map(strip_quotes, attribute_values)
     attribute_values = list(filter(remove_empty_strings, attribute_values))
-    first_attribute_value = attribute_values[0] if len(attribute_values) > 0 else 'Unknown'
+    if len(attribute_values) > 0:
+        first_attribute_value = attribute_values[0] 
+    else:
+        return []
+    try:
+        first_attribute_value = int(first_attribute_value)
+    except TypeError:
+        first_attribute_value = 0
+    return [(attribute_key, first_attribute_value)]
+
+  def create_default_attributes(self, attribute_key, attribute_value):
+    def strip_quotes(value):
+        return value.strip('"')
+    def remove_empty_strings(value):
+        return value != ''
+    attribute_values = attribute_value.split(',')
+    attribute_values = map(strip_quotes, attribute_values)
+    attribute_values = list(filter(remove_empty_strings, attribute_values))
+    if len(attribute_values) > 0:
+        first_attribute_value = attribute_values[0] 
+    else:
+        return []
     return [(attribute_key, first_attribute_value)]
 
   def create_product_attributes(self, attribute_key, attribute_value):
