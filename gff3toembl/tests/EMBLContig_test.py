@@ -572,7 +572,7 @@ FT                   /attributeB="baz"
         locus_tag = None,
         translation_table = 11
     )
-    expected_attributes = [('gene', 'dnaA'),('locus_tag', 'ABC_001'), ('transl_table', 11)]
+    expected_attributes = [('gene', 'dnaA'),('codon_start', 1), ('locus_tag', 'ABC_001'), ('transl_table', 11)]
     self.assertItemsEqual(feature.attributes, expected_attributes)
 
   def test_create_source_feature(self):
@@ -614,11 +614,11 @@ FT                   /attributeB="baz"
 
     feature = self.create_uninitialized_feature()
     formatter = feature.lookup_attribute_formatter('transl_table')
-    self.assertEqual(formatter, feature.translation_table_attribute_formatter)
+    self.assertEqual(formatter, feature.number_attribute_formatter)
 
-  def test_translation_table_attribute_formatter(self):
+  def test_number_attribute_formatter(self):
     feature = self.create_uninitialized_feature()
-    calculated_string = feature.translation_table_attribute_formatter('transl_table', 11)
+    calculated_string = feature.number_attribute_formatter('transl_table', 11)
     expected_string = 'FT                   /transl_table=11'
     self.assertEqual(calculated_string, expected_string)
 
