@@ -8,6 +8,9 @@ authors:
  - name: Andrew J. Page
    orcid: 0000-0001-6919-6062
    affiliation: Pathogen Informatics, Wellcome Trust Sanger Institute
+ - name: Sascha Steinbiss
+   orcid: 0000-0002-2151-0574
+   affiliation: Pathogen Informatics, Wellcome Trust Sanger Institute
  - name: Ben Taylor
    affiliation: Pathogen Informatics, Wellcome Trust Sanger Institute
  - name: Jacqueline A. Keane
