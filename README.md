@@ -13,6 +13,7 @@ A docker container is provided with all of the dependancies setup and installed.
 `docker pull sangerpathogens/gff3toembl`
 
 To run the script from within the container on test data (substituting /home/ubuntu/data for your own directory):
+
 `docker run --rm -it  -v /home/ubuntu/data:/data e7c9895ac6e5  gff3_to_embl --output_filename /data/output_file.embl ABC 123 PRJ1234 ABC  /opt/gff3toembl-1.0.9/gff3toembl/tests/data/single_feature.gff`
 
 ### From source
