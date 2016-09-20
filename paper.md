@@ -13,6 +13,9 @@ authors:
    affiliation: Pathogen Informatics, Wellcome Trust Sanger Institute
  - name: Ben Taylor
    affiliation: Pathogen Informatics, Wellcome Trust Sanger Institute
+ - name: Torsten Seemann
+   orcid: 0000-0001-6046-610X
+   affiliation: University of Melbourne
  - name: Jacqueline A. Keane
    orcid: 0000-0002-2021-1863
    affiliation: Pathogen Informatics, Wellcome Trust Sanger Institute
