@@ -57,3 +57,8 @@ Run `python setup.py test`
 
 ## Known Issues
 This doesn't work with some versions of Genometools on Mac OS X; it appears to work with Genometools 1.5.4
+
+## Reporting Issues and contributing
+Please file a Github Issue if you find any problems. All pull requests are greatly apprechiated. Please ensure the test suite passes.  If you would prefer not to file a Github issue, please email path-help@sanger.ac.uk and we will do our best to assist.
+
+
