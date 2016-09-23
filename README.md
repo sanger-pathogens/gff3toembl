@@ -2,6 +2,7 @@
 Submitting annoated genomes to EMBL is a very difficult and time consuming process. This software converts GFF3 files from the most commonly use prokaryote annotation tool PROKKA into a format that is suitable for submission to EMBL. It has been used to prepare more than 30% of all annotated genomes in EMBL/GenBank.
 
 [![Build Status](https://travis-ci.org/sanger-pathogens/gff3toembl.svg?branch=master)](https://travis-ci.org/sanger-pathogens/gff3toembl)
+[![status](http://joss.theoj.org/papers/9253390f38f4ce6b71674f433fa72afe/status.svg)](http://joss.theoj.org/papers/9253390f38f4ce6b71674f433fa72afe)
 
 NB this implements some EMBL specific conventions and is not a generic conversion tool. Its also not a validator, so you need to pass in parameters which are acceptable to EMBL.
 
