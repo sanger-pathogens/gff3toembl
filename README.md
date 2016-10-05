@@ -24,22 +24,6 @@ This is for advanced users. The [homebrew recipe](https://raw.githubusercontent.
 - git clone git@github.com:sanger-pathogens/gff3toembl.git
 - python setup.py install
 
-### Homebrew
-gff3toembl only works with Python 2.7 and there are known issues on other versions of Python.If you are using OSX:
-
-- Install [http://brew.sh/](HomeBrew)
-- brew tap homebrew/science
-- brew update
-- brew install https://raw.githubusercontent.com/andrewjpage/homebrew-science/gff3toembl/gff3toembl.rb
-
-If you are using Linux:
-
-- Install [http://linuxbrew.sh/](LinuxBrew)
-- brew tap homebrew/science
-- brew tap tseemann/homebrew-bioinformatics-linux
-- brew update
-- brew install gff3toembl
-
 ## Example usage
 Run the following to get usage:
 `gff3_to_embl -h`
