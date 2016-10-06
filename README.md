@@ -8,6 +8,7 @@ NB this implements some EMBL specific conventions and is not a generic conversio
 
 ## Citation
 [![status](http://joss.theoj.org/papers/9253390f38f4ce6b71674f433fa72afe/status.svg)](http://joss.theoj.org/papers/9253390f38f4ce6b71674f433fa72afe)
+
 This software has been published in The Journal of Open Source Software. Please cite it if you use it:
 
 "GFF3toEMBL: Preparing annotated assemblies for submission to EMBL", Andrew J. Page, Sascha Steinbiss, Ben Taylor, Torsten Seemann, Jacqueline A. Keane, The Journal of Open Source Software, 1 (6) 2016. http://dx.doi.org/10.21105/joss.00080
