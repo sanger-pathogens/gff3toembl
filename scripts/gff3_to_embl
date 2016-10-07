@@ -10,7 +10,7 @@ from gff3toembl import EMBLWriter
 if __name__ == "__main__":
     import argparse
     parser = argparse.ArgumentParser(description='Converts prokaryote GFF3 annotations to ' + \
-                                                 'EMBL for ENA submission.')
+                                                 'EMBL for ENA submission. Cite http://dx.doi.org/10.21105/joss.00080')
                                                  
     # Required
     parser.add_argument('organism',          metavar='organism',         type=str, nargs=1, help='Organism')
