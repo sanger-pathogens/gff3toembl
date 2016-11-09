@@ -20,7 +20,8 @@ class EMBLContig(object):
     except AttributeError:
       raise ValueError("Could not format contig, no sequence data found")
     formatted_string = header + features + sequence
-    line_lengths = map(len, formatted_string.split('\n'))
+    header_features_formatted_string = header + features
+    line_lengths = map(len, header_features_formatted_string.split('\n'))
     maximum_line_length = max(line_lengths)
     if maximum_line_length > 80:
       raise ValueError("Could not format contig, a line exceeded 80 characters in length")
@@ -409,6 +410,7 @@ class EMBLSequence(object):
     return counts
 
   def format_header(self, nucleotide_counts):
+    # This line can exceed 80 characters
     template = "SQ   Sequence {total} BP; {a} A; {c} C; {g} G; {t} T; {other} other;"
     total_counts = sum(nucleotide_counts.values())
     nucleotide_counts['total'] = total_counts

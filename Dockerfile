@@ -21,6 +21,6 @@ RUN apt-get update -qq && apt-get install -y python-genometools genometools wget
 #
 # Download build and install gff3toembl python
 #
-RUN wget https://github.com/sanger-pathogens/gff3toembl/archive/v1.1.0.tar.gz && mv v1.1.0.tar.gz /opt && cd /opt && tar xzf v1.1.0.tar.gz
+RUN wget https://github.com/sanger-pathogens/gff3toembl/archive/v1.1.1.tar.gz && mv v1.1.1.tar.gz /opt && cd /opt && tar xzf v1.1.1.tar.gz
 
-RUN cd /opt && tar xzf v1.1.0.tar.gz && rm v1.1.0.tar.gz && cd /opt/gff3toembl-1.1.0 && python setup.py install
+RUN cd /opt && tar xzf v1.1.1.tar.gz && rm v1.1.1.tar.gz && cd /opt/gff3toembl-1.1.1 && python setup.py install
