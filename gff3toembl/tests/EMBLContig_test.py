@@ -47,17 +47,6 @@ Sequence
 """
     self.assertEqual(calculated_string, expected_string)
 
-  def test_format_line_too_long(self):
-    contig = EMBLContig()
-    header_mock = MagicMock()
-    sequence_mock = MagicMock()
-    header_mock.format.return_value = "Header"
-    sequence_mock.format.return_value = "Very long line: " + '*'*100
-    contig.header = header_mock
-    contig.features = {}
-    contig.sequence = sequence_mock
-    self.assertRaises(ValueError, contig.format)
-
   def test_add_feature(self):
     contig = EMBLContig()
     contig.add_feature(
