@@ -843,6 +843,34 @@ FT                   hij klm nop qrs tuvw xyz"\
     expected_coordinates = '1..10'
     self.assertEqual(calculated_coordinates, expected_coordinates)
 
+  def test_no_wrap_at_length_79(self):
+    source_attributes = {"organism": 'abc', "db_xref": "taxon:5678", "note": "chromX"}
+    feature = EMBLFeature('source', 1, 1234, '+', source_attributes)
+
+    formatted_product = feature.product_attribute_formatter('product','Anthranilate 1,2-dioxygenase ferredoxin subunit')
+    expected_product = 'FT                   /product="Anthranilate 1,2-dioxygenase ferredoxin subunit"'
+    assert len(expected_product) == 79
+    self.assertEqual(formatted_product, expected_product)
+
+  def test_no_wrap_at_length_80(self):
+    source_attributes = {"organism": 'abc', "db_xref": "taxon:5678", "note": "chromX"}
+    feature = EMBLFeature('source', 1, 1234, '+', source_attributes)
+
+    formatted_product = feature.product_attribute_formatter('product','1,4-dihydroxy-2-naphthoate octaprenyltransferase')
+    expected_product = 'FT                   /product="1,4-dihydroxy-2-naphthoate octaprenyltransferase"'
+    assert len(expected_product) == 80
+    self.assertEqual(formatted_product, expected_product)
+
+  def test_wrap_with_space_at_80(self):
+    source_attributes = {"organism": 'abc', "db_xref": "taxon:5678", "note": "chromX"}
+    feature = EMBLFeature('source', 1, 1234, '+', source_attributes)
+
+    formatted_product = feature.product_attribute_formatter('product','Permease for cytosine/purines, uracil, thiamine, allantoin')
+    expected_product = 'FT                   /product="Permease for cytosine/purines, uracil, thiamine,\n' + \
+                       'FT                   allantoin"'
+    self.assertEqual(formatted_product, expected_product)
+
+
 class TestEMBLSequence(unittest.TestCase):
 
   def create_uninitialized_sequence(self):
