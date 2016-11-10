@@ -137,7 +137,7 @@ class EMBLFeature(object):
     # Some attributes are formatted a little differently
     # Also un-escapes the GFF3 mandated percent encoding here
     formatter = self.lookup_attribute_formatter(key)
-    return gff3_unescape(formatter(key, value))
+    return formatter(key, gff3_unescape(str(value)))
 
   def lookup_attribute_formatter(self, attribute_type):
     formatters = {
