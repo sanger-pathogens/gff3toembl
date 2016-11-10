@@ -337,8 +337,8 @@ XX
 FH   Key             Location/Qualifiers
 FH
 FT   source          1..1234
-FT                   /organism="reeeeeeeeeeeeeeaaaaaaaaaaaaaallllllllllyyyyyyyy
-FT                   yyyyyyyyyyyy_long_name"
+FT                   /organism="reeeeeeeeeeeeeeaaaaaaaaaaaaaallllllllllyyyyyyyyy
+FT                   yyyyyyyyyyy_long_name"
 FT                   /mol_type="genomic DNA"
 FT                   /db_xref="taxon:5678"
 FT                   /note="chromX"

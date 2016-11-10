@@ -81,8 +81,7 @@ FT                   /db_xref="PFAM:PF06081.5"
 FT                   /locus_tag="8233_4#93_02132"
 FT                   /transl_table=11
 FT   CDS             complement(7640..9376)
-FT                   /product="Lipid A export ATP-binding/permease protein
-FT                   MsbA"
+FT                   /product="Lipid A export ATP-binding/permease protein MsbA"
 FT                   /inference="ab initio prediction:Prodigal:2.60"
 FT                   /inference="similar to AA sequence:RefSeq:YP_005742571.1"
 FT                   /db_xref="UniProtKB/Swiss-Prot:Q99T13"
