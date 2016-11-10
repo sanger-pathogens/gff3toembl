@@ -8,7 +8,7 @@ def read(fname):
 
 setup(
     name='gff3toembl',
-    version='1.1.1',
+    version='1.1.2',
     description='Convert a GFF3 file to EMBL format for submission',
     long_description=read('README.md'),
     packages = find_packages(),
