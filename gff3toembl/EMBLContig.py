@@ -410,8 +410,8 @@ class EMBLSequence(object):
     return counts
 
   def format_header(self, nucleotide_counts):
-    # This line can exceed 80 characters
-    template = "SQ   Sequence {total} BP; {a} A; {c} C; {g} G; {t} T; {other} other;"
+    # The SQ line can exceed 80 characters
+    template = "XX\nSQ   Sequence {total} BP; {a} A; {c} C; {g} G; {t} T; {other} other;"
     total_counts = sum(nucleotide_counts.values())
     nucleotide_counts['total'] = total_counts
     return template.format(**nucleotide_counts)
