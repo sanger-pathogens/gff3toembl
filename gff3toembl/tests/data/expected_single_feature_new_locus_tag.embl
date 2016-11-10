@@ -30,6 +30,7 @@ FT                   /db_xref="PFAM:PF01475.13"
 FT                   /locus_tag="new_locus_tag_02128"
 FT                   /gene="perR"
 FT                   /transl_table=11
+XX
 SQ   Sequence 240 BP; 76 A; 54 C; 36 G; 74 T; 0 other;
      tctgacaatc gctttcttta aaaagaaact attgtcgaga atttgcatta gcaatatcac        60
      tttgtcaaaa agatgtttga atgttaaata aacattcaaa actgaataca atatgtcacg       120

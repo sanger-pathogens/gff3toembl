@@ -852,7 +852,7 @@ class TestEMBLSequence(unittest.TestCase):
 
   def test_init(self):
     sequence = EMBLSequence('AAAACCCGGTNN')
-    expected_header = "SQ   Sequence 12 BP; 4 A; 3 C; 2 G; 1 T; 2 other;"
+    expected_header = "XX\nSQ   Sequence 12 BP; 4 A; 3 C; 2 G; 1 T; 2 other;"
     expected_body = '     aaaacccggt nn                                                            12\n'
     self.assertEqual(sequence.header, expected_header)
     self.assertEqual(sequence.body, expected_body)
@@ -860,10 +860,11 @@ class TestEMBLSequence(unittest.TestCase):
 
   def test_format(self):
     sequence = self.create_uninitialized_sequence()
-    sequence.header = "SQ   Sequence 12 BP; 4 A; 3 C; 2 G; 1 T; 2 other;"
+    sequence.header = "XX\nSQ   Sequence 12 BP; 4 A; 3 C; 2 G; 1 T; 2 other;"
     sequence.body = '     aaaacccggt nn                                                            12\n'
     calculated_string = sequence.format()
     expected_string = """\
+XX
 SQ   Sequence 12 BP; 4 A; 3 C; 2 G; 1 T; 2 other;
      aaaacccggt nn                                                            12
 """
@@ -891,19 +892,19 @@ SQ   Sequence 12 BP; 4 A; 3 C; 2 G; 1 T; 2 other;
     sequence = self.create_uninitialized_sequence()
     neucleotide_counts = {'a': 4, 'c': 3, 'g': 2, 't': 1, 'other': 2}
     calculated_header = sequence.format_header(neucleotide_counts)
-    expected_header = "SQ   Sequence 12 BP; 4 A; 3 C; 2 G; 1 T; 2 other;"
+    expected_header = "XX\nSQ   Sequence 12 BP; 4 A; 3 C; 2 G; 1 T; 2 other;"
 
     neucleotide_counts = {'a': 12, 'c': 0, 'g': 0, 't': 0, 'other': 0}
     calculated_header = sequence.format_header(neucleotide_counts)
-    expected_header = "SQ   Sequence 12 BP; 12 A; 0 C; 0 G; 0 T; 0 other;"
+    expected_header = "XX\nSQ   Sequence 12 BP; 12 A; 0 C; 0 G; 0 T; 0 other;"
 
     neucleotide_counts = {'a': 0, 'c': 0, 'g': 0, 't': 0, 'other': 12}
     calculated_header = sequence.format_header(neucleotide_counts)
-    expected_header = "SQ   Sequence 12 BP; 0 A; 0 C; 0 G; 0 T; 12 other;"
+    expected_header = "XX\nSQ   Sequence 12 BP; 0 A; 0 C; 0 G; 0 T; 12 other;"
 
     neucleotide_counts = {'a': 2, 'c': 2, 'g': 2, 't': 6, 'other': 0}
     calculated_header = sequence.format_header(neucleotide_counts)
-    expected_header = "SQ   Sequence 12 BP; 2 A; 2 C; 2 G; 6 T; 0 other;"
+    expected_header = "XX\nSQ   Sequence 12 BP; 2 A; 2 C; 2 G; 6 T; 0 other;"
 
   def test_split_line_of_sequence(self):
     sequence = self.create_uninitialized_sequence()
