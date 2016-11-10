@@ -153,7 +153,7 @@ class EMBLFeature(object):
     wrapper = TextWrapper()
     wrapper.initial_indent='FT                   '
     wrapper.subsequent_indent='FT                   '
-    wrapper.width=79
+    wrapper.width=80  # can use 80 characters plus the new line
     attribute_text_template='/{attribute_key}={attribute_value}'
     attribute_text=attribute_text_template.format(attribute_key=key, attribute_value=value)
     return wrapper.fill(attribute_text)
@@ -163,7 +163,7 @@ class EMBLFeature(object):
     wrapper = TextWrapper()
     wrapper.initial_indent='FT                   '
     wrapper.subsequent_indent='FT                   '
-    wrapper.width=79
+    wrapper.width=80  # can use 80 characters plus the new line
     wrapper.break_on_hyphens=True
     attribute_text_template='/{attribute_key}="{attribute_value}"'
     attribute_text=attribute_text_template.format(attribute_key=key, attribute_value=value)
@@ -173,7 +173,7 @@ class EMBLFeature(object):
     wrapper = TextWrapper()
     wrapper.initial_indent='FT                   '
     wrapper.subsequent_indent='FT                   '
-    wrapper.width=79
+    wrapper.width=80  # can use 80 characters plus the new line
     attribute_text_template='/{attribute_key}="{attribute_value}"'
     attribute_text=attribute_text_template.format(attribute_key=key, attribute_value=value)
     return wrapper.fill(attribute_text)
@@ -359,7 +359,7 @@ FH
     wrapper = TextWrapper()
     wrapper.initial_indent=key + '   '
     wrapper.subsequent_indent=key + '   '
-    wrapper.width=79
+    wrapper.width=80  # can use 80 characters plus the new line
     attribute_text_template='{attribute_quote_character}{attribute_header_text}{attribute_quote_character}{attribute_final_character}'
     attribute_text=attribute_text_template.format(attribute_header_text = header_text, 
                                                   attribute_quote_character = quote_character, 

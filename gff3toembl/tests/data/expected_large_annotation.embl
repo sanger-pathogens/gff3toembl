@@ -81,8 +81,7 @@ FT                   /db_xref="PFAM:PF06081.5"
 FT                   /locus_tag="8233_4#93_02132"
 FT                   /transl_table=11
 FT   CDS             complement(7640..9376)
-FT                   /product="Lipid A export ATP-binding/permease protein
-FT                   MsbA"
+FT                   /product="Lipid A export ATP-binding/permease protein MsbA"
 FT                   /inference="ab initio prediction:Prodigal:2.60"
 FT                   /inference="similar to AA sequence:RefSeq:YP_005742571.1"
 FT                   /db_xref="UniProtKB/Swiss-Prot:Q99T13"
@@ -329,8 +328,8 @@ FT                   /inference="ab initio prediction:Prodigal:2.60"
 FT                   /locus_tag="8233_4#93_02157"
 FT                   /transl_table=11
 FT   CDS             complement(31340..32062)
-FT                   /product="CobB/CobQ-like glutamine amidotransferase
-FT                   domain-containing protein"
+FT                   /product="CobB/CobQ-like glutamine amidotransferase domain-
+FT                   containing protein"
 FT                   /inference="ab initio prediction:Prodigal:2.60"
 FT                   /inference="similar to AA sequence:RefSeq:YP_006195962.1"
 FT                   /db_xref="CDD:PRK00784"
@@ -1111,8 +1110,8 @@ FT                   /locus_tag="8233_4#93_02245"
 FT                   /gene="ssb_2"
 FT                   /transl_table=11
 FT   CDS             complement(112145..112630)
-FT                   /product="Metallo-beta-lactamase superfamily domain
-FT                   protein in prophage"
+FT                   /product="Metallo-beta-lactamase superfamily domain protein
+FT                   in prophage"
 FT                   /inference="ab initio prediction:Prodigal:2.60"
 FT                   /inference="similar to AA sequence:RefSeq:YP_005742694.1"
 FT                   /locus_tag="8233_4#93_02246"
@@ -1547,8 +1546,7 @@ FT                   /locus_tag="8233_4#93_02294"
 FT                   /gene="gcp"
 FT                   /transl_table=11
 FT   CDS             complement(157577..158041)
-FT                   /product="Ribosomal-protein-S18p-alanine
-FT                   acetyltransferase"
+FT                   /product="Ribosomal-protein-S18p-alanine acetyltransferase"
 FT                   /inference="ab initio prediction:Prodigal:2.60"
 FT                   /inference="similar to AA sequence:RefSeq:YP_005742740.1"
 FT                   /db_xref="CDD:PRK09491"
@@ -4977,8 +4975,8 @@ FT                   /EC_number="4.4.1.21"
 FT                   /gene="luxS"
 FT                   /transl_table=11
 FT   CDS             37042..38226
-FT                   /product="HmrA protein involved in methicillin resistance
-FT                   / amidohydrolase of M40 family"
+FT                   /product="HmrA protein involved in methicillin resistance /
+FT                   amidohydrolase of M40 family"
 FT                   /inference="ab initio prediction:Prodigal:2.60"
 FT                   /inference="similar to AA sequence:RefSeq:YP_005742822.1"
 FT                   /db_xref="UniProtKB/Swiss-Prot:P76052"
@@ -5602,8 +5600,7 @@ FT                   /EC_number="3.6.3.12"
 FT                   /locus_tag="8233_4#93_02403"
 FT                   /transl_table=11
 FT   CDS             92753..94780
-FT                   /product="putative potassium-transporting ATPase subunit
-FT                   B"
+FT                   /product="putative potassium-transporting ATPase subunit B"
 FT                   /inference="ab initio prediction:Prodigal:2.60"
 FT                   /inference="similar to AA sequence:RefSeq:YP_005326403.1"
 FT                   /db_xref="UniProtKB/Swiss-Prot:P03960"
@@ -7806,8 +7803,7 @@ FT                   /EC_number="4.2.1.2"
 FT                   /gene="citG"
 FT                   /transl_table=11
 FT   CDS             complement(11687..12508)
-FT                   /product="ribosomal large subunit pseudouridine synthase
-FT                   D"
+FT                   /product="ribosomal large subunit pseudouridine synthase D"
 FT                   /inference="ab initio prediction:Prodigal:2.60"
 FT                   /inference="similar to AA sequence:RefSeq:YP_005742555.1"
 FT                   /db_xref="UniProtKB/Swiss-Prot:P33643"
@@ -9139,8 +9135,8 @@ FT                   /EC_number="3.2.1.93"
 FT                   /gene="treA"
 FT                   /transl_table=11
 FT   CDS             complement(7204..8631)
-FT                   /product="PTS system trehalose-specific transporter
-FT                   subunit IIBC"
+FT                   /product="PTS system trehalose-specific transporter subunit
+FT                   IIBC"
 FT                   /inference="ab initio prediction:Prodigal:2.60"
 FT                   /inference="similar to AA sequence:RefSeq:YP_006194612.1"
 FT                   /db_xref="UniProtKB/Swiss-Prot:P36672"
@@ -10450,8 +10446,7 @@ FT                   /locus_tag="8233_4#93_02554"
 FT                   /gene="yaaT"
 FT                   /transl_table=11
 FT   CDS             5006..5353
-FT                   /product="DNA replication intitiation control protein
-FT                   YabA"
+FT                   /product="DNA replication intitiation control protein YabA"
 FT                   /inference="ab initio prediction:Prodigal:2.60"
 FT                   /inference="similar to AA sequence:RefSeq:YP_005741210.1"
 FT                   /db_xref="UniProtKB/Swiss-Prot:Q99WB7"
@@ -10705,8 +10700,8 @@ FT                   /db_xref="PFAM:PF04977.9"
 FT                   /locus_tag="8233_4#93_02576"
 FT                   /transl_table=11
 FT   CDS             26912..27313
-FT                   /product="RNA binding protein, contains ribosomal
-FT                   protein S1 domain"
+FT                   /product="RNA binding protein, contains ribosomal protein
+FT                   S1 domain"
 FT                   /inference="ab initio prediction:Prodigal:2.60"
 FT                   /inference="similar to AA sequence:RefSeq:YP_005741232.1"
 FT                   /db_xref="UniProtKB/Swiss-Prot:P80870"
@@ -12315,8 +12310,7 @@ FT                   /inference="ab initio prediction:Prodigal:2.60"
 FT                   /locus_tag="8233_4#93_02632"
 FT                   /transl_table=11
 FT   CDS             complement(316..618)
-FT                   /product="putative bacteriocin transport accessory
-FT                   protein"
+FT                   /product="putative bacteriocin transport accessory protein"
 FT                   /inference="ab initio prediction:Prodigal:2.60"
 FT                   /db_xref="TIGRFAM:TIGR01295"
 FT                   /locus_tag="8233_4#93_02633"
