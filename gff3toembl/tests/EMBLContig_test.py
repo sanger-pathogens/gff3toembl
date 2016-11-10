@@ -3,19 +3,6 @@ from mock import MagicMock, patch
 from gff3toembl.EMBLContig import EMBLContig, EMBLHeader, EMBLFeature, EMBLSequence
 
 
-class TestEMBLFeature(unittest.TestCase):
-    
-  def test_split_product_attribute_on_hyphen(self):
-    source_attributes = {"organism": 'abc', "db_xref": "taxon:5678", "note": "chromX"}
-    feature = EMBLFeature('source', 1, 1234, '+', source_attributes)
-    
-    formatted_product = feature.product_attribute_formatter('product','2-succinyl-6-hydroxy-2,4-cyclohexadiene-1-carboxylate synthase')
-    expected_product = """\
-FT                   /product="2-succinyl-6-hydroxy-2,4-cyclohexadiene-1-carbox
-FT                   ylate synthase"
-"""
-    self.assertEqual(formatted_product, expected_product)
-
 class TestEMBLContig(unittest.TestCase):
 
   def create_blank_bit_of_contig(self):
@@ -868,6 +855,15 @@ FT                   hij klm nop qrs tuvw xyz"\
     formatted_product = feature.product_attribute_formatter('product','Permease for cytosine/purines, uracil, thiamine, allantoin')
     expected_product = 'FT                   /product="Permease for cytosine/purines, uracil, thiamine,\n' + \
                        'FT                   allantoin"'
+
+  def test_split_product_attribute_on_hyphen(self):
+    source_attributes = {"organism": 'abc', "db_xref": "taxon:5678", "note": "chromX"}
+    feature = EMBLFeature('source', 1, 1234, '+', source_attributes)
+    # TODO: This test currently 'passes' but shows the undesirable
+    # behaviour of splitting up a long word.
+    formatted_product = feature.product_attribute_formatter('product','2-succinyl-6-hydroxy-2,4-cyclohexadiene-1-carboxylate synthase')
+    expected_product = 'FT                   /product="2-succinyl-6-hydroxy-2,4-cyclohexadiene-1-carboxy\n' + \
+                       'FT                   late synthase"'
     self.assertEqual(formatted_product, expected_product)
 
 
