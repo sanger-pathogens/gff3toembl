@@ -1716,6 +1716,7 @@ FT   tRNA            complement(174883..174959)
 FT                   /product="tRNA-Ile(gat)"
 FT                   /inference="COORDINATES:profile:Aragorn:1.2.34"
 FT                   /locus_tag="8233_4#93_02312"
+XX
 SQ   Sequence 175120 BP; 55731 A; 31266 C; 25419 G; 62704 T; 0 other;
      tctgacaatc gctttcttta aaaagaaact attgtcgaga atttgcatta gcaatatcac        60
      tttgtcaaaa agatgtttga atgttaaata aacattcaaa actgaataca atatgtcacg       120
@@ -5766,6 +5767,7 @@ FT   tRNA            108243..108316
 FT                   /product="tRNA-Gly(tcc)"
 FT                   /inference="COORDINATES:profile:Aragorn:1.2.34"
 FT                   /locus_tag="8233_4#93_02421"
+XX
 SQ   Sequence 108420 BP; 39263 A; 15735 C; 20016 G; 33406 T; 0 other;
      ctatagcaag gaggtcacac ctgttcccat gccgaacaca gaagttaagc tccttagcgt        60
      cgatggtagt tggacttacg ttccgctaga gtagaacgtt gccaggctat atattattcc       120
@@ -8170,6 +8172,7 @@ FT                   /inference="ab initio prediction:Prodigal:2.60"
 FT                   /inference="similar to AA sequence:RefSeq:YP_005742519.1"
 FT                   /locus_tag="8233_4#93_02500"
 FT                   /transl_table=11
+XX
 SQ   Sequence 52142 BP; 18748 A; 7364 C; 8937 G; 17093 T; 0 other;
      cacctgttcc catgccgaac acagaagtta agctccttag cgtcgatggt agttggactt        60
      acgttccgct agagtagaac gttgccaggc aagatatatt tggagaatta gctcagctgg       120
@@ -9500,6 +9503,7 @@ FT                   /db_xref="CDD:PRK09737"
 FT                   /db_xref="PFAM:PF01420.13"
 FT                   /locus_tag="8233_4#93_02548"
 FT                   /transl_table=11
+XX
 SQ   Sequence 51716 BP; 16183 A; 10270 C; 6898 G; 18365 T; 0 other;
      tttttggaat taacgttgac atattgtcat tcagttttca atgttcattt ttcttaccga        60
      caagaattaa ttatacattt tatcaacatt taaatcaaca actttttgaa attaattttt       120
@@ -10862,6 +10866,7 @@ FT   tRNA            39165..39240
 FT                   /product="tRNA-Ala(tgc)"
 FT                   /inference="COORDINATES:profile:Aragorn:1.2.34"
 FT                   /locus_tag="8233_4#93_02595"
+XX
 SQ   Sequence 39433 BP; 14273 A; 5313 C; 7870 G; 11977 T; 0 other;
      gacgaatact aatcgatcga agacttaatc aaaataaatg ttttgcgaag caaaatcact        60
      tttacttact atctagtttt gaatgtataa tctacattcg tatgtctggt gactatagca       120
@@ -11758,6 +11763,7 @@ FT                   /inference="ab initio prediction:Prodigal:2.60"
 FT                   /inference="similar to AA sequence:RefSeq:YP_302592.1"
 FT                   /locus_tag="8233_4#93_02624"
 FT                   /transl_table=11
+XX
 SQ   Sequence 21936 BP; 8100 A; 2662 C; 3389 G; 7784 T; 1 other;
      gactatataa aaagaaccgc agatctcttc agatctacgg gttttcgcca tgccgtgtaa        60
      ttagcatcat gctagctagt taatacgaag tattatttta aacataaggt tagacactta       120
@@ -12195,6 +12201,7 @@ FT                   /inference="ab initio prediction:Prodigal:2.60"
 FT                   /inference="similar to AA sequence:RefSeq:YP_005759108.1"
 FT                   /locus_tag="8233_4#93_02631"
 FT                   /transl_table=11
+XX
 SQ   Sequence 4804 BP; 1694 A; 684 C; 780 G; 1645 T; 1 other;
      tgtaattatc atttgaggtt tgccaaattg tttaataaga cgtttaataa acgtatatgc        60
      tgagtgatta tctcgtttct tacgtaacga aatatctagt gtatggccat ctgcatcaat       120
@@ -12311,6 +12318,7 @@ FT                   /inference="ab initio prediction:Prodigal:2.60"
 FT                   /db_xref="TIGRFAM:TIGR01295"
 FT                   /locus_tag="8233_4#93_02633"
 FT                   /transl_table=11
+XX
 SQ   Sequence 969 BP; 336 A; 157 C; 116 G; 360 T; 0 other;
      gactatataa aaagaaccgc agatctcttc agatctacgg gttttcgcca tgccgtgtaa        60
      ttagcatcat gctagctagt taatacgaag tattatttta aacataaggt tagacactta       120
@@ -12356,6 +12364,7 @@ FT   tRNA            complement(370..446)
 FT                   /product="tRNA-Ile(gat)"
 FT                   /inference="COORDINATES:profile:Aragorn:1.2.34"
 FT                   /locus_tag="8233_4#93_02634"
+XX
 SQ   Sequence 656 BP; 184 A; 154 C; 100 G; 218 T; 0 other;
      aagcatatcg tcgttagtaa cgtccttcat cggcttctag tgccaaggca tccaccgtgc        60
      gcccttaata acttaatcta tgtttccacc atttttacaa gtcaaacgct cacatactgt       120
@@ -12391,6 +12400,7 @@ FT                   /organism="Organism"
 FT                   /mol_type="genomic DNA"
 FT                   /db_xref="taxon:1234"
 FT                   /note="ERS154949|SC|contig000012"
+XX
 SQ   Sequence 465 BP; 139 A; 103 C; 64 G; 159 T; 0 other;
      ccccaaagca tatcgtcgtt agtaacgtcc ttcatcggct tctagtgcca aggcatccac        60
      cgtgcgccct taataactta atctatgttt ccaccatttt tataaatcaa acgttaacac       120

@@ -32,6 +32,7 @@ FT   rRNA            6029..6142
 FT                   /product="5S ribosomal RNA"
 FT                   /inference="COORDINATES:profile:RNAmmer:1.2"
 FT                   /locus_tag="6730_5#19_02228"
+XX
 SQ   Sequence 6181 BP; 1767 A; 1220 C; 1744 G; 1449 T; 1 other;
      gttgaagaaa tgaacattga aaactgaatg acaatatgtc aacgttaatt ccaataaagt        60
      aacttaaatg ttacaaacac tatttagtat tatgagctaa tcaaacatca taaattttta       120
