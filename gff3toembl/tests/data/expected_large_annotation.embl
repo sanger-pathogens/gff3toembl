@@ -4701,9 +4701,8 @@ FT                   /EC_number="3.5.3.1"
 FT                   /gene="arg"
 FT                   /transl_table=11
 FT   CDS             1833..2642
-FT                   /product="ABC transporter, permease protein YbbP
-FT                   clustered with maltose/maltodextrin transporter / Tlr1762
-FT                   protein"
+FT                   /product="ABC transporter, permease protein YbbP clustered
+FT                   with maltose/maltodextrin transporter / Tlr1762 protein"
 FT                   /inference="ab initio prediction:Prodigal:2.60"
 FT                   /inference="similar to AA sequence:RefSeq:YP_005742851.1"
 FT                   /db_xref="CDD:PRK13482"
@@ -4720,8 +4719,8 @@ FT                   /db_xref="PFAM:PF07949.6"
 FT                   /locus_tag="8233_4#93_02322"
 FT                   /transl_table=11
 FT   CDS             3603..4958
-FT                   /product="Phosphoglucosamine mutase / FemD, factor
-FT                   involved in methicillin resistance"
+FT                   /product="Phosphoglucosamine mutase / FemD, factor involved
+FT                   in methicillin resistance"
 FT                   /inference="ab initio prediction:Prodigal:2.60"
 FT                   /inference="similar to AA sequence:RefSeq:YP_005742849.1"
 FT                   /db_xref="UniProtKB/Swiss-Prot:P99087"
@@ -5537,8 +5536,7 @@ FT                   /EC_number="6.3.2.4"
 FT                   /gene="ddl"
 FT                   /transl_table=11
 FT   CDS             83705..85069
-FT                   /product="putative
-FT                   UDP-N-acetylmuramoylalanyl-D-glutamyl-2,
+FT                   /product="putative UDP-N-acetylmuramoylalanyl-D-glutamyl-2,
 FT                   6-diaminopimelate--D-alanyl-D-alanyl ligase"
 FT                   /inference="ab initio prediction:Prodigal:2.60"
 FT                   /inference="similar to AA sequence:RefSeq:YP_005326408.1"
@@ -5705,8 +5703,8 @@ FT                   /EC_number="3.1.3.3"
 FT                   /gene="rsbU"
 FT                   /transl_table=11
 FT   CDS             102908..103234
-FT                   /product="anti-sigma F factor antagonist (spoIIAA-2);
-FT                   anti sigma b factor antagonist RsbV"
+FT                   /product="anti-sigma F factor antagonist (spoIIAA-2); anti
+FT                   sigma b factor antagonist RsbV"
 FT                   /inference="ab initio prediction:Prodigal:2.60"
 FT                   /inference="similar to AA sequence:RefSeq:YP_005742756.1"
 FT                   /db_xref="UniProtKB/Swiss-Prot:P66838"
@@ -12151,8 +12149,7 @@ FT                   /mol_type="genomic DNA"
 FT                   /db_xref="taxon:1234"
 FT                   /note="ERS154949|SC|contig000009"
 FT   CDS             628..1344
-FT                   /product="GDP-3,6-dideoxy-L-galactose biosynthesis
-FT                   protein"
+FT                   /product="GDP-3,6-dideoxy-L-galactose biosynthesis protein"
 FT                   /inference="ab initio prediction:Prodigal:2.60"
 FT                   /inference="similar to AA sequence:RefSeq:YP_005751276.1"
 FT                   /db_xref="PFAM:PF01446.11"
@@ -12185,8 +12182,7 @@ FT                   /db_xref="PFAM:PF00665.20"
 FT                   /locus_tag="8233_4#93_02629"
 FT                   /transl_table=11
 FT   CDS             complement(3461..4177)
-FT                   /product="GDP-3,6-dideoxy-L-galactose biosynthesis
-FT                   protein"
+FT                   /product="GDP-3,6-dideoxy-L-galactose biosynthesis protein"
 FT                   /inference="ab initio prediction:Prodigal:2.60"
 FT                   /inference="similar to AA sequence:RefSeq:YP_005751276.1"
 FT                   /db_xref="PFAM:PF01446.11"
