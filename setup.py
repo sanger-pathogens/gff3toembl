@@ -17,6 +17,7 @@ setup(
     url='https://github.com/sanger-pathogens/gff3toembl',
     scripts=glob.glob('scripts/*'),
     test_suite='nose.collector',
+    install_requires=['six'],
     tests_require=['nose >= 1.3', 'mock'],
     license='GPLv3',
     classifiers=[

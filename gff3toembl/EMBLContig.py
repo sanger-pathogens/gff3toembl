@@ -1,6 +1,6 @@
 import re
 from textwrap import TextWrapper
-from urllib import unquote as gff3_unescape
+from six.moves.urllib.parse import unquote as gff3_unescape
 
 class EMBLContig(object):
   def __init__(self):
